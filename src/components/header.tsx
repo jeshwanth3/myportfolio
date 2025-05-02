@@ -62,6 +62,7 @@ export function Header() {
                      Sai Jeshwanth Goud Illuri
                    </span>
                 </Link>
+                {/* Correctly map and render navItems for the mobile menu */}
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
