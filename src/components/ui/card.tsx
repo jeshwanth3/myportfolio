@@ -9,7 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-lg border border-border bg-card text-card-foreground shadow-sm transition-shadow duration-300 ease-in-out dark:border-border dark:bg-card", // Added dark mode variants and transition
       className
     )}
     {...props}
@@ -30,27 +30,27 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  HTMLParagraphElement, // Changed to p for semantic correctness if it's not always a heading
+  React.HTMLAttributes<HTMLHeadingElement> // Keep HTMLHeadingElement attributes for flexibility
 >(({ className, ...props }, ref) => (
-  <div
+  <p // Changed to p
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-xl font-semibold leading-none tracking-tight text-foreground dark:text-foreground", // Adjusted size, dark mode color
       className
     )}
     {...props}
-  />
+   />
 ))
 CardTitle.displayName = "CardTitle"
 
 const CardDescription = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  HTMLParagraphElement, // Changed to p for semantic correctness
+  React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <div
+  <p // Changed to p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground dark:text-muted-foreground", className)} // Added dark mode color
     {...props}
   />
 ))

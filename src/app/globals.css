@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  @apply dark; /* Apply dark mode by default */
 }
 
 @layer base {
   :root {
-    /* Light Theme - Product Ascent */
+    /* Light Theme - Product Ascent (Kept for potential toggle) */
     --background: 0 0% 94.1%; /* Light Gray (#F0F0F0) */
     --foreground: 240 10% 3.9%; /* Dark Gray for text */
     --card: 0 0% 100%; /* White */
@@ -17,7 +18,7 @@ body {
     --popover-foreground: 240 10% 3.9%; /* Dark Gray for text */
     --primary: 180 100% 25.1%; /* Deep Teal (#008080) */
     --primary-foreground: 0 0% 100%; /* White */
-    --secondary: 0 0% 96.1%; /* Slightly off-white for subtle contrast */
+    --secondary: 0 0% 96.1%; /* Slightly off-white */
     --secondary-foreground: 240 10% 3.9%; /* Dark Gray for text */
     --muted: 0 0% 90%; /* Muted Gray */
     --muted-foreground: 240 5% 64.9%; /* Lighter Gray for muted text */
@@ -34,65 +35,69 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%; /* Default */
-    --sidebar-foreground: 240 5.3% 26.1%; /* Default */
-    --sidebar-primary: 240 5.9% 10%; /* Default */
-    --sidebar-primary-foreground: 0 0% 98%; /* Default */
-    --sidebar-accent: 240 4.8% 95.9%; /* Default */
-    --sidebar-accent-foreground: 240 5.9% 10%; /* Default */
-    --sidebar-border: 220 13% 91%; /* Default */
-    --sidebar-ring: 217.2 91.2% 59.8%; /* Default */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    /* Dark Theme - Provide contrasting dark theme */
-    --background: 240 10% 3.9%; /* Very Dark Gray/Black */
-    --foreground: 0 0% 98%; /* White */
-    --card: 240 10% 10%; /* Dark Gray */
-    --card-foreground: 0 0% 98%; /* White */
-    --popover: 240 10% 3.9%; /* Very Dark Gray/Black */
-    --popover-foreground: 0 0% 98%; /* White */
-    --primary: 180 100% 35.1%; /* Brighter Deep Teal for dark mode */
-    --primary-foreground: 0 0% 100%; /* White */
-    --secondary: 240 3.7% 15.9%; /* Darker Gray */
-    --secondary-foreground: 0 0% 98%; /* White */
-    --muted: 240 3.7% 15.9%; /* Darker Gray */
-    --muted-foreground: 240 5% 64.9%; /* Lighter Gray */
-    --accent: 211 100% 60%; /* Brighter Vibrant Blue */
-    --accent-foreground: 240 10% 3.9%; /* Dark Gray/Black */
-    --destructive: 0 62.8% 30.6%; /* Darker Red */
-    --destructive-foreground: 0 0% 98%; /* White */
-    --border: 240 3.7% 15.9%; /* Border Dark Gray */
-    --input: 240 3.7% 15.9%; /* Input Border Dark Gray */
-    --ring: 211 100% 60%; /* Brighter Vibrant Blue */
-    --chart-1: 180 70% 50%;
-    --chart-2: 211 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --radius: 0.5rem;
-    --sidebar-background: 240 5.9% 10%; /* Default Dark */
-    --sidebar-foreground: 240 4.8% 95.9%; /* Default Dark */
-    --sidebar-primary: 224.3 76.3% 48%; /* Default Dark */
-    --sidebar-primary-foreground: 0 0% 100%; /* Default Dark */
-    --sidebar-accent: 240 3.7% 15.9%; /* Default Dark */
-    --sidebar-accent-foreground: 240 4.8% 95.9%; /* Default Dark */
-    --sidebar-border: 240 3.7% 15.9%; /* Default Dark */
-    --sidebar-ring: 217.2 91.2% 59.8%; /* Default Dark */
+    /* Dark Theme - Macbook Inspired */
+    --background: 240 6% 10%; /* Very Dark Gray/Almost Black */
+    --foreground: 0 0% 98%; /* Almost White */
+    --card: 240 5% 14%; /* Darker Gray */
+    --card-foreground: 0 0% 98%; /* Almost White */
+    --popover: 240 6% 10%; /* Very Dark Gray/Almost Black */
+    --popover-foreground: 0 0% 98%; /* Almost White */
+    --primary: 210 100% 60%; /* Brighter Blue */
+    --primary-foreground: 240 10% 3.9%; /* Dark Gray for contrast */
+    --secondary: 240 4% 18%; /* Dark Gray */
+    --secondary-foreground: 0 0% 98%; /* Almost White */
+    --muted: 240 4% 18%; /* Dark Gray */
+    --muted-foreground: 240 5% 64.9%; /* Medium Gray */
+    --accent: 210 100% 70%; /* Lighter, Vibrant Blue */
+    --accent-foreground: 240 10% 3.9%; /* Dark Gray for contrast */
+    --destructive: 0 72% 51%; /* Slightly brighter Red */
+    --destructive-foreground: 0 0% 98%; /* Almost White */
+    --border: 240 4% 20%; /* Subtle Border Dark Gray */
+    --input: 240 4% 20%; /* Input Border Dark Gray */
+    --ring: 210 100% 60%; /* Brighter Blue */
+    --chart-1: 210 80% 70%;
+    --chart-2: 160 70% 60%;
+    --chart-3: 30 80% 65%;
+    --chart-4: 280 70% 65%;
+    --chart-5: 340 80% 70%;
+    --radius: 0.75rem; /* Slightly larger radius for macOS feel */
+
+    /* Dark Mode Sidebar Variables */
+    --sidebar-background-dark: 240 5% 12%; /* Slightly darker than card */
+    --sidebar-foreground-dark: 0 0% 85%; /* Slightly muted white */
+    --sidebar-primary-dark: 210 100% 60%; /* Brighter Blue */
+    --sidebar-primary-foreground-dark: 240 10% 3.9%; /* Dark Gray */
+    --sidebar-accent-dark: 240 4% 22%; /* Hover/Active background */
+    --sidebar-accent-foreground-dark: 0 0% 98%; /* White on Hover */
+    --sidebar-border-dark: 240 4% 25%; /* Sidebar Border */
+    --sidebar-ring-dark: 210 100% 60%; /* Focus Ring */
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border dark:border-border; /* Ensure dark mode border applies */
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground dark:bg-background dark:text-foreground; /* Ensure dark mode applies */
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Add subtle animation */
+/* Add subtle animation and Macbook-like styles */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
@@ -102,4 +107,56 @@ body {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  /* Subtle shadow for depth */
+  .mac-shadow {
+     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(255 255 255 / 0.05); /* Subtle inner border too */
+  }
+  .dark .mac-shadow {
+     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 0 0 1px rgb(255 255 255 / 0.05);
+  }
+
+  /* Frosted glass effect (apply to elements like headers/modals) */
+  .glassmorphism {
+    @apply bg-background/60 backdrop-blur-md border border-white/10 dark:bg-background/70 dark:border-white/5;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+     @apply bg-secondary dark:bg-secondary rounded-full;
+  }
+  ::-webkit-scrollbar-thumb {
+     @apply bg-muted dark:bg-muted rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+     @apply bg-muted-foreground dark:bg-muted-foreground;
+  }
+}
+
+/* Macbook Mockup Specific Styles (can be applied to a container) */
+.macbook-mockup {
+  @apply relative w-full max-w-4xl mx-auto rounded-t-xl border-8 border-black dark:border-neutral-800 bg-black dark:bg-neutral-900 overflow-hidden mac-shadow;
+  aspect-ratio: 16 / 10; /* Common Macbook aspect ratio */
+  padding-bottom: 1.5rem; /* Space for the "chin" */
+}
+
+.macbook-screen {
+  @apply relative w-full h-full rounded-lg overflow-hidden bg-background dark:bg-background; /* Screen background */
+}
+
+.macbook-notch {
+  @apply absolute top-0 left-1/2 -translate-x-1/2 h-5 w-32 bg-black dark:bg-neutral-950 rounded-b-md z-10;
+}
+
+.macbook-chin {
+  @apply absolute bottom-0 left-0 right-0 h-6 bg-black dark:bg-neutral-800 flex items-center justify-center;
+}
+
+.macbook-logo {
+  /* Optional: Add a subtle logo-like element */
+   @apply h-3 w-3 rounded-full bg-neutral-600 dark:bg-neutral-500 opacity-50;
 }

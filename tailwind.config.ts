@@ -50,44 +50,69 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-  			sidebar: {
-  				DEFAULT: 'hsl(var(--sidebar-background))',
-  				foreground: 'hsl(var(--sidebar-foreground))',
-  				primary: 'hsl(var(--sidebar-primary))',
-  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-  				accent: 'hsl(var(--sidebar-accent))',
-  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-  				border: 'hsl(var(--sidebar-border))',
-  				ring: 'hsl(var(--sidebar-ring))'
-  			}
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
-  		keyframes: {
-  			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
-  			},
-  			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
-  		},
-  		animation: {
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+        // Updated Sidebar Colors with Dark Mode Variants
+        sidebar: {
+          DEFAULT: 'hsl(var(--sidebar-background))',
+          foreground: 'hsl(var(--sidebar-foreground))',
+          primary: 'hsl(var(--sidebar-primary))',
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+          accent: 'hsl(var(--sidebar-accent))',
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+          border: 'hsl(var(--sidebar-border))',
+          ring: 'hsl(var(--sidebar-ring))',
+          // Dark Mode Specific Colors
+          dark: 'hsl(var(--sidebar-background-dark))',
+          'foreground-dark': 'hsl(var(--sidebar-foreground-dark))',
+          'primary-dark': 'hsl(var(--sidebar-primary-dark))',
+          'primary-foreground-dark': 'hsl(var(--sidebar-primary-foreground-dark))',
+          'accent-dark': 'hsl(var(--sidebar-accent-dark))',
+          'accent-foreground-dark': 'hsl(var(--sidebar-accent-foreground-dark))',
+          'border-dark': 'hsl(var(--sidebar-border-dark))',
+          'ring-dark': 'hsl(var(--sidebar-ring-dark))',
+        }
   		}
+  	},
+  	borderRadius: {
+  		lg: 'var(--radius)',
+  		md: 'calc(var(--radius) - 2px)',
+  		sm: 'calc(var(--radius) - 4px)'
+  	},
+  	keyframes: {
+  		'accordion-down': {
+  			from: {
+  				height: '0'
+  			},
+  			to: {
+  				height: 'var(--radix-accordion-content-height)'
+  			}
+  		},
+  		'accordion-up': {
+  			from: {
+  				height: 'var(--radix-accordion-content-height)'
+  			},
+  			to: {
+  				height: '0'
+  			}
+  		},
+      'macbook-open': {
+        '0%': { transform: 'rotateX(80deg) translateY(50px) scale(0.8)', opacity: '0' },
+        '100%': { transform: 'rotateX(0deg) translateY(0) scale(1)', opacity: '1' },
+      },
+      'content-fade-in': {
+        '0%': { opacity: '0', transform: 'translateY(20px)' },
+        '100%': { opacity: '1', transform: 'translateY(0)' },
+      },
+      'glow': {
+        '0%, 100%': { boxShadow: '0 0 5px theme(colors.primary / 0.5)' },
+        '50%': { boxShadow: '0 0 20px theme(colors.primary / 0.7)' },
+      }
+  	},
+  	animation: {
+  		'accordion-down': 'accordion-down 0.2s ease-out',
+  		'accordion-up': 'accordion-up 0.2s ease-out',
+      'macbook-open': 'macbook-open 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+      'content-fade-in': 'content-fade-in 0.6s ease-out 0.5s forwards', // Delay added
+      'glow': 'glow 3s ease-in-out infinite',
   	}
   },
   plugins: [require("tailwindcss-animate")],

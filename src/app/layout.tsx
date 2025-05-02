@@ -1,20 +1,16 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google'; // Using Inter for a more modern macOS feel
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"; // Import Toaster
+import { ThemeProvider } from '@/components/theme-provider'; // Import ThemeProvider
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: '--font-inter', // Use a CSS variable
 });
 
 export const metadata: Metadata = {
-  title: 'Product Ascent - Portfolio', // Updated Title
+  title: 'Product Ascent Portfolio - [Your Name]', // Updated Title with placeholder
   description: 'Personal portfolio showcasing product management skills and experience.', // Updated Description
 };
 
@@ -24,10 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-        <Toaster /> {/* Add Toaster */}
+    <html lang="en" className="dark" suppressHydrationWarning> {/* Apply dark class and suppress warning */}
+      <body className={`${inter.variable} font-sans antialiased`}> {/* Use font variable */}
+         <ThemeProvider
+            attribute="class"
+            defaultTheme="dark" // Set dark theme as default
+            enableSystem={false} // Optionally disable system preference detection if you always want dark
+          >
+            {children}
+            <Toaster /> {/* Add Toaster */}
+        </ThemeProvider>
       </body>
     </html>
   );
