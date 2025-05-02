@@ -19,8 +19,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60 glassmorphism"> {/* Increased blur */}
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
         <Link href="/" className="mr-6 flex items-center space-x-2 group">
-          {/* Updated Name with Gradient - Uses primary and secondary from the theme */}
-          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Changed secondary to accent for gradient */}
+          {/* Updated Name with Gradient - Uses primary and accent from the theme */}
+          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
@@ -58,7 +58,7 @@ export function Header() {
               <nav className="flex flex-col gap-4 mt-12">
                  <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group">
                    {/* Mobile menu title uses the same gradient */}
-                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Changed secondary to accent */}
+                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
                      Sai Jeshwanth Goud Illuri
                    </span>
                 </Link>
