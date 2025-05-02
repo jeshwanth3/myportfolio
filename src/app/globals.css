@@ -89,9 +89,11 @@ body {
   * {
     @apply border-border dark:border-border; /* Ensure dark mode border applies */
   }
+  html {
+    scroll-behavior: smooth; /* Added for smooth scrolling */
+  }
   body {
     @apply bg-background text-foreground dark:bg-background dark:text-foreground; /* Ensure dark mode applies */
-    scroll-behavior: smooth; /* Added for smooth scrolling */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -34,13 +34,13 @@ export function EducationSection() {
                     <GraduationCap className="h-5 w-5 text-primary " />
                  </div>
                  <div className="flex-1"> {/* Allow text to wrap */}
-                    <CardTitle className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Adjusted size and leading */}
-                    <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</CardDescription>
+                    <CardTitle className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Use text-foreground */}
+                    <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</CardDescription> {/* Use text-muted-foreground */}
                  </div>
               </div>
             </CardHeader>
             <CardContent className="p-5 md:p-6 pt-0"> {/* Adjusted padding */}
-              <p className="text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/70">{edu.years}</p>
+              <p className="text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/70">{edu.years}</p> {/* Use text-foreground (slightly muted) */}
             </CardContent>
           </Card>
         ))}

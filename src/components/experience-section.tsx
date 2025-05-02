@@ -87,9 +87,9 @@ export function ExperienceSection() {
                       {exp.icon}
                   </div>
                   <div className="flex-1"> {/* Text content container */}
-                      <h3 className="text-base md:text-lg font-semibold text-foreground">{exp.title}</h3>
-                      <div className="text-xs md:text-sm text-muted-foreground mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-3 gap-y-0.5 flex-wrap">
-                          <span className="font-medium text-foreground/90">{exp.company}</span>
+                      <h3 className="text-base md:text-lg font-semibold text-foreground">{exp.title}</h3> {/* Use text-foreground */}
+                      <div className="text-xs md:text-sm text-muted-foreground mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-3 gap-y-0.5 flex-wrap"> {/* Use text-muted-foreground */}
+                          <span className="font-medium text-foreground/90">{exp.company}</span> {/* Use text-foreground (slightly muted) */}
                           <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {exp.location}</span>
                           <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {exp.duration}</span>
                       </div>
@@ -97,8 +97,8 @@ export function ExperienceSection() {
                </div>
             </AccordionTrigger>
             <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30">
-              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p>
-              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80"> {/* Adjusted spacing and color */}
+              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p> {/* Use text-foreground (slightly muted) */}
+              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80"> {/* Use text-foreground (slightly muted) */}
                 {exp.achievements.map((achievement, i) => (
                   <li key={i}>{achievement}</li>
                 ))}

@@ -52,15 +52,15 @@ export function SkillsSection() {
                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background using primary color */}
                     {category.icon}
                 </div>
-              <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{category.title}</CardTitle>
+              <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{category.title}</CardTitle> {/* Use text-foreground */}
             </CardHeader>
             <CardContent className="p-5 md:p-6 pt-0"> {/* Adjusted padding */}
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, index) => (
                    <Badge
                     key={typeof skill === 'string' ? skill : skill.name} // Use name for object key
-                    variant="secondary"
-                    className="text-xs md:text-sm font-normal bg-muted/60 dark:bg-muted/40 text-muted-foreground dark:text-foreground/75 border border-transparent hover:border-primary/40 dark:hover:border-accent/50 hover:bg-primary/10 dark:hover:bg-accent/15 hover:text-primary dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md" // Enhanced styling, rounded-md, use new theme colors
+                    variant="secondary" // Use secondary variant which pulls from theme
+                    className="text-xs md:text-sm font-normal border border-transparent hover:border-primary/40 dark:hover:border-accent/50 hover:bg-primary/10 dark:hover:bg-accent/15 hover:text-primary dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md" // Adjusted styling: Use secondary variant colors from theme, enhance hover with primary/accent
                   >
                      {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}
                   </Badge>

@@ -12,26 +12,26 @@ export function SummarySection() {
     <SectionWrapper id="summary" className="bg-gradient-to-b from-background via-card/10 to-background/80 pt-20 md:pt-28 lg:pt-32"> {/* Adjusted padding and background */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-16 items-center"> {/* Increased gap */}
         <div className="md:col-span-3 space-y-4 md:space-y-6 text-center md:text-left"> {/* Increased spacing */}
-          <p className="text-base sm:text-lg text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto md:mx-0 font-normal"> {/* Responsive text size */}
+          <p className="text-base sm:text-lg text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto md:mx-0 font-normal"> {/* Responsive text size, using muted-foreground */}
              Hello, I'm
           </p>
-           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-foreground leading-tight"> {/* Responsive text size */}
+           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-foreground leading-tight"> {/* Responsive text size, using foreground */}
             {yourName}
           </h1>
            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow"> {/* Responsive text size, using primary color */}
              Product Manager
            </h2>
-          <p className="text-sm sm:text-base text-muted-foreground md:text-lg max-w-2xl mx-auto md:mx-0 leading-relaxed"> {/* Responsive text size */}
+          <p className="text-sm sm:text-base text-muted-foreground md:text-lg max-w-2xl mx-auto md:mx-0 leading-relaxed"> {/* Responsive text size, using muted-foreground */}
             {professionalSummary}
           </p>
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4 md:pt-6"> {/* Responsive buttons */}
             <Link href="#contact" passHref>
-              <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 w-full sm:w-auto"> {/* Full width on small screens */}
+              <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 w-full sm:w-auto"> {/* Button text uses primary-foreground by default */}
                 Contact Me <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="#experience" passHref>
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent/10 dark:bg-secondary/50 dark:hover:bg-accent/20 w-full sm:w-auto"> {/* Added background, Full width on small screens */}
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent/10 dark:bg-secondary/50 dark:hover:bg-accent/20 w-full sm:w-auto"> {/* Outline button text uses accent-foreground on hover */}
                 View Experience
               </Button>
             </Link>
