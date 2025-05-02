@@ -46,7 +46,7 @@ body {
   }
 
   .dark {
-    /* Dark Theme - New Modern Palette */
+    /* Dark Theme - Previous Modern Palette */
     --background: 220 15% 8%;       /* Very Dark Blue/Gray */
     --foreground: 210 20% 94%;       /* Off-White/Light Gray */
 
