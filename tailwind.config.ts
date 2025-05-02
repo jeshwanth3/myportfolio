@@ -94,14 +94,17 @@ export default {
   				height: '0'
   			}
   		},
-      // Note: macbook-open, content-fade-in, and glow are defined in globals.css using @keyframes
+      'glow': { // Keep glow as it's used elsewhere
+        '0%, 100%': { 'box-shadow': '0 0 5px hsl(var(--primary) / 0.5)' },
+        '50%': { 'box-shadow': '0 0 20px hsl(var(--primary) / 0.7)' },
+      }
+      // Removed macbook-open and content-fade-in keyframes
   	},
   	animation: {
   		'accordion-down': 'accordion-down 0.2s ease-out',
   		'accordion-up': 'accordion-up 0.2s ease-out',
-      'macbook-open': 'macbook-open 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards', // Keep utility name
-      'content-fade-in': 'content-fade-in 0.6s ease-out 0.5s forwards', // Keep utility name
-      'glow': 'glow 3s ease-in-out infinite', // Keep utility name
+      'glow': 'glow 3s ease-in-out infinite', // Keep glow
+      // Removed macbook-open and content-fade-in animations
   	}
   },
   plugins: [require("tailwindcss-animate")],
