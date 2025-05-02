@@ -16,8 +16,8 @@ export function Footer() {
                      © {currentYear !== null ? currentYear : '...'} Sai Jeshwanth Goud Illuri. All rights reserved.
                 </p>
                 <p className="text-muted-foreground">
-                    {/* Use primary color for link hover */}
-                    Built with <Link href="https://nextjs.org" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary transition-colors">Next.js</Link> & <Link href="https://ui.shadcn.com/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary transition-colors">Shadcn UI</Link>.
+                    {/* Removed hover:text-primary */}
+                    Built with <Link href="https://nextjs.org" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-foreground transition-colors">Next.js</Link> & <Link href="https://ui.shadcn.com/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-foreground transition-colors">Shadcn UI</Link>.
                 </p>
             </div>
         </footer>
