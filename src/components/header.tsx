@@ -47,7 +47,11 @@ export function Header() {
               </Button>
             </SheetTrigger>
             {/* Apply dark mode styles to SheetContent */}
-            <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"> {/* Adjusted width, background, border */}
+            <SheetContent
+                side="right"
+                className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"
+                aria-label="Mobile Navigation Menu" // Add accessible label
+            >
               <nav className="flex flex-col gap-4 mt-12"> {/* Increased top margin */}
                  <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group"> {/* Increased bottom margin */}
                     <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-accent group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient */}
