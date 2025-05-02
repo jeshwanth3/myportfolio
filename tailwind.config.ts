@@ -60,15 +60,15 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
-          // Dark Mode Specific Colors - Refined
-          dark: 'hsl(var(--sidebar-background-dark))', // Reference CSS variable
-          'foreground-dark': 'hsl(var(--sidebar-foreground-dark))', // Reference CSS variable
-          'primary-dark': 'hsl(var(--sidebar-primary-dark))', // Reference CSS variable
-          'primary-foreground-dark': 'hsl(var(--sidebar-primary-foreground-dark))', // Reference CSS variable
-          'accent-dark': 'hsl(var(--sidebar-accent-dark))', // Reference CSS variable
-          'accent-foreground-dark': 'hsl(var(--sidebar-accent-foreground-dark))', // Reference CSS variable
-          'border-dark': 'hsl(var(--sidebar-border-dark))', // Reference CSS variable
-          'ring-dark': 'hsl(var(--sidebar-ring-dark))', // Reference CSS variable
+          // Dark Mode Specific Colors - Referencing CSS variables
+          'background-dark': 'hsl(var(--sidebar-background-dark))',
+          'foreground-dark': 'hsl(var(--sidebar-foreground-dark))',
+          'primary-dark': 'hsl(var(--sidebar-primary-dark))',
+          'primary-foreground-dark': 'hsl(var(--sidebar-primary-foreground-dark))',
+          'accent-dark': 'hsl(var(--sidebar-accent-dark))',
+          'accent-foreground-dark': 'hsl(var(--sidebar-accent-foreground-dark))',
+          'border-dark': 'hsl(var(--sidebar-border-dark))',
+          'ring-dark': 'hsl(var(--sidebar-ring-dark))',
         }
   		}
   	},
@@ -96,17 +96,15 @@ export default {
   				height: '0'
   			}
   		},
-      'glow': { // Keep glow as it's used elsewhere
-        '0%, 100%': { 'box-shadow': '0 0 5px hsl(var(--primary) / 0.6)' }, // Adjusted glow intensity
-        '50%': { 'box-shadow': '0 0 15px hsl(var(--primary) / 0.8)' },
+      'glow': { // Use accent color for glow in dark theme
+        '0%, 100%': { 'box-shadow': '0 0 8px hsl(var(--accent) / 0.5), 0 0 16px hsl(var(--accent) / 0.3)' },
+        '50%': { 'box-shadow': '0 0 20px hsl(var(--accent) / 0.7), 0 0 30px hsl(var(--accent) / 0.5)' },
       }
-      // Removed macbook-open and content-fade-in keyframes
   	},
   	animation: {
   		'accordion-down': 'accordion-down 0.2s ease-out',
   		'accordion-up': 'accordion-up 0.2s ease-out',
-      'glow': 'glow 3s ease-in-out infinite', // Keep glow
-      // Removed macbook-open and content-fade-in animations
+      'glow': 'glow 3s ease-in-out infinite',
   	}
   },
   plugins: [require("tailwindcss-animate")],

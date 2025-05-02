@@ -18,7 +18,7 @@ export function SummarySection() {
            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-foreground leading-tight">
             {yourName}
           </h1>
-           {/* Updated title color to primary */}
+           {/* Updated title uses primary color directly, glow uses accent */}
            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow">
              Product Manager
            </h2>
@@ -33,7 +33,7 @@ export function SummarySection() {
               </Button>
             </Link>
             <Link href="#experience" passHref>
-              {/* Outline button uses accent for hover background */}
+              {/* Outline button uses accent for hover background and accent-foreground for text */}
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full sm:w-auto">
                 View Experience
               </Button>
@@ -41,13 +41,13 @@ export function SummarySection() {
           </div>
         </div>
         <div className="md:col-span-2 flex justify-center items-center md:justify-end order-first md:order-last">
-           {/* Placeholder Image - Use primary border */}
+           {/* Placeholder Image - Use accent border */}
           <Image
             src="https://picsum.photos/500/500"
             alt="Sai Jeshwanth Goud Illuri - Professional Headshot"
             width={350}
             height={350}
-            className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px]"
+            className="rounded-full mac-shadow border-4 border-primary/30 dark:border-accent/40 object-cover aspect-square w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px]"
             data-ai-hint="professional headshot person dark background modern studio lighting" // Updated hint for new theme
             priority
           />

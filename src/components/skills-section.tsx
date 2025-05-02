@@ -60,7 +60,7 @@ export function SkillsSection() {
                    <Badge
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary" // Use secondary variant which pulls from theme
-                    // Use accent for hover background and border
+                    // Use accent for hover background and accent-foreground for text
                     className="text-xs md:text-sm font-normal border border-transparent hover:border-accent/50 hover:bg-accent/15 hover:text-accent-foreground transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md"
                   >
                      {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}

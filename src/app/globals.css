@@ -9,7 +9,7 @@ body {
 
 @layer base {
   :root {
-    /* Light Theme - Product Ascent (Kept for potential toggle) */
+    /* Light Theme - Kept for potential toggle */
     --background: 0 0% 94.1%; /* Light Gray (#F0F0F0) */
     --foreground: 240 10% 3.9%; /* Dark Gray for text */
     --card: 0 0% 100%; /* White */
@@ -46,7 +46,7 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Previous Modern Palette */
+    /* Dark Theme - Modern Palette */
     --background: 220 15% 8%;       /* Very Dark Blue/Gray */
     --foreground: 210 20% 94%;       /* Off-White/Light Gray */
 
@@ -68,8 +68,8 @@ body {
     --accent: 45 85% 55%;           /* Bright Gold */
     --accent-foreground: 220 15% 10%; /* Dark Blue/Black for contrast on Accent */
 
-    --destructive: 0 70% 55%;        /* Space Red (kept) */
-    --destructive-foreground: 0 0% 98%; /* White (kept) */
+    --destructive: 0 70% 55%;        /* Space Red */
+    --destructive-foreground: 0 0% 98%; /* White */
 
     --border: 220 10% 25%;           /* Subtle Dark Border */
     --input: 220 10% 30%;            /* Input Border Dark */
