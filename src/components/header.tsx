@@ -47,8 +47,8 @@ export function Header() {
             </SheetTrigger>
             <SheetContent
                 side="right"
-                // Use themed background/border and glassmorphism effect
-                className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"
+                // Removed glassmorphism, rely on themed background/border
+                className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40"
                 aria-describedby="mobile-nav-description"
             >
               <SheetHeader> {/* Keep header for accessibility */}
