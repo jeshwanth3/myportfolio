@@ -9,12 +9,12 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90", // Added dark mode styles
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80", // Rely on theme for dark mode
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 dark:bg-secondary dark:text-secondary-foreground dark:hover:bg-secondary/60", // Secondary uses theme colors
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80", // Secondary uses theme colors
         destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80 dark:bg-destructive dark:text-destructive-foreground dark:hover:bg-destructive/90", // Added dark mode styles
-        outline: "text-foreground dark:text-foreground border-border dark:border-border", // Added dark mode styles and explicit border
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80", // Rely on theme for dark mode
+        outline: "text-foreground border-border", // Rely on theme for dark mode and border
       },
     },
     defaultVariants: {

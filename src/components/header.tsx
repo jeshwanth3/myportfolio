@@ -20,7 +20,7 @@ export function Header() {
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
         <Link href="/" className="mr-6 flex items-center space-x-2 group">
           {/* Updated Name with Gradient - Uses primary and secondary from the theme */}
-          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
+          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Changed secondary to accent for gradient */}
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
@@ -29,8 +29,8 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              // Use muted-foreground and foreground for standard link colors, underline on hover using primary
-              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground hover:underline underline-offset-4 decoration-primary/50"
+              // Use muted-foreground and foreground for standard link colors, underline on hover using accent
+              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent hover:underline underline-offset-4 decoration-accent/50" // Use accent color for hover and underline
             >
               {item.label}
             </Link>
@@ -40,7 +40,7 @@ export function Header() {
           <Sheet>
             <SheetTrigger asChild>
               {/* Ensure hover state is clear */}
-              <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent/10 hover:text-accent-foreground">
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent/10 hover:text-accent"> {/* Use accent for hover */}
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
@@ -58,7 +58,7 @@ export function Header() {
               <nav className="flex flex-col gap-4 mt-12">
                  <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group">
                    {/* Mobile menu title uses the same gradient */}
-                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
+                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Changed secondary to accent */}
                      Sai Jeshwanth Goud Illuri
                    </span>
                 </Link>
@@ -66,8 +66,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    // Use primary color for hover state background/text in mobile menu
-                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary rounded-md transition-colors duration-200"
+                    // Use accent color for hover state background/text in mobile menu
+                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent rounded-md transition-colors duration-200" // Use accent color
                   >
                     {item.label}
                   </Link>

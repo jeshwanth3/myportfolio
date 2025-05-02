@@ -50,25 +50,16 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-        // Updated Sidebar Colors with Refined Dark Mode Variants (No Green/Teal)
+        // Updated Sidebar Colors - Rely on CSS Variables from globals.css
         sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
-          // Dark Mode Specific Colors - Referencing CSS variables
-          'background-dark': 'hsl(var(--sidebar-background-dark))',
-          'foreground-dark': 'hsl(var(--sidebar-foreground-dark))',
-          'primary-dark': 'hsl(var(--sidebar-primary-dark))',
-          'primary-foreground-dark': 'hsl(var(--sidebar-primary-foreground-dark))',
-          'accent-dark': 'hsl(var(--sidebar-accent-dark))',
-          'accent-foreground-dark': 'hsl(var(--sidebar-accent-foreground-dark))',
-          'border-dark': 'hsl(var(--sidebar-border-dark))',
-          'ring-dark': 'hsl(var(--sidebar-ring-dark))',
+          DEFAULT: 'hsl(var(--sidebar-background))', // Uses --sidebar-background or --sidebar-background-dark
+          foreground: 'hsl(var(--sidebar-foreground))', // Uses --sidebar-foreground or --sidebar-foreground-dark
+          primary: 'hsl(var(--sidebar-primary))', // Uses --sidebar-primary or --sidebar-primary-dark
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))', // Uses --sidebar-primary-foreground or --sidebar-primary-foreground-dark
+          accent: 'hsl(var(--sidebar-accent))', // Uses --sidebar-accent or --sidebar-accent-dark
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))', // Uses --sidebar-accent-foreground or --sidebar-accent-foreground-dark
+          border: 'hsl(var(--sidebar-border))', // Uses --sidebar-border or --sidebar-border-dark
+          ring: 'hsl(var(--sidebar-ring))', // Uses --sidebar-ring or --sidebar-ring-dark
         }
   		}
   	},
@@ -97,8 +88,8 @@ export default {
   			}
   		},
       'glow': { // Use accent color for glow in dark theme
-        '0%, 100%': { 'box-shadow': '0 0 8px hsl(var(--accent) / 0.5), 0 0 16px hsl(var(--accent) / 0.3)' },
-        '50%': { 'box-shadow': '0 0 20px hsl(var(--accent) / 0.7), 0 0 30px hsl(var(--accent) / 0.5)' },
+        '0%, 100%': { 'box-shadow': '0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2)' }, // Adjusted intensity
+        '50%': { 'box-shadow': '0 0 12px hsl(var(--accent) / 0.6), 0 0 20px hsl(var(--accent) / 0.4)' }, // Adjusted intensity
       }
   	},
   	animation: {

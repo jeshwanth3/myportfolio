@@ -24,7 +24,7 @@ const experiences = [
       "Defined and monitored 10+ KPIs, contributing to a 15% reduction in commuter delays.",
       "Translated complex transportation data into actionable insights for product development.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-accent" /> // Use accent color for icon
   },
   {
     id: "exp2",
@@ -40,7 +40,7 @@ const experiences = [
         "Developed Azure-based workflows for seamless data integration from various sources.",
         "Presented analytical findings and recommendations to cross-functional teams.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-accent" /> // Use accent color for icon
   },
   {
     id: "exp3",
@@ -55,7 +55,7 @@ const experiences = [
       "Implemented automated deployment pipelines using Azure DevOps, improving release efficiency by 40%.",
       "Resolved over 40 critical production issues for the SaaS platform, ensuring stability.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-accent" /> // Use accent color for icon
   },
    {
     id: "exp4",
@@ -69,7 +69,7 @@ const experiences = [
         "Responded to 20+ weekly ad-hoc data analysis queries from business users.",
         "Identified key market trends and presented data-backed recommendations.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-accent" /> // Use accent color for icon
   },
 ];
 
@@ -79,11 +79,11 @@ export function ExperienceSection() {
       <SectionTitle>Work Experience</SectionTitle>
       <Accordion type="single" collapsible className="w-full space-y-4">
         {experiences.map((exp) => (
-          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-accent/50 transform hover:-translate-y-0.5"> {/* Updated hover border to primary/accent */}
-            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-primary/5 dark:hover:bg-accent/10 transition-colors data-[state=open]:bg-primary/10 dark:data-[state=open]:bg-accent/15 hover:text-primary dark:hover:text-accent dark:data-[state=open]:text-accent"> {/* Use primary/accent color for hover and open states */}
+          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-accent/50 dark:hover:border-accent/70 transform hover:-translate-y-0.5"> {/* Updated hover border to accent */}
+            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/10 dark:hover:bg-accent/15 transition-colors data-[state=open]:bg-accent/15 dark:data-[state=open]:bg-accent/20 hover:text-accent dark:hover:text-accent dark:data-[state=open]:text-accent"> {/* Use accent color for hover and open states */}
                <div className="flex items-start gap-4 w-full">
-                  {/* Ensure icon background uses theme color */}
-                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-accent/20 p-2 rounded-full">
+                  {/* Ensure icon background uses accent theme color */}
+                  <div className="mt-1 shrink-0 bg-accent/10 dark:bg-accent/20 p-2 rounded-full">
                       {exp.icon}
                   </div>
                   <div className="flex-1">
