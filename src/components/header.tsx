@@ -17,11 +17,11 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height, max-width, centered */}
         <Link href="/" className="mr-6 flex items-center space-x-2.5 group"> {/* Adjusted spacing */}
            {/* User Icon instead of SVG logo */}
-           <div className="p-1.5 rounded-full bg-gradient-to-tr from-blue-500 to-teal-400 group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110">
+           <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-accent group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient */}
             <User className="h-5 w-5 text-primary-foreground" />
            </div>
           {/* Updated Name with Gradient */}
-          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
+          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Updated gradient */}
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
@@ -48,11 +48,11 @@ export function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"> {/* Adjusted width, background, border */}
               <nav className="flex flex-col gap-4 mt-12"> {/* Increased top margin */}
                  <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group"> {/* Increased bottom margin */}
-                    <div className="p-1.5 rounded-full bg-gradient-to-tr from-blue-500 to-teal-400 group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110">
+                    <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-accent group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient */}
                         <User className="h-5 w-5 text-primary-foreground" />
                     </div>
                    {/* Updated Name with Gradient for Mobile Menu */}
-                   <span className="text-lg font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
+                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Updated gradient */}
                      Sai Jeshwanth Goud Illuri
                    </span>
                 </Link>

@@ -80,10 +80,10 @@ export function ExperienceSection() {
       {/* Use Accordion for expandable experience boxes */}
       <Accordion type="single" collapsible className="w-full space-y-4">
         {experiences.map((exp) => (
-          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 transform hover:-translate-y-0.5">
-            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/10 transition-colors data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/15">
+          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-0.5"> {/* Use new theme colors for hover */}
+            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/15 transition-colors data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/20"> {/* Use new accent color */}
                <div className="flex items-start gap-4 w-full">
-                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background */}
+                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background using primary color */}
                       {exp.icon}
                   </div>
                   <div className="flex-1"> {/* Text content container */}

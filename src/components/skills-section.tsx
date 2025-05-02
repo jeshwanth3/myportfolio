@@ -47,9 +47,9 @@ export function SkillsSection() {
       <SectionTitle>Skills</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {skillCategories.map((category) => (
-          <Card key={category.title} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/40 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Use mac-shadow, add transform */}
+          <Card key={category.title} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/40 dark:hover:border-accent/60 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Use mac-shadow, add transform, use new theme colors for hover */}
              <CardHeader className="flex flex-row items-center gap-4 pb-3 p-5 md:p-6"> {/* Adjusted padding */}
-                <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background */}
+                <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background using primary color */}
                     {category.icon}
                 </div>
               <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{category.title}</CardTitle>
@@ -60,7 +60,7 @@ export function SkillsSection() {
                    <Badge
                     key={typeof skill === 'string' ? skill : skill.name} // Use name for object key
                     variant="secondary"
-                    className="text-xs md:text-sm font-normal bg-muted/60 dark:bg-muted/40 text-muted-foreground dark:text-foreground/75 border border-transparent hover:border-primary/40 hover:bg-primary/10 hover:text-primary dark:hover:text-primary transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md" // Enhanced styling, rounded-md
+                    className="text-xs md:text-sm font-normal bg-muted/60 dark:bg-muted/40 text-muted-foreground dark:text-foreground/75 border border-transparent hover:border-primary/40 dark:hover:border-accent/50 hover:bg-primary/10 dark:hover:bg-accent/15 hover:text-primary dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md" // Enhanced styling, rounded-md, use new theme colors
                   >
                      {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}
                   </Badge>

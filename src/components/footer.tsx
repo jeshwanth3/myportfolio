@@ -17,7 +17,7 @@ export function Footer() {
                      © {currentYear !== null ? currentYear : '...'} Sai Jeshwanth Goud Illuri. All rights reserved. {/* Updated name & handle loading state */}
                 </p>
                 <p className="text-muted-foreground">
-                    Built with <Link href="https://nextjs.org" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary transition-colors">Next.js</Link> & <Link href="https://ui.shadcn.com/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary transition-colors">Shadcn UI</Link>.
+                    Built with <Link href="https://nextjs.org" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary dark:hover:text-primary transition-colors">Next.js</Link> & <Link href="https://ui.shadcn.com/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary dark:hover:text-primary transition-colors">Shadcn UI</Link>. {/* Use primary color on hover */}
                 </p>
             </div>
         </footer>

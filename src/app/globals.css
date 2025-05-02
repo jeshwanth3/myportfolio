@@ -46,42 +46,42 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Macbook Inspired Refined */
-    --background: 240 6% 10%; /* Very Dark Gray/Almost Black */
-    --foreground: 0 0% 98%; /* Almost White */
-    --card: 240 5% 14%; /* Darker Gray */
-    --card-foreground: 0 0% 98%; /* Almost White */
-    --popover: 240 6% 10%; /* Very Dark Gray/Almost Black */
-    --popover-foreground: 0 0% 98%; /* Almost White */
-    --primary: 210 100% 60%; /* Brighter Blue */
-    --primary-foreground: 240 10% 3.9%; /* Dark Gray for contrast */
-    --secondary: 240 4% 18%; /* Dark Gray */
-    --secondary-foreground: 0 0% 98%; /* Almost White */
-    --muted: 240 4% 18%; /* Dark Gray */
-    --muted-foreground: 240 5% 64.9%; /* Medium Gray */
-    --accent: 210 100% 70%; /* Lighter, Vibrant Blue */
-    --accent-foreground: 240 10% 3.9%; /* Dark Gray for contrast */
-    --destructive: 0 72% 51%; /* Slightly brighter Red */
-    --destructive-foreground: 0 0% 98%; /* Almost White */
-    --border: 240 4% 20%; /* Subtle Border Dark Gray */
-    --input: 240 4% 20%; /* Input Border Dark Gray */
-    --ring: 210 100% 60%; /* Brighter Blue */
-    --chart-1: 210 80% 70%;
-    --chart-2: 160 70% 60%;
-    --chart-3: 30 80% 65%;
-    --chart-4: 280 70% 65%;
-    --chart-5: 340 80% 70%;
-    --radius: 0.75rem; /* Slightly larger radius for macOS feel */
+    /* Dark Theme - Nebula Inspired Modern */
+    --background: 240 10% 4%; /* Deep Space Blue/Black */
+    --foreground: 210 40% 98%; /* Soft White/Light Blue */
+    --card: 240 8% 10%; /* Slightly Lighter Deep Blue */
+    --card-foreground: 210 40% 96%; /* Slightly muted Soft White */
+    --popover: 240 10% 6%; /* Very Dark Blue */
+    --popover-foreground: 210 40% 98%; /* Soft White */
+    --primary: 260 85% 65%; /* Vibrant Violet/Purple */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 240 6% 16%; /* Dark Gray-Blue */
+    --secondary-foreground: 210 30% 90%; /* Lighter Muted White */
+    --muted: 240 5% 22%; /* Muted Dark Gray-Blue */
+    --muted-foreground: 240 5% 55%; /* Medium Gray-Blue */
+    --accent: 190 80% 55%; /* Bright Cyan/Teal */
+    --accent-foreground: 240 10% 4%; /* Deep Space Blue/Black for contrast */
+    --destructive: 0 70% 55%; /* Space Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 240 5% 20%; /* Subtle Dark Border */
+    --input: 240 5% 25%; /* Input Border Dark */
+    --ring: 260 85% 70%; /* Lighter Violet for focus rings */
+    --chart-1: 260 80% 70%; /* Violet */
+    --chart-2: 190 75% 60%; /* Cyan */
+    --chart-3: 330 80% 65%; /* Pink/Magenta */
+    --chart-4: 220 70% 65%; /* Blue */
+    --chart-5: 40 85% 60%;  /* Orange/Gold */
+    --radius: 0.75rem;
 
-    /* Dark Mode Sidebar Variables */
-    --sidebar-background-dark: 240 5% 12%; /* Slightly darker than card */
-    --sidebar-foreground-dark: 0 0% 85%; /* Slightly muted white */
-    --sidebar-primary-dark: 210 100% 60%; /* Brighter Blue */
-    --sidebar-primary-foreground-dark: 240 10% 3.9%; /* Dark Gray */
-    --sidebar-accent-dark: 240 4% 22%; /* Hover/Active background */
-    --sidebar-accent-foreground-dark: 0 0% 98%; /* White on Hover */
-    --sidebar-border-dark: 240 4% 25%; /* Sidebar Border */
-    --sidebar-ring-dark: 210 100% 60%; /* Focus Ring */
+    /* Dark Mode Sidebar Variables - Adjusted for Nebula Theme */
+    --sidebar-background-dark: 240 8% 8%; /* Slightly darker than card */
+    --sidebar-foreground-dark: 210 30% 85%; /* Slightly muted white */
+    --sidebar-primary-dark: 260 85% 65%; /* Vibrant Violet */
+    --sidebar-primary-foreground-dark: 0 0% 100%; /* White */
+    --sidebar-accent-dark: 240 6% 20%; /* Hover/Active background */
+    --sidebar-accent-foreground-dark: 190 80% 55%; /* Bright Cyan on Hover */
+    --sidebar-border-dark: 240 5% 25%; /* Sidebar Border */
+    --sidebar-ring-dark: 260 85% 70%; /* Focus Ring */
   }
 }
 
@@ -97,7 +97,7 @@ body {
   }
 }
 
-/* Add subtle animation and Macbook-like styles */
+/* Add subtle animation and modern styles */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
@@ -111,51 +111,54 @@ body {
   /* Subtle shadow for depth */
   .mac-shadow {
      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-     /* border: 1px solid hsl(var(--border) / 0.1); Removed inner border for cleaner look */
   }
   .dark .mac-shadow {
-     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-     /* border: 1px solid hsl(var(--border) / 0.2); */
+     /* Adjusted shadow for the dark nebula theme */
+     box-shadow: 0 1px 3px 0 hsl(var(--primary) / 0.1), 0 25px 50px -12px hsl(var(--background) / 0.5);
+     border: 1px solid hsl(var(--border) / 0.2); /* Subtle border */
   }
 
   /* Frosted glass effect (apply to elements like headers/modals) */
   .glassmorphism {
-    @apply bg-background/80 backdrop-blur-lg border border-border/10 dark:bg-background/75 dark:border-border/20; /* Adjusted opacity and blur */
+    /* Adjusted opacity and blur for dark theme */
+    @apply bg-background/85 backdrop-blur-xl border border-border/10 dark:bg-background/75 dark:border-border/20;
   }
 
-  /* Smooth scrollbar */
+  /* Smooth scrollbar - Styled for the dark theme */
   /* For Webkit-based browsers (Chrome, Safari) */
   ::-webkit-scrollbar {
-    @apply w-[8px] h-[8px]; /* Slightly wider scrollbar */
+    @apply w-[8px] h-[8px];
   }
   ::-webkit-scrollbar-track {
-     @apply bg-transparent; /* Transparent track */
+     @apply bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
-     @apply bg-muted dark:bg-muted/50 rounded-full border-2 border-transparent bg-clip-content; /* Darker, rounded thumb */
+     /* Use darker, themed colors */
+     @apply bg-muted/50 dark:bg-muted/40 rounded-full border-2 border-transparent bg-clip-content;
   }
   ::-webkit-scrollbar-thumb:hover {
-     @apply bg-muted-foreground dark:bg-muted-foreground/70; /* Darker hover */
+     /* Use slightly brighter themed colors on hover */
+     @apply bg-muted-foreground/60 dark:bg-muted-foreground/50;
   }
 
   /* Basic scrollbar for Firefox (optional, less customizable) */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted)) transparent; /* thumb track */
+    /* Use themed colors */
+    scrollbar-color: hsl(var(--muted) / 0.4) transparent; /* thumb track */
   }
   .dark * {
-    scrollbar-color: hsl(var(--muted) / 0.5) transparent; /* Keep dark mode consistent */
+    /* Ensure dark mode consistency */
+    scrollbar-color: hsl(var(--muted) / 0.3) transparent;
   }
 
 }
 
 /* Animations */
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.6); } /* Slightly adjusted glow */
-  50% { box-shadow: 0 0 15px hsl(var(--primary) / 0.8); }
+  0%, 100% { box-shadow: 0 0 8px hsl(var(--primary) / 0.5), 0 0 16px hsl(var(--accent) / 0.3); } /* Combined primary and accent glow */
+  50% { box-shadow: 0 0 20px hsl(var(--primary) / 0.7), 0 0 30px hsl(var(--accent) / 0.5); }
 }
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
-
-/* Removed Macbook Mockup Specific Styles */
