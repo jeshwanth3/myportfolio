@@ -79,8 +79,8 @@ export function ExperienceSection() {
       <SectionTitle>Work Experience</SectionTitle>
       <Accordion type="single" collapsible className="w-full space-y-4">
         {experiences.map((exp) => (
-          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-accent/60 transform hover:-translate-y-0.5"> {/* Updated hover border to accent */}
-            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/10 dark:hover:bg-accent/15 transition-colors data-[state=open]:bg-accent/20 dark:data-[state=open]:bg-accent/25 hover:text-accent-foreground"> {/* Use accent color for hover and open states */}
+          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-0.5"> {/* Updated hover border to primary */}
+            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors data-[state=open]:bg-primary/10 dark:data-[state=open]:bg-primary/15 hover:text-primary dark:hover:text-primary dark:data-[state=open]:text-primary"> {/* Use primary color for hover and open states */}
                <div className="flex items-start gap-4 w-full">
                   <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
                       {exp.icon}

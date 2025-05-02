@@ -24,8 +24,8 @@ export function ContactSection() {
                </Button>
              </a>
             <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
-              {/* Outline button uses accent for hover background and accent-foreground for text */}
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
+              {/* Outline button uses primary color for hover state */}
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary">
                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </Button>
             </a>

@@ -41,14 +41,14 @@ export function SummarySection() {
           </div>
         </div>
         <div className="md:col-span-2 flex justify-center items-center md:justify-end order-first md:order-last">
-           {/* Placeholder Image - Use accent border */}
+           {/* Placeholder Image - Use primary border */}
           <Image
             src="https://picsum.photos/500/500"
             alt="Sai Jeshwanth Goud Illuri - Professional Headshot"
             width={350}
             height={350}
-            className="rounded-full mac-shadow border-4 border-primary/30 dark:border-accent/40 object-cover aspect-square w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px]"
-            data-ai-hint="professional headshot person dark background modern studio lighting" // Updated hint for new theme
+            className="rounded-full mac-shadow border-4 border-primary/40 dark:border-primary/50 object-cover aspect-square w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px]" // Updated border to primary
+            data-ai-hint="professional headshot person dark background modern studio lighting nebula purple teal"
             priority
           />
         </div>

@@ -47,7 +47,7 @@ export function SkillsSection() {
       <SectionTitle>Skills</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {skillCategories.map((category) => (
-          <Card key={category.title} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-accent/60 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Updated hover border to accent */}
+          <Card key={category.title} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/40 dark:hover:border-accent/60 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Updated hover border */}
              <CardHeader className="flex flex-row items-center gap-4 pb-3 p-5 md:p-6">
                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
                     {category.icon}
@@ -60,8 +60,8 @@ export function SkillsSection() {
                    <Badge
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary" // Use secondary variant which pulls from theme
-                    // Use accent for hover background and accent-foreground for text
-                    className="text-xs md:text-sm font-normal border border-transparent hover:border-accent/50 hover:bg-accent/15 hover:text-accent-foreground transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md"
+                    // Use primary color for hover state
+                    className="text-xs md:text-sm font-normal border border-transparent hover:border-primary/40 dark:hover:border-primary/50 hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary transition-all duration-200 flex items-center gap-1.5 px-3 py-1 rounded-md"
                   >
                      {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}
                   </Badge>

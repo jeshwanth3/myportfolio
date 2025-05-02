@@ -15,7 +15,7 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60 glassmorphism"> {/* Increased height and blur */}
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60 glassmorphism"> {/* Increased blur */}
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
         <Link href="/" className="mr-6 flex items-center space-x-2 group">
           {/* Updated Name with Gradient - Uses primary and secondary from the theme */}
@@ -63,8 +63,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    // Use accent for hover background and accent-foreground for text in mobile menu
-                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/15 hover:text-accent-foreground rounded-md transition-colors duration-200"
+                    // Use primary color for hover state in mobile menu
+                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary rounded-md transition-colors duration-200"
                   >
                     {item.label}
                   </Link>

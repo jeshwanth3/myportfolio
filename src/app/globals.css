@@ -46,53 +46,53 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Modern Palette */
-    --background: 220 15% 8%;       /* Very Dark Blue/Gray */
-    --foreground: 210 20% 94%;       /* Off-White/Light Gray */
+    /* Dark Theme - Modern Palette v2 (More Refined) */
+    --background: 220 20% 6%;       /* Darker, slightly bluer background */
+    --foreground: 210 30% 95%;       /* Slightly brighter off-white */
 
-    --card: 220 13% 12%;            /* Darker Blue/Gray */
-    --card-foreground: 210 20% 94%; /* Off-White/Light Gray */
+    --card: 220 18% 9%;            /* Slightly lighter card background */
+    --card-foreground: 210 30% 95%; /* Same as foreground */
 
-    --popover: 220 15% 10%;         /* Very Dark Blue for Popovers */
-    --popover-foreground: 210 20% 98%; /* Slightly brighter for Popover text */
+    --popover: 220 20% 7%;         /* Slightly darker popover */
+    --popover-foreground: 210 30% 96%; /* Popover text */
 
-    --primary: 220 35% 45%;         /* Deep Muted Blue (Charcoal Blue-ish) */
-    --primary-foreground: 210 40% 98%; /* Soft White/Light Blue for contrast */
+    --primary: 200 90% 50%;         /* Modern Cyan/Blue */
+    --primary-foreground: 210 100% 10%; /* Very dark blue for contrast on primary */
 
-    --secondary: 175 40% 40%;       /* Subtle Modern Teal */
-    --secondary-foreground: 210 40% 98%; /* Soft White/Light Blue */
+    --secondary: 170 60% 40%;       /* Muted Teal */
+    --secondary-foreground: 210 30% 95%; /* Off-white */
 
-    --muted: 220 10% 20%;           /* Muted Dark Blue/Gray */
-    --muted-foreground: 210 15% 65%;  /* Lighter Muted Gray/Blue */
+    --muted: 220 15% 20%;           /* Dark muted blue/gray */
+    --muted-foreground: 210 20% 70%;  /* Lighter muted gray */
 
-    --accent: 45 85% 55%;           /* Bright Gold */
-    --accent-foreground: 220 15% 10%; /* Dark Blue/Black for contrast on Accent */
+    --accent: 35 100% 60%;          /* Vibrant Orange/Amber */
+    --accent-foreground: 210 100% 10%; /* Dark color for contrast on accent */
 
-    --destructive: 0 70% 55%;        /* Space Red */
+    --destructive: 0 75% 60%;        /* Slightly brighter red */
     --destructive-foreground: 0 0% 98%; /* White */
 
-    --border: 220 10% 25%;           /* Subtle Dark Border */
-    --input: 220 10% 30%;            /* Input Border Dark */
-    --ring: 220 35% 60%;             /* Lighter version of Primary for focus rings */
+    --border: 220 15% 18%;           /* Subtle border, slightly lighter than card */
+    --input: 220 15% 22%;            /* Slightly lighter input border */
+    --ring: 200 90% 60%;             /* Lighter primary for focus rings */
 
     /* Adjusted Chart Colors for New Palette */
-    --chart-1: 220 35% 55%;         /* Primary (Lighter) */
-    --chart-2: 175 40% 50%;         /* Secondary (Lighter) */
-    --chart-3: 45 85% 65%;           /* Accent (Lighter) */
+    --chart-1: 200 80% 55%;         /* Primary (Lighter) */
+    --chart-2: 170 50% 45%;         /* Secondary (Lighter) */
+    --chart-3: 35 90% 65%;           /* Accent (Lighter) */
     --chart-4: 220 20% 60%;         /* Muted Blue/Gray */
     --chart-5: 170 30% 70%;         /* Desaturated Teal/Green */
 
     --radius: 0.75rem; /* Slightly larger radius for modern feel */
 
     /* Dark Mode Sidebar Variables - Adjusted for New Palette */
-    --sidebar-background-dark: 220 15% 10%; /* Slightly darker than card */
-    --sidebar-foreground-dark: 210 20% 88%; /* Slightly muted off-white */
-    --sidebar-primary-dark: 220 35% 45%;     /* Primary Blue */
-    --sidebar-primary-foreground-dark: 210 40% 98%; /* Primary Foreground */
-    --sidebar-accent-dark: 220 20% 15%;      /* Subtle Dark Blue Hover Background */
-    --sidebar-accent-foreground-dark: 45 85% 55%; /* Accent Gold for Hover Text/Icons */
-    --sidebar-border-dark: 220 10% 28%;      /* Sidebar Border */
-    --sidebar-ring-dark: 220 35% 60%;         /* Focus Ring */
+    --sidebar-background-dark: 220 20% 7%;      /* Slightly darker than background */
+    --sidebar-foreground-dark: 210 25% 90%;      /* Slightly muted off-white for sidebar */
+    --sidebar-primary-dark: 200 90% 50%;         /* Primary Cyan/Blue */
+    --sidebar-primary-foreground-dark: 210 100% 10%; /* Primary Foreground for sidebar */
+    --sidebar-accent-dark: 220 15% 15%;          /* Darker Hover Background */
+    --sidebar-accent-foreground-dark: 35 100% 60%; /* Accent Orange/Amber for Hover Text/Icons */
+    --sidebar-border-dark: 220 15% 20%;          /* Sidebar Border */
+    --sidebar-ring-dark: 200 90% 60%;             /* Focus Ring */
   }
 }
 
@@ -147,7 +147,7 @@ body {
   }
   ::-webkit-scrollbar-thumb {
      /* Use darker, themed colors */
-     @apply bg-muted/50 dark:bg-muted/40 rounded-full border-2 border-transparent bg-clip-content;
+     @apply bg-muted/50 dark:bg-muted/40 rounded-md border-2 border-transparent bg-clip-content; /* Changed to rounded-md */
   }
   ::-webkit-scrollbar-thumb:hover {
      /* Use slightly brighter themed colors on hover */
