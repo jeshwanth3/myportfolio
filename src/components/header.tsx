@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Code } from 'lucide-react'; // Added Code icon
+import { Menu, User } from 'lucide-react'; // Added User icon
 
 const navItems = [
   { label: 'Summary', href: '#summary' },
@@ -13,16 +13,16 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 glassmorphism">
-      <div className="container flex h-14 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="mr-6 flex items-center space-x-2 group">
-          {/* <Code className="h-6 w-6 text-primary group-hover:animate-glow transition-all" /> */}
-           {/* Replace with a subtle logo or keep text */}
-           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 text-primary group-hover:animate-glow transition-all">
-            <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clipRule="evenodd" />
-          </svg>
-          <span className="font-bold sm:inline-block text-foreground group-hover:text-primary transition-colors">
-            Product Ascent
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 glassmorphism"> {/* Enhanced glassmorphism */}
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height, max-width, centered */}
+        <Link href="/" className="mr-6 flex items-center space-x-2.5 group"> {/* Adjusted spacing */}
+           {/* User Icon instead of SVG logo */}
+           <div className="p-1.5 rounded-full bg-gradient-to-tr from-blue-500 to-teal-400 group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110">
+            <User className="h-5 w-5 text-primary-foreground" />
+           </div>
+          {/* Updated Name with Gradient */}
+          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
+            Sai Jeshwanth Goud Illuri
           </span>
         </Link>
         <nav className="hidden gap-6 md:flex">
@@ -30,7 +30,7 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-primary/50" // Added hover underline
             >
               {item.label}
             </Link>
@@ -45,21 +45,22 @@ export function Header() {
               </Button>
             </SheetTrigger>
             {/* Apply dark mode styles to SheetContent */}
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-card border-l border-border/50">
-              <nav className="flex flex-col gap-4 mt-8">
-                 <Link href="/" className="mb-4 flex items-center space-x-2 px-2 group">
-                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 text-primary group-hover:animate-glow transition-all">
-                    <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
-                    Product Ascent
-                  </span>
+            <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"> {/* Adjusted width, background, border */}
+              <nav className="flex flex-col gap-4 mt-12"> {/* Increased top margin */}
+                 <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group"> {/* Increased bottom margin */}
+                    <div className="p-1.5 rounded-full bg-gradient-to-tr from-blue-500 to-teal-400 group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110">
+                        <User className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                   {/* Updated Name with Gradient for Mobile Menu */}
+                   <span className="text-lg font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
+                     Sai Jeshwanth Goud Illuri
+                   </span>
                 </Link>
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block px-2 py-1 text-lg font-medium text-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
+                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent-foreground dark:hover:text-primary rounded-md transition-colors duration-200" // Adjusted padding, size, hover effect
                   >
                     {item.label}
                   </Link>

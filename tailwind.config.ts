@@ -50,7 +50,7 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-        // Updated Sidebar Colors with Dark Mode Variants
+        // Updated Sidebar Colors with Refined Dark Mode Variants
         sidebar: {
           DEFAULT: 'hsl(var(--sidebar-background))',
           foreground: 'hsl(var(--sidebar-foreground))',
@@ -60,22 +60,24 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
-          // Dark Mode Specific Colors
-          dark: 'hsl(var(--sidebar-background-dark))',
-          'foreground-dark': 'hsl(var(--sidebar-foreground-dark))',
-          'primary-dark': 'hsl(var(--sidebar-primary-dark))',
-          'primary-foreground-dark': 'hsl(var(--sidebar-primary-foreground-dark))',
-          'accent-dark': 'hsl(var(--sidebar-accent-dark))',
-          'accent-foreground-dark': 'hsl(var(--sidebar-accent-foreground-dark))',
-          'border-dark': 'hsl(var(--sidebar-border-dark))',
-          'ring-dark': 'hsl(var(--sidebar-ring-dark))',
+          // Dark Mode Specific Colors - Refined
+          dark: 'hsl(var(--sidebar-background-dark))', // Reference CSS variable
+          'foreground-dark': 'hsl(var(--sidebar-foreground-dark))', // Reference CSS variable
+          'primary-dark': 'hsl(var(--sidebar-primary-dark))', // Reference CSS variable
+          'primary-foreground-dark': 'hsl(var(--sidebar-primary-foreground-dark))', // Reference CSS variable
+          'accent-dark': 'hsl(var(--sidebar-accent-dark))', // Reference CSS variable
+          'accent-foreground-dark': 'hsl(var(--sidebar-accent-foreground-dark))', // Reference CSS variable
+          'border-dark': 'hsl(var(--sidebar-border-dark))', // Reference CSS variable
+          'ring-dark': 'hsl(var(--sidebar-ring-dark))', // Reference CSS variable
         }
   		}
   	},
   	borderRadius: {
+      xl: 'calc(var(--radius) + 4px)', // Added xl radius
   		lg: 'var(--radius)',
   		md: 'calc(var(--radius) - 2px)',
-  		sm: 'calc(var(--radius) - 4px)'
+  		sm: 'calc(var(--radius) - 4px)',
+      full: '9999px', // Ensure rounded-full works
   	},
   	keyframes: {
   		'accordion-down': {
@@ -95,8 +97,8 @@ export default {
   			}
   		},
       'glow': { // Keep glow as it's used elsewhere
-        '0%, 100%': { 'box-shadow': '0 0 5px hsl(var(--primary) / 0.5)' },
-        '50%': { 'box-shadow': '0 0 20px hsl(var(--primary) / 0.7)' },
+        '0%, 100%': { 'box-shadow': '0 0 5px hsl(var(--primary) / 0.6)' }, // Adjusted glow intensity
+        '50%': { 'box-shadow': '0 0 15px hsl(var(--primary) / 0.8)' },
       }
       // Removed macbook-open and content-fade-in keyframes
   	},

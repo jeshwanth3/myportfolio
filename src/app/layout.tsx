@@ -25,7 +25,7 @@ export default function RootLayout({
          <ThemeProvider
             attribute="class"
             defaultTheme="dark" // Set dark theme as default
-            enableSystem={false} // Optionally disable system preference detection if you always want dark
+            enableSystem={false} // Disable system preference detection to enforce dark theme
           >
             {children}
             <Toaster /> {/* Add Toaster */}

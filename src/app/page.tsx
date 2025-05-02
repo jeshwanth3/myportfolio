@@ -8,9 +8,9 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    // The main container now acts as the "screen"
+    // The main container now spans the full viewport height
     <div className="flex flex-col min-h-screen bg-background">
-      {/* Content is rendered directly, not inside a mockup */}
+      {/* Content is rendered directly */}
       <Header />
       <main className="flex-1">
         <SummarySection />

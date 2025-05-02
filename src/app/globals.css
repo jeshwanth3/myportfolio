@@ -46,7 +46,7 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Macbook Inspired */
+    /* Dark Theme - Macbook Inspired Refined */
     --background: 240 6% 10%; /* Very Dark Gray/Almost Black */
     --foreground: 0 0% 98%; /* Almost White */
     --card: 240 5% 14%; /* Darker Gray */
@@ -110,50 +110,49 @@ body {
 
   /* Subtle shadow for depth */
   .mac-shadow {
-     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(255 255 255 / 0.05); /* Subtle inner border too */
+     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+     /* border: 1px solid hsl(var(--border) / 0.1); Removed inner border for cleaner look */
   }
   .dark .mac-shadow {
-     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25), 0 0 0 1px rgb(255 255 255 / 0.05);
+     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+     /* border: 1px solid hsl(var(--border) / 0.2); */
   }
 
   /* Frosted glass effect (apply to elements like headers/modals) */
   .glassmorphism {
-    @apply bg-background/60 backdrop-blur-md border border-white/10 dark:bg-background/70 dark:border-white/5;
+    @apply bg-background/80 backdrop-blur-lg border border-border/10 dark:bg-background/75 dark:border-border/20; /* Adjusted opacity and blur */
   }
 
   /* Smooth scrollbar */
   /* For Webkit-based browsers (Chrome, Safari) */
   ::-webkit-scrollbar {
-    @apply w-[6px] h-[6px];
+    @apply w-[8px] h-[8px]; /* Slightly wider scrollbar */
   }
   ::-webkit-scrollbar-track {
-     @apply bg-secondary dark:bg-secondary rounded-md;
+     @apply bg-transparent; /* Transparent track */
   }
   ::-webkit-scrollbar-thumb {
-     @apply bg-muted dark:bg-muted rounded-md;
+     @apply bg-muted dark:bg-muted/50 rounded-full border-2 border-transparent bg-clip-content; /* Darker, rounded thumb */
   }
   ::-webkit-scrollbar-thumb:hover {
-     @apply bg-muted-foreground dark:bg-muted-foreground;
+     @apply bg-muted-foreground dark:bg-muted-foreground/70; /* Darker hover */
   }
 
   /* Basic scrollbar for Firefox (optional, less customizable) */
-  /* Might not look identical, Firefox has limited scrollbar styling */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted)) hsl(var(--secondary)); /* thumb track */
+    scrollbar-color: hsl(var(--muted)) transparent; /* thumb track */
   }
   .dark * {
-    scrollbar-color: hsl(var(--muted)) hsl(var(--secondary)); /* Keep dark mode consistent */
+    scrollbar-color: hsl(var(--muted) / 0.5) transparent; /* Keep dark mode consistent */
   }
 
 }
 
 /* Animations */
-/* Removed macbook-open and content-fade-in animations */
-
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.5); }
-  50% { box-shadow: 0 0 20px hsl(var(--primary) / 0.7); }
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.6); } /* Slightly adjusted glow */
+  50% { box-shadow: 0 0 15px hsl(var(--primary) / 0.8); }
 }
 .animate-glow {
   animation: glow 3s ease-in-out infinite;

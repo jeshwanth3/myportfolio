@@ -75,15 +75,15 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <SectionWrapper id="experience" className="bg-secondary/30 dark:bg-card/50"> {/* Subtle background contrast */}
+    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/20"> {/* Subtle background contrast */}
       <SectionTitle>Work Experience</SectionTitle>
       {/* Use Accordion for expandable experience boxes */}
       <Accordion type="single" collapsible className="w-full space-y-4">
         {experiences.map((exp) => (
-          <AccordionItem key={exp.id} value={exp.id} className="border border-border dark:border-border/50 rounded-lg bg-card dark:bg-secondary/50 mac-shadow transition-all duration-300 ease-out overflow-hidden">
-            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/10 dark:hover:bg-accent/20 transition-colors">
+          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 transform hover:-translate-y-0.5">
+            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/10 transition-colors data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/15">
                <div className="flex items-start gap-4 w-full">
-                  <div className="mt-1 shrink-0"> {/* Icon container */}
+                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background */}
                       {exp.icon}
                   </div>
                   <div className="flex-1"> {/* Text content container */}
@@ -96,9 +96,9 @@ export function ExperienceSection() {
                   </div>
                </div>
             </AccordionTrigger>
-            <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/50 dark:border-border/30">
-              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/70">{exp.description}</p>
-              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/90 dark:text-foreground/80"> {/* Adjusted spacing and color */}
+            <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30">
+              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p>
+              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80"> {/* Adjusted spacing and color */}
                 {exp.achievements.map((achievement, i) => (
                   <li key={i}>{achievement}</li>
                 ))}

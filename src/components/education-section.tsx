@@ -23,21 +23,23 @@ const education = [
 
 export function EducationSection() {
   return (
-    <SectionWrapper id="education" className="bg-secondary/30 dark:bg-card/50"> {/* Subtle background contrast */}
+    <SectionWrapper id="education" className="bg-secondary/20 dark:bg-card/30"> {/* Subtle background contrast */}
       <SectionTitle>Education</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {education.map((edu, index) => (
-          <Card key={index} className="bg-card dark:bg-secondary/50 mac-shadow hover:border-primary/30 transition-all duration-300 ease-out"> {/* Use mac-shadow */}
-            <CardHeader className="p-4 md:p-6"> {/* Adjusted padding */}
-              <div className="flex items-start gap-3 mb-2"> {/* Align items start for better layout */}
-                 <GraduationCap className="h-6 w-6 text-primary mt-1 shrink-0" /> {/* Added margin-top */}
+          <Card key={index} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/40 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Use mac-shadow, added transform */}
+            <CardHeader className="p-5 md:p-6"> {/* Adjusted padding */}
+              <div className="flex items-start gap-4 mb-1"> {/* Align items start, reduced mb */}
+                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mt-0.5 shrink-0"> {/* Icon background */}
+                    <GraduationCap className="h-5 w-5 text-primary " />
+                 </div>
                  <div className="flex-1"> {/* Allow text to wrap */}
                     <CardTitle className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Adjusted size and leading */}
                     <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</CardDescription>
                  </div>
               </div>
             </CardHeader>
-            <CardContent className="p-4 md:p-6 pt-0"> {/* Adjusted padding */}
+            <CardContent className="p-5 md:p-6 pt-0"> {/* Adjusted padding */}
               <p className="text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/70">{edu.years}</p>
             </CardContent>
           </Card>

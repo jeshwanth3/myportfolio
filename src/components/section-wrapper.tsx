@@ -10,7 +10,7 @@ export function SectionWrapper({ children, id, className, ...props }: SectionWra
   return (
     <section
       id={id}
-      className={cn('py-10 md:py-16 lg:py-20 animate-fade-in', className)} // Slightly reduced padding
+      className={cn('py-16 md:py-20 lg:py-24 animate-fade-in', className)} // Adjusted padding
       {...props}
     >
       <div className="container px-4 md:px-6 max-w-7xl mx-auto"> {/* Ensure content stays within reasonable width */}
