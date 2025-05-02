@@ -79,13 +79,14 @@ export function ExperienceSection() {
             <Card className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-card dark:bg-secondary/50 mac-shadow hover:border-primary/30 transition-all duration-300 ease-out">
               <CardHeader className="p-4 md:p-6"> {/* Adjusted padding */}
                 <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle>
-                <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1">
+                {/* Replaced CardDescription with a div to avoid nesting div inside p */}
+                <div className="text-xs md:text-sm text-muted-foreground mt-1">
                   <div className="flex items-center gap-x-3 gap-y-1 flex-wrap"> {/* Adjusted gap */}
                     <span className="font-medium text-foreground/90">{exp.company}</span>
                     <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {exp.location}</span>
                     <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {exp.duration}</span>
                   </div>
-                </CardDescription>
+                </div>
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0"> {/* Adjusted padding */}
                 <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/70">{exp.description}</p>

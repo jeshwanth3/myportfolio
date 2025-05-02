@@ -30,10 +30,10 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
-  HTMLParagraphElement, // Changed to p for semantic correctness if it's not always a heading
-  React.HTMLAttributes<HTMLHeadingElement> // Keep HTMLHeadingElement attributes for flexibility
+  HTMLDivElement, // Changed to div for flexibility
+  React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <p // Changed to p
+  <div // Changed to div
     ref={ref}
     className={cn(
       "text-xl font-semibold leading-none tracking-tight text-foreground dark:text-foreground", // Adjusted size, dark mode color
@@ -45,10 +45,10 @@ const CardTitle = React.forwardRef<
 CardTitle.displayName = "CardTitle"
 
 const CardDescription = React.forwardRef<
-  HTMLParagraphElement, // Changed to p for semantic correctness
+  HTMLDivElement, // Changed to div for flexibility
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p // Changed to p
+  <div // Changed to div
     ref={ref}
     className={cn("text-sm text-muted-foreground dark:text-muted-foreground", className)} // Added dark mode color
     {...props}
