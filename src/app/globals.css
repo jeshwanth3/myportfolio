@@ -127,10 +127,10 @@ body {
     @apply w-[6px] h-[6px];
   }
   ::-webkit-scrollbar-track {
-     @apply bg-secondary dark:bg-secondary rounded-full;
+     @apply bg-secondary dark:bg-secondary rounded-md;
   }
   ::-webkit-scrollbar-thumb {
-     @apply bg-muted dark:bg-muted rounded-full;
+     @apply bg-muted dark:bg-muted rounded-md;
   }
   ::-webkit-scrollbar-thumb:hover {
      @apply bg-muted-foreground dark:bg-muted-foreground;
@@ -150,7 +150,7 @@ body {
 
 /* Macbook Mockup Specific Styles (can be applied to a container) */
 .macbook-mockup {
-  @apply relative w-full max-w-4xl mx-auto rounded-t-lg border-8 border-black dark:border-neutral-800 bg-black dark:bg-neutral-900 overflow-hidden mac-shadow; /* Changed rounded-t-xl to rounded-t-lg */
+  @apply relative w-full max-w-4xl mx-auto rounded-t-lg border-8 border-black dark:border-neutral-800 bg-black dark:bg-neutral-900 overflow-hidden mac-shadow;
   aspect-ratio: 16 / 10; /* Common Macbook aspect ratio */
   padding-bottom: 1.5rem; /* Space for the "chin" */
 }
@@ -167,7 +167,27 @@ body {
   @apply absolute bottom-0 left-0 right-0 h-6 bg-black dark:bg-neutral-800 flex items-center justify-center;
 }
 
-.macbook-logo {
-  /* Optional: Add a subtle logo-like element */
-   @apply h-3 w-3 rounded-full bg-neutral-600 dark:bg-neutral-500 opacity-50;
+/* Animations */
+@keyframes macbook-open {
+  0% { transform: rotateX(80deg) translateY(50px) scale(0.8); opacity: 0; }
+  100% { transform: rotateX(0deg) translateY(0) scale(1); opacity: 1; }
+}
+.animate-macbook-open {
+  animation: macbook-open 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes content-fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-content-fade-in {
+  animation: content-fade-in 0.6s ease-out 0.5s forwards; /* Delay added */
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.5); }
+  50% { box-shadow: 0 0 20px hsl(var(--primary) / 0.7); }
+}
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
 }

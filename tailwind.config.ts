@@ -94,25 +94,14 @@ export default {
   				height: '0'
   			}
   		},
-      'macbook-open': {
-        '0%': { transform: 'rotateX(80deg) translateY(50px) scale(0.8)', opacity: '0' },
-        '100%': { transform: 'rotateX(0deg) translateY(0) scale(1)', opacity: '1' },
-      },
-      'content-fade-in': {
-        '0%': { opacity: '0', transform: 'translateY(20px)' },
-        '100%': { opacity: '1', transform: 'translateY(0)' },
-      },
-      'glow': {
-        '0%, 100%': { boxShadow: '0 0 5px theme(colors.primary / 0.5)' },
-        '50%': { boxShadow: '0 0 20px theme(colors.primary / 0.7)' },
-      }
+      // Note: macbook-open, content-fade-in, and glow are defined in globals.css using @keyframes
   	},
   	animation: {
   		'accordion-down': 'accordion-down 0.2s ease-out',
   		'accordion-up': 'accordion-up 0.2s ease-out',
-      'macbook-open': 'macbook-open 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
-      'content-fade-in': 'content-fade-in 0.6s ease-out 0.5s forwards', // Delay added
-      'glow': 'glow 3s ease-in-out infinite',
+      'macbook-open': 'macbook-open 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards', // Keep utility name
+      'content-fade-in': 'content-fade-in 0.6s ease-out 0.5s forwards', // Keep utility name
+      'glow': 'glow 3s ease-in-out infinite', // Keep utility name
   	}
   },
   plugins: [require("tailwindcss-animate")],
