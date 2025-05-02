@@ -7,11 +7,11 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"; // Import Accordion components
+} from "@/components/ui/accordion";
 
 const experiences = [
   {
-    id: "exp1", // Added id for AccordionItem value
+    id: "exp1",
     title: "Lead Business Analyst (Product Manager)",
     company: "CyBIZ Lab, Iowa State University",
     location: "Ames, IA",
@@ -27,7 +27,7 @@ const experiences = [
     icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
-    id: "exp2", // Added id for AccordionItem value
+    id: "exp2",
     title: "Business Analyst Intern",
     company: "Able Up Iowa",
     location: "Ames, IA",
@@ -43,7 +43,7 @@ const experiences = [
     icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
-    id: "exp3", // Added id for AccordionItem value
+    id: "exp3",
     title: "Associate Software Engineer",
     company: "Accenture",
     location: "India",
@@ -58,7 +58,7 @@ const experiences = [
     icon: <Briefcase className="h-5 w-5 text-primary" />
   },
    {
-    id: "exp4", // Added id for AccordionItem value
+    id: "exp4",
     title: "Data Analyst Intern",
     company: "WNS Global Service",
     location: "India",
@@ -75,21 +75,20 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/20"> {/* Subtle background contrast */}
+    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/20">
       <SectionTitle>Work Experience</SectionTitle>
-      {/* Use Accordion for expandable experience boxes */}
       <Accordion type="single" collapsible className="w-full space-y-4">
         {experiences.map((exp) => (
-          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-0.5"> {/* Use new theme colors for hover */}
-            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/15 transition-colors data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/20"> {/* Use new accent color */}
+          <AccordionItem key={exp.id} value={exp.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-accent/60 transform hover:-translate-y-0.5"> {/* Updated hover border to accent */}
+            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/10 dark:hover:bg-accent/15 transition-colors data-[state=open]:bg-accent/20 dark:data-[state=open]:bg-accent/25 hover:text-accent-foreground"> {/* Use accent color for hover and open states */}
                <div className="flex items-start gap-4 w-full">
-                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Icon background using primary color */}
+                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
                       {exp.icon}
                   </div>
-                  <div className="flex-1"> {/* Text content container */}
-                      <h3 className="text-base md:text-lg font-semibold text-foreground">{exp.title}</h3> {/* Use text-foreground */}
-                      <div className="text-xs md:text-sm text-muted-foreground mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-3 gap-y-0.5 flex-wrap"> {/* Use text-muted-foreground */}
-                          <span className="font-medium text-foreground/90">{exp.company}</span> {/* Use text-foreground (slightly muted) */}
+                  <div className="flex-1">
+                      <h3 className="text-base md:text-lg font-semibold text-foreground">{exp.title}</h3>
+                      <div className="text-xs md:text-sm text-muted-foreground mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-3 gap-y-0.5 flex-wrap">
+                          <span className="font-medium text-foreground/90">{exp.company}</span>
                           <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {exp.location}</span>
                           <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {exp.duration}</span>
                       </div>
@@ -97,8 +96,8 @@ export function ExperienceSection() {
                </div>
             </AccordionTrigger>
             <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30">
-              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p> {/* Use text-foreground (slightly muted) */}
-              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80"> {/* Use text-foreground (slightly muted) */}
+              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p>
+              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80">
                 {exp.achievements.map((achievement, i) => (
                   <li key={i}>{achievement}</li>
                 ))}

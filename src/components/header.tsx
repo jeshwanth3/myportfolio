@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'; // Import SheetTitle, SheetDescription, SheetHeader
-import { Menu, User } from 'lucide-react'; // Added User icon
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Menu, User } from 'lucide-react';
 
 const navItems = [
   { label: 'Summary', href: '#summary' },
@@ -15,15 +15,15 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 glassmorphism"> {/* Enhanced glassmorphism */}
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height, max-width, centered */}
-        <Link href="/" className="mr-6 flex items-center space-x-2.5 group"> {/* Adjusted spacing */}
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 glassmorphism">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
+        <Link href="/" className="mr-6 flex items-center space-x-2.5 group">
            {/* User Icon instead of SVG logo */}
-           <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-accent group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient */}
+           <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-secondary group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient to use primary and secondary */}
             <User className="h-5 w-5 text-primary-foreground" />
            </div>
           {/* Updated Name with Gradient */}
-          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Updated gradient */}
+          <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Updated gradient to use primary and secondary */}
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
@@ -32,7 +32,7 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-primary/50" // Use text-foreground on hover
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-primary/50"
             >
               {item.label}
             </Link>
@@ -46,24 +46,21 @@ export function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            {/* Apply dark mode styles to SheetContent */}
             <SheetContent
                 side="right"
                 className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"
-                aria-describedby="mobile-nav-description" // Use specific ID for aria-describedby
+                aria-describedby="mobile-nav-description"
             >
-              {/* Add SheetHeader for accessibility */}
-              <SheetHeader className="sr-only">
-                 <SheetTitle>Mobile Navigation Menu</SheetTitle>
-                 <SheetDescription id="mobile-nav-description">Links to different sections of the portfolio.</SheetDescription>
+              <SheetHeader> {/* Keep header for accessibility */}
+                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+                 <SheetDescription id="mobile-nav-description" className="sr-only">Links to different sections of the portfolio.</SheetDescription>
               </SheetHeader>
-              <nav className="flex flex-col gap-4 mt-12"> {/* Increased top margin */}
-                 <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group"> {/* Increased bottom margin */}
-                    <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-accent group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient */}
+              <nav className="flex flex-col gap-4 mt-12">
+                 <Link href="/" className="mb-6 flex items-center space-x-2.5 px-2 group">
+                    <div className="p-1.5 rounded-full bg-gradient-to-tr from-primary to-secondary group-hover:animate-glow transition-all duration-300 ease-out transform group-hover:scale-110"> {/* Updated gradient */}
                         <User className="h-5 w-5 text-primary-foreground" />
                     </div>
-                   {/* Updated Name with Gradient for Mobile Menu */}
-                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Updated gradient */}
+                   <span className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300"> {/* Updated gradient */}
                      Sai Jeshwanth Goud Illuri
                    </span>
                 </Link>
@@ -71,7 +68,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent-foreground rounded-md transition-colors duration-200" // Use text-foreground and accent colors for hover
+                    // Use accent for hover background and foreground for text
+                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/15 hover:text-accent-foreground rounded-md transition-colors duration-200"
                   >
                     {item.label}
                   </Link>
