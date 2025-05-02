@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const professionalSummary = "Detail-oriented and impact-driven Product Manager and Business Analyst with 3+ years of experience driving data-led decisions, building scalable cloud solutions, and delivering user-centric features. Skilled in leveraging analytics, AI tools, and cross-functional collaboration to launch impactful products across SaaS, fintech, and transportation domains.";
-const yourName = "Satya Kola"; // Replace with your actual name
+const yourName = "Sai Jeshwanth Goud Illuri"; // Updated name
 
 export function SummarySection() {
   return (

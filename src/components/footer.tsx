@@ -14,7 +14,7 @@ export function Footer() {
         <footer className="py-4 md:px-6 border-t border-border/40 bg-secondary/80 dark:bg-card/80 mt-auto"> {/* Adjusted padding and background */}
             <div className="container flex flex-col items-center justify-between gap-2 md:h-16 md:flex-row text-xs md:text-sm"> {/* Adjusted height and text size */}
                 <p className="text-balance text-center text-muted-foreground md:text-left">
-                     © {currentYear !== null ? currentYear : '...'} Satya Kola. All rights reserved. {/* Replace [Your Name] & handle loading state */}
+                     © {currentYear !== null ? currentYear : '...'} Sai Jeshwanth Goud Illuri. All rights reserved. {/* Updated name & handle loading state */}
                 </p>
                 <p className="text-muted-foreground">
                     Built with <Link href="https://nextjs.org" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary">Next.js</Link> & <Link href="https://ui.shadcn.com/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4 hover:text-primary">Shadcn UI</Link>.

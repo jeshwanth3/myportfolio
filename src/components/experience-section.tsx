@@ -2,9 +2,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Briefcase, MapPin, Calendar } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"; // Import Accordion components
 
 const experiences = [
   {
+    id: "exp1", // Added id for AccordionItem value
     title: "Lead Business Analyst (Product Manager)",
     company: "CyBIZ Lab, Iowa State University",
     location: "Ames, IA",
@@ -20,6 +27,7 @@ const experiences = [
     icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
+    id: "exp2", // Added id for AccordionItem value
     title: "Business Analyst Intern",
     company: "Able Up Iowa",
     location: "Ames, IA",
@@ -35,6 +43,7 @@ const experiences = [
     icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
+    id: "exp3", // Added id for AccordionItem value
     title: "Associate Software Engineer",
     company: "Accenture",
     location: "India",
@@ -49,6 +58,7 @@ const experiences = [
     icon: <Briefcase className="h-5 w-5 text-primary" />
   },
    {
+    id: "exp4", // Added id for AccordionItem value
     title: "Data Analyst Intern",
     company: "WNS Global Service",
     location: "India",
@@ -67,39 +77,36 @@ export function ExperienceSection() {
   return (
     <SectionWrapper id="experience" className="bg-secondary/30 dark:bg-card/50"> {/* Subtle background contrast */}
       <SectionTitle>Work Experience</SectionTitle>
-      <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-primary/30 before:to-transparent dark:before:via-primary/50">
-        {experiences.map((exp, index) => (
-          <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-             {/* Icon */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary/50 bg-background dark:bg-card shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-               {exp.icon}
-            </div>
-
-             {/* Card */}
-            <Card className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-card dark:bg-secondary/50 mac-shadow hover:border-primary/30 transition-all duration-300 ease-out">
-              <CardHeader className="p-4 md:p-6"> {/* Adjusted padding */}
-                <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle>
-                {/* Replaced CardDescription with a div to avoid nesting div inside p */}
-                <div className="text-xs md:text-sm text-muted-foreground mt-1">
-                  <div className="flex items-center gap-x-3 gap-y-1 flex-wrap"> {/* Adjusted gap */}
-                    <span className="font-medium text-foreground/90">{exp.company}</span>
-                    <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {exp.location}</span>
-                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {exp.duration}</span>
+      {/* Use Accordion for expandable experience boxes */}
+      <Accordion type="single" collapsible className="w-full space-y-4">
+        {experiences.map((exp) => (
+          <AccordionItem key={exp.id} value={exp.id} className="border border-border dark:border-border/50 rounded-lg bg-card dark:bg-secondary/50 mac-shadow transition-all duration-300 ease-out overflow-hidden">
+            <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/10 dark:hover:bg-accent/20 transition-colors">
+               <div className="flex items-start gap-4 w-full">
+                  <div className="mt-1 shrink-0"> {/* Icon container */}
+                      {exp.icon}
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-0"> {/* Adjusted padding */}
-                <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/70">{exp.description}</p>
-                <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/90 dark:text-foreground/80"> {/* Adjusted spacing and color */}
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+                  <div className="flex-1"> {/* Text content container */}
+                      <h3 className="text-base md:text-lg font-semibold text-foreground">{exp.title}</h3>
+                      <div className="text-xs md:text-sm text-muted-foreground mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-3 gap-y-0.5 flex-wrap">
+                          <span className="font-medium text-foreground/90">{exp.company}</span>
+                          <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {exp.location}</span>
+                          <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {exp.duration}</span>
+                      </div>
+                  </div>
+               </div>
+            </AccordionTrigger>
+            <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/50 dark:border-border/30">
+              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/70">{exp.description}</p>
+              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/90 dark:text-foreground/80"> {/* Adjusted spacing and color */}
+                {exp.achievements.map((achievement, i) => (
+                  <li key={i}>{achievement}</li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </SectionWrapper>
   );
 }

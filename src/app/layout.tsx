@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Product Ascent Portfolio - [Your Name]', // Updated Title with placeholder
+  title: 'Product Ascent Portfolio - Sai Jeshwanth Goud Illuri', // Updated Title with name
   description: 'Personal portfolio showcasing product management skills and experience.', // Updated Description
 };
 

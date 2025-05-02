@@ -2,12 +2,11 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Download, ExternalLink } from 'lucide-react'; // Added ExternalLink
+import { Mail, Linkedin, ExternalLink } from 'lucide-react'; // Removed Download icon
 
 export function ContactSection() {
-  const email = "satya.kola.tech@gmail.com"; // Replace with actual email
-  const linkedInUrl = "https://www.linkedin.com/in/satyakola/"; // Replace with your actual LinkedIn URL
-  const resumeUrl = "/resume/Satya_Kola_Resume.pdf"; // Define path to resume PDF
+  const email = "your.email@example.com"; // Replace with actual email
+  const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/"; // Updated LinkedIn URL
 
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background to-background/80 dark:from-card/50 dark:to-background pb-16 md:pb-24 lg:pb-28"> {/* Adjusted padding and background */}
@@ -28,12 +27,7 @@ export function ContactSection() {
                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </a>
             </Button>
-            {/* Resume Download Button */}
-             <Button asChild variant="secondary" size="lg" className="shadow-sm hover:shadow-md transition-shadow">
-              <a href={resumeUrl} download="Satya_Kola_Resume.pdf"> {/* Added download attribute */}
-                <Download className="mr-2 h-4 w-4" /> Download Resume
-              </a>
-            </Button>
+            {/* Removed Resume Download Button */}
           </div>
         </CardContent>
       </Card>
