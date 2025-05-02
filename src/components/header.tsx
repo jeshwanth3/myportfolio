@@ -1,3 +1,5 @@
+'use client'; // Add use client directive for interactive components like Sheet
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
