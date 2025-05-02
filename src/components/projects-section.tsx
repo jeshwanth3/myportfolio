@@ -57,8 +57,8 @@ export function ProjectsSection() {
                   <Badge
                     key={tech}
                     variant="secondary" // Use secondary variant which pulls from theme
-                    // Use accent color for hover state
-                    className="text-[11px] md:text-xs font-normal border border-transparent hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2 py-0.5 rounded"
+                    // Use accent color for hover state and standard xs size
+                    className="text-xs font-normal border border-transparent hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2 py-0.5 rounded" // Changed from text-[11px] md:text-xs to text-xs
                   >
                     {tech}
                   </Badge>
@@ -89,3 +89,4 @@ export function ProjectsSection() {
     </SectionWrapper>
   );
 }
+
