@@ -50,7 +50,7 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-        // Updated Sidebar Colors with Refined Dark Mode Variants
+        // Updated Sidebar Colors with Refined Dark Mode Variants (No Green/Teal)
         sidebar: {
           DEFAULT: 'hsl(var(--sidebar-background))',
           foreground: 'hsl(var(--sidebar-foreground))',

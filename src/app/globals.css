@@ -16,7 +16,7 @@ body {
     --card-foreground: 240 10% 3.9%; /* Dark Gray for text */
     --popover: 0 0% 100%; /* White */
     --popover-foreground: 240 10% 3.9%; /* Dark Gray for text */
-    --primary: 180 100% 25.1%; /* Deep Teal (#008080) */
+    --primary: 180 100% 25.1%; /* Deep Teal (#008080) - Will be overridden by dark */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 0 0% 96.1%; /* Slightly off-white */
     --secondary-foreground: 240 10% 3.9%; /* Dark Gray for text */
@@ -46,7 +46,7 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Modern Palette v2 (More Refined) */
+    /* Dark Theme - Modern Palette v3 (No Green/Teal) */
     --background: 220 20% 6%;       /* Darker, slightly bluer background */
     --foreground: 210 30% 95%;       /* Slightly brighter off-white */
 
@@ -59,7 +59,8 @@ body {
     --primary: 200 90% 50%;         /* Modern Cyan/Blue */
     --primary-foreground: 210 100% 10%; /* Very dark blue for contrast on primary */
 
-    --secondary: 170 60% 40%;       /* Muted Teal */
+    /* Changed Secondary from Teal to Muted Blue */
+    --secondary: 220 15% 25%;       /* Muted Blue/Gray (Slightly lighter than muted) */
     --secondary-foreground: 210 30% 95%; /* Off-white */
 
     --muted: 220 15% 20%;           /* Dark muted blue/gray */
@@ -75,12 +76,12 @@ body {
     --input: 220 15% 22%;            /* Slightly lighter input border */
     --ring: 200 90% 60%;             /* Lighter primary for focus rings */
 
-    /* Adjusted Chart Colors for New Palette */
+    /* Adjusted Chart Colors for New Palette (No Green/Teal) */
     --chart-1: 200 80% 55%;         /* Primary (Lighter) */
-    --chart-2: 170 50% 45%;         /* Secondary (Lighter) */
+    --chart-2: 220 20% 50%;         /* Muted Blue (Medium) */
     --chart-3: 35 90% 65%;           /* Accent (Lighter) */
     --chart-4: 220 20% 60%;         /* Muted Blue/Gray */
-    --chart-5: 170 30% 70%;         /* Desaturated Teal/Green */
+    --chart-5: 35 100% 70%;          /* Accent (Brightest) */
 
     --radius: 0.75rem; /* Slightly larger radius for modern feel */
 
@@ -134,7 +135,7 @@ body {
   /* Frosted glass effect (apply to elements like headers/modals) */
   .glassmorphism {
     /* Adjusted opacity and blur for dark theme */
-    @apply bg-background/85 backdrop-blur-xl border border-border/10 dark:bg-background/75 dark:border-border/20;
+    @apply bg-background/85 backdrop-blur-2xl border border-border/10 dark:bg-background/75 dark:border-border/20;
   }
 
   /* Smooth scrollbar - Styled for the dark theme */
