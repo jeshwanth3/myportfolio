@@ -17,7 +17,7 @@ const navItems = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60 glassmorphism"> {/* Increased blur */}
-      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
+      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height from h-16 to h-20 */}
         <Link href="/" className="mr-6 flex items-center space-x-2 group">
           {/* Updated Name with Gradient - Uses primary and accent from the theme */}
           <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
