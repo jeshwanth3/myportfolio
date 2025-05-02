@@ -27,7 +27,7 @@ export function SummarySection() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4 md:pt-6">
             <Link href="#contact" passHref>
-              {/* Default button uses primary background */}
+              {/* Default button uses primary background, ensure clear hover/focus states */}
               <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 w-full sm:w-auto">
                 Contact Me <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -41,15 +41,15 @@ export function SummarySection() {
           </div>
         </div>
         <div className="md:col-span-2 flex justify-center items-center md:justify-end order-first md:order-last">
-           {/* Placeholder Image - Use primary border */}
+           {/* Placeholder Image - Use primary border, slightly increase size */}
           <Image
             src="https://picsum.photos/500/500"
             alt="Sai Jeshwanth Goud Illuri - Professional Headshot"
-            width={350}
+            width={350} // Keep size consistent
             height={350}
-            className="rounded-full mac-shadow border-4 border-primary/40 dark:border-primary/50 object-cover aspect-square w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px]" // Updated border to primary
+            className="rounded-full mac-shadow border-4 border-primary/40 dark:border-primary/50 object-cover aspect-square w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px]" // Ensure border uses primary theme color
             data-ai-hint="professional headshot person dark background modern studio lighting nebula purple teal"
-            priority
+            priority // Load image early
           />
         </div>
       </div>

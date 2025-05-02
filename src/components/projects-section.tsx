@@ -43,8 +43,9 @@ export function ProjectsSection() {
           <Card key={project.id} className="flex flex-col bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/50 dark:hover:border-accent/60 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Use primary/accent hover border */}
             <CardHeader className="p-5 md:p-6 pb-3">
               <div className="flex items-center gap-4 mb-2">
-                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full shrink-0">
-                   <FolderGit2 className="h-5 w-5 text-primary" />
+                 {/* Use primary theme color for icon background/text */}
+                 <div className="bg-primary/10 dark:bg-accent/20 p-2 rounded-full shrink-0">
+                   <FolderGit2 className="h-5 w-5 text-primary dark:text-accent" />
                  </div>
                 <CardTitle className="text-base md:text-lg font-semibold text-foreground">{project.title}</CardTitle>
               </div>
@@ -56,8 +57,8 @@ export function ProjectsSection() {
                   <Badge
                     key={tech}
                     variant="secondary" // Use secondary variant which pulls from theme
-                    // Use primary color for hover state
-                    className="text-[11px] md:text-xs font-normal border border-transparent hover:border-primary/40 dark:hover:border-primary/50 hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary transition-all duration-200 px-2 py-0.5 rounded"
+                    // Use primary/accent color for hover state
+                    className="text-[11px] md:text-xs font-normal border border-transparent hover:border-primary/40 dark:hover:border-accent/50 hover:bg-primary/10 dark:hover:bg-accent/15 hover:text-primary dark:hover:text-accent transition-all duration-200 px-2 py-0.5 rounded"
                   >
                     {tech}
                   </Badge>
@@ -67,14 +68,16 @@ export function ProjectsSection() {
             <CardFooter className="p-4 md:p-5 pt-0 mt-auto flex justify-end gap-2">
               {project.githubUrl && (
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" passHref>
-                  <Button variant="ghost" size="sm" className="text-xs h-7 px-2 text-muted-foreground hover:text-primary hover:bg-primary/10">
+                  {/* Ensure ghost button hover uses theme */}
+                  <Button variant="ghost" size="sm" className="text-xs h-7 px-2 text-muted-foreground hover:text-primary hover:bg-primary/10 dark:hover:text-accent dark:hover:bg-accent/15">
                     GitHub <ExternalLink className="ml-1 h-3 w-3" />
                   </Button>
                 </Link>
               )}
               {project.liveUrl && (
                  <Link href={project.liveUrl} target={project.liveUrl === '#' ? '_self' : '_blank'} rel="noopener noreferrer" passHref>
-                    <Button variant="outline" size="sm" className="text-xs h-7 px-2 bg-background/50 hover:bg-accent hover:text-accent-foreground">
+                    {/* Ensure outline button hover uses accent */}
+                    <Button variant="outline" size="sm" className="text-xs h-7 px-2 bg-background/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
                         {project.liveUrl === '#' ? 'View Site' : 'Live Demo'} <ExternalLink className="ml-1 h-3 w-3" />
                     </Button>
                  </Link>

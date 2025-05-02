@@ -29,8 +29,8 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              // Use muted-foreground and foreground for standard link colors
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline underline-offset-4 decoration-primary/50"
+              // Use muted-foreground and foreground for standard link colors, underline on hover using primary
+              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground hover:underline underline-offset-4 decoration-primary/50"
             >
               {item.label}
             </Link>
@@ -39,13 +39,15 @@ export function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+              {/* Ensure hover state is clear */}
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent/10 hover:text-accent-foreground">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent
                 side="right"
+                // Use themed background/border and glassmorphism effect
                 className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40 glassmorphism"
                 aria-describedby="mobile-nav-description"
             >
@@ -64,7 +66,7 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    // Use primary color for hover state in mobile menu
+                    // Use primary color for hover state background/text in mobile menu
                     className="block px-3 py-2 text-base font-medium text-foreground hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary rounded-md transition-colors duration-200"
                   >
                     {item.label}

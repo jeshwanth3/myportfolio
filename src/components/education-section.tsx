@@ -27,11 +27,12 @@ export function EducationSection() {
       <SectionTitle>Education</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {education.map((edu, index) => (
-          <Card key={index} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/60 dark:hover:border-primary/70 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Updated hover border to primary */}
+          <Card key={index} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-primary/60 dark:hover:border-accent/70 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Updated hover border to primary/accent */}
             <CardHeader className="p-5 md:p-6">
               <div className="flex items-start gap-4 mb-1">
-                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mt-0.5 shrink-0">
-                    <GraduationCap className="h-5 w-5 text-primary " />
+                 {/* Use primary/accent theme colors for icon background */}
+                 <div className="bg-primary/10 dark:bg-accent/20 p-2 rounded-full mt-0.5 shrink-0">
+                    <GraduationCap className="h-5 w-5 text-primary dark:text-accent" />
                  </div>
                  <div className="flex-1">
                     <CardTitle className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle>
