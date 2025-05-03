@@ -123,7 +123,7 @@ body {
     @apply border-border; /* Use themed border */
   }
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important; /* Ensure smooth scrolling */
     scroll-padding-top: 6rem; /* Adjust based on header height (h-20 = 5rem + buffer) */
   }
   body {
@@ -160,26 +160,19 @@ body {
     background-color: hsl(var(--background) / 0.85); /* Less transparent base */
     border: 1px solid hsl(var(--border) / 0.1);
     transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
+    backdrop-filter: blur(16px); /* Adjusted blur */
+    -webkit-backdrop-filter: blur(16px);
+    background-color: hsl(var(--background) / 0.7); /* Slightly more transparent with blur */
   }
 
   .dark .glassmorphism {
     background-color: hsl(var(--background) / 0.75); /* Darker base */
     border: 1px solid hsl(var(--border) / 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background-color: hsl(var(--background) / 0.6); /* Adjusted for dark mode with blur */
   }
 
-  /* Apply blur only if supported */
-  @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-     .glassmorphism {
-       backdrop-filter: blur(16px); /* Adjusted blur */
-       -webkit-backdrop-filter: blur(16px);
-       background-color: hsl(var(--background) / 0.7); /* Slightly more transparent with blur */
-     }
-     .dark .glassmorphism {
-       backdrop-filter: blur(16px);
-       -webkit-backdrop-filter: blur(16px);
-       background-color: hsl(var(--background) / 0.6);
-     }
-  }
 
   /* Minimal scrollbar */
   ::-webkit-scrollbar {
