@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>{/* Added lang="en" */}
       <body className={`${inter.variable} font-sans antialiased`}>{/* Use font variable */}
-         <ThemeProvider
+        <ThemeProvider
             attribute="class"
             defaultTheme="dark" // Set dark theme as default
             enableSystem={false} // Disable system preference detection to enforce dark theme
