@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
   // Use theme radius (md), adjust padding and font size slightly
-  "inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", // Added focus ring variables
   {
     variants: {
       variant: {

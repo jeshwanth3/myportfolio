@@ -83,7 +83,7 @@ export function ExperienceSection() {
             key={exp.id}
             value={exp.id}
             // Enhanced styling for accordion items
-            className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-0.5"
+            className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-0.5" // Use primary for hover border
           >
             <AccordionTrigger
               // Enhanced trigger styling using primary color for hover/open states

@@ -9,109 +9,109 @@ body {
 
 @layer base {
   :root {
-    /* Light Theme - Minimal & Modern */
-    --background: 0 0% 98%; /* Very Light Gray / Almost White */
-    --foreground: 240 10% 3.9%; /* Very Dark Gray */
+    /* Modern Light Theme */
+    --background: 0 0% 100%; /* White */
+    --foreground: 240 6% 10%; /* Very Dark Blue/Gray */
 
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 240 10% 3.9%;
+    --card: 0 0% 98%; /* Slightly Off-White */
+    --card-foreground: 240 6% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 240 6% 10%;
 
-    /* Primary - Muted Blue */
-    --primary: 220 50% 45%; /* Adjusted HSL for a softer blue */
+    /* Primary - Modern Blue */
+    --primary: 217 91% 60%; /* Brighter, modern blue */
     --primary-foreground: 0 0% 100%; /* White */
 
     /* Secondary - Light Gray */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 240 5% 34%;
 
-    --muted: 210 40% 90%; /* Muted Gray */
-    --muted-foreground: 240 3.8% 46.1%; /* Lighter Gray */
+    --muted: 220 10% 92%; /* Muted Gray */
+    --muted-foreground: 240 4% 46%; /* Lighter Gray */
 
-    /* Accent - Soft Gold/Orange */
-    --accent: 35 85% 60%; /* Adjusted HSL for a warm, desaturated orange */
-    --accent-foreground: 240 10% 3.9%; /* Dark text on accent */
+    /* Accent - Teal/Cyan */
+    --accent: 173 90% 40%; /* A vibrant teal */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 51%; /* Standard Red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 20% 88%; /* Lighter border */
-    --input: 210 20% 85%; /* Slightly darker input border */
-    --ring: 220 50% 55%; /* Primary blue for focus rings */
+    --border: 220 13% 91%; /* Lighter border */
+    --input: 220 13% 88%; /* Slightly darker input border */
+    --ring: 217 91% 70%; /* Brighter blue for focus rings */
 
     /* Chart Colors (Adjusted for consistency) */
-    --chart-1: 220 60% 60%; /* Primary Blue */
-    --chart-2: 35 70% 65%;  /* Accent Orange */
-    --chart-3: 210 30% 80%; /* Light Gray */
-    --chart-4: 220 40% 75%; /* Lighter Blue */
-    --chart-5: 35 50% 75%;  /* Lighter Orange */
+    --chart-1: 217 80% 65%; /* Primary Blue */
+    --chart-2: 173 70% 50%;  /* Accent Teal */
+    --chart-3: 220 10% 75%; /* Gray */
+    --chart-4: 217 60% 75%; /* Lighter Blue */
+    --chart-5: 173 50% 60%;  /* Lighter Teal */
 
-    --radius: 0.5rem; /* Reduced radius for sharper look */
+    --radius: 0.5rem; /* Standard radius */
 
-    /* Light Sidebar Variables - Inherit from main theme */
+    /* Light Sidebar Variables - Inherit or customize */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 10% 3.9%;
-    --sidebar-primary: 220 50% 45%;
+    --sidebar-foreground: 240 6% 10%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 35 85% 60%;
-    --sidebar-accent-foreground: 240 10% 3.9%;
-    --sidebar-border: 210 20% 88%;
-    --sidebar-ring: 220 50% 55%;
+    --sidebar-accent: 173 90% 40%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 70%;
   }
 
   .dark {
-    /* Dark Theme - Minimal & Modern */
-    --background: 240 10% 3.9%; /* Very Dark Gray */
-    --foreground: 0 0% 98%; /* Almost White */
+    /* Modern Dark Theme */
+    --background: 224 71% 4%; /* Very Dark Blue */
+    --foreground: 210 20% 98%; /* Almost White */
 
-    --card: 240 5% 12%; /* Slightly Lighter Dark Gray */
-    --card-foreground: 0 0% 98%;
+    --card: 224 71% 9%; /* Slightly Lighter Dark Blue */
+    --card-foreground: 210 20% 98%;
 
-    --popover: 240 6% 8%; /* Darker Popover */
-    --popover-foreground: 0 0% 98%;
+    --popover: 224 71% 6%; /* Darker Popover Blue */
+    --popover-foreground: 210 20% 98%;
 
-    /* Primary - Muted Blue (slightly brighter for dark mode) */
-    --primary: 220 60% 55%; /* Adjusted HSL */
-    --primary-foreground: 0 0% 100%; /* White text */
+    /* Primary - Brighter Blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 20% 98%;
 
-    /* Secondary - Dark Gray */
-    --secondary: 240 4% 18%;
-    --secondary-foreground: 0 0% 90%; /* Lighter secondary text */
+    /* Secondary - Dark Gray/Blue */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 240 4% 25%; /* Darker Muted Gray */
-    --muted-foreground: 240 5% 64.9%; /* Lighter Muted Text */
+    --muted: 215 25% 27%; /* Muted Dark Gray/Blue */
+    --muted-foreground: 210 20% 74%; /* Lighter Muted Text */
 
-    /* Accent - Soft Gold/Orange (slightly brighter) */
-    --accent: 35 90% 65%; /* Adjusted HSL */
-    --accent-foreground: 240 10% 3.9%; /* Dark text on accent */
+    /* Accent - Teal/Cyan */
+    --accent: 173 90% 45%; /* Slightly brighter teal */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
-    --destructive: 0 70% 50%; /* Adjusted Red */
+    --destructive: 0 63% 51%; /* Darker Red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4% 20%; /* Subtle Dark Border */
-    --input: 240 4% 25%; /* Slightly Lighter Input Border */
-    --ring: 220 60% 60%; /* Primary blue for focus rings */
+    --border: 215 28% 17%; /* Subtle Dark Border */
+    --input: 215 28% 22%; /* Slightly Lighter Input Border */
+    --ring: 217 91% 65%; /* Brighter blue for focus rings */
 
     /* Chart Colors (Adjusted for dark mode) */
-    --chart-1: 220 60% 65%; /* Primary Blue */
-    --chart-2: 35 75% 70%;  /* Accent Orange */
-    --chart-3: 240 5% 60%;  /* Gray */
-    --chart-4: 220 40% 70%; /* Lighter Blue */
-    --chart-5: 35 50% 70%;  /* Lighter Orange */
+    --chart-1: 217 80% 65%; /* Primary Blue */
+    --chart-2: 173 70% 50%;  /* Accent Teal */
+    --chart-3: 215 20% 50%;  /* Gray */
+    --chart-4: 217 60% 75%; /* Lighter Blue */
+    --chart-5: 173 50% 60%;  /* Lighter Teal */
 
     --radius: 0.5rem; /* Consistent radius */
 
     /* Dark Sidebar Variables */
-    --sidebar-background: 240 8% 7%; /* Slightly darker than main bg */
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 220 60% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 35 90% 65%;
-    --sidebar-accent-foreground: 240 10% 3.9%;
-    --sidebar-border: 240 4% 15%; /* Darker Sidebar Border */
-    --sidebar-ring: 220 60% 60%;
+    --sidebar-background: 224 71% 6%; /* Slightly darker than main bg */
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 173 90% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 28% 15%; /* Darker Sidebar Border */
+    --sidebar-ring: 217 91% 65%;
   }
 }
 
@@ -180,33 +180,43 @@ body {
 
   /* Minimal scrollbar */
   ::-webkit-scrollbar {
-    @apply w-[6px] h-[6px]; /* Slimmer scrollbar */
+    width: 6px;
+    height: 6px; /* Slimmer scrollbar */
   }
   ::-webkit-scrollbar-track {
-     @apply bg-transparent;
+     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-     @apply bg-muted/30 dark:bg-muted/20 rounded-full border-[1px] border-transparent bg-clip-content;
+     background-color: hsl(var(--muted) / 0.3);
+     border-radius: 10px; /* Use theme radius if desired */
+     border: 1px solid transparent;
+     background-clip: content-box;
   }
+   .dark ::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--muted) / 0.25);
+   }
   ::-webkit-scrollbar-thumb:hover {
-     @apply bg-muted-foreground/40 dark:bg-muted-foreground/30;
+     background-color: hsl(var(--muted-foreground) / 0.4);
   }
+   .dark ::-webkit-scrollbar-thumb:hover {
+      background-color: hsl(var(--muted-foreground) / 0.3);
+   }
 
   * {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--muted) / 0.3) transparent;
   }
   .dark * {
-    scrollbar-color: hsl(var(--muted) / 0.2) transparent;
+    scrollbar-color: hsl(var(--muted) / 0.25) transparent;
   }
 }
 
 /* Adjusted Glow Animation */
 @keyframes glow {
-  /* Use Accent color, softer glow */
-  0%, 100% { box-shadow: 0 0 3px hsl(var(--accent) / 0.3), 0 0 6px hsl(var(--accent) / 0.15); }
-  50% { box-shadow: 0 0 8px hsl(var(--accent) / 0.4), 0 0 15px hsl(var(--accent) / 0.25); }
+  /* Use Primary color for glow, slightly softer */
+  0%, 100% { box-shadow: 0 0 4px hsl(var(--primary) / 0.4), 0 0 8px hsl(var(--primary) / 0.2); }
+  50% { box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3); }
 }
 .animate-glow {
-  animation: glow 4s ease-in-out infinite; /* Slightly slower, more subtle */
+  animation: glow 3.5s ease-in-out infinite; /* Slightly faster */
 }

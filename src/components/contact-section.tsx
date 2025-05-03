@@ -3,6 +3,8 @@ import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
+
 
 export function ContactSection() {
   const email = "your.email@example.com"; // Replace with actual email
@@ -17,18 +19,18 @@ export function ContactSection() {
             I'm actively seeking new Product Management opportunities and would love to connect. Let's discuss how my skills can benefit your team!
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">
-             <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+             <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
                {/* Primary button uses primary theme color */}
                <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200">
                 <Mail className="mr-2 h-4 w-4" /> Email Me
                </Button>
-             </a>
-            <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+             </Link>
+            <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               {/* Outline button uses accent color for hover state */}
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent/10 hover:text-accent dark:bg-secondary/50 dark:hover:bg-accent/15 dark:hover:text-accent">
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </Button>
-            </a>
+            </Link>
           </div>
         </CardContent>
       </Card>

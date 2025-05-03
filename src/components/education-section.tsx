@@ -46,11 +46,11 @@ export function EducationSection() {
             >
               <AccordionTrigger
                  // Muted colors for hover/open states for a subtle effect
-                 className="p-4 md:p-6 text-left hover:no-underline hover:bg-muted/5 dark:hover:bg-muted/10 transition-colors data-[state=open]:bg-muted/10 dark:data-[state=open]:bg-muted/15 hover:text-foreground dark:hover:text-foreground dark:data-[state=open]:text-foreground"
+                 className="p-4 md:p-6 text-left hover:no-underline hover:bg-muted/10 dark:hover:bg-muted/15 transition-colors data-[state=open]:bg-muted/15 dark:data-[state=open]:bg-muted/20 hover:text-foreground dark:hover:text-foreground dark:data-[state=open]:text-foreground"
               >
                  <div className="flex items-start gap-4 w-full">
                     {/* Icon uses muted theme color */}
-                    <div className="mt-1 shrink-0 bg-muted/10 dark:bg-muted/20 p-2 rounded-full">
+                    <div className="mt-1 shrink-0 bg-muted/15 dark:bg-muted/25 p-2 rounded-full">
                         <GraduationCap className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <div className="flex-1">

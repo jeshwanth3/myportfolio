@@ -21,8 +21,8 @@ export function SummarySection() {
            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl text-foreground leading-tight">
             {yourName}
           </h1>
-           {/* Themed Accent Color for Title with Glow */}
-           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-accent animate-glow">
+           {/* Themed Primary Color for Title with Glow */}
+           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-primary animate-glow">
              Product Manager
            </h2>
            {/* Increased Summary Text Size and Leading */}
@@ -39,7 +39,7 @@ export function SummarySection() {
             </Link>
             <Link href="#experience" passHref>
               {/* Outline button uses accent color on hover */}
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent/10 hover:text-accent dark:bg-secondary/50 dark:hover:bg-accent/15 dark:hover:text-accent w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full sm:w-auto">
                 View Experience
               </Button>
             </Link>
