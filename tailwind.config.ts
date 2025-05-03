@@ -10,6 +10,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+        // Direct mapping from CSS variables defined in globals.css
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -50,52 +51,43 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-        // Updated Sidebar Colors - Rely on CSS Variables from globals.css
         sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))', // Uses --sidebar-background or --sidebar-background-dark
-          foreground: 'hsl(var(--sidebar-foreground))', // Uses --sidebar-foreground or --sidebar-foreground-dark
-          primary: 'hsl(var(--sidebar-primary))', // Uses --sidebar-primary or --sidebar-primary-dark
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))', // Uses --sidebar-primary-foreground or --sidebar-primary-foreground-dark
-          accent: 'hsl(var(--sidebar-accent))', // Uses --sidebar-accent or --sidebar-accent-dark
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))', // Uses --sidebar-accent-foreground or --sidebar-accent-foreground-dark
-          border: 'hsl(var(--sidebar-border))', // Uses --sidebar-border or --sidebar-border-dark
-          ring: 'hsl(var(--sidebar-ring))', // Uses --sidebar-ring or --sidebar-ring-dark
+          DEFAULT: 'hsl(var(--sidebar-background))',
+          foreground: 'hsl(var(--sidebar-foreground))',
+          primary: 'hsl(var(--sidebar-primary))',
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+          accent: 'hsl(var(--sidebar-accent))',
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+          border: 'hsl(var(--sidebar-border))',
+          ring: 'hsl(var(--sidebar-ring))',
         }
   		}
   	},
   	borderRadius: {
-      xl: 'calc(var(--radius) + 4px)', // Added xl radius
-  		lg: 'var(--radius)',
-  		md: 'calc(var(--radius) - 2px)',
-  		sm: 'calc(var(--radius) - 4px)',
-      full: '9999px', // Ensure rounded-full works
+      // Removed xl radius, using theme default
+  		lg: 'var(--radius)', // Typically 0.5rem now
+  		md: 'calc(var(--radius) - 2px)', // Typically 0.375rem
+  		sm: 'calc(var(--radius) - 4px)', // Typically 0.25rem
+      full: '9999px',
   	},
   	keyframes: {
   		'accordion-down': {
-  			from: {
-  				height: '0'
-  			},
-  			to: {
-  				height: 'var(--radix-accordion-content-height)'
-  			}
+  			from: { height: '0' },
+  			to: { height: 'var(--radix-accordion-content-height)' }
   		},
   		'accordion-up': {
-  			from: {
-  				height: 'var(--radix-accordion-content-height)'
-  			},
-  			to: {
-  				height: '0'
-  			}
+  			from: { height: 'var(--radix-accordion-content-height)' },
+  			to: { height: '0' }
   		},
-      'glow': { // Use accent color for glow in dark theme
-        '0%, 100%': { 'box-shadow': '0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2)' }, // Adjusted intensity
-        '50%': { 'box-shadow': '0 0 12px hsl(var(--accent) / 0.6), 0 0 20px hsl(var(--accent) / 0.4)' }, // Adjusted intensity
+      'glow': { // Use accent color for glow, adjusted intensity
+        '0%, 100%': { 'box-shadow': '0 0 3px hsl(var(--accent) / 0.3), 0 0 6px hsl(var(--accent) / 0.15)' },
+        '50%': { 'box-shadow': '0 0 8px hsl(var(--accent) / 0.4), 0 0 15px hsl(var(--accent) / 0.25)' },
       }
   	},
   	animation: {
   		'accordion-down': 'accordion-down 0.2s ease-out',
   		'accordion-up': 'accordion-up 0.2s ease-out',
-      'glow': 'glow 3s ease-in-out infinite',
+      'glow': 'glow 4s ease-in-out infinite', // Slightly slower animation
   	}
   },
   plugins: [require("tailwindcss-animate")],

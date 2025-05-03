@@ -9,106 +9,109 @@ body {
 
 @layer base {
   :root {
-    /* Updated Theme - Deep Teal & Vibrant Blue */
-    --background: 210 40% 98%; /* Light Gray (#F0F0F0) - Almost White */
-    --foreground: 240 6% 10%; /* Very Dark Gray for text */
+    /* Light Theme - Minimal & Modern */
+    --background: 0 0% 98%; /* Very Light Gray / Almost White */
+    --foreground: 240 10% 3.9%; /* Very Dark Gray */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 240 6% 10%; /* Dark Gray for text */
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 0 0% 100%; /* White */
-    --popover-foreground: 240 6% 10%; /* Dark Gray for text */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    /* Deep Teal as Primary */
-    --primary: 180 100% 25.1%; /* hsl(180, 100%, 25.1%) - #008080 */
+    /* Primary - Muted Blue */
+    --primary: 220 50% 45%; /* Adjusted HSL for a softer blue */
     --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 210 40% 96.1%; /* Light Gray - Slightly darker than background */
-    --secondary-foreground: 240 5% 26%; /* Darker Gray for secondary text */
+    /* Secondary - Light Gray */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 240 5.9% 10%;
 
     --muted: 210 40% 90%; /* Muted Gray */
-    --muted-foreground: 240 5% 64.9%; /* Lighter Gray for muted text */
+    --muted-foreground: 240 3.8% 46.1%; /* Lighter Gray */
 
-    /* Vibrant Blue as Accent */
-    --accent: 210 100% 50%; /* hsl(210, 100%, 50%) - #007BFF */
-    --accent-foreground: 0 0% 100%; /* White */
+    /* Accent - Soft Gold/Orange */
+    --accent: 35 85% 60%; /* Adjusted HSL for a warm, desaturated orange */
+    --accent-foreground: 240 10% 3.9%; /* Dark text on accent */
 
-    --destructive: 0 84.2% 60.2%; /* Default Red */
-    --destructive-foreground: 0 0% 98%; /* White */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 210 20% 80%; /* Lighter Border Gray */
-    --input: 210 20% 75%; /* Input Border Gray */
-    --ring: 210 100% 50%; /* Vibrant Blue for focus rings */
+    --border: 210 20% 88%; /* Lighter border */
+    --input: 210 20% 85%; /* Slightly darker input border */
+    --ring: 220 50% 55%; /* Primary blue for focus rings */
 
-    --chart-1: 180 70% 40%; /* Teal */
-    --chart-2: 210 70% 55%; /* Blue */
-    --chart-3: 240 5% 65%;  /* Gray */
-    --chart-4: 180 40% 60%; /* Lighter Teal */
-    --chart-5: 210 40% 70%; /* Lighter Blue */
+    /* Chart Colors (Adjusted for consistency) */
+    --chart-1: 220 60% 60%; /* Primary Blue */
+    --chart-2: 35 70% 65%;  /* Accent Orange */
+    --chart-3: 210 30% 80%; /* Light Gray */
+    --chart-4: 220 40% 75%; /* Lighter Blue */
+    --chart-5: 35 50% 75%;  /* Lighter Orange */
 
-    --radius: 0.75rem; /* Slightly increased radius */
+    --radius: 0.5rem; /* Reduced radius for sharper look */
 
-    /* Light Sidebar Variables - Adjusted for consistency */
-    --sidebar-background: 210 40% 97%;       /* Slightly off-white */
-    --sidebar-foreground: 240 6% 15%;       /* Dark Gray */
-    --sidebar-primary: 180 100% 25.1%;      /* Deep Teal */
-    --sidebar-primary-foreground: 0 0% 100%; /* White */
-    --sidebar-accent: 210 100% 50%;          /* Vibrant Blue */
-    --sidebar-accent-foreground: 0 0% 100%;  /* White */
-    --sidebar-border: 210 20% 85%;           /* Light Border */
-    --sidebar-ring: 210 100% 50%;            /* Vibrant Blue */
+    /* Light Sidebar Variables - Inherit from main theme */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 220 50% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 85% 60%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 210 20% 88%;
+    --sidebar-ring: 220 50% 55%;
   }
 
   .dark {
-    /* Dark Theme - Deep Teal & Vibrant Blue */
-    --background: 240 6% 10%; /* Very Dark Gray */
-    --foreground: 210 40% 98%; /* Bright Off-white */
+    /* Dark Theme - Minimal & Modern */
+    --background: 240 10% 3.9%; /* Very Dark Gray */
+    --foreground: 0 0% 98%; /* Almost White */
 
-    --card: 240 5% 14%; /* Slightly Lighter Dark Gray */
-    --card-foreground: 210 40% 98%;
+    --card: 240 5% 12%; /* Slightly Lighter Dark Gray */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 240 6% 8%; /* Darkest Popover */
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 6% 8%; /* Darker Popover */
+    --popover-foreground: 0 0% 98%;
 
-    /* Deep Teal as Primary (slightly brighter for dark mode) */
-    --primary: 180 100% 30%; /* Adjusted HSL for #008080 */
-    --primary-foreground: 0 0% 98%; /* White */
+    /* Primary - Muted Blue (slightly brighter for dark mode) */
+    --primary: 220 60% 55%; /* Adjusted HSL */
+    --primary-foreground: 0 0% 100%; /* White text */
 
-    --secondary: 240 5% 20%; /* Dark Gray */
-    --secondary-foreground: 210 30% 90%; /* Muted Off-white */
+    /* Secondary - Dark Gray */
+    --secondary: 240 4% 18%;
+    --secondary-foreground: 0 0% 90%; /* Lighter secondary text */
 
-    --muted: 240 5% 25%; /* Darker Muted Gray */
-    --muted-foreground: 210 25% 70%; /* Lighter Muted Gray */
+    --muted: 240 4% 25%; /* Darker Muted Gray */
+    --muted-foreground: 240 5% 64.9%; /* Lighter Muted Text */
 
-    /* Vibrant Blue as Accent */
-    --accent: 210 100% 60%; /* #007BFF equivalent, slightly brighter */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    /* Accent - Soft Gold/Orange (slightly brighter) */
+    --accent: 35 90% 65%; /* Adjusted HSL */
+    --accent-foreground: 240 10% 3.9%; /* Dark text on accent */
 
-    --destructive: 0 70% 55%; /* Adjusted Red */
+    --destructive: 0 70% 50%; /* Adjusted Red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4% 25%; /* Subtle Dark Gray Border */
-    --input: 240 4% 28%; /* Slightly Lighter Input Border */
-    --ring: 210 100% 60%; /* Vibrant Blue for focus rings */
+    --border: 240 4% 20%; /* Subtle Dark Border */
+    --input: 240 4% 25%; /* Slightly Lighter Input Border */
+    --ring: 220 60% 60%; /* Primary blue for focus rings */
 
-    /* Adjusted Chart Colors */
-    --chart-1: 180 70% 45%; /* Teal */
-    --chart-2: 210 70% 60%; /* Blue */
-    --chart-3: 240 5% 70%;  /* Gray */
-    --chart-4: 180 40% 65%; /* Lighter Teal */
-    --chart-5: 210 40% 75%; /* Lighter Blue */
+    /* Chart Colors (Adjusted for dark mode) */
+    --chart-1: 220 60% 65%; /* Primary Blue */
+    --chart-2: 35 75% 70%;  /* Accent Orange */
+    --chart-3: 240 5% 60%;  /* Gray */
+    --chart-4: 220 40% 70%; /* Lighter Blue */
+    --chart-5: 35 50% 70%;  /* Lighter Orange */
 
-    --radius: 0.75rem; /* Consistent with light theme */
+    --radius: 0.5rem; /* Consistent radius */
 
     /* Dark Sidebar Variables */
-    --sidebar-background: 240 6% 9%;       /* Slightly darker than main bg */
-    --sidebar-foreground: 210 35% 95%;      /* Sidebar Text */
-    --sidebar-primary: 180 100% 30%;         /* Deep Teal */
-    --sidebar-primary-foreground: 0 0% 98%; /* White */
-    --sidebar-accent: 210 100% 60%;         /* Vibrant Blue */
-    --sidebar-accent-foreground: 0 0% 100%;  /* White */
-    --sidebar-border: 240 4% 18%;          /* Sidebar Border */
-    --sidebar-ring: 210 100% 60%;           /* Vibrant Blue */
+    --sidebar-background: 240 8% 7%; /* Slightly darker than main bg */
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 220 60% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 90% 65%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 240 4% 15%; /* Darker Sidebar Border */
+    --sidebar-ring: 220 60% 60%;
   }
 }
 
@@ -118,102 +121,92 @@ body {
     @apply border-border; /* Use themed border */
   }
   html {
-    scroll-behavior: smooth; /* Added for smooth scrolling */
+    scroll-behavior: smooth;
     scroll-padding-top: 6rem; /* Adjust based on header height (h-20 = 5rem + buffer) */
   }
   body {
-    @apply bg-background text-foreground; /* Use themed background/foreground */
+    @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Add subtle animation and modern styles */
 @layer utilities {
-  /* Updated fadeIn animation */
   .animate-fade-in {
-    animation: fadeIn 0.7s ease-out forwards; /* Longer duration, ease-out, stays at end state */
+    animation: fadeIn 0.5s ease-out forwards; /* Faster fade-in */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Start slightly lower and smaller */
-    to { opacity: 1; transform: translateY(0) scale(1); } /* End at normal position and size */
+    from { opacity: 0; transform: translateY(10px); } /* Start slightly lower */
+    to { opacity: 1; transform: translateY(0); }
   }
 
-
-  /* Subtle shadow for depth - Adjusted for dark mode */
+  /* Reduced shadow intensity */
   .mac-shadow {
-     box-shadow: 0 10px 15px -3px hsl(var(--foreground) / 0.05), 0 4px 6px -4px hsl(var(--foreground) / 0.05);
-     border: 1px solid hsl(var(--border) / 0.1); /* More subtle border */
-     transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smooth transition */
+     box-shadow: 0 4px 6px -1px hsl(var(--foreground) / 0.04), 0 2px 4px -2px hsl(var(--foreground) / 0.04);
+     border: 1px solid hsl(var(--border) / 0.1);
+     transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
   }
   .dark .mac-shadow {
-     /* Adjusted shadow for the dark theme - softer */
-     box-shadow: 0 1px 2px 0 hsl(var(--foreground) / 0.1), 0 10px 25px -8px hsl(var(--background) / 0.5);
-     border: 1px solid hsl(var(--border) / 0.2); /* Slightly more visible border */
+     box-shadow: 0 1px 2px 0 hsl(var(--foreground) / 0.05), 0 2px 8px -4px hsl(var(--background) / 0.3);
+     border: 1px solid hsl(var(--border) / 0.2);
   }
 
-  /* Frosted glass effect (apply to elements like headers/modals) */
+  /* Subtle glassmorphism */
   .glassmorphism {
-    background-color: hsl(var(--background) / 0.7); /* More opaque base */
-    border: 1px solid hsl(var(--border) / 0.15); /* Base border */
-    transition: background-color 0.3s ease-out, border-color 0.3s ease-out; /* Smooth transition */
+    background-color: hsl(var(--background) / 0.85); /* Less transparent base */
+    border: 1px solid hsl(var(--border) / 0.1);
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
   }
 
   .dark .glassmorphism {
-    background-color: hsl(var(--background) / 0.65); /* Dark base */
-    border: 1px solid hsl(var(--border) / 0.25);
+    background-color: hsl(var(--background) / 0.75); /* Darker base */
+    border: 1px solid hsl(var(--border) / 0.15);
   }
 
-  /* Apply more transparent backgrounds ONLY if backdrop-filter is supported */
-  @supports (backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px)) {
+  /* Apply blur only if supported */
+  @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
      .glassmorphism {
-       @apply backdrop-blur-xl; /* Adjusted blur level */
-       background-color: hsl(var(--background) / 0.5); /* Light mode with backdrop */
+       backdrop-filter: blur(16px); /* Reduced blur */
+       -webkit-backdrop-filter: blur(16px);
+       background-color: hsl(var(--background) / 0.7); /* Slightly more transparent with blur */
      }
      .dark .glassmorphism {
-        @apply backdrop-blur-xl; /* Adjusted blur level */
-       background-color: hsl(var(--background) / 0.4); /* Dark mode with backdrop */
+       backdrop-filter: blur(16px);
+       -webkit-backdrop-filter: blur(16px);
+       background-color: hsl(var(--background) / 0.6);
      }
   }
 
-
-  /* Smooth scrollbar - Styled for the dark theme */
-  /* For Webkit-based browsers (Chrome, Safari) */
+  /* Minimal scrollbar */
   ::-webkit-scrollbar {
-    @apply w-[8px] h-[8px];
+    @apply w-[6px] h-[6px]; /* Slimmer scrollbar */
   }
   ::-webkit-scrollbar-track {
-     @apply bg-transparent; /* Make track transparent */
+     @apply bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
-     /* Use themed colors, slightly softer */
-     @apply bg-muted/40 dark:bg-muted/30 rounded-full border-[1px] border-transparent bg-clip-content;
+     @apply bg-muted/30 dark:bg-muted/20 rounded-full border-[1px] border-transparent bg-clip-content;
   }
   ::-webkit-scrollbar-thumb:hover {
-     /* Use slightly brighter themed colors on hover */
-     @apply bg-muted-foreground/50 dark:bg-muted-foreground/40;
+     @apply bg-muted-foreground/40 dark:bg-muted-foreground/30;
   }
 
-  /* Basic scrollbar for Firefox (optional, less customizable) */
   * {
     scrollbar-width: thin;
-    /* Use themed colors */
-    scrollbar-color: hsl(var(--muted) / 0.4) transparent; /* thumb track */
-  }
-  .dark * {
-    /* Ensure dark mode consistency */
     scrollbar-color: hsl(var(--muted) / 0.3) transparent;
   }
-
+  .dark * {
+    scrollbar-color: hsl(var(--muted) / 0.2) transparent;
+  }
 }
 
-/* Animations */
+/* Adjusted Glow Animation */
 @keyframes glow {
-  /* Use Accent color for glow, adjusted intensity */
-  0%, 100% { box-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); }
-  50% { box-shadow: 0 0 12px hsl(var(--accent) / 0.6), 0 0 20px hsl(var(--accent) / 0.4); }
+  /* Use Accent color, softer glow */
+  0%, 100% { box-shadow: 0 0 3px hsl(var(--accent) / 0.3), 0 0 6px hsl(var(--accent) / 0.15); }
+  50% { box-shadow: 0 0 8px hsl(var(--accent) / 0.4), 0 0 15px hsl(var(--accent) / 0.25); }
 }
 .animate-glow {
-  animation: glow 3.5s ease-in-out infinite; /* Slightly slower */
+  animation: glow 4s ease-in-out infinite; /* Slightly slower, more subtle */
 }

@@ -35,14 +35,23 @@ export function EducationSection() {
   return (
     <SectionWrapper id="education" className="bg-secondary/20 dark:bg-card/30">
       <SectionTitle>Education</SectionTitle>
-       {/* Wrap education cards in Accordion for consistency */}
+       {/* Accordion for education items */}
        <Accordion type="single" collapsible className="w-full space-y-4">
           {education.map((edu, index) => (
-            <AccordionItem key={edu.id} value={edu.id} className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-accent/50 dark:hover:border-accent/70 transform hover:-translate-y-0.5">
-              <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/10 dark:hover:bg-accent/15 transition-colors data-[state=open]:bg-accent/15 dark:data-[state=open]:bg-accent/20 hover:text-accent dark:hover:text-accent dark:data-[state=open]:text-accent">
+            <AccordionItem
+              key={edu.id}
+              value={edu.id}
+              // Clean and modern styling for education accordion items
+              className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-muted-foreground/30 dark:hover:border-muted-foreground/50 transform hover:-translate-y-0.5"
+            >
+              <AccordionTrigger
+                 // Muted colors for hover/open states for a subtle effect
+                 className="p-4 md:p-6 text-left hover:no-underline hover:bg-muted/5 dark:hover:bg-muted/10 transition-colors data-[state=open]:bg-muted/10 dark:data-[state=open]:bg-muted/15 hover:text-foreground dark:hover:text-foreground dark:data-[state=open]:text-foreground"
+              >
                  <div className="flex items-start gap-4 w-full">
-                    <div className="mt-1 shrink-0 bg-accent/10 dark:bg-accent/20 p-2 rounded-full">
-                        <GraduationCap className="h-5 w-5 text-accent" />
+                    {/* Icon uses muted theme color */}
+                    <div className="mt-1 shrink-0 bg-muted/10 dark:bg-muted/20 p-2 rounded-full">
+                        <GraduationCap className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <div className="flex-1">
                         <h3 className="text-base md:text-lg font-semibold text-foreground">{edu.degree}</h3>
@@ -50,7 +59,10 @@ export function EducationSection() {
                     </div>
                  </div>
               </AccordionTrigger>
-              <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30">
+              <AccordionContent
+                // Content styling
+                className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30"
+              >
                   <p className="text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/70">{edu.years}</p>
               </AccordionContent>
             </AccordionItem>
