@@ -59,6 +59,3 @@ export function EducationSection() {
     </SectionWrapper>
   );
 }
-
-
-    

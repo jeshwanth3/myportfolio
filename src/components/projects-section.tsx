@@ -96,6 +96,3 @@ export function ProjectsSection() {
     </SectionWrapper>
   );
 }
-
-
-    

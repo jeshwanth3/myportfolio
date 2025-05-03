@@ -110,6 +110,3 @@ export function ExperienceSection() {
     </SectionWrapper>
   );
 }
-
-
-    

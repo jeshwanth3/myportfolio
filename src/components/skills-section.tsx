@@ -90,6 +90,3 @@ export function SkillsSection() {
     </SectionWrapper>
   );
 }
-
-
-    
