@@ -14,7 +14,7 @@ export default function Home() {
       {/* Content is rendered directly */}
       <Header />
       {/* Added padding for mobile view */}
-      <main className="flex-1 px-4 sm:px-0">
+      <main className="flex-1 px-4 md:px-6">
         <SummarySection />
         <ExperienceSection />
         <ProjectsSection /> {/* Add ProjectsSection */}
