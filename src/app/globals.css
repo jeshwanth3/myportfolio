@@ -9,7 +9,7 @@ body {
 
 @layer base {
   :root {
-    /* Modern Light Theme */
+    /* Modern Light Theme (Reference - Dark mode is default) */
     --background: 0 0% 100%; /* White */
     --foreground: 240 6% 10%; /* Very Dark Blue/Gray */
 
@@ -62,56 +62,58 @@ body {
   }
 
   .dark {
-    /* Modern Dark Theme */
-    --background: 224 71% 4%; /* Very Dark Blue */
-    --foreground: 210 20% 98%; /* Almost White */
+    /* Refined Dark Theme - Deep Blue/Gray Base */
+    --background: 220 20% 7%; /* Very Dark Desaturated Blue */
+    --foreground: 210 40% 98%; /* Almost White / Very Light Gray */
 
-    --card: 224 71% 9%; /* Slightly Lighter Dark Blue */
-    --card-foreground: 210 20% 98%;
+    --card: 220 20% 11%; /* Slightly Lighter Dark Blue/Gray */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 224 71% 6%; /* Darker Popover Blue */
-    --popover-foreground: 210 20% 98%;
+    --popover: 220 20% 5%; /* Darker Popover Blue/Gray */
+    --popover-foreground: 210 40% 98%;
 
-    /* Primary - Brighter Blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 20% 98%;
+    /* Primary - Vibrant Blue */
+    --primary: 210 90% 55%; /* Slightly deeper, vibrant blue */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
 
     /* Secondary - Dark Gray/Blue */
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 215 25% 15%; /* Dark Gray-Blue */
+    --secondary-foreground: 210 30% 80%; /* Lighter Gray for secondary text */
 
-    --muted: 215 25% 27%; /* Muted Dark Gray/Blue */
-    --muted-foreground: 210 20% 74%; /* Lighter Muted Text */
+    /* Muted - Darker Gray/Blue */
+    --muted: 215 20% 25%; /* Muted Dark Gray/Blue */
+    --muted-foreground: 210 25% 65%; /* Muted Gray text */
 
-    /* Accent - Warm Orange/Amber */
-    --accent: 25 95% 55%; /* Slightly brighter orange/amber */
-    --accent-foreground: 15 0% 10%; /* Dark text on accent */
+    /* Accent - Warm Gold/Amber */
+    --accent: 35 85% 55%; /* Warm Gold/Amber */
+    --accent-foreground: 30 10% 10%; /* Dark text on accent */
 
-    --destructive: 0 63% 51%; /* Darker Red */
+    /* Destructive - Refined Red */
+    --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 28% 17%; /* Subtle Dark Border */
-    --input: 215 28% 22%; /* Slightly Lighter Input Border */
-    --ring: 217 91% 65%; /* Brighter blue for focus rings */
+    --border: 215 15% 22%; /* Subtle Dark Border */
+    --input: 215 20% 28%; /* Slightly Lighter Input Border */
+    --ring: 210 80% 65%; /* Brighter blue for focus rings */
 
     /* Chart Colors (Adjusted for dark mode) */
-    --chart-1: 217 80% 65%; /* Primary Blue */
-    --chart-2: 25 85% 60%;  /* Accent Orange/Amber */
-    --chart-3: 215 20% 50%;  /* Gray */
-    --chart-4: 217 60% 75%; /* Lighter Blue */
-    --chart-5: 25 70% 70%;  /* Lighter Orange/Amber */
+    --chart-1: 210 80% 60%; /* Primary Blue */
+    --chart-2: 35 80% 60%;  /* Accent Gold/Amber */
+    --chart-3: 215 15% 50%;  /* Gray */
+    --chart-4: 210 60% 70%; /* Lighter Blue */
+    --chart-5: 35 70% 70%;  /* Lighter Gold/Amber */
 
     --radius: 0.5rem; /* Consistent radius */
 
     /* Dark Sidebar Variables */
-    --sidebar-background: 224 71% 6%; /* Slightly darker than main bg */
-    --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 210 20% 98%;
-    --sidebar-accent: 25 95% 55%; /* Match main accent */
-    --sidebar-accent-foreground: 15 0% 10%; /* Match main accent fg */
-    --sidebar-border: 215 28% 15%; /* Darker Sidebar Border */
-    --sidebar-ring: 217 91% 65%;
+    --sidebar-background: 220 20% 5%; /* Slightly darker than main bg */
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 210 90% 55%; /* Match main primary */
+    --sidebar-primary-foreground: 0 0% 100%; /* Match main primary fg */
+    --sidebar-accent: 35 85% 55%; /* Match main accent */
+    --sidebar-accent-foreground: 30 10% 10%; /* Match main accent fg */
+    --sidebar-border: 215 15% 18%; /* Darker Sidebar Border */
+    --sidebar-ring: 210 80% 65%; /* Match main ring */
   }
 }
 
@@ -148,7 +150,8 @@ body {
      transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
   }
   .dark .mac-shadow {
-     box-shadow: 0 1px 2px 0 hsl(var(--foreground) / 0.05), 0 2px 8px -4px hsl(var(--background) / 0.3);
+     /* Subtle shadow for dark mode */
+     box-shadow: 0 1px 2px 0 hsl(var(--background) / 0.3), 0 2px 8px -4px hsl(var(--background) / 0.4);
      border: 1px solid hsl(var(--border) / 0.2);
   }
 
@@ -167,7 +170,7 @@ body {
   /* Apply blur only if supported */
   @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
      .glassmorphism {
-       backdrop-filter: blur(16px); /* Reduced blur */
+       backdrop-filter: blur(16px); /* Adjusted blur */
        -webkit-backdrop-filter: blur(16px);
        background-color: hsl(var(--background) / 0.7); /* Slightly more transparent with blur */
      }
