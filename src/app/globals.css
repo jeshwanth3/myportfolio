@@ -134,7 +134,8 @@ body {
   /* Frosted glass effect (apply to elements like headers/modals) */
   .glassmorphism {
     /* Adjusted opacity and blur for dark theme */
-    @apply bg-background/90 backdrop-blur-xl border border-border/15 dark:bg-background/85 dark:border-border/25;
+    /* Increased blur from backdrop-blur-xl to backdrop-blur-2xl */
+    @apply bg-background/90 backdrop-blur-2xl border border-border/15 dark:bg-background/80 dark:border-border/25;
   }
 
   /* Smooth scrollbar - Styled for the dark theme */
