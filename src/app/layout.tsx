@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning> {/* Added lang="en" */}
+    <html lang="en" className="dark" suppressHydrationWarning>{/* Apply dark class and suppress warning */}
       <body className={`${inter.variable} font-sans antialiased`}> {/* Use font variable */}
           <ThemeProvider
              attribute="class"
