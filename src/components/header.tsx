@@ -7,6 +7,14 @@ import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog"; // Impo
 import { Menu, Terminal, X } from 'lucide-react'; // Added Terminal icon
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Import VisuallyHidden
+import {
+  Menubar,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarItem,
+  MenubarSeparator,
+} from "@/components/ui/menubar"; // Import Menubar components
 
 const desktopNavItems = [
   { label: 'Experience', href: '#experience' },
@@ -43,21 +51,21 @@ export function Header() {
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
-        {/* Desktop Navigation */}
-        <nav className="hidden gap-6 md:gap-8 md:flex">
-          {desktopNavItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              // Subtle hover effect, using accent color, increased font size
-              className="text-base font-medium text-muted-foreground transition-all duration-200 hover:text-accent hover:scale-105 relative group"
-            >
-              {item.label}
-              {/* Underline animation */}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 ease-out group-hover:w-full"></span>
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Navigation - Replaced with Menubar */}
+        <Menubar className="hidden md:flex">
+          <MenubarMenu>
+            <MenubarTrigger>Sections</MenubarTrigger>
+            <MenubarContent>
+              {desktopNavItems.map((item) => (
+                <MenubarItem key={item.label} asChild>
+                  <Link href={item.href}>
+                    {item.label}
+                  </Link>
+                </MenubarItem>
+              ))}
+            </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
         {/* Mobile Navigation Trigger */}
         <div className="flex items-center gap-2 md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
