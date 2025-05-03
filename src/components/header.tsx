@@ -75,25 +75,27 @@ export function Header() {
                 aria-describedby="mobile-nav-description" // Use a specific ID for description
              >
                <SheetHeader className="border-b border-border/20 pb-4">
+                 {/* Visually hidden title for accessibility */}
+                 <DialogTitle id="mobile-nav-title" className="sr-only">
+                    Mobile Navigation Menu
+                 </DialogTitle>
+                 {/* Add a visually hidden description for screen readers */}
+                  <DialogDescription id="mobile-nav-description" className="sr-only"> {/* Ensure id matches aria-describedby */}
+                    Mobile navigation menu containing links to different sections of the portfolio.
+                  </DialogDescription>
                  <div className="flex items-center justify-between px-4">
-                  {/* Use DialogTitle for accessibility */}
-                   <DialogTitle id="mobile-nav-title" asChild> {/* Ensure id matches aria-labelledby */}
-                     <Link href="/" className="flex items-center space-x-2.5 px-2 py-3 group" onClick={closeSheet}>
+                    {/* The main clickable header link */}
+                    <Link href="/" className="flex items-center space-x-2.5 px-2 py-3 group" onClick={closeSheet}>
                         <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
                         <span className="text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
-                          Sai Jeshwanth Goud Illuri
+                        Sai Jeshwanth Goud Illuri
                         </span>
-                      </Link>
-                   </DialogTitle>
+                    </Link>
                    <Button variant="ghost" className="h-8 w-8 p-0" size="icon" onClick={closeSheet}>
                       <X className="h-5 w-5" />
                       <VisuallyHidden>Close Menu</VisuallyHidden> {/* Accessibility */}
                    </Button>
                  </div>
-                 {/* Add a visually hidden description for screen readers */}
-                  <DialogDescription id="mobile-nav-description" className="sr-only"> {/* Ensure id matches aria-describedby */}
-                    Mobile navigation menu containing links to different sections of the portfolio.
-                  </DialogDescription>
                </SheetHeader>
               {/* Mobile Navigation Links */}
               <nav className="flex flex-col justify-center items-center mt-6">
