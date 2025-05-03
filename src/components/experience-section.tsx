@@ -73,12 +73,14 @@ export function ExperienceSection() {
     <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/20">
       <SectionTitle>Work Experience</SectionTitle>
       <Tabs defaultValue={experiences[0].id} className="w-full">
-        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 h-auto p-1 bg-muted/50 dark:bg-muted/30 rounded-lg mb-6">
+        {/* Ensure grid adjusts for mobile */}
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 h-auto p-1 bg-muted/50 dark:bg-muted/30 rounded-lg mb-6">
           {experiences.map((exp) => (
              <TabsTrigger
                key={exp.id}
                value={exp.id}
-               className="px-3 py-2.5 text-xs sm:text-sm font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-background dark:data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-md transition-all duration-200 ease-in-out"
+               // Adjusted padding and text size for better mobile experience
+               className="px-3 py-3 sm:py-2.5 text-sm sm:text-sm font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-background dark:data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-md transition-all duration-200 ease-in-out"
             >
                {exp.company}
             </TabsTrigger>

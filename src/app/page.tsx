@@ -13,7 +13,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background">
       {/* Content is rendered directly */}
       <Header />
-      <main className="flex-1">
+      {/* Added padding for mobile view */}
+      <main className="flex-1 px-4 sm:px-0">
         <SummarySection />
         <ExperienceSection />
         <ProjectsSection /> {/* Add ProjectsSection */}

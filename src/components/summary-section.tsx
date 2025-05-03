@@ -47,13 +47,14 @@ export function SummarySection() {
         </div>
         {/* Image Column */}
         <div className="md:col-span-2 flex justify-center items-center md:justify-end order-first md:order-last">
-           {/* Increased Image Size and Border */}
+           {/* Increased Image Size and Border, adjusted mobile sizes */}
           <Image
             src="https://picsum.photos/600/600" // Slightly larger source image
             alt="Sai Jeshwanth Goud Illuri - Professional Headshot"
             width={400} // Adjusted width
             height={400} // Adjusted height
-            className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px]" // Adjusted class sizes
+            // More responsive sizing: smaller base, scales up
+            className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[70vw] max-w-[280px] h-auto sm:max-w-[350px] md:max-w-[400px]"
             data-ai-hint="professional headshot person dark background modern studio lighting nebula purple teal"
             priority // Load image early
           />
@@ -62,4 +63,3 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
-

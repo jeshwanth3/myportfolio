@@ -38,7 +38,8 @@ export function ProjectsSection() {
   return (
     <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15">
       <SectionTitle>Projects</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {/* Grid layout adjusts for mobile */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {projects.map((project) => (
           <Card
             key={project.id}

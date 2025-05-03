@@ -18,16 +18,17 @@ export function ContactSection() {
           <p className="text-base md:text-lg text-muted-foreground">
             I'm actively seeking new Product Management opportunities and would love to connect. Let's discuss how my skills can benefit your team!
           </p>
+          {/* Buttons stack vertically on small screens */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">
-             <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+             <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto"> {/* Ensure full width on small screens */}
                {/* Primary button uses primary theme color */}
-               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 animate-glow"> {/* Added animate-glow */}
+               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 animate-glow w-full"> {/* Added w-full */}
                 <Mail className="mr-2 h-4 w-4" /> Email Me
                </Button>
              </Link>
-            <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+            <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto"> {/* Ensure full width on small screens */}
               {/* Outline button uses accent color for hover state */}
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full"> {/* Added w-full */}
                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </Button>
             </Link>
@@ -37,4 +38,3 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
-
