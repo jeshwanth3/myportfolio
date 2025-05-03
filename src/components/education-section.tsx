@@ -2,12 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { GraduationCap } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 
 const education = [
@@ -35,39 +29,28 @@ export function EducationSection() {
   return (
     <SectionWrapper id="education" className="bg-secondary/20 dark:bg-card/30">
       <SectionTitle>Education</SectionTitle>
-       {/* Accordion for education items */}
-       <Accordion type="single" collapsible className="w-full space-y-4">
-          {education.map((edu, index) => (
-            <AccordionItem
+       {/* Grid layout for education items */}
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {education.map((edu) => (
+            <Card
               key={edu.id}
-              value={edu.id}
-              // Clean and modern styling for education accordion items using muted colors
-              className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-muted-foreground/30 dark:hover:border-muted-foreground/50 transform hover:-translate-y-0.5"
+              className="bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1"
             >
-              <AccordionTrigger
-                 // Muted colors for hover/open states for a subtle effect
-                 className="p-4 md:p-6 text-left hover:no-underline hover:bg-muted/10 dark:hover:bg-muted/15 transition-colors data-[state=open]:bg-muted/15 dark:data-[state=open]:bg-muted/20 hover:text-muted-foreground dark:hover:text-muted-foreground dark:data-[state=open]:text-muted-foreground"
-              >
-                 <div className="flex items-start gap-4 w-full">
-                    {/* Icon uses muted theme color */}
-                    <div className="mt-1 shrink-0 bg-muted/15 dark:bg-muted/25 p-2 rounded-full">
-                        <GraduationCap className="h-5 w-5 text-muted-foreground" />
-                    </div>
-                    <div className="flex-1">
-                        <h3 className="text-base md:text-lg font-semibold text-foreground">{edu.degree}</h3>
-                        <p className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</p>
-                    </div>
-                 </div>
-              </AccordionTrigger>
-              <AccordionContent
-                // Content styling
-                className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30"
-              >
-                  <p className="text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/70">{edu.years}</p>
-              </AccordionContent>
-            </AccordionItem>
+               <CardHeader className="flex flex-row items-start gap-4 p-5 md:p-6 pb-3">
+                  <div className="bg-muted/15 dark:bg-muted/25 p-2 rounded-full mt-0.5 shrink-0">
+                      <GraduationCap className="h-5 w-5 text-muted-foreground" />
+                  </div>
+                   <div className="flex-1">
+                       <CardTitle className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle>
+                       <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</CardDescription>
+                   </div>
+               </CardHeader>
+               <CardContent className="p-5 md:p-6 pt-0">
+                   <p className="text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/70">{edu.years}</p>
+               </CardContent>
+            </Card>
           ))}
-      </Accordion>
+      </div>
     </SectionWrapper>
   );
 }

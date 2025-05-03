@@ -30,9 +30,9 @@ body {
     --muted: 220 10% 92%; /* Muted Gray */
     --muted-foreground: 240 4% 46%; /* Lighter Gray */
 
-    /* Accent - Teal/Cyan */
-    --accent: 173 90% 40%; /* A vibrant teal */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    /* Accent - Warm Orange/Amber */
+    --accent: 30 90% 50%; /* A warm orange/amber */
+    --accent-foreground: 20 0% 10%; /* Dark text on accent */
 
     --destructive: 0 72% 51%; /* Standard Red */
     --destructive-foreground: 0 0% 98%;
@@ -43,10 +43,10 @@ body {
 
     /* Chart Colors (Adjusted for consistency) */
     --chart-1: 217 80% 65%; /* Primary Blue */
-    --chart-2: 173 70% 50%;  /* Accent Teal */
+    --chart-2: 30 80% 55%;  /* Accent Orange/Amber */
     --chart-3: 220 10% 75%; /* Gray */
     --chart-4: 217 60% 75%; /* Lighter Blue */
-    --chart-5: 173 50% 60%;  /* Lighter Teal */
+    --chart-5: 30 60% 65%;  /* Lighter Orange/Amber */
 
     --radius: 0.5rem; /* Standard radius */
 
@@ -55,8 +55,8 @@ body {
     --sidebar-foreground: 240 6% 10%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 173 90% 40%;
-    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-accent: 30 90% 50%; /* Match main accent */
+    --sidebar-accent-foreground: 20 0% 10%; /* Match main accent fg */
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217 91% 70%;
   }
@@ -83,9 +83,9 @@ body {
     --muted: 215 25% 27%; /* Muted Dark Gray/Blue */
     --muted-foreground: 210 20% 74%; /* Lighter Muted Text */
 
-    /* Accent - Teal/Cyan */
-    --accent: 173 90% 45%; /* Slightly brighter teal */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    /* Accent - Warm Orange/Amber */
+    --accent: 25 95% 55%; /* Slightly brighter orange/amber */
+    --accent-foreground: 15 0% 10%; /* Dark text on accent */
 
     --destructive: 0 63% 51%; /* Darker Red */
     --destructive-foreground: 0 0% 98%;
@@ -96,10 +96,10 @@ body {
 
     /* Chart Colors (Adjusted for dark mode) */
     --chart-1: 217 80% 65%; /* Primary Blue */
-    --chart-2: 173 70% 50%;  /* Accent Teal */
+    --chart-2: 25 85% 60%;  /* Accent Orange/Amber */
     --chart-3: 215 20% 50%;  /* Gray */
     --chart-4: 217 60% 75%; /* Lighter Blue */
-    --chart-5: 173 50% 60%;  /* Lighter Teal */
+    --chart-5: 25 70% 70%;  /* Lighter Orange/Amber */
 
     --radius: 0.5rem; /* Consistent radius */
 
@@ -108,8 +108,8 @@ body {
     --sidebar-foreground: 210 20% 95%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 210 20% 98%;
-    --sidebar-accent: 173 90% 45%;
-    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-accent: 25 95% 55%; /* Match main accent */
+    --sidebar-accent-foreground: 15 0% 10%; /* Match main accent fg */
     --sidebar-border: 215 28% 15%; /* Darker Sidebar Border */
     --sidebar-ring: 217 91% 65%;
   }
@@ -188,7 +188,7 @@ body {
   }
   ::-webkit-scrollbar-thumb {
      background-color: hsl(var(--muted) / 0.3);
-     border-radius: 10px; /* Use theme radius if desired */
+     border-radius: var(--radius); /* Use theme radius */
      border: 1px solid transparent;
      background-clip: content-box;
   }

@@ -2,12 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Briefcase, MapPin, Calendar } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const experiences = [
   {
@@ -24,7 +19,7 @@ const experiences = [
       "Defined and monitored 10+ KPIs, contributing to a 15% reduction in commuter delays.",
       "Translated complex transportation data into actionable insights for product development.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" /> // Use primary color for consistency
+    icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
     id: "exp2",
@@ -77,47 +72,48 @@ export function ExperienceSection() {
   return (
     <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/20">
       <SectionTitle>Work Experience</SectionTitle>
-      <Accordion type="single" collapsible className="w-full space-y-4">
-        {experiences.map((exp) => (
-          <AccordionItem
-            key={exp.id}
-            value={exp.id}
-            // Enhanced styling for accordion items using primary color for interaction
-            className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-0.5" // Use primary for hover border
-          >
-            <AccordionTrigger
-              // Enhanced trigger styling using primary color for hover/open states
-              className="p-4 md:p-6 text-left hover:no-underline hover:bg-primary/10 dark:hover:bg-primary/15 transition-colors data-[state=open]:bg-primary/15 dark:data-[state=open]:bg-primary/20 hover:text-primary dark:hover:text-primary dark:data-[state=open]:text-primary"
+      <Tabs defaultValue={experiences[0].id} className="w-full">
+        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 h-auto p-1 bg-muted/50 dark:bg-muted/30 rounded-lg mb-6">
+          {experiences.map((exp) => (
+             <TabsTrigger
+               key={exp.id}
+               value={exp.id}
+               className="px-3 py-2.5 text-xs sm:text-sm font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-background dark:data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-md transition-all duration-200 ease-in-out"
             >
-               <div className="flex items-start gap-4 w-full">
-                  {/* Icon uses primary theme color */}
+               {exp.company}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        {experiences.map((exp) => (
+          <TabsContent key={exp.id} value={exp.id}>
+            <Card className="bg-card/90 dark:bg-secondary/60 mac-shadow border border-border/20 dark:border-border/30">
+              <CardHeader className="p-5 md:p-6">
+                <div className="flex items-start gap-4">
                   <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
                       {exp.icon}
                   </div>
                   <div className="flex-1">
-                      <h3 className="text-base md:text-lg font-semibold text-foreground">{exp.title}</h3>
-                      <div className="text-xs md:text-sm text-muted-foreground mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-3 gap-y-0.5 flex-wrap">
-                          <span className="font-medium text-foreground/90">{exp.company}</span>
-                          <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {exp.location}</span>
-                          <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {exp.duration}</span>
-                      </div>
+                    <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle>
+                    <div className="text-sm text-muted-foreground mt-1.5 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1 flex-wrap">
+                      <span className="font-medium text-foreground/90">{exp.company}</span>
+                      <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {exp.location}</span>
+                      <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> {exp.duration}</span>
+                    </div>
                   </div>
-               </div>
-            </AccordionTrigger>
-            <AccordionContent
-              // Enhanced content styling
-              className="p-4 md:p-6 pt-0 border-t border-border/30 dark:border-border/40 bg-card/50 dark:bg-secondary/30"
-            >
-              <p className="mb-3 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p>
-              <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80">
-                {exp.achievements.map((achievement, i) => (
-                  <li key={i}>{achievement}</li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
+                </div>
+              </CardHeader>
+              <CardContent className="p-5 md:p-6 pt-0">
+                <p className="mb-4 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p>
+                <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80">
+                  {exp.achievements.map((achievement, i) => (
+                    <li key={i}>{achievement}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </TabsContent>
         ))}
-      </Accordion>
+      </Tabs>
     </SectionWrapper>
   );
 }
