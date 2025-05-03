@@ -9,53 +9,7 @@ body {
 
 @layer base {
   :root {
-    /* Modern Light Theme (Reference - Dark mode is default) */
-    --background: 0 0% 100%; /* White */
-    --foreground: 240 6% 10%; /* Very Dark Blue/Gray */
-
-    --card: 0 0% 98%; /* Slightly Off-White */
-    --card-foreground: 240 6% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 6% 10%;
-
-    /* Primary - Modern Blue */
-    --primary: 210 90% 55%; /* Slightly deeper, vibrant blue */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
-
-    /* Secondary - Light Gray */
-    --secondary: 220 15% 96%;
-    --secondary-foreground: 240 5% 34%;
-
-    --muted: 220 10% 92%; /* Muted Gray */
-    --muted-foreground: 240 4% 46%; /* Lighter Gray */
-
-    /* Accent - Warm Gold/Amber */
-    --accent: 35 85% 55%; /* Warm Gold/Amber */
-    --accent-foreground: 30 10% 10%; /* Dark text on accent */
-
-
-    --destructive: 0 72% 51%; /* Standard Red */
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 220 13% 91%; /* Lighter border */
-    --input: 220 13% 88%; /* Slightly darker input border */
-    --ring: 210 80% 65%; /* Brighter blue for focus rings */
-
-    /* Chart Colors (Adjusted for consistency) */
-    --chart-1: 210 80% 60%; /* Primary Blue */
-    --chart-2: 35 80% 60%;  /* Accent Gold/Amber */
-    --chart-3: 215 15% 50%;  /* Gray */
-    --chart-4: 210 60% 70%; /* Lighter Blue */
-    --chart-5: 35 70% 70%;  /* Lighter Gold/Amber */
-
-
-    --radius: 0.5rem; /* Standard radius */
-
-  }
-
-  .dark {
-    /* Refined Dark Theme - Deep Blue/Gray Base */
+    /* Modern Dark Theme - Deep Blue/Gray Base */
     --background: 220 20% 7%; /* Very Dark Desaturated Blue */
     --foreground: 210 40% 98%; /* Almost White / Very Light Gray */
 
@@ -65,21 +19,21 @@ body {
     --popover: 220 20% 5%; /* Darker Popover Blue/Gray */
     --popover-foreground: 210 40% 98%;
 
-    /* Primary - Vibrant Blue */
-    --primary: 210 90% 55%; /* Slightly deeper, vibrant blue */
+    /* Primary - Vibrant Teal */
+    --primary: 180 65% 40%; /* Deep Teal */
     --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    /* Secondary - Dark Gray/Blue */
-    --secondary: 215 25% 15%; /* Dark Gray-Blue */
+    /* Secondary - Light Gray */
+    --secondary: 220 15% 15%; /* Darker shade for secondary in dark mode */
     --secondary-foreground: 210 30% 80%; /* Lighter Gray for secondary text */
 
     /* Muted - Darker Gray/Blue */
     --muted: 215 20% 25%; /* Muted Dark Gray/Blue */
     --muted-foreground: 210 25% 65%; /* Muted Gray text */
 
-    /* Accent - Warm Gold/Amber */
-    --accent: 35 85% 55%; /* Warm Gold/Amber */
-    --accent-foreground: 30 10% 10%; /* Dark text on accent */
+    /* Accent - Vibrant Blue */
+    --accent: 210 100% 50%; /* Vibrant Blue */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
     /* Destructive - Refined Red */
     --destructive: 0 70% 60%;
@@ -90,14 +44,19 @@ body {
     --ring: 210 80% 65%; /* Brighter blue for focus rings */
 
     /* Chart Colors (Adjusted for dark mode) */
-    --chart-1: 210 80% 60%; /* Primary Blue */
-    --chart-2: 35 80% 60%;  /* Accent Gold/Amber */
+    --chart-1: 180 70% 55%; /* Lighter Teal */
+    --chart-2: 210 80% 60%;  /* Accent Blue */
     --chart-3: 215 15% 50%;  /* Gray */
-    --chart-4: 210 60% 70%; /* Lighter Blue */
-    --chart-5: 35 70% 70%;  /* Lighter Gold/Amber */
+    --chart-4: 180 50% 70%; /* Muted Teal */
+    --chart-5: 210 60% 70%; /* Lighter Blue */
 
     --radius: 0.5rem; /* Consistent radius */
 
+  }
+
+  .dark {
+    /* Keep dark theme as the default */
+    /* Re-using the root variables for dark mode */
   }
 }
 
@@ -109,7 +68,7 @@ body {
   html {
     scroll-behavior: smooth; /* Smooth scroll */
     /* Increased padding slightly more than header height (h-20 = 5rem) */
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5.5rem; /* Adjusted for header */
   }
   body {
     @apply bg-background text-foreground;
@@ -140,32 +99,18 @@ body {
      border: 1px solid hsl(var(--border) / 0.2);
   }
 
-  /* Subtle glassmorphism for header */
+  /* Enhanced glassmorphism for header */
   .glassmorphism {
-    /* Light mode fallback (though dark is default) */
-    background-color: hsl(var(--background) / 0.7); /* Increased opacity slightly */
-    backdrop-filter: blur(18px); /* Increase blur radius */
-    -webkit-backdrop-filter: blur(18px); /* Increase blur radius */
-    border-bottom: 1px solid hsl(var(--border) / 0.1);
+    background-color: hsl(var(--background) / 0.6); /* Adjusted dark mode base opacity */
+    backdrop-filter: blur(18px); /* Increased blur radius */
+    -webkit-backdrop-filter: blur(18px); /* Increased blur radius */
+    border-bottom: 1px solid hsl(var(--border) / 0.15); /* Darker border */
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
   }
   @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
     .glassmorphism {
-       /* Adjust background color for better blur effect if supported */
-      background-color: hsl(var(--background) / 0.5); /* More transparency with blur */
+       background-color: hsl(var(--background) / 0.65); /* Slightly less transparent with blur */
     }
-  }
-
-  .dark .glassmorphism {
-    background-color: hsl(var(--background) / 0.6); /* Adjusted dark mode base */
-    backdrop-filter: blur(18px); /* Increase blur radius */
-    -webkit-backdrop-filter: blur(18px); /* Increase blur radius */
-    border-bottom: 1px solid hsl(var(--border) / 0.15); /* Darker border */
-  }
-  @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
-      .dark .glassmorphism {
-          background-color: hsl(var(--background) / 0.6); /* Adjusted dark mode with blur */
-      }
   }
 
 
