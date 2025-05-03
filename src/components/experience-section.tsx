@@ -95,7 +95,7 @@ export function ExperienceSection() {
                       {exp.icon}
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle>
+                    <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle> {/* Changed to h3 */}
                     <div className="text-sm text-muted-foreground mt-1.5 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1 flex-wrap">
                       <span className="font-medium text-foreground/90">{exp.company}</span>
                       <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {exp.location}</span>

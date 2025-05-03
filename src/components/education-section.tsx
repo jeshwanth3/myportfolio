@@ -41,7 +41,7 @@ export function EducationSection() {
                       <GraduationCap className="h-5 w-5 text-muted-foreground" />
                   </div>
                    <div className="flex-1">
-                       <CardTitle className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle>
+                       <CardTitle as="h3" className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Changed to h3 */}
                        <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</CardDescription>
                    </div>
                </CardHeader>

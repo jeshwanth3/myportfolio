@@ -18,15 +18,15 @@ export function SummarySection() {
              Hello, I'm
           </p>
            {/* Larger Name */}
-           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl text-foreground leading-tight">
+           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-foreground leading-tight">
             {yourName}
           </h1>
            {/* Themed Primary Color for Title with Glow */}
-           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-primary animate-glow">
+           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow">
              Product Manager
            </h2>
            {/* Increased Summary Text Size and Leading */}
-          <p className="text-base sm:text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto md:mx-0 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground md:text-lg max-w-2xl mx-auto md:mx-0 leading-relaxed">
             {professionalSummary}
           </p>
           {/* Buttons with increased gap and padding */}
@@ -50,9 +50,10 @@ export function SummarySection() {
            {/* Increased Image Size and Border, adjusted mobile sizes */}
           <Image
             src="https://picsum.photos/600/600" // Slightly larger source image
-            alt="Sai Jeshwanth Goud Illuri - Professional Headshot"
+            alt="Professional headshot of Sai Jeshwanth Goud Illuri" // More descriptive alt text
             width={400} // Adjusted width
             height={400} // Adjusted height
+            sizes="(max-width: 768px) 70vw, (max-width: 1024px) 400px, 400px" // Added sizes attribute
             // More responsive sizing: smaller base, scales up
             className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[70vw] max-w-[280px] h-auto sm:max-w-[350px] md:max-w-[400px]"
             data-ai-hint="professional headshot person dark background modern studio lighting nebula purple teal"

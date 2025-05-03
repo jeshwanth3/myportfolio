@@ -62,7 +62,7 @@ export function SkillsSection() {
               <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
                 {category.icon}
               </div>
-              <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{category.title}</CardTitle>
+              <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{category.title}</CardTitle> {/* Changed to h3 */}
             </CardHeader>
             <CardContent className="p-5 md:p-6 pt-0">
                {/* Badges use accent color on hover */}

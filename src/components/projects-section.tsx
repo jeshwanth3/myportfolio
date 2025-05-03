@@ -51,7 +51,7 @@ export function ProjectsSection() {
                   <FolderGit2 className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1">
-                   <CardTitle className="text-lg md:text-xl font-semibold text-foreground">{project.title}</CardTitle>
+                   <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{project.title}</CardTitle> {/* Changed to h3 */}
                 </div>
               </div>
               <CardDescription className="text-sm text-muted-foreground">{project.description}</CardDescription>

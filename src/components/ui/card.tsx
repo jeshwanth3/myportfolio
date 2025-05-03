@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { Slot } from "@radix-ui/react-slot"; // Import Slot
 import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
@@ -31,10 +31,10 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
-  HTMLParagraphElement, // Use p for semantic correctness unless it must be a heading
-  React.HTMLAttributes<HTMLHeadingElement> // Keep HTMLHeadingElement for prop compatibility if needed
->(({ className, ...props }, ref) => (
-  <p // Using <p> assuming it's a title within the card context
+  HTMLDivElement, // Change element type to div
+  React.HTMLAttributes<HTMLHeadingElement> & { as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" } // Add 'as' prop
+>(({ className, as: Tag = "div", ...props }, ref) => ( // Default to 'div', allow custom tag
+  <Tag // Use the determined Tag
     ref={ref}
     className={cn(
       "text-lg font-semibold leading-none tracking-tight", // Adjusted size
