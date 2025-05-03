@@ -47,7 +47,7 @@ export function SkillsSection() {
       <SectionTitle>Skills</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {skillCategories.map((category) => (
-          <Card key={category.title} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-accent/60 dark:hover:border-accent/70 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Updated hover border */}
+          <Card key={category.title} className="bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-accent/60 dark:hover:border-accent/70 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Updated hover border and added transform */}
              <CardHeader className="flex flex-row items-center gap-4 pb-3 p-5 md:p-6">
                 {/* Use accent color for icon background/text */}
                 <div className="bg-accent/10 dark:bg-accent/20 p-2 rounded-full">

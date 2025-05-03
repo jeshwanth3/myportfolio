@@ -40,7 +40,7 @@ export function ProjectsSection() {
       <SectionTitle>Projects</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {projects.map((project) => (
-          <Card key={project.id} className="flex flex-col bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-accent/60 dark:hover:border-accent/70 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Use accent hover border */}
+          <Card key={project.id} className="flex flex-col bg-card/90 dark:bg-secondary/60 mac-shadow hover:border-accent/60 dark:hover:border-accent/70 transition-all duration-300 ease-out hover:shadow-lg transform hover:-translate-y-1"> {/* Use accent hover border and added transform */}
             <CardHeader className="p-5 md:p-6 pb-3">
               <div className="flex items-center gap-4 mb-2">
                  {/* Use accent theme color for icon background/text */}
