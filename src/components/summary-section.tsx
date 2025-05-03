@@ -15,7 +15,7 @@ export function SummarySection() {
         {/* Text Content Column */}
         <div className="md:col-span-3 space-y-4 md:space-y-6 text-center md:text-left">
           <p className="text-base sm:text-lg text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto md:mx-0 font-normal">
-             Hello, I'm
+             Hello, I&apos;m
           </p>
            {/* Larger Name */}
            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-foreground leading-tight">

@@ -16,7 +16,7 @@ export function ContactSection() {
       <Card className="max-w-xl mx-auto bg-card/80 dark:bg-secondary/60 mac-shadow border border-border/20 dark:border-border/30 backdrop-blur-sm">
         <CardContent className="p-6 md:p-8 text-center space-y-6">
           <p className="text-base md:text-lg text-muted-foreground">
-            I'm actively seeking new Product Management opportunities and would love to connect. Let's discuss how my skills can benefit your team!
+            I&apos;m actively seeking new Product Management opportunities and would love to connect. Let&apos;s discuss how my skills can benefit your team!
           </p>
           {/* Buttons stack vertically on small screens */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">

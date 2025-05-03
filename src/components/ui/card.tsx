@@ -1,6 +1,5 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"; // Import Slot
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -9,14 +8,13 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      // Use theme radius, refined border and shadow
       "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 ease-in-out",
       className
     )}
     {...props}
   />
-))
-Card.displayName = "Card"
+));
+Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<
   HTMLDivElement,
@@ -27,23 +25,24 @@ const CardHeader = React.forwardRef<
     className={cn("flex flex-col space-y-1.5 p-6", className)} // Standard padding
     {...props}
   />
-))
-CardHeader.displayName = "CardHeader"
+));
+CardHeader.displayName = "CardHeader";
 
+// Updated typing for CardTitle ref to support both heading and div elements
 const CardTitle = React.forwardRef<
-  HTMLDivElement, // Change element type to div
-  React.HTMLAttributes<HTMLHeadingElement> & { as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" } // Add 'as' prop
->(({ className, as: Tag = "div", ...props }, ref) => ( // Default to 'div', allow custom tag
-  <Tag // Use the determined Tag
+  HTMLHeadingElement | HTMLDivElement, // Ref can point to a HeadingElement or a DivElement
+  React.HTMLAttributes<HTMLElement> & { as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" } // Props include common attributes and the 'as' prop
+>(({ className, as: Tag = "div", ...props }, ref) => (
+  <Tag
     ref={ref}
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight", // Adjusted size
+      "text-lg font-semibold leading-none tracking-tight",
       className
     )}
     {...props}
-   />
-))
-CardTitle.displayName = "CardTitle"
+  />
+));
+CardTitle.displayName = "CardTitle";
 
 const CardDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -54,16 +53,16 @@ const CardDescription = React.forwardRef<
     className={cn("text-sm text-muted-foreground", className)} // Standard muted text
     {...props}
   />
-))
-CardDescription.displayName = "CardDescription"
+));
+CardDescription.displayName = "CardDescription";
 
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} /> // Standard padding
-))
-CardContent.displayName = "CardContent"
+));
+CardContent.displayName = "CardContent";
 
 const CardFooter = React.forwardRef<
   HTMLDivElement,
@@ -74,7 +73,7 @@ const CardFooter = React.forwardRef<
     className={cn("flex items-center p-6 pt-0", className)} // Standard padding
     {...props}
   />
-))
-CardFooter.displayName = "CardFooter"
+));
+CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };

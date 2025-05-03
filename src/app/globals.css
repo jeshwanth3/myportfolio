@@ -161,27 +161,28 @@ body {
   /* Subtle glassmorphism for header */
   .glassmorphism {
     /* Light mode fallback (though dark is default) */
-    background-color: hsl(var(--background) / 0.7);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background-color: hsl(var(--background) / 0.7); /* Increased opacity slightly */
+    backdrop-filter: blur(18px); /* Increase blur radius */
+    -webkit-backdrop-filter: blur(18px); /* Increase blur radius */
     border-bottom: 1px solid hsl(var(--border) / 0.1);
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
   }
   @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
     .glassmorphism {
+       /* Adjust background color for better blur effect if supported */
       background-color: hsl(var(--background) / 0.5); /* More transparency with blur */
     }
   }
 
   .dark .glassmorphism {
-    background-color: hsl(var(--background) / 0.7); /* Slightly darker base for dark */
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background-color: hsl(var(--background) / 0.6); /* Adjusted dark mode base */
+    backdrop-filter: blur(18px); /* Increase blur radius */
+    -webkit-backdrop-filter: blur(18px); /* Increase blur radius */
     border-bottom: 1px solid hsl(var(--border) / 0.15); /* Darker border */
   }
   @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
       .dark .glassmorphism {
-          background-color: hsl(var(--background) / 0.6); /* More transparency with blur */
+          background-color: hsl(var(--background) / 0.6); /* Adjusted dark mode with blur */
       }
   }
 

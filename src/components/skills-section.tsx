@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, Cpu, Briefcase, Settings, Cloud, Workflow, BarChart, Users, Rocket, Target, ClipboardList, MousePointerClick, TestTube, Zap, LayoutGrid, Presentation, BrainCircuit } from 'lucide-react';
+import { Code, Briefcase, Settings, Cloud, Workflow, BarChart, Users, Rocket, Target, ClipboardList, MousePointerClick, TestTube, LayoutGrid, Presentation, BrainCircuit } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -67,7 +67,7 @@ export function SkillsSection() {
             <CardContent className="p-5 md:p-6 pt-0">
                {/* Badges use accent color on hover */}
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, index) => (
+                {category.skills.map((skill) => (
                   <Badge
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary" // Use secondary variant for a distinct look
