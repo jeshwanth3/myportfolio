@@ -52,15 +52,6 @@ body {
 
     --radius: 0.5rem; /* Standard radius */
 
-    /* Light Sidebar Variables - Inherit or customize */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 6% 10%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 30 90% 50%; /* Match main accent */
-    --sidebar-accent-foreground: 20 0% 10%; /* Match main accent fg */
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 70%;
   }
 
   .dark {
@@ -107,15 +98,6 @@ body {
 
     --radius: 0.5rem; /* Consistent radius */
 
-    /* Dark Sidebar Variables */
-    --sidebar-background: 220 20% 5%; /* Slightly darker than main bg */
-    --sidebar-foreground: 210 30% 90%;
-    --sidebar-primary: 210 90% 55%; /* Match main primary */
-    --sidebar-primary-foreground: 0 0% 100%; /* Match main primary fg */
-    --sidebar-accent: 35 85% 55%; /* Match main accent */
-    --sidebar-accent-foreground: 30 10% 10%; /* Match main accent fg */
-    --sidebar-border: 215 15% 18%; /* Darker Sidebar Border */
-    --sidebar-ring: 210 80% 65%; /* Match main ring */
   }
 }
 
