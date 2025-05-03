@@ -1,11 +1,21 @@
 'use client'; // Add use client directive for interactive components like Sheet
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Terminal } from 'lucide-react'; // Added Terminal icon for a futuristic touch
+import { Button, buttonVariants } from '@/components/ui/button';
+import { DialogDescription } from '@/components/ui/dialog';
+import { DialogTitle } from "@radix-ui/react-dialog";
+import { Menu, Terminal, X } from 'lucide-react'; // Added Terminal icon for a futuristic touch
+import { VisuallyHidden } from "@/components/ui/visually-hidden";
 
-const navItems = [
+const desktopNavItems = [
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' },
+];
+
+const mobileNavItems = [
   { label: 'Summary', href: '#summary' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
@@ -14,6 +24,7 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet"
 export function Header() {
   return (
     // Apply glassmorphism, increased blur, subtle background, slightly taller
@@ -22,15 +33,15 @@ export function Header() {
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
         <Link href="/" className="mr-4 flex items-center space-x-2 group"> {/* Reduced mr-6 to mr-4 for slightly more space */}
           {/* Terminal Icon */}
-          <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
+          <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" /> {/* Fix 1 */}
           {/* Updated Name with Gradient and glow */}
           {/* Increased font size */}
-          <span className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
+          <span className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow"> {/* Fix 1 */}
             Sai Jeshwanth Goud Illuri
           </span>
-        </Link>
+        </Link> {/* Fix 1 */}
         <nav className="hidden gap-6 md:gap-8 md:flex"> {/* Adjusted gap */}
-          {navItems.map((item) => (
+          {desktopNavItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
@@ -49,37 +60,48 @@ export function Header() {
               {/* Updated hover state & increased size for mobile trigger */}
               <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-10 w-10"> {/* Increased size */}
                 <Menu className="h-6 w-6" /> {/* Slightly larger icon */}
-                <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent
+             <SheetContent
+                forceMount
                 side="right"
-                // Modernized Sheet styling
-                className="w-[80vw] max-w-[350px] bg-card/90 dark:bg-background/95 border-l border-border/20 dark:border-border/30 backdrop-blur-lg" // Use viewport width unit, set max-width
-                aria-labelledby="mobile-nav-title" // Use aria-labelledby
-            >
+                className="w-[80vw] max-w-[350px] bg-card/90 dark:bg-background/95 border-l border-border/20 dark:border-border/30 backdrop-blur-lg"
+                aria-labelledby="mobile-nav-title"
+                // Add transition when open and close
+                data-transition-all="" data-duration-300=""
+             >
               {/* Use SheetTitle for accessibility */}
+              <VisuallyHidden><DialogTitle>Mobile navigation</DialogTitle> <DialogDescription>This is the mobile navigation menu</DialogDescription></VisuallyHidden>
+
+
+
+
                <SheetHeader className="border-b border-border/20 pb-4">
-                 <SheetTitle id="mobile-nav-title" className="sr-only">Mobile Navigation Menu</SheetTitle>
-                 {/* Mobile menu title with icon */}
-                 <Link href="/" className="flex items-center space-x-2.5 px-2 py-2 group"> {/* Added py-2 for tap target */}
-                   <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
-                   {/* Increased font size */}
-                   <span className="text-xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
-                     Sai Jeshwanth Goud Illuri
-                   </span>
-                </Link>
-              </SheetHeader>
-              <nav className="flex flex-col gap-3 mt-6"> {/* Reduced gap slightly */}
-                {/* Correctly map and render navItems for the mobile menu */}
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    // Updated mobile link styling for better tappability, increased font size
-                    className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent rounded-lg transition-all duration-200"
-                  >
-                    {item.label}
+                 <div className="flex items-center justify-between px-4">
+                  {/* Mobile menu title with icon */}
+                   <Link href="/" className="flex items-center space-x-2.5 px-2 py-3 group" onClick={() => {
+                       // Close the sheet here if needed
+                     }}>
+                      <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
+                      <span className="text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
+                      Sai Jeshwanth Goud Illuri
+                    </span>
+                  </Link>
+                   <Button variant="ghost" className="h-8 w-8 p-0" size="icon" onClick={() => {
+                      // Close the sheet here if needed
+                    }}>
+                      <X className="h-5 w-5" />
+                   </Button>
+                 </div>
+               </SheetHeader>
+              <nav className="flex flex-col justify-center items-center mt-6">
+                {mobileNavItems.map((item, index) => (
+                  <Link key={item.label} href={item.href} className={`block w-full px-4 py-3 text-xl font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent transition-all duration-200 ${index === mobileNavItems.length - 1 ? 'border-b border-border/20' : ''}`} onClick={() => {
+                    // Close the sheet here if needed
+                   }}>
+                    <div className="w-full text-center">
+                      {item.label}
+                    </div>
                   </Link>
                 ))}
               </nav>
