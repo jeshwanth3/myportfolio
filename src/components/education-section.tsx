@@ -41,12 +41,12 @@ export function EducationSection() {
             <AccordionItem
               key={edu.id}
               value={edu.id}
-              // Clean and modern styling for education accordion items
+              // Clean and modern styling for education accordion items using muted colors
               className="border border-border/30 dark:border-border/50 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out overflow-hidden hover:border-muted-foreground/30 dark:hover:border-muted-foreground/50 transform hover:-translate-y-0.5"
             >
               <AccordionTrigger
                  // Muted colors for hover/open states for a subtle effect
-                 className="p-4 md:p-6 text-left hover:no-underline hover:bg-muted/10 dark:hover:bg-muted/15 transition-colors data-[state=open]:bg-muted/15 dark:data-[state=open]:bg-muted/20 hover:text-foreground dark:hover:text-foreground dark:data-[state=open]:text-foreground"
+                 className="p-4 md:p-6 text-left hover:no-underline hover:bg-muted/10 dark:hover:bg-muted/15 transition-colors data-[state=open]:bg-muted/15 dark:data-[state=open]:bg-muted/20 hover:text-muted-foreground dark:hover:text-muted-foreground dark:data-[state=open]:text-muted-foreground"
               >
                  <div className="flex items-start gap-4 w-full">
                     {/* Icon uses muted theme color */}
