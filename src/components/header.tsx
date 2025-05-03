@@ -76,9 +76,11 @@ export function Header() {
              >
                <SheetHeader className="border-b border-border/20 pb-4">
                  {/* Visually hidden title for accessibility */}
-                 <DialogTitle id="mobile-nav-title" className="sr-only">
-                    Mobile Navigation Menu
-                 </DialogTitle>
+                 <VisuallyHidden>
+                   <DialogTitle id="mobile-nav-title">
+                      Mobile Navigation Menu
+                   </DialogTitle>
+                 </VisuallyHidden>
                  {/* Add a visually hidden description for screen readers */}
                   <DialogDescription id="mobile-nav-description" className="sr-only"> {/* Ensure id matches aria-describedby */}
                     Mobile navigation menu containing links to different sections of the portfolio.
