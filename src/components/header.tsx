@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button'; // Removed buttonVariants import as it's unused
-import { DialogDescription } from '@/components/ui/dialog';
-import { DialogTitle } from "@radix-ui/react-dialog";
+import { Button } from '@/components/ui/button';
+import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog"; // Import DialogTitle and DialogDescription
 import { Menu, Terminal, X } from 'lucide-react'; // Added Terminal icon
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Import VisuallyHidden
@@ -78,7 +77,7 @@ export function Header() {
                <SheetHeader className="border-b border-border/20 pb-4">
                  <div className="flex items-center justify-between px-4">
                   {/* Use DialogTitle for accessibility */}
-                   <DialogTitle id="mobile-nav-title" asChild>
+                   <DialogTitle id="mobile-nav-title" asChild> {/* Ensure id matches aria-labelledby */}
                      <Link href="/" className="flex items-center space-x-2.5 px-2 py-3 group" onClick={closeSheet}>
                         <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
                         <span className="text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
@@ -92,7 +91,7 @@ export function Header() {
                    </Button>
                  </div>
                  {/* Add a visually hidden description for screen readers */}
-                  <DialogDescription id="mobile-nav-description" className="sr-only">
+                  <DialogDescription id="mobile-nav-description" className="sr-only"> {/* Ensure id matches aria-describedby */}
                     Mobile navigation menu containing links to different sections of the portfolio.
                   </DialogDescription>
                </SheetHeader>
