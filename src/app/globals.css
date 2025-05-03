@@ -102,6 +102,7 @@ body {
   }
   html {
     scroll-behavior: smooth; /* Added for smooth scrolling */
+    scroll-padding-top: 5.5rem; /* Added padding equal to header height + buffer (h-20 = 5rem) */
   }
   body {
     @apply bg-background text-foreground dark:bg-background dark:text-foreground; /* Ensure dark mode applies */
@@ -177,3 +178,5 @@ body {
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
+
+  
