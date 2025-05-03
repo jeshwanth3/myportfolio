@@ -102,7 +102,7 @@ body {
   }
   html {
     scroll-behavior: smooth; /* Added for smooth scrolling */
-    scroll-padding-top: 5.5rem; /* Added padding equal to header height + buffer (h-20 = 5rem) */
+    scroll-padding-top: 6rem; /* Increased padding slightly (h-20 = 5rem) */
   }
   body {
     @apply bg-background text-foreground dark:bg-background dark:text-foreground; /* Ensure dark mode applies */
@@ -134,10 +134,9 @@ body {
 
   /* Frosted glass effect (apply to elements like headers/modals) */
   .glassmorphism {
-    /* Base styles using @apply */
-    @apply backdrop-blur-2xl border border-border/15;
     /* Use CSS variables for initial background */
     background-color: hsl(var(--background) / 0.8);
+     @apply border border-border/15; /* Base styles */
   }
 
   .dark .glassmorphism {
@@ -147,13 +146,15 @@ body {
   }
 
   /* Apply more transparent backgrounds ONLY if backdrop-filter is supported */
-  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-    .glassmorphism {
-      background-color: hsl(var(--background) / 0.6); /* Light mode with backdrop */
-    }
-    .dark .glassmorphism {
-      background-color: hsl(var(--background) / 0.5); /* Dark mode with backdrop */
-    }
+  @supports (backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px)) {
+     .glassmorphism {
+       @apply backdrop-blur-2xl; /* Apply the blur effect */
+       background-color: hsl(var(--background) / 0.6); /* Light mode with backdrop */
+     }
+     .dark .glassmorphism {
+        @apply backdrop-blur-2xl; /* Apply the blur effect */
+       background-color: hsl(var(--background) / 0.5); /* Dark mode with backdrop */
+     }
   }
 
 
@@ -196,5 +197,3 @@ body {
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
-
-    
