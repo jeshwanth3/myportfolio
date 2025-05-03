@@ -17,8 +17,10 @@ const navItems = [
 export function Header() {
   return (
     // Apply glassmorphism class defined in globals.css which now has increased blur
+    // Use a slightly more transparent background when blur is supported for a modern feel
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/80 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60 glassmorphism">
-      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height from h-16 to h-20 */}
+      {/* Increased height from h-16 to h-20 */}
+      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
         <Link href="/" className="mr-6 flex items-center space-x-2 group">
           {/* Updated Name with Gradient - Uses primary and accent from the theme */}
           <span className="text-lg font-bold sm:inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:brightness-110 transition-all duration-300">
@@ -31,7 +33,8 @@ export function Header() {
               key={item.label}
               href={item.href}
               // Use muted-foreground and foreground for standard link colors, underline on hover using accent
-              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent hover:underline underline-offset-4 decoration-accent/50" // Use accent color for hover and underline
+              // Apply accent color for hover and underline
+              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent hover:underline underline-offset-4 decoration-accent/50"
             >
               {item.label}
             </Link>
@@ -40,19 +43,20 @@ export function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              {/* Ensure hover state is clear */}
-              <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent/10 hover:text-accent"> {/* Use accent for hover */}
+              {/* Ensure hover state is clear, use accent color for hover */}
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:bg-accent/10 hover:text-accent">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent
                 side="right"
-                // Removed glassmorphism, rely on themed background/border
+                // Use themed card background with slight transparency, ensure border uses theme
                 className="w-[300px] sm:w-[350px] bg-card/95 dark:bg-card/95 border-l border-border/30 dark:border-border/40"
                 aria-describedby="mobile-nav-description"
             >
-              <SheetHeader> {/* Keep header for accessibility */}
+              {/* Keep header for accessibility, but hide visual title */}
+               <SheetHeader>
                  <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                  <SheetDescription id="mobile-nav-description" className="sr-only">Links to different sections of the portfolio.</SheetDescription>
               </SheetHeader>
@@ -69,7 +73,8 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     // Use accent color for hover state background/text in mobile menu
-                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent rounded-md transition-colors duration-200" // Use accent color
+                    // Ensure consistent rounded corners and transitions
+                    className="block px-3 py-2 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent rounded-md transition-colors duration-200"
                   >
                     {item.label}
                   </Link>
@@ -82,6 +87,3 @@ export function Header() {
     </header>
   );
 }
-
-
-    
