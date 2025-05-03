@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Terminal } from 'lucide-react'; // Added Terminal icon for a futuristic touch
 
 const navItems = [
@@ -60,8 +60,7 @@ export function Header() {
             >
               {/* Keep header for accessibility, but hide visual title */}
                <SheetHeader className="border-b border-border/20 pb-4">
-                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-                 <SheetDescription id="mobile-nav-description" className="sr-only">Links to different sections of the portfolio.</SheetDescription>
+                 <span className="sr-only" id="mobile-nav-description">Mobile Navigation Menu. Links to different sections of the portfolio.</span>
                  {/* Mobile menu title with icon */}
                  <Link href="/" className="flex items-center space-x-2.5 px-2 py-2 group"> {/* Added py-2 for tap target */}
                    <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />

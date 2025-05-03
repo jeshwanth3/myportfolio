@@ -125,8 +125,9 @@ body {
     @apply border-border; /* Use themed border */
   }
   html {
-    scroll-behavior: smooth !important; /* Ensure smooth scrolling */
-    scroll-padding-top: 6rem; /* Adjust based on header height (h-20 = 5rem + buffer) */
+    scroll-behavior: smooth; /* Remove !important to allow potential overrides if needed */
+    /* Increased padding slightly more than header height (h-20 = 5rem) */
+    scroll-padding-top: 5.5rem;
   }
   body {
     @apply bg-background text-foreground;
@@ -165,8 +166,9 @@ body {
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid hsl(var(--border) / 0.1);
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
-
-    @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
+  }
+  @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
+    .glassmorphism {
       background-color: hsl(var(--background) / 0.5); /* More transparency with blur */
     }
   }
@@ -176,10 +178,11 @@ body {
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid hsl(var(--border) / 0.15); /* Darker border */
-
-    @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
-        background-color: hsl(var(--background) / 0.6); /* More transparency with blur */
-    }
+  }
+  @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
+      .dark .glassmorphism {
+          background-color: hsl(var(--background) / 0.6); /* More transparency with blur */
+      }
   }
 
 
