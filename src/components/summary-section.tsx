@@ -33,7 +33,7 @@ export function SummarySection() {
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4 md:pt-6">
             <Link href="#contact" passHref>
               {/* Primary button uses primary theme color */}
-              <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 w-full sm:w-auto">
+              <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 w-full sm:w-auto animate-glow"> {/* Added animate-glow */}
                 Contact Me <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -62,3 +62,4 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
+

@@ -21,7 +21,7 @@ export function ContactSection() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
                {/* Primary button uses primary theme color */}
-               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200">
+               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 animate-glow"> {/* Added animate-glow */}
                 <Mail className="mr-2 h-4 w-4" /> Email Me
                </Button>
              </Link>
@@ -37,3 +37,4 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
+
