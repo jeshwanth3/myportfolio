@@ -73,6 +73,7 @@ export function Header() {
                 side="right"
                 className="w-[80vw] max-w-[350px] bg-card/90 dark:bg-background/95 border-l border-border/20 dark:border-border/30 backdrop-blur-lg"
                 aria-labelledby="mobile-nav-title" // Use a specific ID for title
+                aria-describedby="mobile-nav-description" // Use a specific ID for description
              >
                <SheetHeader className="border-b border-border/20 pb-4">
                  <div className="flex items-center justify-between px-4">
@@ -90,6 +91,10 @@ export function Header() {
                       <VisuallyHidden>Close Menu</VisuallyHidden> {/* Accessibility */}
                    </Button>
                  </div>
+                 {/* Add a visually hidden description for screen readers */}
+                  <DialogDescription id="mobile-nav-description" className="sr-only">
+                    Mobile navigation menu containing links to different sections of the portfolio.
+                  </DialogDescription>
                </SheetHeader>
               {/* Mobile Navigation Links */}
               <nav className="flex flex-col justify-center items-center mt-6">

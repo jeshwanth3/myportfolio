@@ -4,6 +4,7 @@ import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
+import { DialogTitle, DialogDescription } from "@radix-ui/react-dialog"; // Import DialogTitle and DialogDescription
 
 import { cn } from "@/lib/utils"
 
@@ -21,7 +22,7 @@ const SheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
     className={cn(
-      "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Adjusted background and blur
+      "fixed inset-0 z-50 bg-black/60 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Adjusted background and blur
       className
     )}
     {...props}
@@ -31,7 +32,7 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
 const sheetVariants = cva(
-  "fixed z-50 gap-4 bg-background dark:bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 backdrop-blur-lg", // Adjusted background and blur
+  "fixed z-50 gap-4 bg-background dark:bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 backdrop-blur-xl", // Increased blur
   {
     variants: {
       side: {
@@ -66,11 +67,10 @@ const SheetContent = React.forwardRef<
         >
             {children}
 
-            {/* Close Button */}
+            {/* Close Button remains, positioning might need adjustment depending on header usage */}
             <SheetPrimitive.Close
                 className={cn(
                     'absolute right-4 top-4 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none',
-                    // Adjusted close button state styles for better visibility
                     'data-[state=open]:bg-secondary data-[state=open]:text-muted-foreground dark:data-[state=open]:bg-secondary dark:data-[state=open]:text-muted-foreground'
                 )}
             >
@@ -78,7 +78,6 @@ const SheetContent = React.forwardRef<
                 <span className="sr-only">Close</span>
             </SheetPrimitive.Close>
 
-            {/* Removed Macbook Mockup Elements */}
         </SheetPrimitive.Content>
     </SheetPortal>
 ));
@@ -91,7 +90,7 @@ const SheetHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-col space-y-1.5 text-center sm:text-left",
+      "flex flex-col space-y-1.5 text-center sm:text-left", // Adjusted padding/margin via className if needed
       className
     )}
     {...props}
@@ -113,29 +112,12 @@ const SheetFooter = ({
 )
 SheetFooter.displayName = "SheetFooter"
 
-const SheetTitle = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
->(({ className, ...props }, ref) => (
-  <SheetPrimitive.Title
-    ref={ref}
-    className={cn("text-lg font-semibold text-foreground", className)}
-    {...props}
-  />
-))
-SheetTitle.displayName = SheetPrimitive.Title.displayName
+// Use imported DialogTitle and DialogDescription for semantic correctness
+const SheetTitle = DialogTitle;
+SheetTitle.displayName = "SheetTitle"
 
-const SheetDescription = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <SheetPrimitive.Description
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
-))
-SheetDescription.displayName = SheetPrimitive.Description.displayName
+const SheetDescription = DialogDescription;
+SheetDescription.displayName = "SheetDescription"
 
 
 export {
@@ -150,6 +132,3 @@ export {
   SheetTitle, // Export SheetTitle
   SheetDescription, // Export SheetDescription
 };
-
-
-    
