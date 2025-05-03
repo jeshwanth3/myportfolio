@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Terminal } from 'lucide-react'; // Added Terminal icon for a futuristic touch
 
 const navItems = [
@@ -24,8 +24,8 @@ export function Header() {
           {/* Terminal Icon */}
           <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
           {/* Updated Name with Gradient and glow */}
-          {/* Adjusted font size for smaller screens */}
-          <span className="text-base sm:text-lg font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
+          {/* Increased font size */}
+          <span className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
@@ -34,8 +34,8 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              // Subtle hover effect, using accent color
-              className="text-sm font-medium text-muted-foreground transition-all duration-200 hover:text-accent hover:scale-105 relative group"
+              // Subtle hover effect, using accent color, increased font size
+              className="text-base font-medium text-muted-foreground transition-all duration-200 hover:text-accent hover:scale-105 relative group"
             >
               {item.label}
               {/* Underline animation */}
@@ -56,15 +56,16 @@ export function Header() {
                 side="right"
                 // Modernized Sheet styling
                 className="w-[80vw] max-w-[350px] bg-card/90 dark:bg-background/95 border-l border-border/20 dark:border-border/30 backdrop-blur-lg" // Use viewport width unit, set max-width
-                aria-describedby="mobile-nav-description"
+                aria-labelledby="mobile-nav-title" // Use aria-labelledby
             >
-              {/* Keep header for accessibility, but hide visual title */}
+              {/* Use SheetTitle for accessibility */}
                <SheetHeader className="border-b border-border/20 pb-4">
-                 <span className="sr-only" id="mobile-nav-description">Mobile Navigation Menu. Links to different sections of the portfolio.</span>
+                 <SheetTitle id="mobile-nav-title" className="sr-only">Mobile Navigation Menu</SheetTitle>
                  {/* Mobile menu title with icon */}
                  <Link href="/" className="flex items-center space-x-2.5 px-2 py-2 group"> {/* Added py-2 for tap target */}
                    <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
-                   <span className="text-lg font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
+                   {/* Increased font size */}
+                   <span className="text-xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300 animate-glow">
                      Sai Jeshwanth Goud Illuri
                    </span>
                 </Link>
@@ -75,8 +76,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    // Updated mobile link styling for better tappability
-                    className="block px-4 py-3 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent rounded-lg transition-all duration-200"
+                    // Updated mobile link styling for better tappability, increased font size
+                    className="block px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent rounded-lg transition-all duration-200"
                   >
                     {item.label}
                   </Link>
