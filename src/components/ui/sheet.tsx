@@ -7,6 +7,7 @@ import { X } from "lucide-react"
 import { DialogTitle, DialogDescription } from "@radix-ui/react-dialog"; // Import DialogTitle and DialogDescription
 
 import { cn } from "@/lib/utils"
+import { VisuallyHidden } from "./visually-hidden"
 
 const Sheet = SheetPrimitive.Root
 
@@ -65,6 +66,12 @@ const SheetContent = React.forwardRef<
             className={cn(sheetVariants({ side }), className, 'relative')} // Ensure relative positioning
             {...props}
         >
+            {/* Add default visually hidden title and description */}
+            <VisuallyHidden>
+                <DialogTitle id="sheet-title">Sheet Dialog</DialogTitle>
+                <DialogDescription id="sheet-description">Content of the sheet dialog.</DialogDescription>
+            </VisuallyHidden>
+
             {children}
 
             {/* Close Button remains, positioning might need adjustment depending on header usage */}
