@@ -20,3 +20,6 @@ export function SectionTitle({ children, className, ...props }: SectionTitleProp
         </h2>
     );
 }
+
+
+    

@@ -16,7 +16,7 @@ body {
     --card-foreground: 240 10% 3.9%; /* Dark Gray for text */
     --popover: 0 0% 100%; /* White */
     --popover-foreground: 240 10% 3.9%; /* Dark Gray for text */
-    --primary: 210 40% 50%; /* Modern Desaturated Blue */
+    --primary: 210 100% 50%; /* Adjusted Primary Blue */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 0 0% 96.1%; /* Slightly off-white */
     --secondary-foreground: 240 10% 3.9%; /* Dark Gray for text */
@@ -34,7 +34,7 @@ body {
     --chart-3: 210 40% 40%;
     --chart-4: 240 10% 70%;
     --chart-5: 240 5% 60%;
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Increased radius for softer corners */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -46,48 +46,48 @@ body {
   }
 
   .dark {
-    /* Dark Theme - Modern & Minimalistic */
-    --background: 240 6% 10%;       /* Very Dark Gray */
-    --foreground: 210 40% 98%;       /* Bright Off-white */
+    /* Dark Theme - Modern & Minimalistic - Updated */
+    --background: 240 6% 10%;       /* Very Dark Gray - Kept */
+    --foreground: 210 40% 98%;       /* Bright Off-white - Kept */
 
-    --card: 240 5% 14%;            /* Slightly Lighter Dark Gray */
-    --card-foreground: 210 40% 98%; /* Same as foreground */
+    --card: 240 5% 14%;            /* Slightly Lighter Dark Gray - Kept */
+    --card-foreground: 210 40% 98%; /* Same as foreground - Kept */
 
-    --popover: 240 6% 8%;          /* Darkest Popover */
-    --popover-foreground: 210 40% 98%; /* Popover text */
+    --popover: 240 6% 8%;          /* Darkest Popover - Kept */
+    --popover-foreground: 210 40% 98%; /* Popover text - Kept */
 
-    --primary: 210 40% 55%;         /* Modern Desaturated Blue (slightly brighter) */
-    --primary-foreground: 210 100% 15%; /* Very dark blue for contrast on primary */
+    --primary: 210 100% 55%;         /* Brighter Primary Blue for Dark Mode */
+    --primary-foreground: 210 100% 15%; /* Very dark blue for contrast on primary - Kept */
 
-    --secondary: 240 5% 20%;       /* Dark Gray */
-    --secondary-foreground: 210 30% 90%; /* Muted Off-white */
+    --secondary: 240 5% 20%;       /* Dark Gray - Kept */
+    --secondary-foreground: 210 30% 90%; /* Muted Off-white - Kept */
 
-    --muted: 240 5% 16%;           /* Darker Muted Gray */
-    --muted-foreground: 210 25% 70%;  /* Lighter Muted Gray */
+    --muted: 240 5% 16%;           /* Darker Muted Gray - Kept */
+    --muted-foreground: 210 25% 70%;  /* Lighter Muted Gray - Kept */
 
-    --accent: 210 100% 60%;         /* Vibrant Blue */
-    --accent-foreground: 210 100% 10%; /* Dark color for contrast on accent */
+    --accent: 210 100% 60%;         /* Vibrant Blue - Kept */
+    --accent-foreground: 210 100% 10%; /* Dark color for contrast on accent - Kept */
 
-    --destructive: 0 70% 55%;        /* Adjusted Red */
-    --destructive-foreground: 0 0% 98%; /* White */
+    --destructive: 0 70% 55%;        /* Adjusted Red - Kept */
+    --destructive-foreground: 0 0% 98%; /* White - Kept */
 
-    --border: 240 4% 20%;           /* Subtle Dark Gray Border */
-    --input: 240 4% 22%;            /* Slightly Lighter Input Border */
-    --ring: 210 100% 65%;           /* Brighter Accent for Focus Rings */
+    --border: 240 4% 20%;           /* Subtle Dark Gray Border - Kept */
+    --input: 240 4% 22%;            /* Slightly Lighter Input Border - Kept */
+    --ring: 210 100% 65%;           /* Brighter Accent for Focus Rings - Kept */
 
     /* Adjusted Chart Colors for New Palette */
-    --chart-1: 210 80% 65%;         /* Accent (Brighter) */
-    --chart-2: 210 60% 55%;         /* Accent (Medium) */
-    --chart-3: 240 10% 70%;         /* Muted Gray (Medium) */
-    --chart-4: 240 5% 60%;          /* Muted Gray (Light) */
-    --chart-5: 210 30% 80%;         /* Foreground (Muted) */
+    --chart-1: 210 80% 65%;         /* Accent (Brighter) - Kept */
+    --chart-2: 210 60% 55%;         /* Accent (Medium) - Kept */
+    --chart-3: 240 10% 70%;         /* Muted Gray (Medium) - Kept */
+    --chart-4: 240 5% 60%;          /* Muted Gray (Light) - Kept */
+    --chart-5: 210 30% 80%;         /* Foreground (Muted) - Kept */
 
-    --radius: 0.75rem; /* Slightly larger radius for modern feel */
+    --radius: 0.75rem; /* Consistent with light theme adjustment */
 
     /* Dark Mode Sidebar Variables - Adjusted for New Palette */
     --sidebar-background-dark: 240 6% 9%;       /* Slightly darker than main bg */
     --sidebar-foreground-dark: 210 35% 95%;      /* Sidebar Text */
-    --sidebar-primary-dark: 210 40% 55%;         /* Primary Blue */
+    --sidebar-primary-dark: 210 100% 55%;         /* Primary Blue */
     --sidebar-primary-foreground-dark: 210 100% 15%; /* Primary Text */
     --sidebar-accent-dark: 210 100% 60%;         /* Accent Blue for Hover/Active */
     --sidebar-accent-foreground-dark: 210 100% 10%; /* Accent Text */
@@ -127,17 +127,35 @@ body {
      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
   }
   .dark .mac-shadow {
-     /* Adjusted shadow for the new dark theme - more subtle */
+     /* Adjusted shadow for the new dark theme - more subtle but present */
      box-shadow: 0 1px 2px 0 hsl(var(--foreground) / 0.05), 0 15px 30px -10px hsl(var(--background) / 0.4);
-     border: 1px solid hsl(var(--border) / 0.15); /* Very subtle border */
+     border: 1px solid hsl(var(--border) / 0.15); /* Very subtle border for definition */
   }
 
   /* Frosted glass effect (apply to elements like headers/modals) */
   .glassmorphism {
-    /* Adjusted opacity and blur for dark theme */
-    /* Increased blur from backdrop-blur-xl to backdrop-blur-2xl */
-    @apply bg-background/90 backdrop-blur-2xl border border-border/15 dark:bg-background/80 dark:border-border/25;
+    /* Base styles using @apply */
+    @apply backdrop-blur-2xl border border-border/15;
+    /* Use CSS variables for initial background */
+    background-color: hsl(var(--background) / 0.8);
   }
+
+  .dark .glassmorphism {
+    @apply border-border/25;
+    /* Use CSS variables for initial dark background */
+    background-color: hsl(var(--background) / 0.75);
+  }
+
+  /* Apply more transparent backgrounds ONLY if backdrop-filter is supported */
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .glassmorphism {
+      background-color: hsl(var(--background) / 0.6); /* Light mode with backdrop */
+    }
+    .dark .glassmorphism {
+      background-color: hsl(var(--background) / 0.5); /* Dark mode with backdrop */
+    }
+  }
+
 
   /* Smooth scrollbar - Styled for the dark theme */
   /* For Webkit-based browsers (Chrome, Safari) */
@@ -145,15 +163,15 @@ body {
     @apply w-[8px] h-[8px];
   }
   ::-webkit-scrollbar-track {
-     @apply bg-transparent;
+     @apply bg-transparent; /* Make track transparent */
   }
   ::-webkit-scrollbar-thumb {
-     /* Use darker, themed colors */
-     @apply bg-muted/60 dark:bg-muted/50 rounded-md border-2 border-transparent bg-clip-content; /* Changed to rounded-md */
+     /* Use themed colors, rounded-md */
+     @apply bg-muted/50 dark:bg-muted/40 rounded-md border-2 border-transparent bg-clip-content;
   }
   ::-webkit-scrollbar-thumb:hover {
      /* Use slightly brighter themed colors on hover */
-     @apply bg-muted-foreground/70 dark:bg-muted-foreground/60;
+     @apply bg-muted-foreground/60 dark:bg-muted-foreground/50;
   }
 
   /* Basic scrollbar for Firefox (optional, less customizable) */
@@ -171,10 +189,12 @@ body {
 
 /* Animations */
 @keyframes glow {
-  /* Use Accent color for glow */
-  0%, 100% { box-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); }
-  50% { box-shadow: 0 0 12px hsl(var(--accent) / 0.6), 0 0 20px hsl(var(--accent) / 0.4); }
+  /* Use Primary color for glow, make it slightly more subtle */
+  0%, 100% { box-shadow: 0 0 4px hsl(var(--primary) / 0.3), 0 0 8px hsl(var(--primary) / 0.15); }
+  50% { box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 16px hsl(var(--primary) / 0.3); }
 }
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
+
+    
