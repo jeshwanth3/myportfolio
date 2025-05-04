@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 
 export function ContactSection() {
-  const email = "your.email@example.com"; // Replace with actual email
+  const email = "jeshwanthgoud3@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
 
   return (

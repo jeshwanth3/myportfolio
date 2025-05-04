@@ -10,12 +10,12 @@ import { cn } from "@/lib/utils";
 
 
 const navItems = [
-  { label: 'Summary', href: '#summary' },
+  { label: 'About', href: '#summary' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Education', href: '#education' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact Me', href: '#contact' },
 ];
 
 export function Header() {
@@ -89,9 +89,9 @@ export function Header() {
             <SheetContent
               side="right"
               className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col" // Full height flex column
-              // Removed title prop as it's not a standard prop for SheetContent
+              // Removed title prop, adding SheetTitle directly for accessibility
             >
-              {/* SheetTitle and SheetDescription must be direct children for accessibility */}
+              {/* SheetTitle and SheetDescription must be direct children for accessibility, apply visual hiding class */}
               <SheetTitle id="mobile-nav-title" className="sr-only">Mobile Navigation Menu</SheetTitle>
               <SheetDescription id="mobile-nav-description" className="sr-only">Links to different sections of the portfolio website.</SheetDescription>
 
@@ -126,7 +126,8 @@ export function Header() {
               <div className="p-4 border-t border-border/20 mt-auto text-center text-xs text-muted-foreground">
                  Navigate Sections
               </div>
-            </SheetContent>
+                  </nav>
+    </SheetContent>
           </Sheet>
         </div>
       </div>
