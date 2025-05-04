@@ -19,27 +19,27 @@ body {
     --popover: 220 20% 5%; /* Darker Popover Blue/Gray */
     --popover-foreground: 210 40% 98%;
 
-    /* Primary - Vibrant Teal */
-    --primary: 180 65% 40%; /* Deep Teal */
+    /* Primary - Teal */
+    --primary: 180 65% 55%; /* Teal */
     --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    /* Secondary - Light Gray */
-    --secondary: 220 15% 15%; /* Darker shade for secondary in dark mode */
-    --secondary-foreground: 210 30% 80%; /* Lighter Gray for secondary text */
+    /* Secondary - Muted Blue/Gray */
+    --secondary: 220 15% 20%; /* Darker shade for secondary */
+    --secondary-foreground: 210 30% 85%; /* Lighter Gray for secondary text */
 
     /* Muted - Darker Gray/Blue */
     --muted: 215 20% 25%; /* Muted Dark Gray/Blue */
     --muted-foreground: 210 25% 65%; /* Muted Gray text */
 
-    /* Accent - Vibrant Blue */
-    --accent: 210 100% 50%; /* Vibrant Blue */
+    /* Accent - Vibrant Electric Blue */
+    --accent: 210 100% 60%; /* Vibrant Electric Blue */
     --accent-foreground: 0 0% 100%; /* White text on accent */
 
     /* Destructive - Refined Red */
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 15% 22%; /* Subtle Dark Border */
+    --border: 215 15% 25%; /* Slightly more visible Dark Border */
     --input: 215 20% 28%; /* Slightly Lighter Input Border */
     --ring: 210 80% 65%; /* Brighter blue for focus rings */
 
@@ -68,7 +68,7 @@ body {
   html {
     scroll-behavior: smooth; /* Smooth scroll */
     /* Increased padding slightly more than header height (h-20 = 5rem) */
-    scroll-padding-top: 5.5rem; /* Adjusted for header */
+    scroll-padding-top: 6rem; /* Adjusted for header */
   }
   body {
     @apply bg-background text-foreground;
@@ -78,25 +78,28 @@ body {
 }
 
 @layer utilities {
+  /* Updated Fade In Animation */
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards; /* Slightly longer duration */
+    animation: fadeIn 1s ease-out forwards; /* Slightly longer duration */
+    animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Start lower and slightly smaller */
+    from { opacity: 0; transform: translateY(20px) scale(0.98); } /* Start slightly lower */
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  /* Subtle Slide In Animation */
+  /* Updated Slide In Animation */
   .animate-slide-in-bottom {
-     animation: slideInBottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-     opacity: 0; /* Start hidden */
+     animation: slideInBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Increased duration */
+     /* opacity: 0; Start hidden - handled by component now */
+     animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
 
   @keyframes slideInBottom {
      from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px); /* Start slightly lower */
      }
      to {
         opacity: 1;
@@ -104,32 +107,31 @@ body {
      }
   }
 
-  /* Reduced shadow intensity */
+  /* Subtle shadow for depth */
   .mac-shadow {
-     box-shadow: 0 4px 6px -1px hsl(var(--foreground) / 0.04), 0 2px 4px -2px hsl(var(--foreground) / 0.04);
-     border: 1px solid hsl(var(--border) / 0.1);
+     box-shadow: 0 4px 10px -2px hsl(var(--foreground) / 0.05), 0 2px 6px -3px hsl(var(--foreground) / 0.05);
+     border: 1px solid hsl(var(--border) / 0.15);
      transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
   }
   .dark .mac-shadow {
      /* Subtle shadow for dark mode */
-     box-shadow: 0 1px 2px 0 hsl(var(--background) / 0.3), 0 2px 8px -4px hsl(var(--background) / 0.4);
-     border: 1px solid hsl(var(--border) / 0.2);
+     box-shadow: 0 1px 3px 0 hsl(var(--background) / 0.2), 0 2px 8px -3px hsl(var(--background) / 0.3);
+     border: 1px solid hsl(var(--border) / 0.25);
   }
 
   /* Enhanced glassmorphism for header */
   .glassmorphism {
-    background-color: hsl(var(--background) / 0.6); /* Adjusted dark mode base opacity */
-    backdrop-filter: blur(18px); /* Increased blur radius */
-    -webkit-backdrop-filter: blur(18px); /* Increased blur radius */
-    border-bottom: 1px solid hsl(var(--border) / 0.15); /* Darker border */
+    background-color: hsl(var(--background) / 0.75); /* Increased base opacity */
+    backdrop-filter: blur(16px); /* Adjusted blur radius */
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid hsl(var(--border) / 0.15); /* Slightly lighter border */
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
   }
-  @supports (backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px)) {
+  @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
     .glassmorphism {
-       background-color: hsl(var(--background) / 0.65); /* Slightly less transparent with blur */
+       background-color: hsl(var(--background) / 0.7); /* Slightly less transparent with blur */
     }
   }
-
 
   /* Minimal scrollbar */
   ::-webkit-scrollbar {
@@ -167,9 +169,9 @@ body {
 /* Adjusted Glow Animation */
 @keyframes glow {
   /* Use Primary color for glow, slightly softer */
-  0%, 100% { box-shadow: 0 0 4px hsl(var(--primary) / 0.4), 0 0 8px hsl(var(--primary) / 0.2); }
-  50% { box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3); }
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.5), 0 0 10px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 12px hsl(var(--primary) / 0.6), 0 0 24px hsl(var(--primary) / 0.4); }
 }
 .animate-glow {
-  animation: glow 4s ease-in-out infinite; /* Slower, more subtle glow */
+  animation: glow 3.5s ease-in-out infinite; /* Slightly faster glow */
 }
