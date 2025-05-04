@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -90,8 +89,12 @@ export function Header() {
             <SheetContent
               side="right"
               className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col" // Full height flex column
-              title="Mobile Navigation Menu" // Added descriptive title
+              // Removed title prop as it's not a standard prop for SheetContent
             >
+              {/* SheetTitle and SheetDescription must be direct children for accessibility */}
+              <SheetTitle id="mobile-nav-title" className="sr-only">Mobile Navigation Menu</SheetTitle>
+              <SheetDescription id="mobile-nav-description" className="sr-only">Links to different sections of the portfolio website.</SheetDescription>
+
               <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
                      <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeSheet}>
@@ -105,11 +108,6 @@ export function Header() {
                        <VisuallyHidden>Close Menu</VisuallyHidden>
                     </Button>
                   </div>
-                  {/* Explicit title and description for screen readers */}
-                  <VisuallyHidden>
-                     <SheetTitle id="mobile-nav-title">Mobile Navigation Menu</SheetTitle>
-                     <SheetDescription id="mobile-nav-description">Links to different sections of the portfolio website.</SheetDescription>
-                  </VisuallyHidden>
               </SheetHeader>
               {/* Mobile Navigation Links - Takes remaining space */}
               <nav className="flex-1 flex flex-col justify-center p-4 space-y-2">
