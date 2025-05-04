@@ -87,6 +87,23 @@ body {
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
+  /* Subtle Slide In Animation */
+  .animate-slide-in-bottom {
+     animation: slideInBottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+     opacity: 0; /* Start hidden */
+  }
+
+  @keyframes slideInBottom {
+     from {
+        opacity: 0;
+        transform: translateY(20px);
+     }
+     to {
+        opacity: 1;
+        transform: translateY(0);
+     }
+  }
+
   /* Reduced shadow intensity */
   .mac-shadow {
      box-shadow: 0 4px 6px -1px hsl(var(--foreground) / 0.04), 0 2px 4px -2px hsl(var(--foreground) / 0.04);
@@ -154,5 +171,5 @@ body {
   50% { box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3); }
 }
 .animate-glow {
-  animation: glow 3.5s ease-in-out infinite; /* Slightly faster */
+  animation: glow 4s ease-in-out infinite; /* Slower, more subtle glow */
 }

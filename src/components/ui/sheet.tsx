@@ -53,28 +53,34 @@ const sheetVariants = cva(
 
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {}
+    VariantProps<typeof sheetVariants> {
+      title?: string; // Add optional title prop
+    }
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
+>(({ side = "right", className, children, title, ...props }, ref) => (
     <SheetPortal>
         <SheetOverlay />
         <SheetPrimitive.Content
             ref={ref}
             className={cn(sheetVariants({ side }), className, 'relative')} // Ensure relative positioning
+            aria-describedby={undefined} // Remove default aria-describedby
+            aria-labelledby={title ? `sheet-title-${props.id || Math.random().toString(36).substring(7)}` : undefined} // Conditionally add aria-labelledby
             {...props}
         >
-            {/* Add default visually hidden title and description */}
-            <VisuallyHidden>
-                <DialogTitle id="sheet-title">Sheet Dialog</DialogTitle>
-                <DialogDescription id="sheet-description">Content of the sheet dialog.</DialogDescription>
-            </VisuallyHidden>
+             {/* Add visually hidden title if provided */}
+             {title && (
+               <VisuallyHidden>
+                  <DialogTitle id={`sheet-title-${props.id || Math.random().toString(36).substring(7)}`}>{title}</DialogTitle>
+               </VisuallyHidden>
+             )}
+
 
             {children}
 
-            {/* Close Button remains, positioning might need adjustment depending on header usage */}
+            {/* Close Button remains */}
             <SheetPrimitive.Close
                 className={cn(
                     'absolute right-4 top-4 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none',

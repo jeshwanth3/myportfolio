@@ -69,6 +69,14 @@ export default {
   			from: { height: 'var(--radix-accordion-content-height)' },
   			to: { height: '0' }
   		},
+       'fade-in': { // Renamed from fadeIn to avoid conflict if Tailwind adds its own
+         from: { opacity: '0', transform: 'translateY(15px) scale(0.98)' },
+         to: { opacity: '1', transform: 'translateY(0) scale(1)' },
+       },
+       'slide-in-bottom': {
+          from: { opacity: '0', transform: 'translateY(20px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+       },
       'glow': { // Use primary color for glow, adjusted intensity
         '0%, 100%': { 'box-shadow': '0 0 4px hsl(var(--primary) / 0.4), 0 0 8px hsl(var(--primary) / 0.2)' },
         '50%': { 'box-shadow': '0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3)' },
@@ -77,7 +85,9 @@ export default {
   	animation: {
   		'accordion-down': 'accordion-down 0.2s ease-out',
   		'accordion-up': 'accordion-up 0.2s ease-out',
-      'glow': 'glow 3.5s ease-in-out infinite', // Slightly faster animation
+       'fade-in': 'fade-in 0.6s ease-out forwards',
+       'slide-in-bottom': 'slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+      'glow': 'glow 4s ease-in-out infinite', // Slower glow animation
   	}
   },
   plugins: [require("tailwindcss-animate")],
