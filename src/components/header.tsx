@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X } from 'lucide-react'; // Removed Terminal
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { cn } from "@/lib/utils";
@@ -38,15 +38,14 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Faster transition
-        isScrolled ? "bg-background/90 backdrop-blur-lg border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent" // Increased blur
+        isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent" // Increased blur
       )}
     >
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height slightly */}
         {/* Logo / Name */}
         <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-           {/* Removed Terminal icon */}
-          <span className={cn(
-              "text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300", // Use foreground, hover to primary
+           <span className={cn(
+              "text-2xl sm:text-3xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300", // Increased font size
                isScrolled ? "" : "animate-glow" // Only glow when not scrolled
                )}>
             Sai Jeshwanth Goud Illuri
@@ -54,7 +53,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-2 lg:gap-4"> {/* Increased gap */}
+        <nav className="hidden md:flex items-center gap-3 lg:gap-6"> {/* Increased gap */}
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -89,16 +88,11 @@ export function Header() {
             <SheetContent
               side="right"
               className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col" // Full height flex column
-              // Removed title prop, adding SheetTitle directly for accessibility
+              title="Mobile Navigation" // Add title prop for accessibility
             >
-              {/* SheetTitle and SheetDescription must be direct children for accessibility, apply visual hiding class */}
-              <SheetTitle id="mobile-nav-title" className="sr-only">Mobile Navigation Menu</SheetTitle>
-              <SheetDescription id="mobile-nav-description" className="sr-only">Links to different sections of the portfolio website.</SheetDescription>
-
               <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
                      <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeSheet}>
-                         {/* Removed Terminal icon */}
                          <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                          Sai J. G. Illuri {/* Shortened name for sheet header */}
                          </span>
@@ -126,8 +120,7 @@ export function Header() {
               <div className="p-4 border-t border-border/20 mt-auto text-center text-xs text-muted-foreground">
                  Navigate Sections
               </div>
-                  </nav>
-    </SheetContent>
+            </SheetContent>
           </Sheet>
         </div>
       </div>
