@@ -23,7 +23,7 @@ export function Header() {
               <VisuallyHidden>Open Menu</VisuallyHidden>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-white text-black p-6">
+          <SheetContent side="right" title="Mobile Navigation">
             <VisuallyHidden>
               <SheetTitle>Menu</SheetTitle>
             </VisuallyHidden>
