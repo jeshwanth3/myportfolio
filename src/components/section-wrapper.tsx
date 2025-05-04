@@ -10,12 +10,9 @@ export function SectionWrapper({ children, id, className, ...props }: SectionWra
   return (
     <section
       id={id}
-      // Increased vertical padding, added animate-fade-in for entrance
+      // Reduced vertical padding for a tighter layout, kept fade-in animation
       className={cn(
-        'py-16 md:py-20 lg:py-24 animate-fade-in',
-        // Add view-timeline for potential future scroll-driven animations
-        // Note: Browser support for view-timeline is still evolving.
-        // This is added preemptively for potential future enhancements.
+        'py-12 md:py-16 lg:py-20 animate-fade-in', // Use the existing fade-in animation
         '[view-timeline-name:--section-scroll]',
         className
       )}
