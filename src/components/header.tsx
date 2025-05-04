@@ -98,13 +98,13 @@ export function Header() {
                 </div>
               </SheetHeader>
 
-              <nav className="flex-1 flex flex-col justify-center p-4 space-y-2">
+              <nav className="flex-1 flex flex-col justify-center p-4 space-y-2 bg-white text-black">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={closeSheet}
-                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center"
+                    className="px-4 py-2 bg-gray-200 text-black text-lg rounded-md text-center"
                   >
                     {item.label}
                   </Link>
