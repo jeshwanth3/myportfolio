@@ -68,7 +68,7 @@ body {
   html {
     scroll-behavior: smooth; /* Smooth scroll */
     /* Increased padding slightly more than header height (h-20 = 5rem) */
-    scroll-padding-top: 6rem; /* Adjusted for header */
+    scroll-padding-top: 5.5rem; /* Adjusted for h-20 header */
   }
   body {
     @apply bg-background text-foreground;
@@ -80,18 +80,18 @@ body {
 @layer utilities {
   /* Updated Fade In Animation - Smoother */
   .animate-fade-in {
-    animation: fadeIn 1.2s ease-in-out forwards; /* Increased duration, smoother easing */
+    animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Adjusted duration and easing */
     animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(25px) scale(0.97); } /* Start slightly lower and smaller */
+    from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Start slightly lower and smaller */
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* Updated Slide In Animation - Smoother */
   .animate-slide-in-bottom {
-     animation: slideInBottom 0.9s cubic-bezier(0.3, 0.8, 0.2, 1) forwards; /* Slower duration, custom bezier */
+     animation: slideInBottom 0.7s cubic-bezier(0.3, 0.8, 0.2, 1) forwards; /* Slightly faster, custom bezier */
      /* opacity: 0; Start hidden - handled by component now */
      animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
@@ -99,7 +99,7 @@ body {
   @keyframes slideInBottom {
      from {
         opacity: 0;
-        transform: translateY(40px); /* Start lower */
+        transform: translateY(30px); /* Start lower */
      }
      to {
         opacity: 1;
@@ -121,17 +121,14 @@ body {
 
   /* Enhanced glassmorphism for header */
   .glassmorphism {
-    background-color: hsl(var(--background) / 0.75); /* Increased base opacity */
-    backdrop-filter: blur(16px); /* Adjusted blur radius */
-    -webkit-backdrop-filter: blur(16px);
+    background-color: hsl(var(--background) / 0.8); /* Increased base opacity slightly */
+    backdrop-filter: blur(12px); /* Adjusted blur radius */
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid hsl(var(--border) / 0.15); /* Slightly lighter border */
-    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out; /* Smoother transition */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out; /* Slightly faster transition */
   }
-  @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-    .glassmorphism {
-       background-color: hsl(var(--background) / 0.7); /* Slightly less transparent with blur */
-    }
-  }
+   /* No need for @supports anymore, applied directly */
+
 
   /* Minimal scrollbar */
   ::-webkit-scrollbar {
@@ -168,9 +165,9 @@ body {
 
 /* Adjusted Glow Animation - Smoother, more subtle */
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 6px hsl(var(--primary) / 0.4), 0 0 12px hsl(var(--primary) / 0.25); }
-  50% { box-shadow: 0 0 10px hsl(var(--primary) / 0.55), 0 0 20px hsl(var(--primary) / 0.35); }
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--primary) / 0.4), 0 0 10px hsl(var(--primary) / 0.2); } /* Softer glow */
+  50% { box-shadow: 0 0 8px hsl(var(--primary) / 0.5), 0 0 16px hsl(var(--primary) / 0.3); } /* Adjusted intensity */
 }
 .animate-glow {
-  animation: glow 4s ease-in-out infinite; /* Slower, smoother glow */
+  animation: glow 3.5s ease-in-out infinite; /* Faster, smoother glow */
 }

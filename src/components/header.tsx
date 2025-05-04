@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -27,6 +28,8 @@ export function Header() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
+    // Initial check in case the page loads already scrolled
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,16 +38,16 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-500 ease-in-out", // Increased duration
-        isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent"
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Faster transition
+        isScrolled ? "bg-background/90 backdrop-blur-lg border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent" // Increased blur
       )}
     >
-      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height slightly */}
         {/* Logo / Name */}
-        <Link href="/" className="flex items-center space-x-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <Terminal className="h-7 w-7 text-primary group-hover:text-accent transition-colors duration-300" /> {/* Slightly larger icon */}
+        <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+           {/* Removed Terminal icon */}
           <span className={cn(
-              "text-xl sm:text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300",
+              "text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300", // Use foreground, hover to primary
                isScrolled ? "" : "animate-glow" // Only glow when not scrolled
                )}>
             Sai Jeshwanth Goud Illuri
@@ -52,15 +55,18 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-2 lg:gap-4"> {/* Increased gap */}
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               className={cn(
-                 "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out", // Added transition-all
-                 "text-muted-foreground hover:text-foreground hover:bg-accent/10 dark:hover:bg-accent/15",
-                 isScrolled ? "" : "hover:shadow-sm" // Subtle shadow on hover when not scrolled
+                 "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out relative", // Added relative positioning
+                 "text-muted-foreground hover:text-foreground", // Hover text to foreground
+                 // Underline effect on hover
+                 "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-out",
+                 "hover:after:scale-x-100",
+                 isScrolled ? "" : "" // No specific style change needed when scrolled or not for links now
               )}
             >
               {item.label}
@@ -84,13 +90,13 @@ export function Header() {
             <SheetContent
               side="right"
               className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col" // Full height flex column
-              title="Mobile Navigation" // Added title prop for accessibility
+              title="Mobile Navigation Menu" // Added descriptive title
             >
               <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
                      <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeSheet}>
-                         <Terminal className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
-                         <span className="text-lg font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300">
+                         {/* Removed Terminal icon */}
+                         <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                          Sai J. G. Illuri {/* Shortened name for sheet header */}
                          </span>
                      </Link>
@@ -112,7 +118,7 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     onClick={closeSheet}
-                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent rounded-md transition-all duration-200 text-center"
+                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center" // Hover to primary color
                   >
                     {item.label}
                   </Link>
