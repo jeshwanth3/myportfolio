@@ -28,7 +28,7 @@ export function SectionWrapper({
       ref={ref} // Attach the ref from the hook
       className={cn(
         'py-16 md:py-20 lg:py-24 opacity-0', // Start hidden
-        'transition-opacity duration-1000 ease-out', // Smooth transition for opacity
+        // Rely solely on the animation class for the reveal transition
         isVisible && animationClassName, // Apply animation class when visible
         className
       )}

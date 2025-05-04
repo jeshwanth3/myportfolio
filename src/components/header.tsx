@@ -35,14 +35,14 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
+        "sticky top-0 z-50 w-full transition-all duration-500 ease-in-out", // Increased duration
         isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent"
       )}
     >
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
         {/* Logo / Name */}
         <Link href="/" className="flex items-center space-x-2 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <Terminal className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300" />
+          <Terminal className="h-7 w-7 text-primary group-hover:text-accent transition-colors duration-300" /> {/* Slightly larger icon */}
           <span className={cn(
               "text-xl sm:text-2xl font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent group-hover:brightness-125 transition-all duration-300",
                isScrolled ? "" : "animate-glow" // Only glow when not scrolled
@@ -58,7 +58,7 @@ export function Header() {
               key={item.label}
               href={item.href}
               className={cn(
-                 "px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-200 ease-out",
+                 "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out", // Added transition-all
                  "text-muted-foreground hover:text-foreground hover:bg-accent/10 dark:hover:bg-accent/15",
                  isScrolled ? "" : "hover:shadow-sm" // Subtle shadow on hover when not scrolled
               )}
