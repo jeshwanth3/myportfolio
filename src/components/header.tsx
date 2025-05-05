@@ -3,9 +3,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Menu, Send, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Menu } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -29,24 +28,17 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handles anchor link click
-  const handleMobileLinkClick = (id) => {
+  const handleMobileLinkClick = (id: string) => {
     const section = document.querySelector(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-// Handles anchor link click for smooth scroll
-  const handleMobileLinkClick = (id) => {
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setOpen(false);
-    }
-  };
       setOpen(false);
     }
   };
@@ -63,7 +55,7 @@ export function Header() {
           Sai Jeshwanth Goud Illuri
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop nav */}
         <nav className="hidden gap-6 md:flex">
           {navItems.map((item) => (
             <Link
@@ -104,40 +96,6 @@ export function Header() {
                     {item.label}
                   </a>
                 ))}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-              </SheetHeader>
-
-              <nav className="flex-1 flex flex-col justify-center p-4 space-y-1.5">
-                {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleMobileLinkClick(item.href);
-                    }}
-                    className="block w-full px-3 py-2.5 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleMobileLinkClick('#contact');
-                  }}
-                  className="block w-full px-3 py-2.5 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center mt-3 border-t border-border/15 pt-5"
-                >
-                  Contact Me <Send className="inline-block ml-1 h-3.5 w-3.5 align-middle" />
-                </a>
-              </nav>
-
-              <div className="p-3 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground">
-                Navigate Sections
               </div>
             </SheetContent>
           </Sheet>
