@@ -10,7 +10,7 @@ const education = [
     degree: "Master of Business Administration (STEM MBA)",
     institution: "Ivy College of Business, Iowa State University",
     years: "Aug 2023 - May 2025",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg", // Added logo URL
+    imageUrl: "/iowa_state_logo.svg",
   },
   {
     id: "edu2",

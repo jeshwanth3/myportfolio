@@ -32,10 +32,10 @@ export function ContactSection() {
                </Button>
              </Link>
              {/* LinkedIn Button - Icon Only - Adjusted size */}
-            <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
-                size="icon" // Keep size as icon
+                size="icon"
                 className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-16 h-11 p-0 flex items-center justify-center border-none" // Increased width, kept height same, removed border
               >
                <Image
@@ -43,10 +43,10 @@ export function ContactSection() {
                   alt="LinkedIn Profile"
                   width={28} // Slightly increased icon size
                   height={28} // Slightly increased icon size
-                  className="object-contain" // Ensure SVG scales correctly
-                />  
+                  className="object-contain"
+                />
               </Button>
-             </Link>
+            </Link>
              {/* Download Resume Button */}
              <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
