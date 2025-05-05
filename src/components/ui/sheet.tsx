@@ -1,11 +1,10 @@
-
 "use client"
 
 import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
-// Import DialogTitle and DialogDescription from radix-ui
+// Import DialogTitle and RadixDialogDescription from radix-ui
 import { DialogTitle as RadixDialogTitle, DialogDescription as RadixDialogDescription } from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils"
