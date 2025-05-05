@@ -107,8 +107,8 @@ export function ExperienceSection() {
                 </div>
               </CardHeader>
               <CardContent className="p-5 md:p-6 pt-0">
-                <p className="mb-5 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p> {/* Increased margin-bottom */}
-                <ul className="list-disc space-y-2 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80"> {/* Increased spacing */}
+                <p className="mb-5 text-base md:text-lg text-foreground/80 dark:text-foreground/75">{exp.description}</p> {/* Increased font size */}
+                <ul className="list-disc space-y-2 pl-5 text-sm md:text-base text-foreground/85 dark:text-foreground/80"> {/* Increased font size */}
                   {exp.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>
                   ))}
@@ -121,4 +121,3 @@ export function ExperienceSection() {
     </SectionWrapper>
   );
 }
-

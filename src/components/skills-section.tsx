@@ -72,7 +72,7 @@ export function SkillsSection() {
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary" // Use secondary variant for a distinct look
                     // Hover state uses accent theme colors
-                    className="text-xs md:text-sm font-medium bg-muted/70 dark:bg-muted/50 text-muted-foreground dark:text-foreground/80 border border-transparent hover:border-accent/50 dark:hover:border-accent/60 hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3.5 py-1.5 rounded-md" // Adjusted badge style
+                    className="text-sm md:text-base font-medium bg-muted/70 dark:bg-muted/50 text-muted-foreground dark:text-foreground/80 border border-transparent hover:border-accent/50 dark:hover:border-accent/60 hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3.5 py-1.5 rounded-md" // Increased badge font size
                   >
                     {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}
                   </Badge>

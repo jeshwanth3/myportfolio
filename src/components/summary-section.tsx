@@ -26,7 +26,7 @@ export function SummarySection() {
              Product Manager
            </h2>
            {/* Increased Summary Text Size and Leading */}
-          <p className="text-base sm:text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto md:mx-0 leading-relaxed"> {/* Adjusted size */}
+          <p className="text-lg sm:text-xl text-muted-foreground md:text-xl max-w-2xl mx-auto md:mx-0 leading-relaxed"> {/* Increased size */}
             {professionalSummary}
           </p>
           {/* Buttons with increased gap and padding */}

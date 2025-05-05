@@ -15,7 +15,7 @@ export function ContactSection() {
       <SectionTitle>Get In Touch</SectionTitle>
       <Card className="max-w-xl mx-auto bg-card/90 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 backdrop-blur-md"> {/* Enhanced card style */}
         <CardContent className="p-6 md:p-8 text-center space-y-8"> {/* Increased spacing */}
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed"> {/* Adjusted leading */}
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed"> {/* Increased font size */}
             I&apos;m actively seeking new Product Management opportunities and would love to connect. Let&apos;s discuss how my skills can benefit your team!
           </p>
           {/* Buttons stack vertically on small screens */}

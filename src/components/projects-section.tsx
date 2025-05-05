@@ -54,7 +54,7 @@ export function ProjectsSection() {
                    <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{project.title}</CardTitle> {/* Changed to h3 */}
                 </div>
               </div>
-              <CardDescription className="text-sm text-muted-foreground pt-1">{project.description}</CardDescription> {/* Added padding */}
+              <CardDescription className="text-base text-muted-foreground pt-1">{project.description}</CardDescription> {/* Increased font size */}
             </CardHeader>
             <CardContent className="flex-1 p-5 md:p-6 pt-0">
               <div className="flex flex-wrap gap-2 mb-4"> {/* Adjusted spacing */}
@@ -62,7 +62,7 @@ export function ProjectsSection() {
                   <Badge
                     key={tech}
                     variant="secondary" // Consistent badge style
-                    className="text-xs font-normal border border-transparent bg-muted/70 dark:bg-muted/50 hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2.5 py-1 rounded" // Adjusted badge style
+                    className="text-sm font-normal border border-transparent bg-muted/70 dark:bg-muted/50 hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2.5 py-1 rounded" // Increased badge font size
                   >
                     {tech}
                   </Badge>

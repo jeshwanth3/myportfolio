@@ -41,12 +41,12 @@ export function EducationSection() {
                       <GraduationCap className="h-5 w-5 text-primary" /> {/* Use primary color */}
                   </div>
                    <div className="flex-1">
-                       <CardTitle as="h3" className="text-base md:text-lg font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Changed to h3 */}
-                       <CardDescription className="text-xs md:text-sm text-muted-foreground mt-1.5">{edu.institution}</CardDescription> {/* Adjusted spacing */}
+                       <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Increased font size */}
+                       <CardDescription className="text-sm md:text-base text-muted-foreground mt-1.5">{edu.institution}</CardDescription> {/* Increased font size */}
                    </div>
                </CardHeader>
                <CardContent className="p-5 md:p-6 pt-0">
-                   <p className="text-xs md:text-sm font-medium text-foreground/85 dark:text-foreground/75">{edu.years}</p> {/* Adjusted text color */}
+                   <p className="text-sm md:text-base font-medium text-foreground/85 dark:text-foreground/75">{edu.years}</p> {/* Increased font size */}
                </CardContent>
             </Card>
           ))}

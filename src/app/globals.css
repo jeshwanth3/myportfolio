@@ -9,15 +9,15 @@ body {
 
 @layer base {
   :root {
-    /* Modern Dark Theme - Deep Blue/Gray Base - Refined */
+    /* Modern Dark Theme - Deep Blue/Gray Base - Refined (Improved Contrast) */
     --background: 220 20% 5%; /* Even darker base */
-    --foreground: 210 40% 96%; /* Slightly less bright foreground */
+    --foreground: 210 40% 98%; /* Slightly brighter foreground for better contrast */
 
     --card: 220 20% 10%; /* Slightly adjusted card background */
-    --card-foreground: 210 40% 96%;
+    --card-foreground: 210 40% 98%; /* Brighter card foreground */
 
     --popover: 220 20% 4%; /* Darker Popover */
-    --popover-foreground: 210 40% 96%;
+    --popover-foreground: 210 40% 98%; /* Brighter popover foreground */
 
     /* Primary - Teal - Slightly desaturated */
     --primary: 180 60% 50%; /* Adjusted Teal */
@@ -25,11 +25,11 @@ body {
 
     /* Secondary - Muted Blue/Gray - Slightly darker */
     --secondary: 220 15% 15%; /* Darker shade for secondary */
-    --secondary-foreground: 210 30% 80%; /* Adjusted Gray for secondary text */
+    --secondary-foreground: 210 30% 85%; /* Lighter secondary text */
 
     /* Muted - Darker Gray/Blue */
     --muted: 215 20% 22%; /* Adjusted Muted Dark Gray/Blue */
-    --muted-foreground: 210 25% 60%; /* Adjusted Muted Gray text */
+    --muted-foreground: 210 25% 65%; /* Increased lightness for muted text */
 
     /* Accent - Vibrant Electric Blue - Slightly adjusted */
     --accent: 210 100% 58%; /* Adjusted Vibrant Electric Blue */
@@ -43,12 +43,12 @@ body {
     --input: 215 20% 25%; /* Adjusted Input Border */
     --ring: 210 80% 60%; /* Adjusted blue for focus rings */
 
-    /* Chart Colors (Adjusted for dark mode) */
-    --chart-1: 180 65% 50%; /* Adjusted Teal */
-    --chart-2: 210 80% 58%;  /* Adjusted Accent Blue */
-    --chart-3: 215 15% 45%;  /* Adjusted Gray */
-    --chart-4: 180 45% 65%; /* Adjusted Muted Teal */
-    --chart-5: 210 55% 65%; /* Adjusted Lighter Blue */
+    /* Chart Colors (Adjusted for dark mode & contrast) */
+    --chart-1: 180 65% 55%; /* Slightly lighter Teal */
+    --chart-2: 210 85% 65%;  /* Lighter Accent Blue */
+    --chart-3: 215 20% 55%;  /* Lighter Gray */
+    --chart-4: 180 50% 70%; /* Lighter Muted Teal */
+    --chart-5: 210 60% 75%; /* Lighter Blue */
 
     --radius: 0.5rem; /* Consistent radius */
 
