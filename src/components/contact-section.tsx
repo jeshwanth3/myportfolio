@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, ExternalLink, Download, Instagram } from 'lucide-react';
+import { Mail, Download } from 'lucide-react';
 import Image from 'next/image'; // Import next/image
 
 import Link from "next/link";
@@ -52,12 +52,6 @@ export function ContactSection() {
                  <Download className="mr-2 h-5 w-5" /> Download Resume
               </Button>
             </Link>
-            {/* Instagram Button - Placeholder for now */}
-             <Link href="#" target="_blank" rel="noopener noreferrer"> {/* Replace # with actual Instagram URL */}
-               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
-                 <Instagram className="mr-2 h-5 w-5" /> Instagram {/* Replace with actual icon if needed */}
-               </Button>
-             </Link>
           </div>
         </CardContent>
       </Card>
