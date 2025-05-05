@@ -8,7 +8,7 @@ import { X } from "lucide-react"
 import { DialogTitle as RadixDialogTitle, DialogDescription as RadixDialogDescription } from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils"
-import { VisuallyHidden } from "./visually-hidden"
+import { VisuallyHidden } from "./visually-hidden" // Ensure VisuallyHidden is imported
 
 const Sheet = SheetPrimitive.Root
 
@@ -62,6 +62,7 @@ const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
 >(({ side = "right", className, children, title, ...props }, ref) => {
+    // Generate a unique ID for the title if a title prop is provided
     const titleId = title ? `sheet-title-${React.useId()}` : undefined;
     return (
     <SheetPortal>
@@ -70,13 +71,13 @@ const SheetContent = React.forwardRef<
             ref={ref}
             className={cn(sheetVariants({ side }), className, 'relative')} // Ensure relative positioning
             aria-describedby={undefined} // Remove default aria-describedby
-            aria-labelledby={titleId} // Use generated titleId
+            aria-labelledby={titleId} // Use generated titleId if title prop exists
             {...props}
         >
              {/* Add visually hidden title if provided */}
              {title && (
                <VisuallyHidden>
-                  <SheetTitle id={titleId}>{title}</SheetTitle>
+                  <RadixDialogTitle id={titleId}>{title}</RadixDialogTitle>
                </VisuallyHidden>
              )}
 
@@ -167,3 +168,5 @@ export {
   SheetTitle, // Export SheetTitle
   SheetDescription, // Export SheetDescription
 };
+
+    
