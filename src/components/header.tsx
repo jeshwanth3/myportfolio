@@ -92,7 +92,7 @@ export function Header() {
                size="sm"
                className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent dark:hover:text-accent-foreground" // Use accent for hover fill
              >
-                 Get In Touch <Send className="ml-1.5 h-4 w-4" />
+                 Get In Touch With Me <Send className="ml-1.5 h-4 w-4" /> {/* Updated Button Text */}
              </Button>
           </Link>
         </nav>
@@ -163,3 +163,4 @@ export function Header() {
     </header>
   );
 }
+
