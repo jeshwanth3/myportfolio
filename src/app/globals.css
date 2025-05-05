@@ -126,11 +126,11 @@ body {
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   }
 
-  /* Heavy glassmorphism effect */
+  /* Heavy glassmorphism effect - Increased Transparency */
   .glassmorphism-heavy {
-    background-color: hsl(var(--background) / 0.75); /* Lower opacity for stronger effect */
-    backdrop-filter: blur(24px) saturate(200%); /* Increased blur and saturation */
-    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    background-color: hsl(var(--background) / 0.6); /* Decreased opacity for stronger effect */
+    backdrop-filter: blur(28px) saturate(200%); /* Increased blur and saturation */
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
     border-bottom: 1px solid hsl(var(--border) / 0.25); /* Slightly more visible border */
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   }
