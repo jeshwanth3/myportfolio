@@ -48,16 +48,14 @@ export function SummarySection() {
         {/* Image Column */}
         <div className="md:col-span-2 flex justify-center items-center md:justify-end order-first md:order-last">
            {/* Adjusted Image Size and Border */}
-          <Image
-            src="https://picsum.photos/600/600" // Slightly larger source image
-            alt="Professional headshot of Sai Jeshwanth Goud Illuri" // More descriptive alt text
-            width={380} // Adjusted width
-            height={380} // Adjusted height
-            sizes="(max-width: 768px) 70vw, (max-width: 1024px) 380px, 380px" // Added sizes attribute
-            // More responsive sizing: smaller base, scales up
-            className="rounded-full mac-shadow border-4 border-primary/20 dark:border-primary/30 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] md:max-w-[380px]" // Adjusted sizing
-            data-ai-hint="professional headshot person dark background modern studio lighting nebula purple teal"
-            priority // Load image early
+          <Image 
+            src="https://drive.google.com/file/d/15Ix8YbF3RSkYWygk_7Mau_Rtlx4-9xYo/view?usp=sharing" 
+            alt="Professional headshot of Sai Jeshwanth Goud Illuri" 
+            width={380} 
+            height={380} 
+            sizes="(max-width: 768px) 70vw, (max-width: 1024px) 380px, 380px" 
+            className="rounded-full mac-shadow border-4 border-primary/20 dark:border-primary/30 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] md:max-w-[380px]" 
+            priority 
           />
         </div>
       </div>
