@@ -60,3 +60,4 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
+
