@@ -35,7 +35,7 @@ export function ContactSection() {
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
                 {/* Use img tag for LinkedIn logo */}
                 <img
-                  src="https://drive.google.com/file/d/12L1sODhhcsfrV2gLPYv14csz9zh8skct/view?usp=sharing" // Replace with actual LinkedIn logo URL if preferred
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn"
                   width="20"
                   height="20"
