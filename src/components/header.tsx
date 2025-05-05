@@ -36,7 +36,7 @@ export function Header() {
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-      isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent" // Apply blur and background on scroll
+      isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent" // Increased blur and background on scroll
     )}>
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
         <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -80,8 +80,7 @@ export function Header() {
             <SheetContent
                 side="right"
                 className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col" // Use background with opacity and blur
-                title="Main Navigation" // Added title for accessibility
-                aria-describedby={undefined}
+                title="Main Navigation" // Added title prop for accessibility
             >
                <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
@@ -122,3 +121,4 @@ export function Header() {
     </header>
   );
 }
+

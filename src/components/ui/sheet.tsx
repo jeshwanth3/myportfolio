@@ -56,26 +56,28 @@ const sheetVariants = cva(
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
     VariantProps<typeof sheetVariants> {
-      title?: string; // Add optional title prop
+      title?: string; // Add optional title prop for accessibility
     }
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, title, ...props }, ref) => (
+>(({ side = "right", className, children, title, ...props }, ref) => {
+    const titleId = title ? `sheet-title-${React.useId()}` : undefined;
+    return (
     <SheetPortal>
         <SheetOverlay />
         <SheetPrimitive.Content
             ref={ref}
             className={cn(sheetVariants({ side }), className, 'relative')} // Ensure relative positioning
             aria-describedby={undefined} // Remove default aria-describedby
-            aria-labelledby={title ? `sheet-title-${props.id || Math.random().toString(36).substring(7)}` : undefined} // Conditionally add aria-labelledby
+            aria-labelledby={titleId} // Use generated titleId
             {...props}
         >
              {/* Add visually hidden title if provided */}
              {title && (
                <VisuallyHidden>
-                  <SheetTitle id={`sheet-title-${props.id || Math.random().toString(36).substring(7)}`}>{title}</SheetTitle>
+                  <SheetTitle id={titleId}>{title}</SheetTitle>
                </VisuallyHidden>
              )}
 
@@ -95,7 +97,7 @@ const SheetContent = React.forwardRef<
 
         </SheetPrimitive.Content>
     </SheetPortal>
-));
+)});
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 // Export SheetHeader, SheetFooter, SheetTitle, and SheetDescription
@@ -166,3 +168,4 @@ export {
   SheetTitle, // Export SheetTitle
   SheetDescription, // Export SheetDescription
 };
+
