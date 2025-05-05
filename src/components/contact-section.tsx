@@ -3,6 +3,7 @@ import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, ExternalLink, Download, Instagram } from 'lucide-react';
+
 import Link from 'next/link';
 
 export function ContactSection() {
@@ -32,7 +33,15 @@ export function ContactSection() {
              {/* Outline Buttons with Enhanced Hover */}
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
-                <Linkedin className="mr-2 h-5 w-5" /> {/* Adjusted icon size */} LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
+                {/* Use img tag for LinkedIn logo */}
+                <img
+                  src="https://i.imgur.com/hJ6Q37l.png" // Replace with actual LinkedIn logo URL if preferred
+                  alt="LinkedIn"
+                  width="20"
+                  height="20"
+                  className="mr-2" // Add margin if needed
+                />
+                LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
               </Button>
             </Link>
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
