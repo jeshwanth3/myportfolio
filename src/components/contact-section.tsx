@@ -38,16 +38,17 @@ export function ContactSection() {
                 size="icon" // Keep size as icon
                 className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-16 h-11 p-0 flex items-center justify-center border-none" // Increased width, kept height same, removed border
               >
-                <Image
+               <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
-                  alt="LinkedIn"
-                    className="object-contain"
-                  style={{ width: "auto", height: "auto" }}
-                />
+                  alt="LinkedIn Profile"
+                  width={28} // Slightly increased icon size
+                  height={28} // Slightly increased icon size
+                  className="object-contain" // Ensure SVG scales correctly
+                />  
               </Button>
              </Link>
              {/* Download Resume Button */}
-            <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
+             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
                  <Download className="mr-2 h-5 w-5" /> Download Resume
               </Button>
