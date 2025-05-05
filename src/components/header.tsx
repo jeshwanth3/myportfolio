@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, X, Send } from 'lucide-react'; // Added Send icon
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ const navItems = [
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Education', href: '#education' },
-  { label: 'Contact Me', href: '#contact' },
+  // { label: 'Contact Me', href: '#contact' }, // Removed contact from nav, added dedicated button
 ];
 
 export function Header() {
@@ -39,48 +39,68 @@ export function Header() {
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
-        // Use smooth scroll behavior
+        // Use smooth scroll behavior with start alignment
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
          // Fallback for links like "/"
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 100); // Small delay
+    }, 150); // Slightly increased delay for smoother visual transition
   };
 
 
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-      isScrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/20 shadow-md" : "bg-transparent border-b border-transparent" // Increased blur and background on scroll
+      isScrolled
+        ? "bg-background/95 backdrop-blur-xl border-b border-border/20 shadow-lg" // Enhanced blur and shadow on scroll
+        : "bg-gradient-to-b from-background/80 via-background/50 to-transparent border-b border-transparent" // Subtle gradient when at top
     )}>
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
+
+        {/* Name/Logo */}
         <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          {/* Increased font size for name */}
-          <span className={cn("text-2xl sm:text-3xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300", isScrolled ? "" : "animate-glow")}>
-            Sai Jeshwanth Goud Illuri
+          {/* Increased font size, refined glow */}
+          <span className={cn(
+              "text-2xl sm:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300",
+              !isScrolled && "animate-glow" // Apply glow only when at the top
+            )}
+          >
+            Sai J. G. Illuri
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-3 lg:gap-6"> {/* Adjusted gap */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-2"> {/* Reduced gap slightly */}
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              // Desktop links also use smooth scroll for consistency (if needed, but native browser behavior is usually fine)
-              // onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }} // Optional: Uncomment if desktop smooth scroll needed
+              // Desktop links also use smooth scroll
+              onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
               className={cn(
-                "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out relative", // Adjusted padding and base text size
+                "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out relative group", // Adjusted padding and base text size
                 "text-muted-foreground hover:text-foreground", // Modern hover effect
-                "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-out", // Underline animation
-                "hover:after:scale-x-100"
+                "overflow-hidden" // Needed for the underline effect
               )}
             >
-              {item.label}
+               <span className="relative z-10">{item.label}</span>
+               {/* Underline animation - more futuristic */}
+               <span className="absolute bottom-0 left-0 h-[2px] w-full bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
             </Link>
           ))}
+          {/* Desktop Contact Button */}
+          <Link href="#contact" passHref>
+             <Button
+               variant="outline"
+               size="sm"
+               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent/20 hover:text-accent border-primary/30 hover:border-primary/60 dark:bg-secondary/50 dark:hover:bg-accent/25 dark:hover:text-accent dark:border-primary/40 dark:hover:border-primary/70 text-primary hover:text-accent dark:text-primary dark:hover:text-accent"
+             >
+                 Get In Touch <Send className="ml-1.5 h-3.5 w-3.5" />
+             </Button>
+          </Link>
         </nav>
+
 
         {/* Mobile Navigation Trigger */}
         <div className="flex items-center gap-2 md:hidden">
@@ -128,6 +148,14 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+                {/* Mobile Contact Button */}
+                 <Link
+                    href="#contact"
+                    onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
+                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center mt-4 border-t border-border/20 pt-6" // Add separator and spacing
+                  >
+                    Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                  </Link>
               </nav>
 
               <div className="p-4 border-t border-border/20 mt-auto text-center text-xs text-muted-foreground">
@@ -140,5 +168,3 @@ export function Header() {
     </header>
   );
 }
-
-    
