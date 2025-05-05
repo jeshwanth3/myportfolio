@@ -1,4 +1,4 @@
-import { MenuBar } from "@/components/menu-bar";
+
 import { Header } from "@/components/header";
 import { SummarySection } from "@/components/summary-section";
 import { ExperienceSection } from "@/components/experience-section";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     // The main container now spans the full viewport height
     <div className="flex flex-col min-h-screen bg-background">
-      <MenuBar />
+
       {/* Content is rendered directly */}
       <Header />
       {/* Added padding for mobile view */}
