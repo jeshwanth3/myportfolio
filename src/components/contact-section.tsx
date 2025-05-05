@@ -2,18 +2,14 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, ExternalLink, Download } from 'lucide-react';
+import { Mail, ExternalLink, Download, Linkedin, Instagram } from 'lucide-react';
 
-import Link from 'next/link';
+import Link from "next/link";
 
 export function ContactSection() {
   const email = "jeshwanthgoud3@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
   const resumeUrl = "/Sai_Jeshwanth_Goud_Illuri_Resume.pdf"; // Assuming resume is in public folder
-  const instagramUrl = "https://www.instagram.com/your_instagram_handle/"; // Replace with actual Instagram URL
-
-  import { Linkedin, Instagram } from "lucide-react"
-
 
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28">
@@ -43,11 +39,6 @@ export function ContactSection() {
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
                  <Download className="mr-2 h-5 w-5" /> {/* Adjusted icon size */} Download Resume
-              </Button>
-            </Link>
-            <Link href={instagramUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
-                <Instagram className="mr-2 h-5 w-5" /> Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
               </Button>
             </Link>
           </div>
