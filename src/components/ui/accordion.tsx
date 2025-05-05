@@ -29,7 +29,7 @@ const AccordionTrigger = React.forwardRef<
       ref={ref}
       className={cn(
         // Enhanced hover and open state styling using accent color
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all duration-300 hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/15 data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/20 [&[data-state=open]>svg]:rotate-180",
+        "flex flex-1 items-center justify-between py-4 font-medium transition-all duration-300 hover:no-underline hover:bg-primary/5 dark:hover:bg-primary/10 data-[state=open]:bg-primary/10 dark:data-[state=open]:bg-primary/15 [&[data-state=open]>svg]:rotate-180",
         "p-4 md:p-6 text-left", // Consistent padding
         className
       )}

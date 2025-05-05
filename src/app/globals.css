@@ -147,22 +147,7 @@ body {
   }
 }
 
-/* Text Glow Animation - Using Accent Color - More intense pulse */
-@keyframes text-glow {
-  0%, 100% {
-    text-shadow: 0 0 8px hsl(var(--accent) / 0.7), /* Increased base glow */
-                 0 0 16px hsl(var(--accent) / 0.5),
-                 0 0 24px hsl(var(--accent) / 0.3);
-  }
-  50% {
-    text-shadow: 0 0 12px hsl(var(--accent) / 0.9), /* Brighter pulse */
-                 0 0 24px hsl(var(--accent) / 0.7),
-                 0 0 36px hsl(var(--accent) / 0.5);
-  }
-}
-
-
-/* Gradient Text Animation - Primary to Accent - Smoother and slower */
+/* Gradient Text Animation - Primary to Primary (Subtle shimmer) */
 @keyframes gradient-text-animation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -170,7 +155,7 @@ body {
 }
 
 .animate-gradient-text-slow {
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.7), hsl(var(--primary))); /* Use primary with varying opacity */
   background-size: 300% 300%; /* Adjusted size for slower effect */
   background-clip: text;
   -webkit-background-clip: text; /* For Safari */
@@ -180,8 +165,25 @@ body {
 
 
 .animate-glow {
-  animation: text-glow 2s ease-in-out infinite; /* Slightly faster glow pulse */
+  text-shadow: 0 0 8px hsl(var(--primary) / 0.5), /* Adjusted base glow to primary */
+                 0 0 16px hsl(var(--primary) / 0.3),
+                 0 0 24px hsl(var(--primary) / 0.2);
+  animation: text-glow-pulse 2.5s ease-in-out infinite alternate; /* Slower, alternating pulse */
 }
+
+@keyframes text-glow-pulse {
+  from {
+    text-shadow: 0 0 8px hsl(var(--primary) / 0.5),
+                 0 0 16px hsl(var(--primary) / 0.3),
+                 0 0 24px hsl(var(--primary) / 0.2);
+  }
+  to {
+    text-shadow: 0 0 12px hsl(var(--primary) / 0.8), /* Brighter pulse */
+                 0 0 24px hsl(var(--primary) / 0.6),
+                 0 0 36px hsl(var(--primary) / 0.4);
+  }
+}
+
 
 /* Primary Button Glow on Hover/Focus - More prominent glow */
 .button-glow:hover, .button-glow:focus-visible {

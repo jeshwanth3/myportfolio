@@ -40,14 +40,14 @@ export function EducationSection() {
             <Card
               key={edu.id}
               // Apply subtle gradient background, enhanced shadow, and border effect on hover
-              className="flex flex-col bg-gradient-to-br from-card/90 to-secondary/80 dark:from-secondary/60 dark:to-card/70 mac-shadow border border-border/20 dark:border-border/30 transition-all duration-300 ease-out hover:shadow-lg hover:border-accent/50 dark:hover:border-primary/60 transform hover:-translate-y-2 group"
+              className="flex flex-col bg-gradient-to-br from-card/90 to-secondary/80 dark:from-secondary/60 dark:to-card/70 mac-shadow border border-border/20 dark:border-border/30 transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/50 dark:hover:border-primary/60 transform hover:-translate-y-2 group"
               // Staggered animation delay for each card
               style={{ '--animation-delay': `${150 + index * 100}ms` } as React.CSSProperties}
             >
                {/* Improved Card Header Layout - Icon treatment */}
                <CardHeader className="flex flex-row items-start gap-4 p-5 md:p-6 pb-3">
                   {/* Icon container with background matching card but slightly different opacity */}
-                  <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-lg mt-0.5 shrink-0 group-hover:bg-accent/20 dark:group-hover:bg-accent/25 transition-colors duration-300 w-12 h-12 flex items-center justify-center">
+                  <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-lg mt-0.5 shrink-0 group-hover:bg-primary/25 dark:group-hover:bg-primary/30 transition-colors duration-300 w-12 h-12 flex items-center justify-center">
                      {/* Conditionally render image or fallback icon */}
                      {edu.imageUrl ? (
                          <Image
@@ -59,7 +59,7 @@ export function EducationSection() {
                            data-ai-hint="university logo" // AI Hint
                          />
                        ) : (
-                         <GraduationCap className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300" />
+                         <GraduationCap className="h-6 w-6 text-primary group-hover:text-primary transition-colors duration-300" />
                        )}
                   </div>
                    <div className="flex-1">

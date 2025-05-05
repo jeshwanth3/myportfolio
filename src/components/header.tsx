@@ -73,9 +73,14 @@ export function Header() {
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
         <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
           <span className={cn(
+<<<<<<< HEAD
               // Apply gradient text - Emphasizing Blue to Teal, removed glow
               "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-accent", // Adjusted gradient stops, removed animate-glow
               "group-hover:brightness-150 transition-all duration-300" // Brighter hover effect
+=======
+              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/60 animate-gradient-text-slow", // Use primary color gradient
+              "group-hover:brightness-125 transition-all duration-300" // Brighter glow on hover
+>>>>>>> f53313c (Make the following changes:)
             )}
           >
             Sai Jeshwanth Goud Illuri
@@ -119,8 +124,12 @@ export function Header() {
                 variant="outline"
                 size="sm"
                 onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
+<<<<<<< HEAD
                 className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-accent hover:bg-accent/15 hover:text-accent" // Changed to outline, subtle border and hover effect
 >>>>>>> 697708f (Make the following changes:)
+=======
+                className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
+>>>>>>> f53313c (Make the following changes:)
              >
                  Get In Touch With Me <Send className="ml-2 h-4 w-4" /> {/* Adjusted icon size slightly */}
              </Button>

@@ -43,7 +43,7 @@ export function ProjectsSection() {
           // Enhanced Card Styling - Use accent color for border on hover
           <Card
             key={project.id}
-            className="flex flex-col bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"
+            className="flex flex-col bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-1.5"
           >
             <CardHeader className="p-5 md:p-6 pb-4">
               <div className="flex items-center gap-4 mb-2">
@@ -63,7 +63,7 @@ export function ProjectsSection() {
                   <Badge
                     key={tech}
                     variant="secondary"
-                    className="text-sm font-normal border border-transparent bg-muted/70 dark:bg-muted/50 hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2.5 py-1 rounded" // Adjusted padding and hover effect
+                    className="text-sm font-normal border border-transparent bg-muted/70 dark:bg-muted/50 hover:border-primary/40 dark:hover:border-primary/50 hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary transition-all duration-200 px-2.5 py-1 rounded" // Adjusted padding and hover effect
                   >
                     {tech}
                   </Badge>
@@ -81,7 +81,7 @@ export function ProjectsSection() {
               )}
               {project.liveUrl && (
                 <Link href={project.liveUrl} target={project.liveUrl === '#' ? '_self' : '_blank'} rel="noopener noreferrer" passHref>
-                  <Button variant="outline" size="sm" className="text-xs h-8 px-3 bg-background/60 hover:bg-accent/15 hover:text-accent dark:bg-secondary/60 dark:hover:bg-accent/20 dark:hover:text-accent rounded-md border-border hover:border-accent/50">
+                  <Button variant="outline" size="sm" className="text-xs h-8 px-3 bg-background/60 hover:bg-primary/15 hover:text-primary dark:bg-secondary/60 dark:hover:bg-primary/20 dark:hover:text-primary rounded-md border-border hover:border-primary/50">
                     {project.liveUrl === '#' ? 'View Site' : 'Live Demo'} <ExternalLink className="ml-1.5 h-3.5 w-3.5 opacity-80" /> {/* Increased icon opacity */}
                   </Button>
                 </Link>

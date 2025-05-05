@@ -27,7 +27,7 @@ export function ContactSection() {
           <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row */}
              {/* Email Button using outline variant */}
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
-               <Button variant="outline" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground"> {/* Changed variant to outline */}
+               <Button variant="outline" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary"> {/* Changed variant to outline */}
                 <Mail className="mr-2 h-5 w-5" /> Email Me
                </Button>
              </Link>
@@ -69,8 +69,13 @@ export function ContactSection() {
               </Button>
             </Link>
              {/* Download Resume Button */}
+<<<<<<< HEAD
              <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
+=======
+            <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary">
+>>>>>>> f53313c (Make the following changes:)
                  <Download className="mr-2 h-5 w-5" /> Download Resume
               </Button>
             </Link>

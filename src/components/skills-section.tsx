@@ -54,7 +54,7 @@ export function SkillsSection() {
           // Enhanced Card Styling
           <Card
             key={category.id}
-            className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"
+            className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-1.5"
           >
             <CardHeader className="flex flex-row items-center gap-4 pb-4 p-5 md:p-6"> {/* Consistent padding */}
               <div className="bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full"> {/* Slightly larger icon background */}
@@ -70,7 +70,7 @@ export function SkillsSection() {
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary"
                     // Refined Badge Appearance - Use accent color on hover
-                    className="text-sm md:text-base font-medium bg-muted/70 dark:bg-muted/50 text-muted-foreground dark:text-foreground/80 border border-transparent hover:border-accent/50 dark:hover:border-accent/60 hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3.5 py-1.5 rounded-md" // Ensure badges are readable and consistently styled
+                    className="text-sm md:text-base font-medium bg-muted/70 dark:bg-muted/50 text-muted-foreground dark:text-foreground/80 border border-transparent hover:border-primary/50 dark:hover:border-primary/60 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-all duration-200 flex items-center gap-1.5 px-3.5 py-1.5 rounded-md" // Ensure badges are readable and consistently styled
                   >
                     {/* Render icon if skill is an object */}
                     {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}

@@ -22,7 +22,7 @@ export function SummarySection() {
             {yourName}
           </h1>
            {/* Title - Refined glow and size, now uses ACCENT color */}
-           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-accent animate-glow"> {/* Adjusted size, uses text-glow from globals */}
+           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-primary animate-glow"> {/* Adjusted size, uses text-glow from globals */}
              Product Manager
            </h2>
           {/* Summary Text - Improved readability */}
@@ -32,12 +32,12 @@ export function SummarySection() {
           {/* Buttons - Enhanced styling and spacing */}
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-6 md:pt-8"> {/* Increased top padding */}
             <Link href="#contact" passHref>
-              <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow"> {/* Added button-glow class */}
+              <Button size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow bg-primary text-primary-foreground hover:bg-primary/90"> {/* Added button-glow class */}
                 Contact Me <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="#experience" passHref>
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto">
                 View Experience
               </Button>
             </Link>
@@ -60,4 +60,3 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
-

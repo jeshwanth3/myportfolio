@@ -13,10 +13,10 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground", // Uses accent color for hover
+          "border border-input bg-background hover:bg-primary/10 hover:text-primary", // Uses primary color for hover
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground", // Uses accent color for hover
+        ghost: "hover:bg-muted/50 hover:text-foreground", // Uses muted color for hover
         link: "text-primary underline-offset-4 hover:underline", // Uses primary color for link
       },
       size: {

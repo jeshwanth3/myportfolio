@@ -91,7 +91,7 @@ const SheetContent = React.forwardRef<
                 className={cn(
                     // Consistent close button styling - use accent color for open state
                     'absolute right-4 top-4 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none',
-                    'data-[state=open]:bg-accent data-[state=open]:text-accent-foreground' // Use themed accent background/text for open state
+                    'data-[state=open]:bg-muted data-[state=open]:text-muted-foreground' // Use themed muted background/text for open state
                 )}
             >
                 <X className="h-4 w-4" />
