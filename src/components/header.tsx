@@ -11,6 +11,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetClose,        // ← import SheetClose
 } from '@/components/ui/sheet';
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { cn } from '@/lib/utils';
@@ -36,10 +37,8 @@ export function Header() {
   const handleMobileLinkClick = (href: string) => {
     const id = href.replace('#', '');
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-    setOpen(false);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    // no need to setOpen(false) manually if we wrap in <SheetClose>
   };
 
   return (
@@ -50,12 +49,12 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between px-4">
-        {/* Logo / Name */}
+        {/* Logo */}
         <Link href="/" className="text-xl font-bold">
           Sai Jeshwanth Goud Illuri
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <nav className="hidden gap-6 md:flex">
           {navItems.map((item) => (
             <Link
@@ -83,7 +82,7 @@ export function Header() {
               title="Main Navigation"
               className="w-64 bg-background/90 backdrop-blur-lg border-l border-border/20 p-4"
             >
-              {/* REQUIRED for accessibility */}
+              {/* Accessibility Title */}
               <SheetTitle>
                 <VisuallyHidden>Navigation Menu</VisuallyHidden>
               </SheetTitle>
@@ -91,26 +90,28 @@ export function Header() {
               <SheetHeader className="mb-4">
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold">Menu</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setOpen(false)}
-                    aria-label="Close menu"
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
+                  <SheetClose asChild>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      aria-label="Close menu"
+                    >
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </SheetClose>
                 </div>
               </SheetHeader>
 
               <div className="space-y-3">
                 {navItems.map((item) => (
-                  <button
-                    key={item.href}
-                    onClick={() => handleMobileLinkClick(item.href)}
-                    className="w-full text-left text-base font-medium hover:text-accent transition-colors"
-                  >
-                    {item.label}
-                  </button>
+                  <SheetClose asChild key={item.href}>
+                    <button
+                      onClick={() => handleMobileLinkClick(item.href)}
+                      className="w-full text-left text-base font-medium text-foreground hover:text-accent transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  </SheetClose>
                 ))}
               </div>
             </SheetContent>
