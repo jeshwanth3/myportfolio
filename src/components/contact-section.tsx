@@ -53,13 +53,8 @@ export function ContactSection() {
                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-<<<<<<< HEAD
-                  width={90} // Size adjusted
-                  height={90} // Size adjusted
-=======
-                  width={180} // Reduced logo size by 10% (from 200)
-                  height={180} // Reduced logo size by 10% (from 200)
->>>>>>> 582e6e1 (Make the following changes:)
+                  width={162} // Reduced logo size by 10% (from 180)
+                  height={162} // Reduced logo size by 10% (from 180)
                   className="object-contain" // Ensure SVG scales correctly
                 />
               </Button>
