@@ -75,17 +75,20 @@ export function ExperienceSection() {
     <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/15">
       <SectionTitle>Work Experience</SectionTitle>
       <Tabs defaultValue={experiences[0].id} className="w-full">
+        {/* Enhanced TabsList Styling */}
         <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 h-auto p-1.5 bg-muted/60 dark:bg-muted/40 rounded-lg mb-8">
           {experiences.map((exp) => (
              <TabsTrigger
                key={exp.id}
                value={exp.id}
+               // Improved Tab Trigger Styling
                className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out"
             >
                {exp.title}
             </TabsTrigger>
           ))}
         </TabsList>
+        {/* Enhanced Card Styling within TabsContent */}
         {experiences.map((exp) => (
           <TabsContent key={exp.id} value={exp.id}>
             <Card className="bg-card/95 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 transition-all duration-300 ease-out">
@@ -96,7 +99,7 @@ export function ExperienceSection() {
                   </div>
                   <div className="flex-1">
                     <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle>
-                    <div className="text-sm text-muted-foreground mt-2 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1.5 flex-wrap">
+                    <div className="text-sm text-muted-foreground mt-2 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1.5 flex-wrap"> {/* Ensure consistent spacing */}
                       <span className="font-medium text-foreground/95">{exp.company}</span>
                       <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 opacity-80" /> {exp.location}</span> {/* Increased icon opacity */}
                       <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 opacity-80" /> {exp.duration}</span> {/* Increased icon opacity */}
@@ -106,6 +109,7 @@ export function ExperienceSection() {
               </CardHeader>
               <CardContent className="p-5 md:p-6 pt-0">
                 <p className="mb-5 text-base md:text-lg text-foreground/80 dark:text-foreground/75">{exp.description}</p>
+                {/* Improved list styling */}
                 <ul className="list-disc space-y-2 pl-5 text-sm md:text-base text-foreground/85 dark:text-foreground/80">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>

@@ -51,24 +51,28 @@ export function SkillsSection() {
       <SectionTitle>Skills</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
         {skillCategories.map((category) => (
+          // Enhanced Card Styling
           <Card
             key={category.id}
             className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"
           >
-            <CardHeader className="flex flex-row items-center gap-4 pb-4 p-5 md:p-6">
-              <div className="bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full">
+            <CardHeader className="flex flex-row items-center gap-4 pb-4 p-5 md:p-6"> {/* Consistent padding */}
+              <div className="bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full"> {/* Slightly larger icon background */}
                 {category.icon}
               </div>
               <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{category.title}</CardTitle>
             </CardHeader>
             <CardContent className="p-5 md:p-6 pt-0">
-              <div className="flex flex-wrap gap-2.5">
+              {/* Enhanced Badge Styling & Spacing */}
+              <div className="flex flex-wrap gap-2.5"> {/* Increased gap slightly */}
                 {category.skills.map((skill) => (
                   <Badge
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary"
+                    // Refined Badge Appearance
                     className="text-sm md:text-base font-medium bg-muted/70 dark:bg-muted/50 text-muted-foreground dark:text-foreground/80 border border-transparent hover:border-accent/50 dark:hover:border-accent/60 hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3.5 py-1.5 rounded-md" // Ensure badges are readable and consistently styled
                   >
+                    {/* Render icon if skill is an object */}
                     {typeof skill === 'string' ? skill : <>{skill.icon} {skill.name}</>}
                   </Badge>
                 ))}

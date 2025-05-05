@@ -14,7 +14,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("border-b border-border/30 dark:border-border/50", className)}
+    className={cn("border-b border-border/30 dark:border-border/50", className)} // Use themed border with adjusted opacity
     {...props}
   />
 ))
@@ -28,8 +28,9 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
+        // Enhanced hover and open state styling
         "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/15 data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/20 [&[data-state=open]>svg]:rotate-180",
-        "p-4 md:p-6 text-left",
+        "p-4 md:p-6 text-left", // Consistent padding
         className
       )}
       {...props}
@@ -49,11 +50,13 @@ const AccordionContent = React.forwardRef<
     ref={ref}
     className={cn(
         "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+        // Refined background and border styling
         "bg-card/50 dark:bg-secondary/30 border-t border-border/30 dark:border-border/40",
         className
         )}
     {...props}
   >
+    {/* Consistent padding */}
     <div className={cn("pb-4 pt-4 px-4 md:px-6", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ))

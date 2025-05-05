@@ -25,6 +25,7 @@ const SheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
     className={cn(
+      // Adjusted background color and added backdrop blur
       "fixed inset-0 z-50 bg-black/60 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Adjusted background and blur
       className
     )}
@@ -35,10 +36,12 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
 const sheetVariants = cva(
+  // Enhanced base styles with more blur
   "fixed z-50 gap-4 bg-background dark:bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 backdrop-blur-xl", // Increased blur
   {
     variants: {
       side: {
+        // Adjusted border opacity and added rounded corners
         top: "inset-x-0 top-0 border-b dark:border-border/20 data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top rounded-b-lg", // Adjusted border
         bottom:
           "inset-x-0 bottom-0 border-t dark:border-border/20 data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom rounded-t-lg", // Adjusted border
@@ -88,7 +91,9 @@ const SheetContent = React.forwardRef<
             {/* Close Button remains */}
             <SheetPrimitive.Close
                 className={cn(
+                    // Consistent close button styling
                     'absolute right-4 top-4 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none',
+                    // Use themed secondary background/text for open state
                     'data-[state=open]:bg-secondary data-[state=open]:text-muted-foreground dark:data-[state=open]:bg-secondary dark:data-[state=open]:text-muted-foreground'
                 )}
             >
@@ -169,4 +174,3 @@ export {
   SheetTitle, // Export SheetTitle
   SheetDescription, // Export SheetDescription
 };
-    

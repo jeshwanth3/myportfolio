@@ -8,6 +8,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
+      // Added transition for smoother hover effects
       "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 ease-in-out",
       className
     )}
@@ -32,10 +33,11 @@ CardHeader.displayName = "CardHeader";
 const CardTitle = React.forwardRef<
   HTMLHeadingElement | HTMLDivElement, // Ref can point to a HeadingElement or a DivElement
   React.HTMLAttributes<HTMLElement> & { as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" } // Props include common attributes and the 'as' prop
->(({ className, as: Tag = "div", ...props }, ref) => (
+>(({ className, as: Tag = "div", ...props }, ref) => ( // Default to 'div' for semantic flexibility
   <Tag
     ref={ref}
     className={cn(
+      // Adjusted font size and weight slightly for better hierarchy
       "text-lg font-semibold leading-none tracking-tight",
       className
     )}
