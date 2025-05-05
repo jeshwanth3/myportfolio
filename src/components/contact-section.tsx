@@ -35,13 +35,13 @@ export function ContactSection() {
               <Button
                 variant="outline"
                 size="icon" // Keep size as icon
-                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-11 h-11 p-0 flex items-center justify-center" // Match height (h-11) of lg button, keep width same for squareness
+                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-16 h-11 p-0 flex items-center justify-center border-none" // Increased width, kept height same, removed border
               >
                 <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-                  width={24} // Adjust icon size for new button dimensions
-                  height={24} // Adjust icon size for new button dimensions
+                  width={28} // Slightly increased icon size
+                  height={28} // Slightly increased icon size
                   className="object-contain" // Ensure SVG scales correctly
                 />
               </Button>
@@ -58,5 +58,6 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
+
 
 
