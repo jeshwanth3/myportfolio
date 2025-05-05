@@ -31,19 +31,35 @@ export function ContactSection() {
                 <Mail className="mr-2 h-5 w-5" /> Email Me
                </Button>
              </Link>
+<<<<<<< HEAD
              {/* LinkedIn Button - Icon Only - Adjusted size */}
              <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
                 size="icon"
                 className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-16 h-11 p-0 flex items-center justify-center border-none" // Increased width, kept height same, removed border
+=======
+             {/* LinkedIn Button - Logo Only, No Background/Border */}
+            <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="ghost" // Use ghost variant for no background/border
+                size="icon"
+                className="p-1 transition-transform hover:scale-110 transform duration-300 w-auto h-auto" // Remove specific size, padding, background, border classes
+                aria-label="LinkedIn Profile"
+>>>>>>> 45d46b8 (Make the following changes:)
               >
                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
+<<<<<<< HEAD
                   width={28} // Slightly increased icon size
                   height={28} // Slightly increased icon size
                   className="object-contain"
+=======
+                  width={40} // Enlarged logo size
+                  height={40} // Enlarged logo size
+                  className="object-contain" // Ensure SVG scales correctly
+>>>>>>> 45d46b8 (Make the following changes:)
                 />
               </Button>
             </Link>
