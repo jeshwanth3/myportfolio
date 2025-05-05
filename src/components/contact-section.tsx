@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 import Image from 'next/image'; // Import next/image
 
 import Link from "next/link";
@@ -28,7 +28,15 @@ export function ContactSection() {
              {/* Email Button using outline variant */}
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
                <Button variant="outline" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary"> {/* Changed variant to outline */}
-                <Mail className="mr-2 h-5 w-5" /> Email Me
+                  <Image
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png"
+                    alt="Gmail logo"
+                    width={20} // Set appropriate size
+                    height={20} // Set appropriate size
+                    className="mr-2 h-5 w-5" // Keep consistent size with other icons
+                    data-ai-hint="gmail logo"
+                  />
+                  Email Me
                </Button>
              </Link>
 <<<<<<< HEAD
