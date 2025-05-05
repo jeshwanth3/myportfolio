@@ -114,7 +114,7 @@ export function Header() {
                         e.preventDefault();
                         handleMobileLinkClick(item.href);
                       }}
-                      className="
+                      className=" 
                         block
                         px-3 py-2
                         text-foreground
@@ -123,6 +123,7 @@ export function Header() {
                         hover:bg-accent/10
                         transition
                       "
+                      
                     >
                       {item.label}
                     </a>
