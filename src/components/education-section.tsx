@@ -7,13 +7,13 @@ const education = [
   {
     id: "edu1",
     degree: "Master of Business Administration (STEM MBA)",
-    institution: "Iowa State University, Ivy College of Business",
+    institution: "Ivy College of Business, Iowa State University",
     years: "Aug 2023 - May 2025",
   },
   {
     id: "edu2",
     degree: "Master of Science in Information Systems (STEM)",
-    institution: "Iowa State University, Ivy College of Business",
+    institution: "Ivy College of Business, Iowa State University",
     years: "Aug 2024 - May 2025",
   },
   {
