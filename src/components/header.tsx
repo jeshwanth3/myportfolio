@@ -1,10 +1,9 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Send } from 'lucide-react'; // Added Send icon
+import { Menu, X, Send } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { cn } from "@/lib/utils";
@@ -15,7 +14,6 @@ const navItems = [
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Education', href: '#education' },
-  // { label: 'Contact Me', href: '#contact' }, // Removed contact from nav, added dedicated button
 ];
 
 export function Header() {
@@ -24,7 +22,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20); // Trigger effect slightly later
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check initial scroll position
@@ -33,41 +31,38 @@ export function Header() {
 
   const closeSheet = () => setOpen(false);
 
-  // Function to handle smooth scroll and close sheet
   const handleMobileLinkClick = (href: string) => {
     closeSheet();
-    // Delay scroll slightly to allow sheet to close visually first
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
-        // Use smooth scroll behavior with start alignment
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
-         // Fallback for links like "/"
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 150); // Slightly increased delay for smoother visual transition
+    }, 100); // Reduced delay
   };
 
 
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
+      // Apply heavy glassmorphism when scrolled, otherwise subtle gradient
       isScrolled
-        ? "bg-background/95 backdrop-blur-xl border-b border-border/20 shadow-lg" // Enhanced blur and shadow on scroll
-        : "bg-gradient-to-b from-background/80 via-background/50 to-transparent border-b border-transparent" // Subtle gradient when at top
+        ? "glassmorphism-heavy shadow-xl" // New class for heavy effect
+        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent"
     )}>
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
 
         {/* Name/Logo */}
-        <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          {/* Increased font size, refined glow */}
+        <Link href="/" className="flex items-center space-x-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          {/* Updated text styling: Larger font, gradient text with animation */}
           <span className={cn(
-              "text-2xl sm:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300",
-              !isScrolled && "animate-glow" // Apply glow only when at the top
+              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient-text-slow", // Gradient text effect
+              "group-hover:brightness-125 transition-all duration-300" // Subtle brightness increase on hover
             )}
           >
-            Sai Jeshwanth Goud Illuri {/* Updated Name */}
+            Sai Jeshwanth Goud Illuri
           </span>
         </Link>
 
@@ -77,7 +72,6 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              // Desktop links also use smooth scroll
               onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
               className={cn(
                 "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out relative group", // Adjusted padding and base text size
@@ -95,7 +89,8 @@ export function Header() {
              <Button
                variant="outline"
                size="sm"
-               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent/20 hover:text-accent border-primary/30 hover:border-primary/60 dark:bg-secondary/50 dark:hover:bg-accent/25 dark:hover:text-accent dark:border-primary/40 dark:hover:border-primary/70 text-primary hover:text-accent dark:text-primary dark:hover:text-accent"
+                // Enhanced button style
+               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:text-accent dark:text-primary dark:hover:text-accent bg-gradient-to-r from-background/60 via-card/30 to-background/60 hover:from-accent/15 hover:via-accent/5 hover:to-accent/15 dark:from-secondary/50 dark:via-card/20 dark:to-secondary/50 dark:hover:from-accent/20 dark:hover:via-accent/10 dark:hover:to-accent/20"
              >
                  Get In Touch <Send className="ml-1.5 h-3.5 w-3.5" />
              </Button>
@@ -110,7 +105,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-10 w-10 rounded-full" // Ensure sufficient size and rounded corners
+                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-10 w-10 rounded-full"
               >
                 <Menu className="h-6 w-6" />
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
@@ -118,15 +113,15 @@ export function Header() {
             </SheetTrigger>
             <SheetContent
                 side="right"
-                className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col" // Use background with opacity and blur
+                className="w-[85vw] max-w-[380px] bg-background/90 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col glassmorphism-heavy" // Apply heavy glassmorphism
                 title="Main Navigation" // Added title prop for accessibility
             >
                <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
-                   {/* Simplified title in mobile menu */}
                    <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
-                     <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                        Sai Jeshwanth Goud Illuri {/* Updated Name */}
+                      {/* Mobile menu name uses gradient too */}
+                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary group-hover:brightness-110 transition-all">
+                        Sai Jeshwanth Goud Illuri
                      </span>
                    </Link>
                    <Button variant="ghost" className="h-8 w-8 p-0" size="icon" onClick={closeSheet}>
@@ -142,9 +137,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    // Use the handler for smooth scroll and sheet closing
                     onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
-                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center" // Larger text, centered
+                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center"
                   >
                     {item.label}
                   </Link>
@@ -153,7 +147,7 @@ export function Header() {
                  <Link
                     href="#contact"
                     onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
-                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center mt-4 border-t border-border/20 pt-6" // Add separator and spacing
+                     className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center mt-4 border-t border-border/20 pt-6" // Add separator and spacing
                   >
                     Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
                   </Link>
@@ -169,4 +163,3 @@ export function Header() {
     </header>
   );
 }
-

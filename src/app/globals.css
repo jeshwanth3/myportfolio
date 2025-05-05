@@ -92,7 +92,6 @@ body {
   /* Updated Slide In Animation - Smoother */
   .animate-slide-in-bottom {
      animation: slideInBottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Faster, standard ease-out */
-     /* opacity: 0; Start hidden - handled by component now */
      animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
 
@@ -109,13 +108,11 @@ body {
 
   /* Subtle shadow for depth - Enhanced for Dark Mode */
   .mac-shadow {
-     /* More pronounced shadow for dark mode */
      box-shadow: 0 6px 15px -3px hsl(var(--foreground) / 0.04), 0 4px 8px -4px hsl(var(--foreground) / 0.04);
      border: 1px solid hsl(var(--border) / 0.2); /* Slightly more visible border */
      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smoother transition */
   }
    .dark .mac-shadow {
-      /* Refined shadow for dark mode - slightly more diffused */
       box-shadow: 0 3px 8px 0 hsl(var(--background) / 0.35), 0 5px 15px -5px hsl(var(--background) / 0.45);
       border: 1px solid hsl(var(--border) / 0.35); /* Slightly stronger border */
    }
@@ -129,6 +126,14 @@ body {
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   }
 
+  /* Heavy glassmorphism effect */
+  .glassmorphism-heavy {
+    background-color: hsl(var(--background) / 0.75); /* Lower opacity for stronger effect */
+    backdrop-filter: blur(24px) saturate(200%); /* Increased blur and saturation */
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border-bottom: 1px solid hsl(var(--border) / 0.25); /* Slightly more visible border */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  }
 
   /* Minimal scrollbar - Consistent */
   ::-webkit-scrollbar {
@@ -163,20 +168,33 @@ body {
   }
 }
 
-/* Adjusted Text Glow Animation - Smoother, primary color based */
+/* Text Glow Animation - Softer, primary color based */
 @keyframes text-glow {
   0%, 100% {
-    text-shadow: 0 0 4px hsl(var(--primary) / 0.5), /* Base subtle glow */
-                 0 0 8px hsl(var(--primary) / 0.3);
+    text-shadow: 0 0 4px hsl(var(--primary) / 0.4), /* Base subtle glow */
+                 0 0 8px hsl(var(--primary) / 0.2);
   }
   50% {
-    text-shadow: 0 0 7px hsl(var(--primary) / 0.7), /* Brighter pulse */
-                 0 0 14px hsl(var(--primary) / 0.45);
+    text-shadow: 0 0 6px hsl(var(--primary) / 0.6), /* Slightly brighter pulse */
+                 0 0 12px hsl(var(--primary) / 0.35);
   }
 }
 
+/* Gradient Text Animation */
+@keyframes gradient-text-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-text-slow {
+  background-size: 200% 200%; /* Ensure gradient covers movement */
+  animation: gradient-text-animation 8s ease-in-out infinite; /* Slower, smoother animation */
+}
+
+
 .animate-glow {
-  animation: text-glow 3.5s ease-in-out infinite; /* Slightly slower, smoother text glow */
+  animation: text-glow 4s ease-in-out infinite; /* Slower, smoother text glow */
 }
 
 /* Subtle Button Glow on Hover/Focus for Primary Button */
