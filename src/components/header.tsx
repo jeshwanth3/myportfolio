@@ -114,9 +114,9 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-9 w-9 rounded-full" // Adjusted tap target
+                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-10 w-10 rounded-full" // Adjusted tap target
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-6 w-6" />
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
               </Button>
             </SheetTrigger>
