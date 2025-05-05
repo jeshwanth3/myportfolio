@@ -10,7 +10,7 @@ import Link from "next/link";
 export function ContactSection() {
   const email = "jeshwanthgoud3@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
-  const resumeUrl = "/Sai_Jeshwanth_Goud_Illuri_Resume.pdf"; // Assuming resume is in public folder
+  const resumeUrl = "https://drive.google.com/file/d/1XyrFaUT2P1eA8ifOc_6F-4azN8YGgKDc/view?usp=sharing"; // Assuming resume is in public folder
   const instagramUrl = "https://www.instagram.com/jeshwanth_goud_/"; // Add your Instagram URL
 
   return (
