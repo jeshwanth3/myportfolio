@@ -115,9 +115,9 @@ body {
      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smoother transition */
   }
    .dark .mac-shadow {
-      /* Refined shadow for dark mode */
-      box-shadow: 0 2px 5px 0 hsl(var(--background) / 0.3), 0 4px 12px -4px hsl(var(--background) / 0.4);
-      border: 1px solid hsl(var(--border) / 0.3);
+      /* Refined shadow for dark mode - slightly more diffused */
+      box-shadow: 0 3px 8px 0 hsl(var(--background) / 0.35), 0 5px 15px -5px hsl(var(--background) / 0.45);
+      border: 1px solid hsl(var(--border) / 0.35); /* Slightly stronger border */
    }
 
   /* Enhanced glassmorphism for header */
