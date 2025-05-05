@@ -69,33 +69,33 @@ export default {
   			from: { height: 'var(--radix-accordion-content-height)' },
   			to: { height: '0' }
   		},
-       'fade-in': { // Updated fade-in keyframes
-         from: { opacity: '0', transform: 'translateY(25px) scale(0.97)' }, // Adjusted starting point
+       'fade-in': { // Updated fade-in keyframes from globals.css
+         from: { opacity: '0', transform: 'translateY(25px) scale(0.97)' },
          to: { opacity: '1', transform: 'translateY(0) scale(1)' },
        },
-       'slide-in-bottom': { // Updated slide-in keyframes
-          from: { opacity: '0', transform: 'translateY(40px)' }, // Adjusted starting point
+       'slide-in-bottom': { // Updated slide-in keyframes from globals.css
+          from: { opacity: '0', transform: 'translateY(30px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
        },
-      'text-glow': { // Updated text glow keyframes to use accent color
-        '0%, 100%': {
-          'text-shadow': '0 0 8px hsl(var(--accent) / 0.7), 0 0 16px hsl(var(--accent) / 0.5), 0 0 24px hsl(var(--accent) / 0.3)' // Increased base glow
+      'text-glow-pulse': { // Updated text glow keyframes from globals.css
+        from: {
+            'text-shadow': '0 0 10px hsl(var(--primary) / 0.6), 0 0 20px hsl(var(--primary) / 0.4), 0 0 30px hsl(var(--primary) / 0.25)'
         },
-        '50%': {
-          'text-shadow': '0 0 12px hsl(var(--accent) / 0.9), 0 0 24px hsl(var(--accent) / 0.7), 0 0 36px hsl(var(--accent) / 0.5)' // Brighter pulse
+        to: {
+            'text-shadow': '0 0 14px hsl(var(--primary) / 0.9), 0 0 28px hsl(var(--primary) / 0.7), 0 0 42px hsl(var(--primary) / 0.5)'
         }
       },
-      'gradient-text-animation': { // Updated gradient text animation keyframes
+      'gradient-text-animation': { // Updated gradient text animation keyframes from globals.css
          '0%, 100%': { 'background-position': '0% 50%' },
          '50%': { 'background-position': '100% 50%' },
        },
   	},
   	animation: {
-  		'accordion-down': 'accordion-down 0.3s ease-out', // Slightly slower accordion
-  		'accordion-up': 'accordion-up 0.3s ease-out',   // Slightly slower accordion
-       'fade-in': 'fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards', // Use updated fade-in animation
-       'slide-in-bottom': 'slideInBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards', // Use updated slide-in animation
-      'glow': 'text-glow 2s ease-in-out infinite', // Reference the updated text-glow keyframes - slightly faster
+  		'accordion-down': 'accordion-down 0.35s ease-out', // Slightly smoother accordion
+  		'accordion-up': 'accordion-up 0.35s ease-out',   // Slightly smoother accordion
+       'fade-in': 'fadeIn 0.9s cubic-bezier(0.39, 0.575, 0.565, 1) forwards', // Reference updated fade-in animation
+       'slide-in-bottom': 'slideInBottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards', // Reference updated slide-in animation
+      'glow': 'text-glow-pulse 2.8s ease-in-out infinite alternate', // Reference the updated text-glow keyframes - slightly slower pulse
       'gradient-text-slow': 'gradient-text-animation 10s ease-in-out infinite', // Reference the updated gradient animation - slower
   	}
   },

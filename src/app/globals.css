@@ -7,6 +7,9 @@ body {
   @apply dark; /* Apply dark mode by default */
   /* Apply the gradient background directly to the body */
   @apply bg-gradient-to-b from-background via-background to-[hsl(225_25%_4%)]; /* Subtle gradient to a slightly lighter deep blue */
+  @apply text-foreground; /* Ensure base text color is applied */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
@@ -70,29 +73,25 @@ body {
     /* Ensure enough padding for sticky header (h-18 = 4.5rem -> approx 75px) + extra space */
     scroll-padding-top: 7rem; /* Adjusted padding for new header height */
   }
-  body {
-    @apply bg-background text-foreground; /* Keep base text color */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  /* Body styling moved to the top for clarity */
 }
 
 @layer utilities {
   /* Enhanced Fade In Animation - Smoother easing */
   .animate-fade-in {
-    animation: fadeIn 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) forwards; /* Smoother ease-out */
+    animation: fadeIn 0.9s cubic-bezier(0.39, 0.575, 0.565, 1) forwards; /* Smoother ease-out, slightly longer */
     animation-delay: var(--animation-delay, 0ms);
     opacity: 0; /* Start hidden */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); } /* Start slightly lower and scaled down */
+    from { opacity: 0; transform: translateY(25px) scale(0.97); } /* Start slightly lower and scaled down */
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* Slide In From Bottom Animation - Smoother easing */
   .animate-slide-in-bottom {
-     animation: slideInBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Standard ease-out */
+     animation: slideInBottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Standard ease-out, slightly longer */
      animation-delay: var(--animation-delay, 0ms);
      opacity: 0; /* Start hidden */
   }
@@ -100,7 +99,7 @@ body {
   @keyframes slideInBottom {
      from {
         opacity: 0;
-        transform: translateY(25px); /* Adjusted start */
+        transform: translateY(30px); /* Adjusted start slightly more */
      }
      to {
         opacity: 1;
@@ -112,7 +111,7 @@ body {
   .mac-shadow {
      box-shadow: 0 10px 30px -8px hsl(var(--background) / 0.25), 0 6px 18px -7px hsl(var(--background) / 0.2); /* Softer, deeper shadow */
      border: 1px solid hsl(var(--border) / 0.2); /* More subtle border */
-     transition: box-shadow 0.35s ease-out, border-color 0.35s ease-out;
+     transition: box-shadow 0.4s ease-out, border-color 0.4s ease-out; /* Slightly longer transition */
   }
    /* No change needed for dark mode as base theme is dark */
 
@@ -137,6 +136,7 @@ body {
      background-color: hsl(var(--muted) / 0.4); /* Use muted color, slightly less opaque */
      border-radius: 2.5px; /* Match width/height */
      border: none; /* Remove border */
+     transition: background-color 0.3s ease-out; /* Smooth transition for hover */
   }
   ::-webkit-scrollbar-thumb:hover {
      background-color: hsl(var(--muted-foreground) / 0.55); /* Slightly more visible on hover */
@@ -167,28 +167,28 @@ body {
 
 
 .animate-glow {
-  text-shadow: 0 0 8px hsl(var(--primary) / 0.5), /* Adjusted base glow to primary */
-                 0 0 16px hsl(var(--primary) / 0.3),
-                 0 0 24px hsl(var(--primary) / 0.2);
-  animation: text-glow-pulse 2.5s ease-in-out infinite alternate; /* Slower, alternating pulse */
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.6), /* Adjusted base glow to primary, slightly stronger */
+                 0 0 20px hsl(var(--primary) / 0.4),
+                 0 0 30px hsl(var(--primary) / 0.25);
+  animation: text-glow-pulse 2.8s ease-in-out infinite alternate; /* Slower, smoother alternating pulse */
 }
 
 @keyframes text-glow-pulse {
   from {
-    text-shadow: 0 0 8px hsl(var(--primary) / 0.5),
-                 0 0 16px hsl(var(--primary) / 0.3),
-                 0 0 24px hsl(var(--primary) / 0.2);
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.6),
+                 0 0 20px hsl(var(--primary) / 0.4),
+                 0 0 30px hsl(var(--primary) / 0.25);
   }
   to {
-    text-shadow: 0 0 12px hsl(var(--primary) / 0.8), /* Brighter pulse */
-                 0 0 24px hsl(var(--primary) / 0.6),
-                 0 0 36px hsl(var(--primary) / 0.4);
+    text-shadow: 0 0 14px hsl(var(--primary) / 0.9), /* Brighter pulse */
+                 0 0 28px hsl(var(--primary) / 0.7),
+                 0 0 42px hsl(var(--primary) / 0.5);
   }
 }
 
 
 /* Primary Button Glow on Hover/Focus - More prominent glow */
 .button-glow:hover, .button-glow:focus-visible {
-  box-shadow: 0 0 20px 5px hsl(var(--primary) / 0.6); /* Increased glow spread/opacity */
-  transition: box-shadow 0.3s ease-out;
+  box-shadow: 0 0 25px 6px hsl(var(--primary) / 0.65); /* Increased glow spread/opacity */
+  transition: box-shadow 0.35s ease-out; /* Smoother transition */
 }

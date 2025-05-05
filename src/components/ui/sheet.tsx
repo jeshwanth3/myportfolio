@@ -24,9 +24,8 @@ const SheetOverlay = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
-    className={cn(
-      // Adjusted background color and added backdrop blur
-      "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Adjusted background and blur
+    className={cn(    
+      "fixed inset-0 z-50 bg-black/70 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Slightly increased opacity
       className
     )}
     {...props}
@@ -36,8 +35,8 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
 const sheetVariants = cva(
-  // Enhanced base styles with more blur
-  "fixed z-50 gap-4 bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 backdrop-blur-xl", // Increased blur, adjusted background opacity
+  // Enhanced base styles with more blur and duration
+  "fixed z-50 gap-4 bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-400 data-[state=open]:duration-500 backdrop-blur-xl", // Increased blur, adjusted background opacity, adjusted durations
   {
     variants: {
       side: {
@@ -91,7 +90,7 @@ const SheetContent = React.forwardRef<
                 className={cn(
                     // Consistent close button styling - use accent color for open state
                     'absolute right-4 top-4 rounded-sm p-1 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none',
-                    'data-[state=open]:bg-muted data-[state=open]:text-muted-foreground' // Use themed muted background/text for open state
+                    'data-[state=open]:bg-muted/70 data-[state=open]:text-muted-foreground' // Use themed muted background/text for open state, slightly more subtle
                 )}
             >
                 <X className="h-4 w-4" />
