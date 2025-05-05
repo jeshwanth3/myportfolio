@@ -35,13 +35,13 @@ export function ContactSection() {
               <Button
                 variant="outline"
                 size="icon" // Change size to icon for square button
-                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-10 h-10 p-0 flex items-center justify-center" // Set fixed width/height and remove padding
+                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-12 h-12 p-0 flex items-center justify-center" // Increased size to w-12 h-12
               >
                 <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-                  width={24} // Adjust size as needed
-                  height={24}
+                  width={28} // Adjust size as needed
+                  height={28}
                   className="object-contain" // Ensure SVG scales correctly
                 />
               </Button>
@@ -52,6 +52,12 @@ export function ContactSection() {
                  <Download className="mr-2 h-5 w-5" /> Download Resume
               </Button>
             </Link>
+            {/* Instagram Button - Placeholder for now */}
+             <Link href="#" target="_blank" rel="noopener noreferrer"> {/* Replace # with actual Instagram URL */}
+               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
+                 <Instagram className="mr-2 h-5 w-5" /> Instagram {/* Replace with actual icon if needed */}
+               </Button>
+             </Link>
           </div>
         </CardContent>
       </Card>
