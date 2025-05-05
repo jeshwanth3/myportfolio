@@ -117,7 +117,7 @@ body {
   /* Heavy Glassmorphism Effect */
   .glassmorphism-heavy {
     background-color: hsl(var(--background) / 0.75); /* Less transparent for better readability */
-    backdrop-filter: blur(24px) saturate(160%); /* Significant blur */
+    backdrop-filter: blur(24px) saturate(160%); /* Increased blur significantly */
     -webkit-backdrop-filter: blur(24px) saturate(160%);
     border-bottom: 1px solid hsl(var(--border) / 0.25);
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
@@ -133,7 +133,7 @@ body {
   }
   ::-webkit-scrollbar-thumb {
      background-color: hsl(var(--muted) / 0.5); /* Use muted color */
-     border-radius: var(--radius);
+     border-radius: 3px; /* Match width/height */
      border: 1px solid transparent;
      background-clip: content-box;
   }

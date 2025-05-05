@@ -42,7 +42,7 @@ export function Header() {
       } else {
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 100); // Adjusted delay
+    }, 50); // Reduced delay for quicker navigation
   };
 
   return (
@@ -50,8 +50,8 @@ export function Header() {
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
       // Use heavier glassmorphism and shadow when scrolled
       isScrolled
-        ? "glassmorphism-heavy shadow-xl" // Heavy blur and distinct shadow
-        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent" // Start transparent
+        ? "glassmorphism-heavy shadow-xl" // Apply heavy glassmorphism from globals.css
+        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent" // Start more transparent
     )}>
       {/* Increased height for more presence */}
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
@@ -163,4 +163,3 @@ export function Header() {
     </header>
   );
 }
-
