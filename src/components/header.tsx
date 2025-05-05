@@ -36,14 +36,17 @@ export function Header() {
   // Function to handle smooth scroll and close sheet
   const handleMobileLinkClick = (href: string) => {
     closeSheet();
-    const element = document.querySelector(href);
-    if (element) {
-      // Use smooth scroll behavior
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-       // Fallback for links like "/"
-       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Delay scroll slightly to allow sheet to close visually first
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        // Use smooth scroll behavior
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+         // Fallback for links like "/"
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100); // Small delay
   };
 
 
