@@ -40,10 +40,9 @@ export function ContactSection() {
               >
                 <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
-                  alt="LinkedIn Profile"
-                  width={28} // Slightly increased icon size
-                  height={28} // Slightly increased icon size
-                  className="object-contain" // Ensure SVG scales correctly
+                  alt="LinkedIn"
+                    className="object-contain"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </Button>
              </Link>
