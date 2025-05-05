@@ -29,14 +29,14 @@ const AccordionTrigger = React.forwardRef<
       ref={ref}
       className={cn(
         // Enhanced hover and open state styling using accent color
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/15 data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/20 [&[data-state=open]>svg]:rotate-180",
+        "flex flex-1 items-center justify-between py-4 font-medium transition-all duration-300 hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/15 data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/20 [&[data-state=open]>svg]:rotate-180",
         "p-4 md:p-6 text-left", // Consistent padding
         className
       )}
       {...props}
     >
       {children}
-      <ChevronDown className="h-5 w-5 shrink-0 transition-transform duration-200 text-primary" /> {/* Adjusted icon size */}
+      <ChevronDown className="h-5 w-5 shrink-0 transition-transform duration-300 text-primary" /> {/* Adjusted icon size and transition */}
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
@@ -49,7 +49,7 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className={cn(
-        "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+        "overflow-hidden text-sm transition-all duration-500 ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down", // Smoother transition duration
         // Refined background and border styling
         "bg-card/50 dark:bg-secondary/30 border-t border-border/30 dark:border-border/40",
         className
