@@ -98,6 +98,7 @@ export function Header() {
           ))}
           <Link href="#contact" passHref>
 <<<<<<< HEAD
+<<<<<<< HEAD
              {/* Enhanced "Get In Touch" Button - Outline Style */}
              <Button
                 variant="outline"
@@ -112,6 +113,14 @@ export function Header() {
                onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
                className="ml-5 px-5 py-2 h-9 shadow-md hover:shadow-lg hover:shadow-primary/50 transition-all hover:scale-[1.04] transform duration-300 button-glow bg-gradient-to-r from-primary via-primary/90 to-accent/80 hover:from-primary/90 hover:to-accent" // Added gradient and enhanced hover glow
 >>>>>>> 12d0f7e (Make the following changes:)
+=======
+             {/* Enhanced "Get In Touch" Button - Outline Style */}
+             <Button
+                variant="outline"
+                size="sm"
+                onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
+                className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-accent hover:bg-accent/15 hover:text-accent" // Changed to outline, subtle border and hover effect
+>>>>>>> 697708f (Make the following changes:)
              >
                  Get In Touch With Me <Send className="ml-2 h-4 w-4" /> {/* Adjusted icon size slightly */}
              </Button>
