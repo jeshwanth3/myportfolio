@@ -21,6 +21,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org', // Added Wikimedia hostname
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
