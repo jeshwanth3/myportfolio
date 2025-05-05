@@ -27,14 +27,12 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Add/drop shadow on scroll
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Smooth-scroll to in-page anchors
   const handleMobileLinkClick = (href: string) => {
     const id = href.replace('#', '');
     const el = document.getElementById(id);
@@ -57,7 +55,7 @@ export function Header() {
           Sai Jeshwanth Goud Illuri
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <nav className="hidden gap-6 md:flex">
           {navItems.map((item) => (
             <Link
@@ -79,11 +77,17 @@ export function Header() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
+
             <SheetContent
               side="right"
               title="Main Navigation"
               className="w-64 bg-background/90 backdrop-blur-lg border-l border-border/20 p-4"
             >
+              {/* REQUIRED for accessibility */}
+              <SheetTitle>
+                <VisuallyHidden>Navigation Menu</VisuallyHidden>
+              </SheetTitle>
+
               <SheetHeader className="mb-4">
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold">Menu</span>
