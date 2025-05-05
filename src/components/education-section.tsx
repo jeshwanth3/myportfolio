@@ -1,20 +1,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, CalendarDays } from 'lucide-react'; // Added CalendarDays for visual variety
 
 const education = [
   {
     id: "edu1",
     degree: "Master of Business Administration (STEM MBA)",
     institution: "Iowa State University, Ivy College of Business",
-    years: "August 2023 to May 2025",
+    years: "Aug 2023 - May 2025",
   },
   {
     id: "edu2",
     degree: "Master of Science in Information Systems (STEM)",
     institution: "Iowa State University, Ivy College of Business",
-    years: "August 2024 - May 2025",
+    years: "Aug 2024 - May 2025",
   },
   {
     id: "edu3",
@@ -26,29 +26,37 @@ const education = [
 
 export function EducationSection() {
   return (
-    <SectionWrapper id="education" className="bg-secondary/20 dark:bg-card/25">
+    // Slightly different background gradient for visual separation
+    <SectionWrapper id="education" className="bg-gradient-to-b from-card/5 via-secondary/15 to-card/5 dark:from-card/10 dark:via-secondary/25 dark:to-card/10">
       <SectionTitle>Education</SectionTitle>
        {/* Consistent gap for grid */}
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {education.map((edu) => (
-            // Enhanced Card Styling with consistent hover effect using accent color
+          {education.map((edu, index) => (
+            // Enhanced Card Styling with unique hover effect using accent color
             <Card
               key={edu.id}
-              className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"
+              // Apply subtle gradient background, enhanced shadow, and border effect on hover
+              className="bg-gradient-to-br from-card/90 to-secondary/80 dark:from-secondary/60 dark:to-card/70 mac-shadow border border-border/20 dark:border-border/30 transition-all duration-300 ease-out hover:shadow-lg hover:border-accent/50 dark:hover:border-primary/60 transform hover:-translate-y-2 group"
+              // Staggered animation delay for each card
+              style={{ '--animation-delay': `${150 + index * 100}ms` } as React.CSSProperties}
             >
-               {/* Improved Card Header Layout */}
+               {/* Improved Card Header Layout - Icon treatment */}
                <CardHeader className="flex flex-row items-start gap-4 p-5 md:p-6 pb-3">
-                  <div className="bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full mt-0.5 shrink-0"> {/* Adjusted margin & padding */}
-                      <GraduationCap className="h-5 w-5 text-primary" /> {/* Consistent icon size and color */}
+                  {/* Icon container with background matching card but slightly different opacity */}
+                  <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-lg mt-0.5 shrink-0 group-hover:bg-accent/20 dark:group-hover:bg-accent/25 transition-colors duration-300">
+                      <GraduationCap className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300" />
                   </div>
                    <div className="flex-1">
-                       <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground">{edu.degree}</CardTitle>
-                       <CardDescription className="text-sm md:text-base text-muted-foreground mt-1.5">{edu.institution}</CardDescription> {/* Slightly increased top margin */}
+                       <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">{edu.degree}</CardTitle>
+                       <CardDescription className="text-sm md:text-base text-muted-foreground mt-1.5">{edu.institution}</CardDescription>
                    </div>
                </CardHeader>
-               {/* Consistent Padding for Content */}
-               <CardContent className="p-5 md:p-6 pt-0">
-                   <p className="text-sm md:text-base font-medium text-foreground/85 dark:text-foreground/75">{edu.years}</p> {/* Slightly adjusted text color */}
+               {/* Consistent Padding for Content - Added year display with icon */}
+               <CardContent className="p-5 md:p-6 pt-2">
+                    <div className="flex items-center gap-2 text-sm md:text-base font-medium text-foreground/80 dark:text-foreground/75 mt-2">
+                        <CalendarDays className="h-4 w-4 opacity-70" />
+                        <span>{edu.years}</span>
+                    </div>
                </CardContent>
             </Card>
           ))}

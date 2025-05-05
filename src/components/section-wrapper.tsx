@@ -1,3 +1,4 @@
+// src/hooks/use-appear-on-scroll.ts
 'use client'; // <-- Make it a client component
 
 import type React from 'react';
@@ -16,7 +17,7 @@ export function SectionWrapper({
   id,
   className,
   animationClassName = 'animate-fade-in', // Default to fade-in
-  delay = '200ms', // Slightly increased default delay for better staggering
+  delay = '150ms', // Slightly reduced default delay for quicker appearance
   ...props
 }: SectionWrapperProps) {
   // Use 15% visibility threshold, trigger animation only once
@@ -27,8 +28,8 @@ export function SectionWrapper({
       id={id}
       ref={ref} // Attach the ref from the hook
       className={cn(
-        // Reduced vertical padding significantly
-        'py-10 md:py-12 lg:py-14 opacity-0', // Changed from py-12/16/20 to py-10/12/14
+        // Reduced vertical padding slightly
+        'py-10 md:py-12 lg:py-14 opacity-0', // Keep reduced padding
         isVisible && animationClassName, // Apply animation class when visible
         className
       )}
