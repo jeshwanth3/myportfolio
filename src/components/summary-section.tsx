@@ -19,16 +19,16 @@ export function SummarySection() {
           <p className="text-lg sm:text-xl text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 font-light"> {/* Refined size/weight, lg:mx-0 */}
              Hello, I&apos;m
           </p>
-           {/* Name - Larger, Gradient Text */}
+           {/* Name - Reduced size, white color */}
            <h1 className={cn(
-               "text-4xl sm:text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/60 animate-gradient-text-slow", // Use primary gradient
+               "text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-foreground", // Reduced font size, uses foreground color
                "leading-tight mb-2" // Added leading-tight and margin-bottom
              )}
            >
             {yourName}
           </h1>
            {/* Title - Refined glow and size, uses PRIMARY color */}
-           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-primary animate-glow mb-4"> {/* Adjusted size, uses text-glow, added margin-bottom */}
+           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow mb-4"> {/* Adjusted size, uses text-glow, added margin-bottom */}
              Product Manager
            </h2>
           {/* Summary Text - Improved readability */}
@@ -38,7 +38,7 @@ export function SummarySection() {
           {/* Buttons - Enhanced styling and spacing */}
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-6 md:pt-8"> {/* Increased top padding, lg:justify-start */}
             <Link href="#contact" passHref>
-              <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow bg-primary text-primary-foreground hover:bg-primary/90"> {/* Added button-glow class */}
+              <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow bg-transparent border border-primary text-primary hover:bg-primary/10"> {/* Outline style */}
                 Contact Me <Mail className="ml-2 h-5 w-5" /> {/* Changed icon */}
               </Button>
             </Link>
@@ -71,4 +71,3 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
-
