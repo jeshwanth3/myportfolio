@@ -65,8 +65,8 @@ body {
   }
   html {
     scroll-behavior: smooth;
-    /* Ensure enough padding for sticky header (h-20 = 5rem) + extra space */
-    scroll-padding-top: 7rem;
+    /* Ensure enough padding for sticky header (h-18 = 4.5rem) + extra space */
+    scroll-padding-top: 7rem; /* Increased padding */
   }
   body {
     @apply bg-background text-foreground;
