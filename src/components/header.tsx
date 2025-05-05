@@ -1,16 +1,16 @@
-
+// src/components/header.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
 import {
   Sheet,
+  SheetTrigger,
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from '@/components/ui/sheet';
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { cn } from '@/lib/utils';
@@ -27,41 +27,44 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Add/drop shadow on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleMobileLinkClick = (id: string) => {
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setOpen(false);
+  // Smooth-scroll to in-page anchors
+  const handleMobileLinkClick = (href: string) => {
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
+    setOpen(false);
   };
 
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur',
+        'fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur transition-shadow',
         isScrolled ? 'shadow-sm' : ''
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between px-4">
+        {/* Logo / Name */}
         <Link href="/" className="text-xl font-bold">
           Sai Jeshwanth Goud Illuri
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop Nav */}
         <nav className="hidden gap-6 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className="text-sm font-medium hover:underline"
+              scroll={false}
             >
               {item.label}
             </Link>
@@ -72,29 +75,38 @@ export function Header() {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Open menu">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" title="Menu">
-              <SheetHeader>
-                <SheetTitle>
-                  <VisuallyHidden>Mobile Navigation Menu</VisuallyHidden>
-                </SheetTitle>
+            <SheetContent
+              side="right"
+              title="Main Navigation"
+              className="w-64 bg-background/90 backdrop-blur-lg border-l border-border/20 p-4"
+            >
+              <SheetHeader className="mb-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-semibold">Menu</span>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <X className="h-5 w-5" />
+                  </Button>
+                </div>
               </SheetHeader>
-              <div className="grid gap-4 py-4">
+
+              <div className="space-y-3">
                 {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleMobileLinkClick(item.href);
-                    }}
-                    className="text-sm font-medium hover:underline"
+                  <button
+                    key={item.href}
+                    onClick={() => handleMobileLinkClick(item.href)}
+                    className="w-full text-left text-base font-medium hover:text-accent transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </button>
                 ))}
               </div>
             </SheetContent>
