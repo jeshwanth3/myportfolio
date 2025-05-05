@@ -1,10 +1,12 @@
+
 "use client"
 
 import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
-import { DialogTitle, DialogDescription } from "@radix-ui/react-dialog"; // Import DialogTitle and DialogDescription
+// Import DialogTitle and DialogDescription from radix-ui
+import { DialogTitle as RadixDialogTitle, DialogDescription as RadixDialogDescription } from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils"
 import { VisuallyHidden } from "./visually-hidden"
@@ -73,7 +75,7 @@ const SheetContent = React.forwardRef<
              {/* Add visually hidden title if provided */}
              {title && (
                <VisuallyHidden>
-                  <DialogTitle id={`sheet-title-${props.id || Math.random().toString(36).substring(7)}`}>{title}</DialogTitle>
+                  <SheetTitle id={`sheet-title-${props.id || Math.random().toString(36).substring(7)}`}>{title}</SheetTitle>
                </VisuallyHidden>
              )}
 
@@ -125,12 +127,31 @@ const SheetFooter = ({
 )
 SheetFooter.displayName = "SheetFooter"
 
-// Use imported DialogTitle and DialogDescription for semantic correctness
-const SheetTitle = DialogTitle;
-SheetTitle.displayName = "SheetTitle"
+// Use imported RadixDialogTitle and RadixDialogDescription for semantic correctness
+const SheetTitle = React.forwardRef<
+  React.ElementRef<typeof RadixDialogTitle>,
+  React.ComponentPropsWithoutRef<typeof RadixDialogTitle>
+>(({ className, ...props }, ref) => (
+  <RadixDialogTitle
+    ref={ref}
+    className={cn("text-lg font-semibold text-foreground", className)}
+    {...props}
+  />
+));
+SheetTitle.displayName = RadixDialogTitle.displayName;
 
-const SheetDescription = DialogDescription;
-SheetDescription.displayName = "SheetDescription"
+
+const SheetDescription = React.forwardRef<
+  React.ElementRef<typeof RadixDialogDescription>,
+  React.ComponentPropsWithoutRef<typeof RadixDialogDescription>
+>(({ className, ...props }, ref) => (
+  <RadixDialogDescription
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+));
+SheetDescription.displayName = RadixDialogDescription.displayName;
 
 
 export {
