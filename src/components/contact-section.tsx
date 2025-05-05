@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, ExternalLink, Download, Instagram } from 'lucide-react'; // Import Instagram icon
+import { Mail, Linkedin, ExternalLink, Download, Instagram } from 'lucide-react'; // Import actual icons
 import Link from 'next/link';
 
 
@@ -25,25 +25,25 @@ export function ContactSection() {
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto"> {/* Ensure full width on small screens */}
                {/* Primary button uses primary theme color, added subtle glow */}
                <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 animate-glow w-full button-glow"> {/* Added w-full and button-glow */}
-                <Mail className="mr-2 h-4 w-4" /> Email Me
+                <Mail className="mr-2 h-4 w-4" /> {/* Added Mail icon */} Email Me
                </Button>
              </Link>
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto"> {/* Ensure full width on small screens */}
               {/* Outline button uses accent color for hover state */}
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full"> {/* Added w-full, enhanced hover */}
-                <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
+                <Linkedin className="mr-2 h-4 w-4" /> {/* Added Linkedin icon */} LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </Button>
             </Link>
             {/* Download Resume Button */}
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
-                 <Download className="mr-2 h-4 w-4" /> Download Resume
+                 <Download className="mr-2 h-4 w-4" /> {/* Added Download icon */} Download Resume
               </Button>
             </Link>
             {/* Instagram Button */}
             <Link href={instagramUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
-                <Instagram className="mr-2 h-4 w-4" /> Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
+                <Instagram className="mr-2 h-4 w-4" /> {/* Added Instagram icon */} Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </Button>
             </Link>
           </div>
