@@ -19,7 +19,7 @@ const experiences = [
       "Monitored 10+ KPIs to track product performance, enabling iterative improvements that led to a 15% reduction in commuter delays through data-driven iterative product enhancements and optimization.",
       "Translated transportation data into actionable insights, guiding the product team on feature enhancements, roadmap priorities, and planning, ensuring city-wide transit improvements and greater system efficiency.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
   },
   {
     id: "exp2",
@@ -35,7 +35,7 @@ const experiences = [
         "Developed scalable Azure-based workflows, ensuring seamless cloud data integration and real-time data availability across analytics platforms and internal business systems for enhanced reporting and decision-making.",
         "Presented key findings to cross-functional teams, aligning data insights with goals, and improving decision-making and execution.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
   },
   {
     id: "exp3",
@@ -51,7 +51,7 @@ const experiences = [
       "Resolved 40+ SaaS production issues using custom PL/SQL queries, improving demand forecasting, enhancing system stability by 20%, and ensuring minimal disruptions to production systems and customer experience.",
       "Mentored 4+ engineers, receiving the Skillful Award for reducing knowledge gaps and incident backlogs by 40% through effective mentorship, proactive guidance, and collaborative teamwork.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
   },
    {
     id: "exp4",
@@ -66,49 +66,47 @@ const experiences = [
         "Developed visualizations and reports using Excel and Tableau, helping leadership teams better interpret data and gain real-time insights into market shifts and performance metrics for strategic decision-making.",
         "Identified emerging market trends through thorough data analysis, offering actionable recommendations that supported client engagement strategies, leading to improved market positioning and business growth.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" />
+    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
   },
 ];
 
 export function ExperienceSection() {
   return (
-    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/15"> {/* Adjusted background */}
+    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/15">
       <SectionTitle>Work Experience</SectionTitle>
       <Tabs defaultValue={experiences[0].id} className="w-full">
-        {/* Ensure grid adjusts for mobile */}
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 h-auto p-1.5 bg-muted/60 dark:bg-muted/40 rounded-lg mb-8"> {/* Adjusted styling */}
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 h-auto p-1.5 bg-muted/60 dark:bg-muted/40 rounded-lg mb-8">
           {experiences.map((exp) => (
              <TabsTrigger
                key={exp.id}
                value={exp.id}
-               // Adjusted padding and text size for better mobile experience
-               className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out" // Enhanced active state
+               className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out"
             >
-               {exp.title} {/* Changed from exp.company to exp.title */}
+               {exp.title}
             </TabsTrigger>
           ))}
         </TabsList>
         {experiences.map((exp) => (
           <TabsContent key={exp.id} value={exp.id}>
-            <Card className="bg-card/95 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 transition-all duration-300 ease-out"> {/* Subtle transition */}
+            <Card className="bg-card/95 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 transition-all duration-300 ease-out">
               <CardHeader className="p-5 md:p-6">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 shrink-0 bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full"> {/* Slightly larger icon background */}
+                  <div className="mt-1 shrink-0 bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full">
                       {exp.icon}
                   </div>
                   <div className="flex-1">
-                    <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle> {/* Changed to h3 */}
-                    <div className="text-sm text-muted-foreground mt-2 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1.5 flex-wrap"> {/* Adjusted spacing */}
+                    <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle>
+                    <div className="text-sm text-muted-foreground mt-2 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1.5 flex-wrap">
                       <span className="font-medium text-foreground/95">{exp.company}</span>
-                      <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {exp.location}</span>
-                      <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> {exp.duration}</span>
+                      <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 opacity-80" /> {exp.location}</span> {/* Increased icon opacity */}
+                      <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 opacity-80" /> {exp.duration}</span> {/* Increased icon opacity */}
                     </div>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="p-5 md:p-6 pt-0">
-                <p className="mb-5 text-base md:text-lg text-foreground/80 dark:text-foreground/75">{exp.description}</p> {/* Increased font size */}
-                <ul className="list-disc space-y-2 pl-5 text-sm md:text-base text-foreground/85 dark:text-foreground/80"> {/* Increased font size */}
+                <p className="mb-5 text-base md:text-lg text-foreground/80 dark:text-foreground/75">{exp.description}</p>
+                <ul className="list-disc space-y-2 pl-5 text-sm md:text-base text-foreground/85 dark:text-foreground/80">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>
                   ))}

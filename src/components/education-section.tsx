@@ -3,7 +3,6 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { GraduationCap } from 'lucide-react';
 
-
 const education = [
   {
     id: "edu1",
@@ -27,26 +26,25 @@ const education = [
 
 export function EducationSection() {
   return (
-    <SectionWrapper id="education" className="bg-secondary/20 dark:bg-card/25"> {/* Adjusted background */}
+    <SectionWrapper id="education" className="bg-secondary/20 dark:bg-card/25">
       <SectionTitle>Education</SectionTitle>
-       {/* Grid layout adjusts for mobile */}
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {education.map((edu) => (
             <Card
               key={edu.id}
-              className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5" // Enhanced card style
+              className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"
             >
                <CardHeader className="flex flex-row items-start gap-4 p-5 md:p-6 pb-3">
-                  <div className="bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full mt-0.5 shrink-0"> {/* Adjusted icon bg */}
-                      <GraduationCap className="h-5 w-5 text-primary" /> {/* Use primary color */}
+                  <div className="bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full mt-0.5 shrink-0">
+                      <GraduationCap className="h-5 w-5 text-primary" /> {/* Consistent icon size and color */}
                   </div>
                    <div className="flex-1">
-                       <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground">{edu.degree}</CardTitle> {/* Increased font size */}
-                       <CardDescription className="text-sm md:text-base text-muted-foreground mt-1.5">{edu.institution}</CardDescription> {/* Increased font size */}
+                       <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground">{edu.degree}</CardTitle>
+                       <CardDescription className="text-sm md:text-base text-muted-foreground mt-1.5">{edu.institution}</CardDescription>
                    </div>
                </CardHeader>
                <CardContent className="p-5 md:p-6 pt-0">
-                   <p className="text-sm md:text-base font-medium text-foreground/85 dark:text-foreground/75">{edu.years}</p> {/* Increased font size */}
+                   <p className="text-sm md:text-base font-medium text-foreground/85 dark:text-foreground/75">{edu.years}</p>
                </CardContent>
             </Card>
           ))}
