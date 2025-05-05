@@ -47,24 +47,25 @@ export function EducationSection() {
                {/* Improved Card Header Layout - Icon treatment */}
                <CardHeader className="flex flex-row items-start gap-4 p-5 md:p-6 pb-3">
                   {/* Icon container with background matching card but slightly different opacity */}
-                  <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-lg mt-0.5 shrink-0 group-hover:bg-accent/20 dark:group-hover:bg-accent/25 transition-colors duration-300">
-                      <GraduationCap className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300" />
+                  <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-lg mt-0.5 shrink-0 group-hover:bg-accent/20 dark:group-hover:bg-accent/25 transition-colors duration-300 w-12 h-12 flex items-center justify-center">
+                     {/* Conditionally render image or fallback icon */}
+                     {edu.imageUrl ? (
+                         <Image
+                           src={edu.imageUrl}
+                           alt={`${edu.institution} logo`}
+                           width={24} // Adjust size as needed
+                           height={24} // Adjust size as needed
+                           className="object-contain group-hover:scale-110 transition-transform duration-300" // Added hover effect
+                           data-ai-hint="university logo" // AI Hint
+                         />
+                       ) : (
+                         <GraduationCap className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300" />
+                       )}
                   </div>
                    <div className="flex-1">
                        <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">{edu.degree}</CardTitle>
-                       <div className="flex items-center mt-1.5 gap-2"> {/* Wrapper for institution and logo */}
+                       <div className="flex items-center mt-1.5 gap-2"> {/* Wrapper for institution */}
                            <CardDescription className="text-sm md:text-base text-muted-foreground">{edu.institution}</CardDescription>
-                            {/* Conditionally render the logo */}
-                            {edu.imageUrl && (
-                              <Image
-                                src={edu.imageUrl}
-                                alt={`${edu.institution} logo`}
-                                width={24} // Adjust size as needed
-                                height={24} // Adjust size as needed
-                                className="object-contain shrink-0" // Prevent shrinking
-                                data-ai-hint="university logo" // AI Hint
-                              />
-                            )}
                        </div>
                    </div>
                </CardHeader>
