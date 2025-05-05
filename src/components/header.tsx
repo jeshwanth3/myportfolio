@@ -80,11 +80,10 @@ export function Header() {
               side="right"
               className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col"
             >
-              <VisuallyHidden>
-                <SheetTitle>Mobile Navigation</SheetTitle>
-              </VisuallyHidden>
-
+            
               <SheetHeader className="border-b border-border/20 p-4">
+
+                <SheetTitle className='sr-only'>Mobile Navigation</SheetTitle>
                 <div className="flex items-center justify-between">
                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeSheet}>
                     <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
