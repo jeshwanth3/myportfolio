@@ -84,7 +84,7 @@ export function ExperienceSection() {
                // Adjusted padding and text size for better mobile experience
                className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out" // Enhanced active state
             >
-               {exp.company}
+               {exp.title} {/* Changed from exp.company to exp.title */}
             </TabsTrigger>
           ))}
         </TabsList>
