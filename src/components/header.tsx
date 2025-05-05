@@ -32,6 +32,20 @@ export function Header() {
 
   const closeSheet = () => setOpen(false);
 
+  // Function to handle smooth scroll and close sheet
+  const handleMobileLinkClick = (href: string) => {
+    closeSheet();
+    const element = document.querySelector(href);
+    if (element) {
+      // Use smooth scroll behavior
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+       // Fallback for links like "/"
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
@@ -51,6 +65,8 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
+              // Desktop links also use smooth scroll for consistency (if needed, but native browser behavior is usually fine)
+              // onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }} // Optional: Uncomment if desktop smooth scroll needed
               className={cn(
                 "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out relative", // Adjusted padding and base text size
                 "text-muted-foreground hover:text-foreground", // Modern hover effect
@@ -84,7 +100,7 @@ export function Header() {
                <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
                    {/* Simplified title in mobile menu */}
-                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => { closeSheet(); window.scrollTo({ top: 0, behavior: 'smooth' });}}>
+                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
                      <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                        Sai J. G. Illuri
                      </span>
@@ -102,7 +118,8 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={closeSheet} // Close sheet on click
+                    // Use the handler for smooth scroll and sheet closing
+                    onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
                     className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center" // Larger text, centered
                   >
                     {item.label}
