@@ -25,9 +25,9 @@ export function ContactSection() {
           </p>
           {/* Enhanced Button Styling and Layout */}
           <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row */}
-             {/* Email Button using default variant (relies on theme primary) */}
+             {/* Email Button using outline variant */}
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
-               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300"> {/* Removed button-glow */}
+               <Button variant="outline" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground"> {/* Changed variant to outline */}
                 <Mail className="mr-2 h-5 w-5" /> Email Me
                </Button>
              </Link>
