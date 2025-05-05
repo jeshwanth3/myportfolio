@@ -66,7 +66,7 @@ export function Header() {
               !isScrolled && "animate-glow" // Apply glow only when at the top
             )}
           >
-            Sai J. G. Illuri
+            Sai Jeshwanth Goud Illuri {/* Updated Name */}
           </span>
         </Link>
 
@@ -125,7 +125,7 @@ export function Header() {
                    {/* Simplified title in mobile menu */}
                    <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
                      <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                       Sai J. G. Illuri
+                        Sai Jeshwanth Goud Illuri {/* Updated Name */}
                      </span>
                    </Link>
                    <Button variant="ghost" className="h-8 w-8 p-0" size="icon" onClick={closeSheet}>
