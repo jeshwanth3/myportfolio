@@ -16,19 +16,18 @@ export function SectionWrapper({
   id,
   className,
   animationClassName = 'animate-fade-in', // Default to fade-in
-  delay = '150ms', // Default delay
+  delay = '200ms', // Slightly increased default delay for better staggering
   ...props
 }: SectionWrapperProps) {
-  // Use 10% visibility threshold for slightly earlier trigger, trigger animation only once
-  const [ref, isVisible] = useAppearOnScroll<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+  // Use 15% visibility threshold, trigger animation only once
+  const [ref, isVisible] = useAppearOnScroll<HTMLElement>({ threshold: 0.15, triggerOnce: true });
 
   return (
     <section
       id={id}
       ref={ref} // Attach the ref from the hook
       className={cn(
-        'py-14 md:py-18 lg:py-20 opacity-0', // Adjusted padding, start hidden
-        // Rely solely on the animation class for the reveal transition
+        'py-16 md:py-20 lg:py-24 opacity-0', // Consistent padding, start hidden
         isVisible && animationClassName, // Apply animation class when visible
         className
       )}
