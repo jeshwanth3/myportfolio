@@ -65,8 +65,8 @@ body {
   }
   html {
     scroll-behavior: smooth;
-    /* Ensure enough padding for sticky header (h-18 = 4.5rem) + extra space */
-    scroll-padding-top: 7rem; /* Increased padding */
+    /* Ensure enough padding for sticky header (h-18 = 4.5rem -> approx 75px) + extra space */
+    scroll-padding-top: 7rem; /* Adjusted padding for new header height */
   }
   body {
     @apply bg-background text-foreground;
@@ -114,13 +114,13 @@ body {
   }
    /* No change needed for dark mode as base theme is dark */
 
-  /* Heavy Glassmorphism Effect - Improved readability and transition */
+  /* Heavy Glassmorphism Effect - Enhanced readability and transition */
   .glassmorphism-heavy {
-    background-color: hsl(var(--background) / 0.7); /* Slightly more transparent */
-    backdrop-filter: blur(18px) saturate(150%); /* Adjusted blur/saturate */
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
-    border-bottom: 1px solid hsl(var(--border) / 0.15); /* More subtle border */
-    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out; /* Smoother transition */
+    background-color: hsl(var(--background) / 0.75); /* Slightly less transparent for better readability */
+    backdrop-filter: blur(20px) saturate(160%); /* Increased blur/saturate */
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid hsl(var(--border) / 0.10); /* Even more subtle border */
+    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Added shadow transition */
   }
 
   /* Minimal Scrollbar */
@@ -147,22 +147,22 @@ body {
   }
 }
 
-/* Text Glow Animation - Using Accent Color - More subtle pulse */
+/* Text Glow Animation - Using Accent Color - More intense pulse */
 @keyframes text-glow {
   0%, 100% {
-    text-shadow: 0 0 5px hsl(var(--accent) / 0.5), /* Base glow slightly reduced */
-                 0 0 10px hsl(var(--accent) / 0.3),
-                 0 0 15px hsl(var(--accent) / 0.15);
-  }
-  50% {
-    text-shadow: 0 0 8px hsl(var(--accent) / 0.7), /* Brighter pulse adjusted */
+    text-shadow: 0 0 8px hsl(var(--accent) / 0.7), /* Increased base glow */
                  0 0 16px hsl(var(--accent) / 0.5),
                  0 0 24px hsl(var(--accent) / 0.3);
+  }
+  50% {
+    text-shadow: 0 0 12px hsl(var(--accent) / 0.9), /* Brighter pulse */
+                 0 0 24px hsl(var(--accent) / 0.7),
+                 0 0 36px hsl(var(--accent) / 0.5);
   }
 }
 
 
-/* Gradient Text Animation - Primary to Accent - Smoother */
+/* Gradient Text Animation - Primary to Accent - Smoother and slower */
 @keyframes gradient-text-animation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -171,20 +171,20 @@ body {
 
 .animate-gradient-text-slow {
   background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
-  background-size: 200% 200%; /* Adjusted size for effect */
+  background-size: 300% 300%; /* Adjusted size for slower effect */
   background-clip: text;
   -webkit-background-clip: text; /* For Safari */
   color: transparent;
-  animation: gradient-text-animation 8s ease-in-out infinite; /* Slightly faster animation */
+  animation: gradient-text-animation 10s ease-in-out infinite; /* Slower animation */
 }
 
 
 .animate-glow {
-  animation: text-glow 2.5s ease-in-out infinite; /* Adjusted speed */
+  animation: text-glow 2s ease-in-out infinite; /* Slightly faster glow pulse */
 }
 
-/* Primary Button Glow on Hover/Focus - Refined glow */
+/* Primary Button Glow on Hover/Focus - More prominent glow */
 .button-glow:hover, .button-glow:focus-visible {
-  box-shadow: 0 0 15px 3px hsl(var(--primary) / 0.5); /* Adjusted glow spread/opacity */
+  box-shadow: 0 0 20px 5px hsl(var(--primary) / 0.6); /* Increased glow spread/opacity */
   transition: box-shadow 0.3s ease-out;
 }
