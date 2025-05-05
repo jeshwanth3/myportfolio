@@ -68,7 +68,7 @@ body {
   html {
     scroll-behavior: smooth; /* Smooth scroll */
     /* Increased padding slightly more than header height (h-20 = 5rem) */
-    scroll-padding-top: 5.5rem; /* Adjusted for h-20 header */
+    scroll-padding-top: 6rem; /* Adjusted for h-20 header + some extra space */
   }
   body {
     @apply bg-background text-foreground;
