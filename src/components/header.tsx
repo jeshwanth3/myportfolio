@@ -76,7 +76,7 @@ export function Header() {
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
               </Button>
             </SheetTrigger>
-            <SheetContent title="Mobile Navigation"
+            <SheetContent
               side="right"
               className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col border-none"
             >
