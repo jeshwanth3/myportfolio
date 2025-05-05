@@ -21,8 +21,8 @@ export function SummarySection() {
            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl text-foreground leading-tight">
             {yourName}
           </h1>
-           {/* Title - Refined glow and size */}
-           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-primary animate-glow"> {/* Adjusted size, uses text-glow from globals */}
+           {/* Title - Refined glow and size, now uses ACCENT color */}
+           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-accent animate-glow"> {/* Adjusted size, uses text-glow from globals */}
              Product Manager
            </h2>
           {/* Summary Text - Improved readability */}

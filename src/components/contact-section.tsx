@@ -26,7 +26,7 @@ export function ContactSection() {
           <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row */}
              {/* Primary Button with Glow Effect */}
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
-               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 animate-glow button-glow">
+               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 button-glow"> {/* Reference primary glow */}
                 <Mail className="mr-2 h-5 w-5" /> Email Me
                </Button>
              </Link>
@@ -58,6 +58,3 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
-
-
-

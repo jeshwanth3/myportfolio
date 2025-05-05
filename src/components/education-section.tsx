@@ -31,7 +31,7 @@ export function EducationSection() {
        {/* Consistent gap for grid */}
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {education.map((edu) => (
-            // Enhanced Card Styling with consistent hover effect
+            // Enhanced Card Styling with consistent hover effect using accent color
             <Card
               key={edu.id}
               className="bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"

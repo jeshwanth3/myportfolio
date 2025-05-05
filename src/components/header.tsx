@@ -42,7 +42,7 @@ export function Header() {
       } else {
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 250); // Increased delay
+    }, 100); // Adjusted delay
   };
 
   return (

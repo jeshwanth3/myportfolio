@@ -69,7 +69,7 @@ export function SkillsSection() {
                   <Badge
                     key={typeof skill === 'string' ? skill : skill.name}
                     variant="secondary"
-                    // Refined Badge Appearance
+                    // Refined Badge Appearance - Use accent color on hover
                     className="text-sm md:text-base font-medium bg-muted/70 dark:bg-muted/50 text-muted-foreground dark:text-foreground/80 border border-transparent hover:border-accent/50 dark:hover:border-accent/60 hover:bg-accent/10 dark:hover:bg-accent/20 hover:text-accent dark:hover:text-accent transition-all duration-200 flex items-center gap-1.5 px-3.5 py-1.5 rounded-md" // Ensure badges are readable and consistently styled
                   >
                     {/* Render icon if skill is an object */}

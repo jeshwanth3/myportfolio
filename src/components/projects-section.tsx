@@ -40,7 +40,7 @@ export function ProjectsSection() {
       <SectionTitle>Projects</SectionTitle>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {projects.map((project) => (
-          // Enhanced Card Styling
+          // Enhanced Card Styling - Use accent color for border on hover
           <Card
             key={project.id}
             className="flex flex-col bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5"
@@ -57,7 +57,7 @@ export function ProjectsSection() {
               <CardDescription className="text-base text-muted-foreground pt-1">{project.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 p-5 md:p-6 pt-0">
-              {/* Enhanced Badge Styling */}
+              {/* Enhanced Badge Styling - Use accent color on hover */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
                   <Badge
@@ -70,7 +70,7 @@ export function ProjectsSection() {
                 ))}
               </div>
             </CardContent>
-            {/* Enhanced Footer Button Styling */}
+            {/* Enhanced Footer Button Styling - Use accent color on hover */}
             <CardFooter className="p-5 md:p-6 pt-4 border-t border-border/20 dark:border-border/30 mt-auto flex justify-end gap-3">
               {project.githubUrl && (
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" passHref>

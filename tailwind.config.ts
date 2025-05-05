@@ -77,17 +77,26 @@ export default {
           from: { opacity: '0', transform: 'translateY(40px)' }, // Adjusted starting point
           to: { opacity: '1', transform: 'translateY(0)' },
        },
-      'glow': { // Use primary color for glow, adjusted intensity
-        '0%, 100%': { 'box-shadow': '0 0 6px hsl(var(--primary) / 0.4), 0 0 12px hsl(var(--primary) / 0.25)' }, // Softer glow
-        '50%': { 'box-shadow': '0 0 10px hsl(var(--primary) / 0.55), 0 0 20px hsl(var(--primary) / 0.35)' },
-      }
+      'text-glow': { // Updated text glow keyframes to use accent color
+        '0%, 100%': {
+          'text-shadow': '0 0 6px hsl(var(--accent) / 0.6), 0 0 12px hsl(var(--accent) / 0.4), 0 0 18px hsl(var(--accent) / 0.2)'
+        },
+        '50%': {
+          'text-shadow': '0 0 10px hsl(var(--accent) / 0.8), 0 0 20px hsl(var(--accent) / 0.55), 0 0 30px hsl(var(--accent) / 0.35)'
+        }
+      },
+      'gradient-text-animation': { // Updated gradient text animation keyframes
+         '0%, 100%': { 'background-position': '0% 50%' },
+         '50%': { 'background-position': '100% 50%' },
+       },
   	},
   	animation: {
   		'accordion-down': 'accordion-down 0.3s ease-out', // Slightly slower accordion
   		'accordion-up': 'accordion-up 0.3s ease-out',   // Slightly slower accordion
-       'fade-in': 'fadeIn 1.2s ease-in-out forwards', // Adjusted duration and easing
-       'slide-in-bottom': 'slideInBottom 0.9s cubic-bezier(0.3, 0.8, 0.2, 1) forwards', // Adjusted duration and easing
-      'glow': 'glow 4s ease-in-out infinite', // Slower, smoother glow animation
+       'fade-in': 'fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards', // Use updated fade-in animation
+       'slide-in-bottom': 'slideInBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards', // Use updated slide-in animation
+      'glow': 'text-glow 3s ease-in-out infinite', // Reference the updated text-glow keyframes
+      'gradient-text-slow': 'gradient-text-animation 10s ease-in-out infinite', // Reference the updated gradient animation
   	}
   },
   plugins: [require("tailwindcss-animate")],

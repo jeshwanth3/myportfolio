@@ -31,9 +31,9 @@ body {
     --muted: 220 15% 30%; /* Neutral Gray */
     --muted-foreground: 215 20% 65%; /* Lighter muted text */
 
-    /* Accent - Vivid Magenta/Pink */
-    --accent: 310 100% 65%; /* Bright Magenta */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    /* Accent - Vivid Teal/Cyan */
+    --accent: 180 85% 45%;  /* Bright Teal/Cyan */
+    --accent-foreground: 225 25% 15%; /* Darker foreground for accent */
 
     /* Destructive - Bright Red */
     --destructive: 0 80% 65%;
@@ -45,7 +45,7 @@ body {
 
     /* Chart Colors (Vibrant & Contrasting) */
     --chart-1: 210 90% 60%;  /* Bright Blue */
-    --chart-2: 310 80% 70%;  /* Bright Magenta */
+    --chart-2: 30 100% 60%; /* Bright Orange */
     --chart-3: 180 70% 55%;  /* Teal */
     --chart-4: 45 100% 55%;  /* Gold/Yellow */
     --chart-5: 260 85% 75%;  /* Purple */
@@ -80,6 +80,7 @@ body {
   .animate-fade-in {
     animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Smoother ease-out */
     animation-delay: var(--animation-delay, 0ms);
+    opacity: 0; /* Start hidden */
   }
 
   @keyframes fadeIn {
@@ -91,6 +92,7 @@ body {
   .animate-slide-in-bottom {
      animation: slideInBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Standard ease-out */
      animation-delay: var(--animation-delay, 0ms);
+     opacity: 0; /* Start hidden */
   }
 
   @keyframes slideInBottom {
