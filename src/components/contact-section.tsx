@@ -11,7 +11,6 @@ export function ContactSection() {
   const email = "jeshwanthgoud3@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
   const resumeUrl = "https://drive.google.com/file/d/1XyrFaUT2P1eA8ifOc_6F-4azN8YGgKDc/view?usp=sharing"; // Assuming resume is in public folder
-  const instagramUrl = "https://www.instagram.com/jeshwanth_goud_/"; // Add your Instagram URL
 
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28">
@@ -51,12 +50,6 @@ export function ContactSection() {
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
                  <Download className="mr-2 h-5 w-5" /> Download Resume
-              </Button>
-            </Link>
-            {/* Instagram Button */}
-            <Link href={instagramUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
-                 <Instagram className="mr-2 h-5 w-5" /> Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-80" />
               </Button>
             </Link>
           </div>
