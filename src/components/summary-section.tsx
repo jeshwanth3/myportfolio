@@ -9,8 +9,8 @@ const yourName = "Sai Jeshwanth Goud Illuri";
 
 export function SummarySection() {
   return (
-    // Adjusted background gradient and padding - Reduced top padding significantly
-    <SectionWrapper id="summary" className="bg-gradient-to-b from-background via-card/5 to-background/90 pt-16 md:pt-20 lg:pt-24">
+    // Reduced top padding significantly
+    <SectionWrapper id="summary" className="bg-gradient-to-b from-background via-card/5 to-background/90 pt-10 md:pt-12 lg:pt-16"> {/* Reduced padding */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-16 items-center">
         {/* Text Content Area - Adjusted spacing and font sizes */}
         <div className="md:col-span-3 space-y-5 md:space-y-6 text-center md:text-left">
@@ -60,6 +60,4 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
-
-
 
