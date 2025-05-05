@@ -36,10 +36,6 @@ export function ContactSection() {
                 {/* Use img tag for LinkedIn logo */}
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
-                  alt="LinkedIn"
-                  width="20"
-                  height="20"
-                  className="mr-2" // Add margin if needed
                 />
                 LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
               </Button>
@@ -51,6 +47,9 @@ export function ContactSection() {
             </Link>
             <Link href={instagramUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
+                  />
                 <Instagram className="mr-2 h-5 w-5" /> {/* Adjusted icon size */} Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
               </Button>
             </Link>
