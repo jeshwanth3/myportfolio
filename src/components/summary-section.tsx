@@ -22,7 +22,7 @@ export function SummarySection() {
             {yourName}
           </h1>
            {/* Themed Primary Color for Title with Glow */}
-           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-primary animate-glow"> {/* Adjusted size/weight */}
+           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight md:text-5xl lg:text-5xl text-primary animate-glow"> {/* Adjusted size/weight, Ensure animate-glow is applied */}
              Product Manager
            </h2>
            {/* Increased Summary Text Size and Leading */}

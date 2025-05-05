@@ -168,17 +168,20 @@ body {
   }
 }
 
-/* Text Glow Animation - Softer, primary color based */
+/* Enhanced Text Glow Animation */
 @keyframes text-glow {
   0%, 100% {
-    text-shadow: 0 0 4px hsl(var(--primary) / 0.4), /* Base subtle glow */
-                 0 0 8px hsl(var(--primary) / 0.2);
+    text-shadow: 0 0 5px hsl(var(--primary) / 0.5), /* Base glow */
+                 0 0 10px hsl(var(--primary) / 0.3),
+                 0 0 15px hsl(var(--primary) / 0.15);
   }
   50% {
-    text-shadow: 0 0 6px hsl(var(--primary) / 0.6), /* Slightly brighter pulse */
-                 0 0 12px hsl(var(--primary) / 0.35);
+    text-shadow: 0 0 8px hsl(var(--primary) / 0.7), /* Brighter pulse */
+                 0 0 16px hsl(var(--primary) / 0.45),
+                 0 0 24px hsl(var(--primary) / 0.25);
   }
 }
+
 
 /* Gradient Text Animation */
 @keyframes gradient-text-animation {
@@ -194,7 +197,7 @@ body {
 
 
 .animate-glow {
-  animation: text-glow 4s ease-in-out infinite; /* Slower, smoother text glow */
+  animation: text-glow 3.5s ease-in-out infinite; /* Adjusted speed */
 }
 
 /* Subtle Button Glow on Hover/Focus for Primary Button */
