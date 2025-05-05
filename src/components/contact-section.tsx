@@ -14,8 +14,8 @@ export function ContactSection() {
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28">
       <SectionTitle>Get In Touch</SectionTitle>
-      {/* Enhanced Card Styling */}
-      <Card className="max-w-2xl mx-auto bg-card/90 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 backdrop-blur-md">
+      {/* Enhanced Card Styling - Increased max-width */}
+      <Card className="max-w-3xl mx-auto bg-card/90 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 backdrop-blur-md">
         <CardContent className="p-6 md:p-8 text-center space-y-8"> {/* Increased space */}
           {/* Enhanced Text Styling */}
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
