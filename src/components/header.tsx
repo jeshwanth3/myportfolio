@@ -78,8 +78,8 @@ export function Header() {
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
         <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => handleNavLinkClick(e, '/')}>
           <span className={cn(
-              // Apply gradient text - Emphasizing Blue to Teal
-              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-accent", // Adjusted gradient stops
+              // Apply gradient text and enhanced glow effect
+              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent animate-glow",
               "group-hover:brightness-150 transition-all duration-300" // Brighter hover effect
             )}
           >

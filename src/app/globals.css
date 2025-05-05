@@ -167,22 +167,22 @@ body {
 
 
 .animate-glow {
-  text-shadow: 0 0 10px hsl(var(--primary) / 0.6), /* Adjusted base glow to primary, slightly stronger */
-                 0 0 20px hsl(var(--primary) / 0.4),
-                 0 0 30px hsl(var(--primary) / 0.25);
-  animation: text-glow-pulse 2.8s ease-in-out infinite alternate; /* Slower, smoother alternating pulse */
+  text-shadow: 0 0 12px hsl(var(--primary) / 0.8), /* Brighter base glow */
+                 0 0 24px hsl(var(--primary) / 0.5), /* Wider secondary glow */
+                 0 0 36px hsl(var(--primary) / 0.3);  /* Wider tertiary glow */
+  animation: text-glow-pulse 2.5s ease-in-out infinite alternate; /* Slightly faster pulse */
 }
 
 @keyframes text-glow-pulse {
   from {
-    text-shadow: 0 0 10px hsl(var(--primary) / 0.6),
-                 0 0 20px hsl(var(--primary) / 0.4),
-                 0 0 30px hsl(var(--primary) / 0.25);
+    text-shadow: 0 0 12px hsl(var(--primary) / 0.8),
+                 0 0 24px hsl(var(--primary) / 0.5),
+                 0 0 36px hsl(var(--primary) / 0.3);
   }
   to {
-    text-shadow: 0 0 14px hsl(var(--primary) / 0.9), /* Brighter pulse */
-                 0 0 28px hsl(var(--primary) / 0.7),
-                 0 0 42px hsl(var(--primary) / 0.5);
+    text-shadow: 0 0 18px hsl(var(--primary) / 1),   /* Even brighter pulse */
+                 0 0 36px hsl(var(--primary) / 0.7), /* Wider pulse */
+                 0 0 54px hsl(var(--primary) / 0.5);  /* Wider pulse */
   }
 }
 
