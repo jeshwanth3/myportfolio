@@ -52,12 +52,17 @@ export function ContactSection() {
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
 <<<<<<< HEAD
+<<<<<<< HEAD
                   width={40} // Enlarged logo size
                   height={40} // Enlarged logo size
 =======
                   width={50} // Further enlarged logo size
                   height={50} // Further enlarged logo size
 >>>>>>> 0aa41fb (Make the following changes:)
+=======
+                  width={100} // Further enlarged logo size (doubled)
+                  height={100} // Further enlarged logo size (doubled)
+>>>>>>> 9cc0b95 (Make the following changes:)
                   className="object-contain" // Ensure SVG scales correctly
 >>>>>>> 45d46b8 (Make the following changes:)
                 />
