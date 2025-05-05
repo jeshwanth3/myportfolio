@@ -78,14 +78,12 @@ export function Header() {
             </SheetTrigger>
             <SheetContent title="Mobile Navigation"
               side="right"
-              className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col"
+              className="w-[85vw] max-w-[380px] bg-background/95 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col border-none"
             >
-            
-              <SheetHeader className="border-b border-border/20 p-4">
-
                 <SheetTitle className='sr-only'>Mobile Navigation</SheetTitle>
+              <SheetHeader className="border-b border-border/20 p-4">
                 <div className="flex items-center justify-between">
-                  <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeSheet}>
+                  <Link href="/" className="flex items-center space-x-2.5 group" onClick={() => { closeSheet(); window.scrollTo({ top: 0, behavior: 'smooth' });}}>
                     <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                       Sai J. G. Illuri
                     </span>
