@@ -27,7 +27,7 @@ export function SectionWrapper({
       id={id}
       ref={ref} // Attach the ref from the hook
       className={cn(
-        'py-16 md:py-20 lg:py-24 opacity-0', // Consistent padding, start hidden
+        'py-12 md:py-16 lg:py-20 opacity-0', // Reduced padding, start hidden
         isVisible && animationClassName, // Apply animation class when visible
         className
       )}
