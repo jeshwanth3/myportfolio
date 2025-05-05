@@ -11,7 +11,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetClose,        // ← import SheetClose
+  SheetClose, // ← import SheetClose
 } from '@/components/ui/sheet';
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { cn } from '@/lib/utils';
@@ -80,40 +80,55 @@ export function Header() {
             <SheetContent
               side="right"
               title="Main Navigation"
-              className="w-64 bg-background/90 backdrop-blur-lg border-l border-border/20 p-4"
+              className="
+                w-64
+                bg-background/90
+                backdrop-blur-lg
+                border-l border-border/20
+                p-4
+                flex flex-col
+                overflow-y-auto
+                z-50
+              "
             >
-              {/* Accessibility Title */}
+              {/* REQUIRED for a11y */}
               <SheetTitle>
                 <VisuallyHidden>Navigation Menu</VisuallyHidden>
               </SheetTitle>
 
-              <SheetHeader className="mb-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">Menu</span>
-                  <SheetClose asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      aria-label="Close menu"
-                    >
-                      <X className="h-5 w-5" />
-                    </Button>
-                  </SheetClose>
-                </div>
+              <SheetHeader className="mb-4 flex items-center justify-between">
+                <span className="text-lg font-semibold text-foreground">Menu</span>
+                <SheetClose asChild>
+                  <Button variant="ghost" size="icon" aria-label="Close menu">
+                    <X className="h-5 w-5 text-foreground" />
+                  </Button>
+                </SheetClose>
               </SheetHeader>
 
-              <div className="space-y-3">
+              <nav className="flex-1 flex flex-col space-y-2">
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.href}>
-                    <button
-                      onClick={() => handleMobileLinkClick(item.href)}
-                      className="w-full text-left text-base font-medium text-foreground hover:text-accent transition-colors"
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleMobileLinkClick(item.href);
+                      }}
+                      className="
+                        block
+                        px-3 py-2
+                        text-foreground
+                        text-base font-medium
+                        rounded-md
+                        hover:bg-accent/10
+                        transition
+                      "
                     >
                       {item.label}
-                    </button>
+                    </a>
                   </SheetClose>
                 ))}
-              </div>
+              </nav>
             </SheetContent>
           </Sheet>
         </div>
