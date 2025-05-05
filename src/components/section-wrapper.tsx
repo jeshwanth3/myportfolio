@@ -19,15 +19,15 @@ export function SectionWrapper({
   delay = '150ms', // Default delay
   ...props
 }: SectionWrapperProps) {
-  // Use 15% visibility threshold, trigger animation only once
-  const [ref, isVisible] = useAppearOnScroll<HTMLElement>({ threshold: 0.15, triggerOnce: true });
+  // Use 10% visibility threshold for slightly earlier trigger, trigger animation only once
+  const [ref, isVisible] = useAppearOnScroll<HTMLElement>({ threshold: 0.1, triggerOnce: true });
 
   return (
     <section
       id={id}
       ref={ref} // Attach the ref from the hook
       className={cn(
-        'py-16 md:py-20 lg:py-24 opacity-0', // Start hidden
+        'py-14 md:py-18 lg:py-20 opacity-0', // Adjusted padding, start hidden
         // Rely solely on the animation class for the reveal transition
         isVisible && animationClassName, // Apply animation class when visible
         className

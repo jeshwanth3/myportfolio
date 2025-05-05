@@ -70,17 +70,17 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/20">
+    <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/15"> {/* Adjusted background */}
       <SectionTitle>Work Experience</SectionTitle>
       <Tabs defaultValue={experiences[0].id} className="w-full">
         {/* Ensure grid adjusts for mobile */}
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 h-auto p-1 bg-muted/50 dark:bg-muted/30 rounded-lg mb-6">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 h-auto p-1.5 bg-muted/60 dark:bg-muted/40 rounded-lg mb-8"> {/* Adjusted styling */}
           {experiences.map((exp) => (
              <TabsTrigger
                key={exp.id}
                value={exp.id}
                // Adjusted padding and text size for better mobile experience
-               className="px-3 py-3 sm:py-2.5 text-sm sm:text-sm font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-background dark:data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm rounded-md transition-all duration-200 ease-in-out"
+               className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out" // Enhanced active state
             >
                {exp.company}
             </TabsTrigger>
@@ -88,16 +88,16 @@ export function ExperienceSection() {
         </TabsList>
         {experiences.map((exp) => (
           <TabsContent key={exp.id} value={exp.id}>
-            <Card className="bg-card/90 dark:bg-secondary/60 mac-shadow border border-border/20 dark:border-border/30">
+            <Card className="bg-card/95 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 transition-all duration-300 ease-out"> {/* Subtle transition */}
               <CardHeader className="p-5 md:p-6">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
+                  <div className="mt-1 shrink-0 bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full"> {/* Slightly larger icon background */}
                       {exp.icon}
                   </div>
                   <div className="flex-1">
                     <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{exp.title}</CardTitle> {/* Changed to h3 */}
-                    <div className="text-sm text-muted-foreground mt-1.5 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1 flex-wrap">
-                      <span className="font-medium text-foreground/90">{exp.company}</span>
+                    <div className="text-sm text-muted-foreground mt-2 flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1.5 flex-wrap"> {/* Adjusted spacing */}
+                      <span className="font-medium text-foreground/95">{exp.company}</span>
                       <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {exp.location}</span>
                       <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" /> {exp.duration}</span>
                     </div>
@@ -105,8 +105,8 @@ export function ExperienceSection() {
                 </div>
               </CardHeader>
               <CardContent className="p-5 md:p-6 pt-0">
-                <p className="mb-4 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p>
-                <ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80">
+                <p className="mb-5 text-sm md:text-base text-foreground/80 dark:text-foreground/75">{exp.description}</p> {/* Increased margin-bottom */}
+                <ul className="list-disc space-y-2 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80"> {/* Increased spacing */}
                   {exp.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>
                   ))}

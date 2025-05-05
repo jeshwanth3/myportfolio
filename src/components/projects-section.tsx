@@ -36,51 +36,51 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15">
+    <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15"> {/* Consistent background */}
       <SectionTitle>Projects</SectionTitle>
       {/* Grid layout adjusts for mobile */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {projects.map((project) => (
           <Card
             key={project.id}
-            className="flex flex-col bg-card/90 dark:bg-secondary/60 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1"
+            className="flex flex-col bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-1.5" // Enhanced card style
           >
             <CardHeader className="p-5 md:p-6 pb-4">
-              <div className="flex items-start gap-3 mb-2">
-                <div className="mt-1 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
+              <div className="flex items-center gap-4 mb-2"> {/* Adjusted gap */}
+                <div className="shrink-0 bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full"> {/* Adjusted icon background */}
                   <FolderGit2 className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1">
                    <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{project.title}</CardTitle> {/* Changed to h3 */}
                 </div>
               </div>
-              <CardDescription className="text-sm text-muted-foreground">{project.description}</CardDescription>
+              <CardDescription className="text-sm text-muted-foreground pt-1">{project.description}</CardDescription> {/* Added padding */}
             </CardHeader>
             <CardContent className="flex-1 p-5 md:p-6 pt-0">
-              <div className="flex flex-wrap gap-1.5 mb-4">
+              <div className="flex flex-wrap gap-2 mb-4"> {/* Adjusted spacing */}
                 {project.technologies.map((tech) => (
                   <Badge
                     key={tech}
-                    variant="secondary"
-                    className="text-xs font-normal border border-transparent hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2 py-0.5 rounded"
+                    variant="secondary" // Consistent badge style
+                    className="text-xs font-normal border border-transparent bg-muted/70 dark:bg-muted/50 hover:border-accent/40 dark:hover:border-accent/50 hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-accent transition-all duration-200 px-2.5 py-1 rounded" // Adjusted badge style
                   >
                     {tech}
                   </Badge>
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="p-5 md:p-6 pt-4 border-t border-border/20 dark:border-border/30 mt-auto flex justify-end gap-2">
+            <CardFooter className="p-5 md:p-6 pt-4 border-t border-border/20 dark:border-border/30 mt-auto flex justify-end gap-3"> {/* Adjusted gap */}
               {project.githubUrl && (
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" passHref>
-                  <Button variant="ghost" size="sm" className="text-xs h-7 px-2 text-muted-foreground hover:text-primary dark:hover:text-primary hover:bg-primary/15 dark:hover:bg-primary/20">
-                    GitHub <ExternalLink className="ml-1 h-3 w-3" />
+                  <Button variant="ghost" size="sm" className="text-xs h-8 px-3 text-muted-foreground hover:text-primary dark:hover:text-primary hover:bg-primary/15 dark:hover:bg-primary/20 rounded-md"> {/* Adjusted styling */}
+                    GitHub <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                   </Button>
                 </Link>
               )}
               {project.liveUrl && (
                 <Link href={project.liveUrl} target={project.liveUrl === '#' ? '_self' : '_blank'} rel="noopener noreferrer" passHref>
-                  <Button variant="outline" size="sm" className="text-xs h-7 px-2 bg-background/50 hover:bg-accent/10 hover:text-accent dark:bg-secondary/50 dark:hover:bg-accent/15 dark:hover:text-accent">
-                    {project.liveUrl === '#' ? 'View Site' : 'Live Demo'} <ExternalLink className="ml-1 h-3 w-3" />
+                  <Button variant="outline" size="sm" className="text-xs h-8 px-3 bg-background/60 hover:bg-accent/15 hover:text-accent dark:bg-secondary/60 dark:hover:bg-accent/20 dark:hover:text-accent rounded-md border-border hover:border-accent/50"> {/* Adjusted styling */}
+                    {project.liveUrl === '#' ? 'View Site' : 'Live Demo'} <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                   </Button>
                 </Link>
               )}

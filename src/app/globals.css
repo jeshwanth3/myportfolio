@@ -9,46 +9,46 @@ body {
 
 @layer base {
   :root {
-    /* Modern Dark Theme - Deep Blue/Gray Base */
-    --background: 220 20% 7%; /* Very Dark Desaturated Blue */
-    --foreground: 210 40% 98%; /* Almost White / Very Light Gray */
+    /* Modern Dark Theme - Deep Blue/Gray Base - Refined */
+    --background: 220 20% 5%; /* Even darker base */
+    --foreground: 210 40% 96%; /* Slightly less bright foreground */
 
-    --card: 220 20% 11%; /* Slightly Lighter Dark Blue/Gray */
-    --card-foreground: 210 40% 98%;
+    --card: 220 20% 10%; /* Slightly adjusted card background */
+    --card-foreground: 210 40% 96%;
 
-    --popover: 220 20% 5%; /* Darker Popover Blue/Gray */
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 20% 4%; /* Darker Popover */
+    --popover-foreground: 210 40% 96%;
 
-    /* Primary - Teal */
-    --primary: 180 65% 55%; /* Teal */
+    /* Primary - Teal - Slightly desaturated */
+    --primary: 180 60% 50%; /* Adjusted Teal */
     --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    /* Secondary - Muted Blue/Gray */
-    --secondary: 220 15% 20%; /* Darker shade for secondary */
-    --secondary-foreground: 210 30% 85%; /* Lighter Gray for secondary text */
+    /* Secondary - Muted Blue/Gray - Slightly darker */
+    --secondary: 220 15% 15%; /* Darker shade for secondary */
+    --secondary-foreground: 210 30% 80%; /* Adjusted Gray for secondary text */
 
     /* Muted - Darker Gray/Blue */
-    --muted: 215 20% 25%; /* Muted Dark Gray/Blue */
-    --muted-foreground: 210 25% 65%; /* Muted Gray text */
+    --muted: 215 20% 22%; /* Adjusted Muted Dark Gray/Blue */
+    --muted-foreground: 210 25% 60%; /* Adjusted Muted Gray text */
 
-    /* Accent - Vibrant Electric Blue */
-    --accent: 210 100% 60%; /* Vibrant Electric Blue */
+    /* Accent - Vibrant Electric Blue - Slightly adjusted */
+    --accent: 210 100% 58%; /* Adjusted Vibrant Electric Blue */
     --accent-foreground: 0 0% 100%; /* White text on accent */
 
     /* Destructive - Refined Red */
-    --destructive: 0 70% 60%;
+    --destructive: 0 65% 58%; /* Adjusted Red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 15% 25%; /* Slightly more visible Dark Border */
-    --input: 215 20% 28%; /* Slightly Lighter Input Border */
-    --ring: 210 80% 65%; /* Brighter blue for focus rings */
+    --border: 215 15% 22%; /* Adjusted Dark Border */
+    --input: 215 20% 25%; /* Adjusted Input Border */
+    --ring: 210 80% 60%; /* Adjusted blue for focus rings */
 
     /* Chart Colors (Adjusted for dark mode) */
-    --chart-1: 180 70% 55%; /* Lighter Teal */
-    --chart-2: 210 80% 60%;  /* Accent Blue */
-    --chart-3: 215 15% 50%;  /* Gray */
-    --chart-4: 180 50% 70%; /* Muted Teal */
-    --chart-5: 210 60% 70%; /* Lighter Blue */
+    --chart-1: 180 65% 50%; /* Adjusted Teal */
+    --chart-2: 210 80% 58%;  /* Adjusted Accent Blue */
+    --chart-3: 215 15% 45%;  /* Adjusted Gray */
+    --chart-4: 180 45% 65%; /* Adjusted Muted Teal */
+    --chart-5: 210 55% 65%; /* Adjusted Lighter Blue */
 
     --radius: 0.5rem; /* Consistent radius */
 
@@ -78,20 +78,20 @@ body {
 }
 
 @layer utilities {
-  /* Updated Fade In Animation - Smoother */
+  /* Updated Fade In Animation - Smoother Easing */
   .animate-fade-in {
-    animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Adjusted duration and easing */
+    animation: fadeIn 0.7s cubic-bezier(0.3, 0.8, 0.2, 1) forwards; /* Smoother bezier, slightly faster */
     animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Start slightly lower and smaller */
+    from { opacity: 0; transform: translateY(20px) scale(0.98); } /* Start slightly lower */
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* Updated Slide In Animation - Smoother */
   .animate-slide-in-bottom {
-     animation: slideInBottom 0.7s cubic-bezier(0.3, 0.8, 0.2, 1) forwards; /* Slightly faster, custom bezier */
+     animation: slideInBottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Faster, standard ease-out */
      /* opacity: 0; Start hidden - handled by component now */
      animation-delay: var(--animation-delay, 0ms); /* Add delay variable */
   }
@@ -99,7 +99,7 @@ body {
   @keyframes slideInBottom {
      from {
         opacity: 0;
-        transform: translateY(30px); /* Start lower */
+        transform: translateY(25px); /* Adjusted start */
      }
      to {
         opacity: 1;
@@ -107,76 +107,80 @@ body {
      }
   }
 
-  /* Subtle shadow for depth */
+  /* Subtle shadow for depth - Enhanced for Dark Mode */
   .mac-shadow {
-     box-shadow: 0 4px 10px -2px hsl(var(--foreground) / 0.05), 0 2px 6px -3px hsl(var(--foreground) / 0.05);
-     border: 1px solid hsl(var(--border) / 0.15);
+     /* More pronounced shadow for dark mode */
+     box-shadow: 0 6px 15px -3px hsl(var(--foreground) / 0.04), 0 4px 8px -4px hsl(var(--foreground) / 0.04);
+     border: 1px solid hsl(var(--border) / 0.2); /* Slightly more visible border */
      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smoother transition */
   }
-  .dark .mac-shadow {
-     /* Subtle shadow for dark mode */
-     box-shadow: 0 1px 3px 0 hsl(var(--background) / 0.2), 0 2px 8px -3px hsl(var(--background) / 0.3);
-     border: 1px solid hsl(var(--border) / 0.25);
-  }
+   .dark .mac-shadow {
+      /* Refined shadow for dark mode */
+      box-shadow: 0 2px 5px 0 hsl(var(--background) / 0.3), 0 4px 12px -4px hsl(var(--background) / 0.4);
+      border: 1px solid hsl(var(--border) / 0.3);
+   }
 
   /* Enhanced glassmorphism for header */
   .glassmorphism {
-    background-color: hsl(var(--background) / 0.8); /* Increased base opacity slightly */
-    backdrop-filter: blur(12px); /* Adjusted blur radius */
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid hsl(var(--border) / 0.15); /* Slightly lighter border */
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out; /* Slightly faster transition */
+    background-color: hsl(var(--background) / 0.85); /* Slightly increased opacity */
+    backdrop-filter: blur(16px) saturate(180%); /* Increased blur and added saturate */
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid hsl(var(--border) / 0.2); /* Slightly more visible border */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   }
-   /* No need for @supports anymore, applied directly */
 
 
-  /* Minimal scrollbar */
+  /* Minimal scrollbar - Consistent */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px; /* Slimmer scrollbar */
+    width: 5px; /* Even slimmer */
+    height: 5px;
   }
   ::-webkit-scrollbar-track {
      background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-     background-color: hsl(var(--muted) / 0.3);
-     border-radius: var(--radius); /* Use theme radius */
+     background-color: hsl(var(--muted) / 0.4); /* Slightly more visible */
+     border-radius: var(--radius);
      border: 1px solid transparent;
      background-clip: content-box;
   }
    .dark ::-webkit-scrollbar-thumb {
-      background-color: hsl(var(--muted) / 0.25);
+      background-color: hsl(var(--muted) / 0.35);
    }
   ::-webkit-scrollbar-thumb:hover {
-     background-color: hsl(var(--muted-foreground) / 0.4);
+     background-color: hsl(var(--muted-foreground) / 0.5); /* Slightly more visible on hover */
   }
    .dark ::-webkit-scrollbar-thumb:hover {
-      background-color: hsl(var(--muted-foreground) / 0.3);
+      background-color: hsl(var(--muted-foreground) / 0.4);
    }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted) / 0.3) transparent;
+    scrollbar-color: hsl(var(--muted) / 0.4) transparent;
   }
   .dark * {
-    scrollbar-color: hsl(var(--muted) / 0.25) transparent;
+    scrollbar-color: hsl(var(--muted) / 0.35) transparent;
   }
 }
 
-/* Adjusted Glow Animation - Smoother, more subtle, using text-shadow */
+/* Adjusted Text Glow Animation - Smoother, primary color based */
 @keyframes text-glow {
   0%, 100% {
-    /* More subtle base glow */
-    text-shadow: 0 0 5px hsl(var(--primary) / 0.4),
-                 0 0 10px hsl(var(--primary) / 0.2);
+    text-shadow: 0 0 4px hsl(var(--primary) / 0.5), /* Base subtle glow */
+                 0 0 8px hsl(var(--primary) / 0.3);
   }
   50% {
-     /* Slightly brighter pulse */
-    text-shadow: 0 0 8px hsl(var(--primary) / 0.6),
-                 0 0 16px hsl(var(--primary) / 0.35);
+    text-shadow: 0 0 7px hsl(var(--primary) / 0.7), /* Brighter pulse */
+                 0 0 14px hsl(var(--primary) / 0.45);
   }
 }
 
 .animate-glow {
-  animation: text-glow 3s ease-in-out infinite; /* Slightly faster but still smooth text glow */
+  animation: text-glow 3.5s ease-in-out infinite; /* Slightly slower, smoother text glow */
+}
+
+/* Subtle Button Glow on Hover/Focus for Primary Button */
+.button-glow:hover, .button-glow:focus-visible {
+  box-shadow: 0 0 12px 2px hsl(var(--primary) / 0.4);
+  transition: box-shadow 0.3s ease-out;
 }

@@ -11,24 +11,24 @@ export function ContactSection() {
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
 
   return (
-    <SectionWrapper id="contact" className="bg-gradient-to-t from-background to-card/20 dark:from-card/20 dark:to-background pb-16 md:pb-24 lg:pb-28">
+    <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28"> {/* Adjusted gradient and padding */}
       <SectionTitle>Get In Touch</SectionTitle>
-      <Card className="max-w-xl mx-auto bg-card/80 dark:bg-secondary/60 mac-shadow border border-border/20 dark:border-border/30 backdrop-blur-sm">
-        <CardContent className="p-6 md:p-8 text-center space-y-6">
-          <p className="text-base md:text-lg text-muted-foreground">
+      <Card className="max-w-xl mx-auto bg-card/90 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 backdrop-blur-md"> {/* Enhanced card style */}
+        <CardContent className="p-6 md:p-8 text-center space-y-8"> {/* Increased spacing */}
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed"> {/* Adjusted leading */}
             I&apos;m actively seeking new Product Management opportunities and would love to connect. Let&apos;s discuss how my skills can benefit your team!
           </p>
           {/* Buttons stack vertically on small screens */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto"> {/* Ensure full width on small screens */}
-               {/* Primary button uses primary theme color */}
-               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform duration-200 animate-glow w-full"> {/* Added w-full */}
+               {/* Primary button uses primary theme color, added subtle glow */}
+               <Button variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 animate-glow w-full button-glow"> {/* Added w-full and button-glow */}
                 <Mail className="mr-2 h-4 w-4" /> Email Me
                </Button>
              </Link>
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto"> {/* Ensure full width on small screens */}
               {/* Outline button uses accent color for hover state */}
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform duration-200 bg-card/50 hover:bg-accent hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full"> {/* Added w-full */}
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full"> {/* Added w-full, enhanced hover */}
                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
               </Button>
             </Link>
