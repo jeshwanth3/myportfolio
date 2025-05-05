@@ -23,7 +23,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20); // Trigger effect slightly earlier
+      setIsScrolled(window.scrollY > 10); // Trigger effect slightly earlier
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
@@ -34,7 +34,7 @@ export function Header() {
 
   const handleMobileLinkClick = (href: string) => {
     closeSheet(); // Close the sheet when a link is clicked
-    // Wait slightly longer for animation before scrolling
+    // Wait slightly for animation before scrolling
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
@@ -50,17 +50,17 @@ export function Header() {
       } else if (href === '/') {
          window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top for home link
       }
-    }, 150); // Delay for sheet closing animation
+    }, 100); // Reduced Delay slightly
   };
 
 
   return (
     <header className={cn(
-      "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-      // Use heavier glassmorphism and shadow when scrolled
+      "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Faster transition
+      // Apply heavier glassmorphism and shadow when scrolled
       isScrolled
-        ? "glassmorphism-heavy shadow-lg" // Apply heavy glassmorphism from globals.css, slightly smaller shadow
-        : "bg-gradient-to-b from-background/70 via-background/20 to-transparent border-b border-transparent" // Start more transparent
+        ? "glassmorphism-heavy shadow-lg border-b border-border/15" // Increased blur and subtle border
+        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent" // Start more transparent
     )}>
       {/* Slightly reduced height */}
       <div className="container flex h-[72px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
@@ -100,7 +100,7 @@ export function Header() {
                variant="outline"
                size="sm"
                onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
-               className="ml-3 px-3.5 py-1.5 h-8 shadow-sm hover:shadow-md transition-all hover:scale-103 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent dark:hover:text-accent-foreground" // Slightly smaller button, use accent for hover fill
+               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent dark:hover:text-accent-foreground bg-gradient-to-r from-background/60 via-card/30 to-background/60 hover:from-accent/15 hover:via-accent/5 hover:to-accent/15 dark:from-secondary/50 dark:via-card/20 dark:to-secondary/50 dark:hover:from-accent/20 dark:hover:via-accent/10 dark:hover:to-accent/20" // Refined gradient and hover
              >
                  Get In Touch With Me <Send className="ml-1.5 h-3.5 w-3.5" /> {/* Updated Button Text */}
              </Button>
@@ -114,7 +114,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-10 w-10 rounded-full" // Adjusted tap target
+                className="text-muted-foreground h-10 w-10 rounded-full" // Simplified styles
               >
                 <Menu className="h-6 w-6" />
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
@@ -173,3 +173,5 @@ export function Header() {
     </header>
   );
 }
+
+    
