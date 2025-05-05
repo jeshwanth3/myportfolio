@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Send } from 'lucide-react';
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"; // Import SheetTitle
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +23,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30); // Trigger effect slightly later
+      setIsScrolled(window.scrollY > 20); // Trigger effect slightly earlier
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
@@ -42,7 +42,7 @@ export function Header() {
       } else {
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 50); // Reduced delay for quicker navigation
+    }, 30); // Further reduced delay
   };
 
   return (
@@ -50,17 +50,17 @@ export function Header() {
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
       // Use heavier glassmorphism and shadow when scrolled
       isScrolled
-        ? "glassmorphism-heavy shadow-xl" // Apply heavy glassmorphism from globals.css
-        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent" // Start more transparent
+        ? "glassmorphism-heavy shadow-lg" // Apply heavy glassmorphism from globals.css, slightly smaller shadow
+        : "bg-gradient-to-b from-background/70 via-background/20 to-transparent border-b border-transparent" // Start more transparent
     )}>
-      {/* Increased height for more presence */}
-      <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
+      {/* Slightly reduced height */}
+      <div className="container flex h-[72px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
 
         {/* Enhanced Logo/Name Styling */}
         <Link href="/" className="flex items-center space-x-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className={cn(
-              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient-text-slow", // Use the defined gradient animation
-              "group-hover:brightness-125 transition-all duration-300" // Subtle brightness on hover
+              "text-xl sm:text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient-text-slow", // Use the defined gradient animation
+              "group-hover:brightness-110 transition-all duration-300" // Subtle brightness on hover
             )}
           >
             Sai Jeshwanth Goud Illuri
@@ -68,21 +68,21 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation - Refined Hover Effect */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2"> {/* Adjusted gap */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5"> {/* Slightly adjusted gap */}
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
               className={cn(
-                "px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ease-out relative group", // Increased padding slightly
+                "px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-out relative group", // Adjusted padding
                 "text-muted-foreground hover:text-foreground", // More direct hover color
                 "overflow-hidden"
               )}
             >
                <span className="relative z-10">{item.label}</span>
                {/* Subtle underline reveal */}
-               <span className="absolute bottom-0 left-0 h-[2px] w-full bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+               <span className="absolute bottom-0 left-0 h-[1.5px] w-full bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
             </Link>
           ))}
           <Link href="#contact" passHref>
@@ -90,9 +90,9 @@ export function Header() {
              <Button
                variant="outline"
                size="sm"
-               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent dark:hover:text-accent-foreground" // Use accent for hover fill
+               className="ml-3 px-3.5 py-1.5 h-8 shadow-sm hover:shadow-md transition-all hover:scale-103 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent dark:hover:text-accent-foreground" // Slightly smaller button, use accent for hover fill
              >
-                 Get In Touch With Me <Send className="ml-1.5 h-4 w-4" /> {/* Updated Button Text */}
+                 Get In Touch With Me <Send className="ml-1.5 h-3.5 w-3.5" /> {/* Updated Button Text */}
              </Button>
           </Link>
         </nav>
@@ -104,22 +104,22 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-10 w-10 rounded-full" // Larger tap target
+                className="text-muted-foreground hover:bg-accent/20 hover:text-accent transition-colors duration-200 h-9 w-9 rounded-full" // Adjusted tap target
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
               </Button>
             </SheetTrigger>
             <SheetContent
                 side="right"
-                className="w-[85vw] max-w-[380px] bg-background/90 border-l border-border/30 backdrop-blur-xl p-0 flex flex-col glassmorphism-heavy" // Apply heavy glassmorphism
+                className="w-[80vw] max-w-[340px] bg-background/85 border-l border-border/25 backdrop-blur-xl p-0 flex flex-col glassmorphism-heavy" // Apply heavy glassmorphism, slightly less width
                 title="Main Navigation" // Accessible title for screen readers
             >
                {/* Sheet Header */}
                <SheetHeader className="border-b border-border/20 p-4">
                  <div className="flex items-center justify-between">
-                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
-                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary group-hover:brightness-110 transition-all">
+                   <Link href="/" className="flex items-center space-x-2 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
+                     <span className="text-base font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary group-hover:brightness-110 transition-all">
                         Sai Jeshwanth Goud Illuri
                      </span>
                    </Link>
@@ -130,14 +130,14 @@ export function Header() {
                  </div>
                </SheetHeader>
 
-              {/* Mobile Navigation Links - Centered and larger */}
-              <nav className="flex-1 flex flex-col justify-center p-4 space-y-2">
+              {/* Mobile Navigation Links - Adjusted size and padding */}
+              <nav className="flex-1 flex flex-col justify-center p-4 space-y-1.5">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
-                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center" // Increased text size and padding
+                    className="block w-full px-3 py-2.5 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center" // Adjusted text size and padding
                   >
                     {item.label}
                   </Link>
@@ -146,14 +146,14 @@ export function Header() {
                  <Link
                     href="#contact"
                     onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
-                     className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center mt-4 border-t border-border/20 pt-6" // Separator added
+                     className="block w-full px-3 py-2.5 text-base font-medium text-foreground hover:bg-accent/10 dark:hover:bg-accent/15 hover:text-accent dark:hover:text-primary rounded-md transition-all duration-200 text-center mt-3 border-t border-border/15 pt-5" // Separator adjusted
                   >
-                    Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                    Contact Me <Send className="inline-block ml-1 h-3.5 w-3.5 align-middle" />
                   </Link>
               </nav>
 
               {/* Subtle Footer in Sheet */}
-              <div className="p-4 border-t border-border/20 mt-auto text-center text-xs text-muted-foreground">
+              <div className="p-3 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground">
                  Navigate Sections
               </div>
             </SheetContent>
