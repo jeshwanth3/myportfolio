@@ -22,10 +22,10 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20); // Trigger effect slightly later
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial scroll position
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -33,6 +33,7 @@ export function Header() {
 
   const handleMobileLinkClick = (href: string) => {
     closeSheet();
+    // Wait for sheet to close before scrolling
     setTimeout(() => {
       const element = document.querySelector(href);
       if (element) {
@@ -40,17 +41,16 @@ export function Header() {
       } else {
          window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 100); // Reduced delay
+    }, 100); // Adjust delay as needed
   };
 
 
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-      // Apply heavy glassmorphism when scrolled, otherwise subtle gradient
       isScrolled
-        ? "glassmorphism-heavy shadow-xl" // New class for heavy effect
-        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent"
+        ? "glassmorphism-heavy shadow-xl" // Heavy glassmorphism when scrolled
+        : "bg-gradient-to-b from-background/80 via-background/30 to-transparent border-b border-transparent" // Subtle gradient otherwise
     )}>
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> {/* Increased height */}
 
@@ -89,8 +89,8 @@ export function Header() {
              <Button
                variant="outline"
                size="sm"
-                // Enhanced button style
-               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:text-accent dark:text-primary dark:hover:text-accent bg-gradient-to-r from-background/60 via-card/30 to-background/60 hover:from-accent/15 hover:via-accent/5 hover:to-accent/15 dark:from-secondary/50 dark:via-card/20 dark:to-secondary/50 dark:hover:from-accent/20 dark:hover:via-accent/10 dark:hover:to-accent/20"
+                // Enhanced button style - Fixed hover state
+               className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-105 transform duration-200 border-primary/40 hover:border-primary/70 text-primary hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent dark:hover:text-accent-foreground" // Fixed hover text color issue
              >
                  Get In Touch <Send className="ml-1.5 h-3.5 w-3.5" />
              </Button>
