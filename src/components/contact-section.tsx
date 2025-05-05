@@ -2,13 +2,14 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Linkedin, ExternalLink, Download } from 'lucide-react'; // Import Download icon
 import Link from 'next/link';
 
 
 export function ContactSection() {
   const email = "jeshwanthgoud3@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
+  const resumeUrl = "/Sai_Jeshwanth_Goud_Illuri_Resume.pdf"; // Assuming resume is in public folder
 
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28"> {/* Adjusted gradient and padding */}
@@ -30,6 +31,12 @@ export function ContactSection() {
               {/* Outline button uses accent color for hover state */}
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full"> {/* Added w-full, enhanced hover */}
                 <Linkedin className="mr-2 h-4 w-4" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
+              </Button>
+            </Link>
+            {/* Download Resume Button */}
+            <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
+                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </Button>
             </Link>
           </div>
