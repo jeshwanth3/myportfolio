@@ -25,15 +25,19 @@ export function ContactSection() {
           </p>
           {/* Enhanced Button Styling and Layout */}
           <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row */}
-             {/* Email Button using outline variant */}
+             {/* Email Button using outline variant - Refined Styling */}
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
-               <Button variant="outline" size="lg" className="shadow-md hover:shadow-lg transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary"> {/* Changed variant to outline */}
+               <Button
+                  variant="outline"
+                  size="lg"
+                  className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border" // Simplified hover effect, using primary color accent
+               >
                   <Image
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png"
                     alt="Gmail logo"
-                    width={20} // Set appropriate size
-                    height={20} // Set appropriate size
-                    className="mr-2 h-5 w-5" // Keep consistent size with other icons
+                    width={20} // Keep size consistent
+                    height={20} // Keep size consistent
+                    className="mr-2 h-5 w-5" // Consistent size with other icons
                     data-ai-hint="gmail logo"
                   />
                   Email Me
@@ -82,8 +86,16 @@ export function ContactSection() {
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
 =======
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
+<<<<<<< HEAD
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary">
 >>>>>>> f53313c (Make the following changes:)
+=======
+              <Button
+                variant="outline"
+                size="lg"
+                className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border" // Simplified hover effect
+              >
+>>>>>>> e1bb076 (Make the following changes:)
                  <Download className="mr-2 h-5 w-5" /> Download Resume
               </Button>
             </Link>
