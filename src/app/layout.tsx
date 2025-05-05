@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>{/* Added lang="en" */}
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`}>{/* Use font variable & ensure base text color */}
+      <body className={`${inter.variable} font-sans antialiased`}>{/* Use font variable, background/text color handled in globals.css */}
           <ThemeProvider
              attribute="class"
              defaultTheme="dark" // Set dark theme as default

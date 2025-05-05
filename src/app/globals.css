@@ -5,12 +5,14 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   @apply dark; /* Apply dark mode by default */
+  /* Apply the gradient background directly to the body */
+  @apply bg-gradient-to-b from-background via-background to-[hsl(225_25%_4%)]; /* Subtle gradient to a slightly lighter deep blue */
 }
 
 @layer base {
   :root {
     /* Futuristic Dark Theme - Deep Space & Neon Accents - Enhanced Contrast & Vibrancy */
-    --background: 225 25% 6%; /* Deeper Space Blue/Black */
+    --background: 225 25% 6%; /* Deeper Space Blue/Black - Starting point */
     --foreground: 210 50% 96%; /* Brighter, slightly cool white */
 
     --card: 225 25% 11%; /* Slightly lighter card */
@@ -31,7 +33,7 @@ body {
     --muted: 220 15% 30%; /* Neutral Gray */
     --muted-foreground: 215 20% 65%; /* Lighter muted text */
 
-    /* Accent - Vivid Teal/Cyan */
+    /* Accent - Vivid Teal/Cyan - Keep for specific accents if desired */
     --accent: 180 85% 45%;  /* Bright Teal/Cyan */
     --accent-foreground: 225 25% 15%; /* Darker foreground for accent */
 
@@ -69,7 +71,7 @@ body {
     scroll-padding-top: 7rem; /* Adjusted padding for new header height */
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* Keep base text color */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
