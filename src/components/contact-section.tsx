@@ -30,18 +30,18 @@ export function ContactSection() {
                 <Mail className="mr-2 h-5 w-5" /> Email Me
                </Button>
              </Link>
-             {/* LinkedIn Button - Icon Only */}
+             {/* LinkedIn Button - Icon Only - Adjusted size */}
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
-                size="icon" // Change size to icon for square button
-                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-14 h-14 p-0 flex items-center justify-center" // Increased size to w-14 h-14
+                size="icon" // Keep size as icon
+                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-11 h-11 p-0 flex items-center justify-center" // Match height (h-11) of lg button, keep width same for squareness
               >
                 <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-                  width={36} // Increased icon size
-                  height={36} // Increased icon size
+                  width={24} // Adjust icon size for new button dimensions
+                  height={24} // Adjust icon size for new button dimensions
                   className="object-contain" // Ensure SVG scales correctly
                 />
               </Button>
@@ -58,4 +58,5 @@ export function ContactSection() {
     </SectionWrapper>
   );
 }
+
 
