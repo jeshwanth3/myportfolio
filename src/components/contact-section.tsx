@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, ExternalLink, Download, Instagram } from 'lucide-react';
+import { Mail, ExternalLink, Download } from 'lucide-react';
 
 import Link from 'next/link';
 
@@ -11,6 +11,9 @@ export function ContactSection() {
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
   const resumeUrl = "/Sai_Jeshwanth_Goud_Illuri_Resume.pdf"; // Assuming resume is in public folder
   const instagramUrl = "https://www.instagram.com/your_instagram_handle/"; // Replace with actual Instagram URL
+
+  import { Linkedin, Instagram } from "lucide-react"
+
 
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28">
@@ -34,12 +37,9 @@ export function ContactSection() {
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
                 {/* Use img tag for LinkedIn logo */}
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
-                />
-                LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
+                <Linkedin className="mr-2 h-5 w-5" /> LinkedIn <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
               </Button>
-            </Link>
+             </Link>
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
                  <Download className="mr-2 h-5 w-5" /> {/* Adjusted icon size */} Download Resume
@@ -47,10 +47,7 @@ export function ContactSection() {
             </Link>
             <Link href={instagramUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-full">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
-                  />
-                <Instagram className="mr-2 h-5 w-5" /> {/* Adjusted icon size */} Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
+                <Instagram className="mr-2 h-5 w-5" /> Instagram <ExternalLink className="ml-1 h-3 w-3 opacity-80" /> {/* Increased icon opacity */}
               </Button>
             </Link>
           </div>
