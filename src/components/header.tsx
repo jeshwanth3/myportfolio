@@ -1,4 +1,3 @@
-
 // src/components/header.tsx
 'use client';
 
@@ -185,4 +184,3 @@ export function Header() {
     </header>
   );
 }
-
