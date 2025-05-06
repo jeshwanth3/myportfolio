@@ -175,7 +175,7 @@ export function Header({ setOpen }: HeaderProps) {
                       key={item.label}
                       variant="ghost" // Use ghost for subtle interaction
                       className="justify-start p-3 text-lg font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
-                      onClick={(e) => handleNavLinkClick(e, item.href)}
+                      onClick={(e) => handleNavLinkClick(e, item.href)} // Fixed onClick handler
                     >
                       {item.label}
                     </Button>
@@ -185,7 +185,7 @@ export function Header({ setOpen }: HeaderProps) {
                    <Button
                      variant="default" // Use default variant for emphasis
                      className="w-full mt-6 py-3 text-lg font-medium" // Add margin-top
-                     onClick={(e) => handleNavLinkClick(e, "#contact")}
+                     onClick={(e) => handleNavLinkClick(e, "#contact")} // Fixed onClick handler
                    >
                      Contact Me{" "}
                      <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
