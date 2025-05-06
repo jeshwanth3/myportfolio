@@ -13,8 +13,8 @@ interface ObserverOptions {
 // The custom hook
 export function useActiveSection(
   sectionIds: string[],
-  // Adjusted rootMargin: increased negative bottom margin (-55%) to delay highlighting the next section
-  options: ObserverOptions = { threshold: 0.3, rootMargin: "-80px 0px -55% 0px" }
+  // Adjusted rootMargin: Decreased negative bottom margin to -40% to improve accuracy of highlighting the current section.
+  options: ObserverOptions = { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" }
 ): string | null {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
