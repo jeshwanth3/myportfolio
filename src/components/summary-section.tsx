@@ -68,8 +68,8 @@ export function SummarySection() {
                width={320} // Kept width
                height={320} // Kept height
                sizes="(max-width: 640px) 60vw, (max-width: 1024px) 280px, 320px" // Adjusted sizes
-               // Keep rounded-xl for rounded square, slightly increased border width/opacity, added hover brightness
-               className="rounded-xl border-4 border-primary/60 dark:border-primary/70 object-cover aspect-square w-[60vw] max-w-[240px] h-auto sm:max-w-[280px] lg:max-w-[320px] group-hover:scale-[1.02] group-hover:brightness-105 transition-all duration-300 mac-shadow" // Adjusted sizes, border, added brightness on hover
+               // Keep rounded-xl for rounded square, slightly increased border width/opacity, REMOVED hover brightness
+               className="rounded-xl border-4 border-primary/60 dark:border-primary/70 object-cover aspect-square w-[60vw] max-w-[240px] h-auto sm:max-w-[280px] lg:max-w-[320px] group-hover:scale-[1.02] transition-all duration-300 mac-shadow" // Adjusted sizes, border, REMOVED brightness on hover
                priority
                data-ai-hint="person canyon" // Updated AI hint
              />
