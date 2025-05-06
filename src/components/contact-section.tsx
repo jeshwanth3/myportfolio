@@ -7,7 +7,7 @@ import Image from 'next/image'; // Import next/image
 import Link from "next/link";
 
 export function ContactSection() {
-  const email = "jeshwanthgoud3@gmail.com"; // Replace with actual email
+  const email = "jeshwanthgoud2@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
   const resumeUrl = "https://drive.google.com/file/d/1XyrFaUT2P1eA8ifOc_6F-4azN8YGgKDc/view?usp=sharing"; // Assuming resume is in public folder
 
