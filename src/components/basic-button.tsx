@@ -1,8 +1,7 @@
-tsx
 import React from 'react';
 
 interface BasicButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
 }
