@@ -26,7 +26,7 @@ const SheetOverlay = React.forwardRef<
   <SheetPrimitive.Overlay
     className={cn(
       // Adjusted background color and added backdrop blur
-      "fixed inset-0 z-50 bg-black/60 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Adjusted background and blur
+      "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", // Adjusted background and blur
       className
     )}
     {...props}
@@ -171,3 +171,4 @@ export {
   SheetTitle, // Export SheetTitle
   SheetDescription, // Export SheetDescription
 };
+

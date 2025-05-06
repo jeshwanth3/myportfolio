@@ -1,3 +1,4 @@
+
 // src/components/header.tsx
 'use client';
 
@@ -55,7 +56,7 @@ export function Header() {
              behavior: 'smooth'
         });
       }
-    }, 100); // Keep slight delay
+    }, 0); // Removed delay for faster navigation
   };
 
 
