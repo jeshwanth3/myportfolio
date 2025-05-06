@@ -34,8 +34,8 @@ export function SummarySection() {
            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl text-primary animate-glow mb-3"> {/* Reduced size and margin-bottom */}
              Product Manager
            </h2>
-          {/* Summary Text - Consistent sizes and leading */}
-          <p className="text-sm sm:text-base text-muted-foreground md:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed"> {/* Adjusted sizes */}
+          {/* Summary Text - Consistent sizes and leading - REMOVED max-w-2xl */}
+          <p className="text-sm sm:text-base text-muted-foreground md:text-lg mx-auto lg:mx-0 leading-relaxed"> {/* Adjusted sizes */}
             {professionalSummary}
           </p>
           {/* Buttons - Stack vertically on mobile (flex-col), row on larger (sm:flex-row) */}
