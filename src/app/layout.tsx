@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>{/* Added lang="en" */}
       {/* Added suppressHydrationWarning to body to potentially ignore extension-added attributes */}
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`} suppressHydrationWarning>
           <ThemeProvider
              attribute="class"
              defaultTheme="dark" // Set dark theme as default

@@ -70,8 +70,9 @@ body {
   }
   html {
     scroll-behavior: smooth;
-    /* Ensure enough padding for sticky header (h-18 = 4.5rem -> approx 75px) + extra space */
-    scroll-padding-top: 7rem; /* Adjusted padding for new header height */
+    /* Ensure enough padding for sticky header (h-[75px] approx 5rem) + extra space */
+    /* Increased scroll padding for better section alignment */
+    scroll-padding-top: 6rem; /* Increased padding for better offset */
   }
   /* Body styling moved to the top for clarity */
 }
@@ -79,19 +80,21 @@ body {
 @layer utilities {
   /* Enhanced Fade In Animation - Smoother easing */
   .animate-fade-in {
-    animation: fadeIn 0.9s cubic-bezier(0.39, 0.575, 0.565, 1) forwards; /* Smoother ease-out, slightly longer */
+    /* Slightly faster animation, smoother curve */
+    animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation-delay: var(--animation-delay, 0ms);
     opacity: 0; /* Start hidden */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(25px) scale(0.97); } /* Start slightly lower and scaled down */
+    from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Start slightly lower and scaled down */
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* Slide In From Bottom Animation - Smoother easing */
   .animate-slide-in-bottom {
-     animation: slideInBottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Standard ease-out, slightly longer */
+     /* Slightly faster, standard curve */
+     animation: slideInBottom 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
      animation-delay: var(--animation-delay, 0ms);
      opacity: 0; /* Start hidden */
   }
@@ -99,7 +102,7 @@ body {
   @keyframes slideInBottom {
      from {
         opacity: 0;
-        transform: translateY(30px); /* Adjusted start slightly more */
+        transform: translateY(25px); /* Adjusted start slightly more */
      }
      to {
         opacity: 1;
@@ -109,19 +112,24 @@ body {
 
   /* Modern Shadow - Softer and deeper */
   .mac-shadow {
-     box-shadow: 0 10px 30px -8px hsl(var(--background) / 0.25), 0 6px 18px -7px hsl(var(--background) / 0.2); /* Softer, deeper shadow */
-     border: 1px solid hsl(var(--border) / 0.2); /* More subtle border */
-     transition: box-shadow 0.4s ease-out, border-color 0.4s ease-out; /* Slightly longer transition */
+     /* Slightly softer, less intense shadow */
+     box-shadow: 0 8px 25px -6px hsl(var(--background) / 0.20), 0 5px 15px -5px hsl(var(--background) / 0.15);
+     border: 1px solid hsl(var(--border) / 0.15); /* More subtle border */
+     transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Standard transition */
   }
    /* No change needed for dark mode as base theme is dark */
 
   /* Heavy Glassmorphism Effect - Enhanced readability and transition */
   .glassmorphism-heavy {
-    background-color: hsl(var(--background) / 0.75); /* Slightly less transparent for better readability */
-    backdrop-filter: blur(20px) saturate(160%); /* Increased blur/saturate */
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border-bottom: 1px solid hsl(var(--border) / 0.10); /* Even more subtle border */
-    transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Added shadow transition */
+    /* Keep background less transparent */
+    background-color: hsl(var(--background) / 0.75);
+    /* Slightly reduced blur for performance, increased saturate slightly */
+    backdrop-filter: blur(16px) saturate(170%);
+    -webkit-backdrop-filter: blur(16px) saturate(170%);
+    /* Keep subtle border */
+    border-bottom: 1px solid hsl(var(--border) / 0.10);
+    /* Standard transition time */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
   /* Minimal Scrollbar */
@@ -167,28 +175,30 @@ body {
 
 
 .animate-glow {
-  text-shadow: 0 0 12px hsl(var(--primary) / 0.8), /* Brighter base glow */
-                 0 0 24px hsl(var(--primary) / 0.5), /* Wider secondary glow */
-                 0 0 36px hsl(var(--primary) / 0.3);  /* Wider tertiary glow */
-  animation: text-glow-pulse 2.5s ease-in-out infinite alternate; /* Slightly faster pulse */
+  /* Adjusted glow effect for subtlety */
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.7), /* Slightly less bright base */
+                 0 0 20px hsl(var(--primary) / 0.4), /* Slightly smaller secondary */
+                 0 0 30px hsl(var(--primary) / 0.25); /* Slightly smaller tertiary */
+  animation: text-glow-pulse 3s ease-in-out infinite alternate; /* Slightly slower pulse */
 }
 
 @keyframes text-glow-pulse {
   from {
-    text-shadow: 0 0 12px hsl(var(--primary) / 0.8),
-                 0 0 24px hsl(var(--primary) / 0.5),
-                 0 0 36px hsl(var(--primary) / 0.3);
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.7),
+                 0 0 20px hsl(var(--primary) / 0.4),
+                 0 0 30px hsl(var(--primary) / 0.25);
   }
   to {
-    text-shadow: 0 0 18px hsl(var(--primary) / 1),   /* Even brighter pulse */
-                 0 0 36px hsl(var(--primary) / 0.7), /* Wider pulse */
-                 0 0 54px hsl(var(--primary) / 0.5);  /* Wider pulse */
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.9), /* Slightly brighter pulse */
+                 0 0 30px hsl(var(--primary) / 0.6), /* Wider pulse */
+                 0 0 45px hsl(var(--primary) / 0.4); /* Wider pulse */
   }
 }
 
 
 /* Primary Button Glow on Hover/Focus - More prominent glow */
 .button-glow:hover, .button-glow:focus-visible {
-  box-shadow: 0 0 25px 6px hsl(var(--primary) / 0.65); /* Increased glow spread/opacity */
-  transition: box-shadow 0.35s ease-out; /* Smoother transition */
+  /* Reduced glow intensity for a more subtle effect */
+  box-shadow: 0 0 20px 4px hsl(var(--primary) / 0.55);
+  transition: box-shadow 0.3s ease-out; /* Standard transition */
 }
