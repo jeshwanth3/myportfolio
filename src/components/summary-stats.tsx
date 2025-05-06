@@ -1,42 +1,43 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, FolderGit2, Rocket } from 'lucide-react';
-import * as React from "react"; // Added missing React import
-import { cn } from "@/lib/utils"; // Import cn utility
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 interface StatCardProps {
-  icon?: React.ReactNode; // Make icon optional
+  icon?: React.ReactNode;
   value: string;
   label: string;
   className?: string;
-  delay?: string; // Add delay prop
+  delay?: string;
 }
 
-// Updated StatCard to match the image style
+// Updated StatCard styling based on the reference image
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, delay }) => {
   return (
     <Card
-      // Use rounded-xl for squarer corners, adjusted padding, bg, shadow
+      // Adjusted styling: darker bg, less padding, rounded corners, subtle shadow
       className={cn(
-        "bg-card/80 dark:bg-secondary/50 backdrop-blur-sm border border-border/20 dark:border-border/30 p-4 md:p-5 text-center flex flex-col items-center justify-center space-y-2 rounded-xl mac-shadow transition-all duration-300 ease-out group",
-        "hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/40 transform hover:-translate-y-1", // Keep subtle hover effect
+        "bg-card/70 dark:bg-secondary/40 backdrop-blur-sm border border-border/15 dark:border-border/25 p-4 text-center flex flex-col items-center justify-center space-y-1.5 rounded-lg shadow-sm transition-all duration-300 ease-out group", // Use rounded-lg, adjust space
+        "hover:shadow-md hover:border-primary/25 dark:hover:border-primary/35 transform hover:-translate-y-0.5", // Softer hover effect
+        "min-h-[100px]", // Ensure a minimum height
         className
       )}
       // Apply animation delay using CSS variable
       style={{ '--animation-delay': delay } as React.CSSProperties}
     >
-      {/* Conditionally render icon */}
+      {/* Icon styling */}
       {icon && (
-        <div className="bg-primary/15 dark:bg-primary/20 p-2 rounded-full group-hover:bg-primary/25 transition-colors duration-300 mb-1">
+        <div className="bg-primary/10 dark:bg-primary/15 p-2 rounded-md group-hover:bg-primary/20 transition-colors duration-300 mb-1"> {/* Changed to rounded-md */}
           {React.cloneElement(icon as React.ReactElement, { className: "h-5 w-5 text-primary" })}
         </div>
       )}
       <CardContent className="p-0 flex flex-col items-center">
-        {/* Larger font size for value, use primary color */}
-        <p className="text-3xl md:text-4xl font-bold text-primary group-hover:text-primary transition-colors duration-300 mb-0.5">
+        {/* Adjusted font size for value, use primary color */}
+        <p className="text-2xl md:text-3xl font-bold text-primary group-hover:text-primary transition-colors duration-300"> {/* Reduced size */}
           {value}
         </p>
-        {/* Smaller, uppercase font for label */}
-        <p className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider font-medium">
+        {/* Adjusted font size/tracking for label */}
+        <p className="text-xs text-muted-foreground uppercase tracking-normal font-medium"> {/* Reduced tracking */}
           {label}
         </p>
       </CardContent>
@@ -48,35 +49,35 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, dela
 export function SummaryStats() {
   const stats = [
     {
-      icon: <Briefcase />, // Pass only the icon component
+      icon: <Briefcase />,
       value: "3+",
       label: "Years Experience",
-      delay: "300ms", // Stagger delay
+      delay: "300ms",
     },
     {
-      icon: <FolderGit2 />, // Pass only the icon component
+      icon: <FolderGit2 />,
       value: "5+",
-      label: "Projects Delivered", // Updated label
-       delay: "450ms", // Stagger delay
+      label: "Projects Delivered",
+       delay: "450ms",
     },
     {
-      icon: <Rocket />, // Pass only the icon component
+      icon: <Rocket />,
       value: "Ready",
-      label: "Available for Hire", // Or "Seeking Opportunities"
-       delay: "600ms", // Stagger delay
+      label: "Available for Hire",
+       delay: "600ms",
     },
   ];
 
   return (
-    // Reduced top margin significantly, ensure grid layout works well
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-12 md:mt-16 lg:mt-20">
+    // Remove top margin (mt-*), grid layout adjusted for integration
+    <div className="grid grid-cols-3 gap-4 md:gap-5 lg:gap-6"> {/* Adjusted gap */}
       {stats.map((stat, index) => (
         <StatCard
           key={index}
           icon={stat.icon}
           value={stat.value}
           label={stat.label}
-          delay={stat.delay} // Pass delay to StatCard
+          delay={stat.delay}
           className="animate-slide-in-bottom" // Apply animation class
         />
       ))}
