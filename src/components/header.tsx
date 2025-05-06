@@ -32,7 +32,7 @@ export function Header() {
   }, []);
 
     
-  // Combined click handler for both desktop and mobile
+  // Combined click handler for both desktop and mobile, setOpen is a parameter
   const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string, setOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
     event.preventDefault(); // Prevent default anchor behavior
       setOpen(false);
@@ -59,7 +59,7 @@ export function Header() {
   };
 
 
-  return (
+  return ( // Add setOpen to the header
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Standard transition
@@ -91,7 +91,7 @@ export function Header() {
               key={item.label}
               href={item.href}
               onClick={(e) => handleNavLinkClick(e, item.href, setOpen)}
-              // Updated desktop nav link style for clarity and modern feel
+              // Updated desktop nav link style
               className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
                <span className="relative z-10">{item.label}</span>
@@ -144,7 +144,7 @@ export function Header() {
                       <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
                           <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
                               Sai J. G. Illuri {/* Shorter name for mobile */}
-                          </span>
+                          </span> 
                       </Link>
                       <Dialog.Close asChild>
                           <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" size="icon" onClick={() => setOpen(false)}>
@@ -160,14 +160,14 @@ export function Header() {
                         <Link
                           key={item.label}
                           href={item.href}
-                          onClick={(e) => handleNavLinkClick(e, item.href, setOpen)} // Use combined click handler
+                          onClick={(e) => handleNavLinkClick(e, item.href, setOpen)} // Add setOpen
                           className={cn(
                             "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
                             "border-b border-border/25" // Separator adjusted, button-like style
                           )}
                         >
                           {item.label}
-                        </Link>
+                        </Link> 
                       ))}
                         <div className="border-b border-border/25"></div>
                       {/* Contact Link in Mobile Menu - Styled as button */}
@@ -175,7 +175,7 @@ export function Header() {
                           href="#contact" 
                           onClick={(e) => handleNavLinkClick(e, '#contact')} // Use combined click handler
                           className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
-                        >
+                        > 
                           Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
                       </Link>
                   </nav>
