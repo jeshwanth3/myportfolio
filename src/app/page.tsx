@@ -8,10 +8,9 @@ import { ProjectsSection } from "@/components/projects-section"; // Import Proje
 import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
- 
+
 export default function Home() {
-  const [open, setOpen] = React.useState<boolean>(false);
-  return (
+    return (
     // The main container now spans the full viewport height
     <div className="flex flex-col min-h-screen bg-background">
 
@@ -25,7 +24,7 @@ export default function Home() {
         <SkillsSection />
         <div className='p-4'>
             <BasicButton>Click Me</BasicButton>
-        </div>
+          </div>
         <EducationSection />
         <ContactSection />
       </main>

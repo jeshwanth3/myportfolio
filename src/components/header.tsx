@@ -1,15 +1,14 @@
 // src/components/header.tsx
-'use client';
+"use client";
 
-import type React from 'react'; // Import React namespace
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import type React from "react"; // Import React namespace
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Menu, X, Send } from 'lucide-react';
+import { Menu, X, Send } from "lucide-react";
 import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Ensure VisuallyHidden is imported
 import { cn } from "@/lib/utils";
-
 const navItems = [
   { label: 'About', href: '#summary' },
   { label: 'Experience', href: '#experience' },
@@ -18,44 +17,41 @@ const navItems = [
   { label: 'Education', href: '#education' },
 ];
 
-export function Header() {
-  const [open, setOpen] = useState(false); // State for mobile menu sheet
+interface HeaderProps {}
+
+export function Header({}: HeaderProps) {
+  const [open, setOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10); // Trigger effect slightly later
     };
-      window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-    
-  // Combined click handler for both desktop and mobile, setOpen is a parameter
-  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string, setOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
+  // Combined click handler for both desktop and mobile
+  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault(); // Prevent default anchor behavior
-      setOpen(false);
-      
+    setOpen(false);
+
     // Use requestAnimationFrame for smoother scrolling after potential state updates
-      requestAnimationFrame(() => {
-        if (href === '/') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          return;
-        }
-  
-        const element = document.querySelector(href);
-        if (element) {
-          const headerOffset = 85; // Consistent header offset for scroll calculation
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+    requestAnimationFrame(() => {
+      if (href === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
       }
-    })
+
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
   };
 
 
@@ -66,14 +62,17 @@ export function Header() {
         // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
         isScrolled
           ? "glassmorphism-heavy shadow-xl border-b border-border/15" // Use heavy glassmorphism
-          : "bg-gradient-to-b from-background/60 via-background/20 to-transparent border-b border-transparent" // Start more transparent
+          : "bg-gradient-to-b from-background/60 via-background/20 to-transparent border-b border-transparent" // Start more transparent}
       )}
     >
       {/* Increased height */}
       <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
-
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
-        <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => handleNavLinkClick(e, '/')}>
+        <Link
+          href="/"
+          className="flex items-center space-x-3 group"
+          onClick={(e) => handleNavLinkClick(e, "/")}
+        >
           <span className={cn(
               // Apply gradient text 
               "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
@@ -89,14 +88,14 @@ export function Header() {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              href={item.href}
-              onClick={(e) => handleNavLinkClick(e, item.href, setOpen)}
+              href={item.href} // Corrected
+              onClick={(e) => handleNavLinkClick(e, item.href)}
               // Updated desktop nav link style
               className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
-               <span className="relative z-10">{item.label}</span>
-               {/* Underline reveal from center */}
-               <span className="absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out group-hover:left-0 group-hover:right-0"></span>
+              <span className="relative z-10">{item.label}</span>
+              {/* Underline reveal from center */}
+              <span className="absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out group-hover:left-0 group-hover:right-0"></span>
             </Link>
           ))}
           <Link href="#contact" passHref>
@@ -104,12 +103,12 @@ export function Header() {
              <Button
                 variant="outline"
                 size="sm"
-                onClick={(e) => handleNavLinkClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, '#contact', setOpen)} // Cast event type for consistency
+                onClick={(e) => handleNavLinkClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, '#contact')} // Cast event type for consistency
                 className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
              >
                  Get In Touch With Me <Send className="ml-2 h-4 w-4" /> {/* Adjusted icon size slightly */}
              </Button>
-          </Link>
+          </Link> 
         </nav>
 
         {/* Mobile Navigation - Sheet */}
@@ -134,7 +133,7 @@ export function Header() {
                     "w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy"
                   )}>
                   <VisuallyHidden>
-                      <Dialog.Title>Mobile Menu</Dialog.Title> 
+                    <Dialog.Title>Mobile Menu</Dialog.Title>
                   </VisuallyHidden>
                    <Dialog.Description className="sr-only">
                         Mobile Menu Navigation
@@ -142,7 +141,7 @@ export function Header() {
                   {/* DialogHeader - More prominent */}
                   <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
                       <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
-                          <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
+                          <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all"> 
                               Sai J. G. Illuri {/* Shorter name for mobile */}
                           </span> 
                       </Link>
@@ -159,13 +158,13 @@ export function Header() {
                     {navItems.map((item) => (
                         <Link
                           key={item.label}
-                          href={item.href}
-                          onClick={(e) => handleNavLinkClick(e, item.href, setOpen)} // Add setOpen
+                          href={item.href} // Corrected
+                          onClick={(e) => handleNavLinkClick(e, item.href)} // Add setOpen
                           className={cn(
                             "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
                             "border-b border-border/25" // Separator adjusted, button-like style
                           )}
-                        >
+                        > 
                           {item.label}
                         </Link> 
                       ))}
@@ -173,10 +172,10 @@ export function Header() {
                       {/* Contact Link in Mobile Menu - Styled as button */}
                       <Link
                           href="#contact" 
-                          onClick={(e) => handleNavLinkClick(e, '#contact')} // Use combined click handler
+                          onClick={(e) => handleNavLinkClick(e, "#contact")} // Use combined click handler
                           className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
                         > 
-                          Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                          Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" /> 
                       </Link>
                   </nav>
                   {/* Subtle Footer in Dialog */}
