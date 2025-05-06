@@ -38,6 +38,7 @@ export function ProjectsSection() {
   return (
     <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15">
       <SectionTitle>Projects</SectionTitle>
+      {/* Grid layout: 1 col mobile, 2 col small+, 3 col large+ */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {projects.map((project) => (
           // Enhanced Card Styling - Use accent color for border on hover

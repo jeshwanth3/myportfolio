@@ -15,7 +15,7 @@ export default function Home() {
 
       {/* Content is rendered directly */}
       <Header />
-      {/* Added padding for mobile view, wrapping sections in divs if needed for specific layout overrides */}
+      {/* Adjusted padding: Increased mobile padding (px-4), kept md padding */}
       <main className="flex-1 px-4 md:px-6">
         <SummarySection />
         <ExperienceSection />

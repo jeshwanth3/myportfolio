@@ -47,7 +47,7 @@ export function Header() {
 
       const element = document.querySelector(href);
       if (element) {
-        const headerOffset = 85; // Adjusted height + buffer (approx 75px + 10px)
+        const headerOffset = 85; // Consistent header offset for scroll calculation
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -66,9 +66,9 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Standard transition
-        // Apply glassmorphism and shadow when scrolled
+        // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
         isScrolled
-          ? "glassmorphism-heavy shadow-xl border-b border-border/15" // Apply heavy glassmorphism, deeper shadow, subtle border
+          ? "glassmorphism-heavy shadow-xl border-b border-border/15" // Use heavy glassmorphism
           : "bg-gradient-to-b from-background/60 via-background/20 to-transparent border-b border-transparent" // Start more transparent
       )}
     >

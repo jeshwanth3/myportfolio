@@ -49,7 +49,8 @@ export function SkillsSection() {
   return (
     <SectionWrapper id="skills" className="bg-gradient-to-b from-background to-card/15 dark:from-card/15 dark:to-background">
       <SectionTitle>Skills</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+      {/* Grid layout: 1 column on small screens, 2 columns on medium screens and up */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {skillCategories.map((category) => (
           // Enhanced Card Styling
           <Card

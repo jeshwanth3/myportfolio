@@ -75,14 +75,14 @@ export function ExperienceSection() {
     <SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/15">
       <SectionTitle>Work Experience</SectionTitle>
       <Tabs defaultValue={experiences[0].id} className="w-full">
-        {/* Enhanced TabsList Styling */}
+        {/* Enhanced TabsList Styling - Use grid-cols-2 on small screens */}
         <TabsList className="grid w-full grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 h-auto p-1.5 bg-muted/60 dark:bg-muted/40 rounded-lg mb-8">
           {experiences.map((exp) => (
              <TabsTrigger
                key={exp.id}
                value={exp.id}
-               // Improved Tab Trigger Styling
-               className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out"
+               // Improved Tab Trigger Styling - ensure text wraps nicely
+               className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out text-center" // Added text-center
             >
                {exp.title}
             </TabsTrigger>

@@ -11,59 +11,57 @@ const yourName = "Sai Jeshwanth Goud Illuri";
 
 export function SummarySection() {
   return (
-    // Reduced top padding significantly, adjusted gradient
+    // Adjusted top padding for mobile (pt-10), kept larger padding for bigger screens
     <SectionWrapper id="summary" className="bg-gradient-to-b from-background via-background/90 to-card/10 pt-10 md:pt-12 lg:pt-16">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center"> {/* Changed md:grid-cols-5 to lg:grid-cols-5 */}
-        {/* Text Content Area - Adjusted spacing and font sizes */}
-        <div className="lg:col-span-3 space-y-5 md:space-y-6 text-center lg:text-left"> {/* Changed md:col-span-3 to lg:col-span-3 and md:text-left to lg:text-left */}
-          <p className="text-lg sm:text-xl text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 font-light"> {/* Refined size/weight, lg:mx-0 */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+        {/* Text Content Area - Ensure text is centered on mobile, left-aligned on large screens */}
+        <div className="lg:col-span-3 space-y-5 md:space-y-6 text-center lg:text-left">
+          <p className="text-lg sm:text-xl text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 font-light">
              Hello, I&apos;m
           </p>
-           {/* Name - Reduced size, white color */}
+           {/* Name - Reduced size, uses foreground */}
            <h1 className={cn(
-               "text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-foreground", // Reduced font size, uses foreground color
-               "leading-tight mb-2" // Added leading-tight and margin-bottom
+               "text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-foreground", // Consistent font sizes
+               "leading-tight mb-2"
              )}
            >
             {yourName}
           </h1>
-           {/* Title - Refined glow and size, uses PRIMARY color */}
-           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow mb-4"> {/* Adjusted size, uses text-glow, added margin-bottom */}
+           {/* Title - Uses PRIMARY color, consistent sizes */}
+           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow mb-4">
              Product Manager
            </h2>
-          {/* Summary Text - Improved readability */}
-          <p className="text-base sm:text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed"> {/* Adjusted size, lg:mx-0 */}
+          {/* Summary Text - Consistent sizes and leading */}
+          <p className="text-base sm:text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
             {professionalSummary}
           </p>
-          {/* Buttons - Enhanced styling and spacing */}
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-6 md:pt-8"> {/* Increased top padding, lg:justify-start */}
+          {/* Buttons - Stack vertically on mobile (flex-col), row on larger (sm:flex-row) */}
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-6 md:pt-8">
             <Link href="#contact" passHref>
-              <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow bg-transparent border border-primary text-primary hover:bg-primary/10"> {/* Outline style */}
-                Contact Me <Mail className="ml-2 h-5 w-5" /> {/* Changed icon */}
+              <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow bg-transparent border border-primary text-primary hover:bg-primary/10">
+                Contact Me <Mail className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="#experience" passHref>
               <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60">
-                View Experience <ArrowRight className="ml-2 h-5 w-5 opacity-80" /> {/* Added icon */}
+                View Experience <ArrowRight className="ml-2 h-5 w-5 opacity-80" />
               </Button>
             </Link>
           </div>
         </div>
-        {/* Image Area - Adjusted border and shadow */}
-        <div className="lg:col-span-2 flex justify-center items-center lg:justify-end order-first lg:order-last"> {/* Changed md:col-span-2 to lg:col-span-2, lg:justify-end, lg:order-last */}
-           {/* Adjusted Image Size and Border, added hover effect */}
+        {/* Image Area - Adjusted max-width for better scaling on mobile */}
+        <div className="lg:col-span-2 flex justify-center items-center lg:justify-end order-first lg:order-last">
           <div className="relative group">
              <Image
-               src="https://drive.google.com/uc?export=view&id=15Ix8YbF3RSkYWygk_7Mau_Rtlx4-9xYo" // Use direct view link
+               src="https://drive.google.com/uc?export=view&id=15Ix8YbF3RSkYWygk_7Mau_Rtlx4-9xYo"
                alt="Professional headshot of Sai Jeshwanth Goud Illuri"
-               width={380} // Keep size reasonable
+               width={380}
                height={380}
-               sizes="(max-width: 768px) 70vw, (max-width: 1024px) 320px, 380px" // Responsive sizes adjusted
-               className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px] transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-xl" // Refined border, max-widths, added group-hover effects
-               priority // Load image sooner
+               sizes="(max-width: 640px) 65vw, (max-width: 1024px) 320px, 380px" // Added breakpoint for smaller screens
+               className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px] transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-xl" // Adjusted max-width for mobile
+               priority
                data-ai-hint="professional headshot person dark background studio lighting nebula purple teal"
              />
-             {/* Optional: Add a subtle glow effect behind the image on hover */}
              <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-primary/20 dark:group-hover:border-primary/30 transition-all duration-500 ease-out scale-105 group-hover:scale-110 blur-md opacity-0 group-hover:opacity-100 -z-10"></div>
           </div>
         </div>

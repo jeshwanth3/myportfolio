@@ -22,8 +22,8 @@ export function ContactSection() {
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             I&apos;m actively seeking new Product Management opportunities and would love to connect. Let&apos;s discuss how my skills can benefit your team!
           </p>
-          {/* Enhanced Button Styling and Layout */}
-          <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row */}
+          {/* Enhanced Button Styling and Layout - Ensure wrapping works well on mobile */}
+          <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row and flex-wrap */}
              {/* Email Button using outline variant - Refined Styling */}
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
                <Button

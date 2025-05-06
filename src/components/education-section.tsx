@@ -10,14 +10,14 @@ const education = [
     degree: "Master of Business Administration (STEM MBA)",
     institution: "Ivy College of Business, Iowa State University",
     years: "Aug 2023 - May 2025",
-    imageUrl: "/iowa_state_logo.svg",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg", // Consistent logo
   },
   {
     id: "edu2",
     degree: "Master of Science in Information Systems (STEM)",
     institution: "Ivy College of Business, Iowa State University",
     years: "Aug 2024 - May 2025",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg", // Added logo URL
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg", // Consistent logo
   },
   {
     id: "edu3",
@@ -33,7 +33,7 @@ export function EducationSection() {
     // Slightly different background gradient for visual separation
     <SectionWrapper id="education" className="bg-gradient-to-b from-card/5 via-secondary/15 to-card/5 dark:from-card/10 dark:via-secondary/25 dark:to-card/10">
       <SectionTitle>Education</SectionTitle>
-       {/* Consistent gap for grid */}
+       {/* Grid layout: 1 col mobile, 2 col small+, 3 col large+ */}
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {education.map((edu, index) => (
             // Enhanced Card Styling with unique hover effect using accent color
@@ -53,8 +53,8 @@ export function EducationSection() {
                          <Image
                            src={edu.imageUrl}
                            alt={`${edu.institution} logo`}
-                           width={28} // Increased icon size
-                           height={28} // Increased icon size
+                           width={28} // Keep consistent size
+                           height={28} // Keep consistent size
                            className="object-contain group-hover:scale-110 transition-transform duration-300" // Added hover effect
                            data-ai-hint="university logo" // AI Hint
                          />
