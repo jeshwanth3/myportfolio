@@ -1,11 +1,10 @@
 "use client";
 import type React, { MouseEvent } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent as ReactMouseEvent } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Menu, X, Send } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 "use client";
 
@@ -19,7 +18,7 @@ const navItems = [
 
 import BasicButton from "@/components/basic-button";
 
-interface HeaderProps {
+interface HeaderProps { 
   setOpen: (open: boolean) => void;
 }
 export function Header({ setOpen }: HeaderProps) {
@@ -35,14 +34,10 @@ export function Header({ setOpen }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavLinkClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavLinkClick = (event: ReactMouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
     event.preventDefault();
-    if (href === "/") setOpen(false);
+    setOpen(false)
     requestAnimationFrame(() => {
-        if (href === "/") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
-    const dialogClose = document.querySelector('[data-state="open"]');
-       
-        dialogClose?.dispatchEvent(new Event("click"));
 
       const element = document.querySelector(href);
       if (element) {
@@ -148,11 +143,11 @@ export function Header({ setOpen }: HeaderProps) {
                     </span>
                   </Link>
                   <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" >
-                      <X className="h-5 w-5 text-muted-foreground" />
+                    <X className="h-5 w-5 text-muted-foreground" />
                     <VisuallyHidden>Close Menu</VisuallyHidden>
                   </Button>
                 </div>
-                {/* Mobile Navigation Links - Centered, Larger Text */}
+
                 <nav className="flex-1 flex flex-col p-6 space-y-4"> 
                   {/* Map through navItems to create links */}
                   {navItems.map((item) => (
@@ -171,15 +166,14 @@ export function Header({ setOpen }: HeaderProps) {
                   ))}
                   <div className="border-b border-border/25"></div>
                   {/* Contact Link in Mobile Menu - Styled as button */}
-                  <BasicButton
-                    onClick={(e) => handleNavLinkClick(e, "#contact")}
-                    className={cn("block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6")}
-                  >
-                      Contact Me{" "}
-                      <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
-                    </BasicButton>
-
-                </nav>
+              <BasicButton
+                onClick={(e) => handleNavLinkClick(e, "#contact")}
+                className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6"
+              >
+                Contact Me{" "}
+                <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+              </BasicButton>
+            </nav>
 
                 {/* Subtle Footer in Dialog */}
                 <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
