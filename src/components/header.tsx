@@ -1,7 +1,6 @@
 "use client";
-
-
-import type React from "react";
+import { Dialog as DialogPrimitive } from "@radix-ui/react-dialog";
+import React from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,6 @@ import { Menu, X, Send } from "lucide-react";
 import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Ensure VisuallyHidden is imported
 import { cn } from "@/lib/utils";
  
-
 const navItems = [
   { label: "About", href: "#summary" },
   { label: "Experience", href: "#experience" },
@@ -19,11 +17,7 @@ const navItems = [
   { label: "Education", href: "#education" },
 ];
 
-interface HeaderProps {
-  setOpen: (open: boolean) => void;
-}
-
-export function Header({ setOpen }: HeaderProps) {
+export function Header(){
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,21 +29,14 @@ export function Header({ setOpen }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Combined click handler for both desktop and mobile
-  const handleNavLinkClick = (
-    href: string,
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
+  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault(); // Prevent default anchor behavior
-    setOpen(false);
-     // Use requestAnimationFrame for smoother scrolling after potential state updates
+
     requestAnimationFrame(() => {
+       if (href === "/") {window.scrollTo({ top: 0, behavior: "smooth" });return;}
+    const dialogClose = document.querySelector('[data-state="open"]');
 
-      if (href === "/") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-
-      }
+        dialogClose?.dispatchEvent(new Event("click"));
 
       const element = document.querySelector(href);
       if (element) {
@@ -72,15 +59,13 @@ export function Header({ setOpen }: HeaderProps) {
       )}
     >
       {/* Increased height */}
-      <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto"> 
+      <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
         <Link
           href="/"
           className="flex items-center space-x-3 group"
-          onClick={(e) => handleNavLinkClick("/", e) }
+          onClick={(e) => handleNavLinkClick(e, "/")}
         >
-
-
           <span className={cn(
               // Apply gradient text 
               "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
@@ -97,7 +82,7 @@ export function Header({ setOpen }: HeaderProps) {
             <Link
               key={item.label}
               href={item.href} // Corrected
-              onClick={(e) => handleNavLinkClick(item.href, e) }
+              onClick={(e) => handleNavLinkClick(e, item.href)}
               // Updated desktop nav link style
               className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
@@ -112,10 +97,7 @@ export function Header({ setOpen }: HeaderProps) {
             <Button
               variant="outline"
               size="sm"
-              onClick={(e) =>
-                handleNavLinkClick(
-                  "#contact", e,
-                )
+              onClick={(e) => handleNavLinkClick(e, "#contact")
               } // Cast event type for consistency
               className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
             >
@@ -128,7 +110,7 @@ export function Header({ setOpen }: HeaderProps) {
         {/* Mobile Navigation - Sheet */}
         <div className="flex items-center gap-2 md:hidden">
           {/* Sheet component manages the mobile menu */}
-          <Dialog.Root open={open} onOpenChange={setOpen} >
+          <Dialog.Root open={false} onOpenChange={()=>{}}>
             <Dialog.Trigger asChild>
               <Button
                 variant="ghost"
@@ -159,7 +141,7 @@ export function Header({ setOpen }: HeaderProps) {
                   <Link
                     href="/"
                     className="flex items-center space-x-2.5 group"
-                    onClick={(e) => handleNavLinkClick("/", e)}
+                    onClick={(e) => handleNavLinkClick(e, "/")}
                   >
                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
                       Sai J. G. Illuri{/* Shorter name for mobile */}
@@ -169,8 +151,6 @@ export function Header({ setOpen }: HeaderProps) {
                     <Button
                       variant="ghost"
                       className="h-9 w-9 p-0 rounded-full"
-                      size="icon"
-                      onClick={() => setOpen(false)}
                     >
                       <X className="h-5 w-5 text-muted-foreground" />
                       <VisuallyHidden>Close Menu</VisuallyHidden>
@@ -184,7 +164,7 @@ export function Header({ setOpen }: HeaderProps) {
                     <Link
                       key={item.label}
                       href={item.href} // Corrected
-                      onClick={(e) => handleNavLinkClick(item.href, e) } // Add setOpen
+                      onClick={(e) => handleNavLinkClick(e, item.href)} // Add setOpen
                       className={cn(
                         "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
                         "border-b border-border/25", // Separator adjusted, button-like style
@@ -197,13 +177,14 @@ export function Header({ setOpen }: HeaderProps) {
                   {/* Contact Link in Mobile Menu - Styled as button */}
                   <Link
                     href="#contact"
-                    onClick={(e) => handleNavLinkClick("#contact", e) } // Use combined click handler
+                    onClick={(e) => handleNavLinkClick(e, "#contact")} // Use combined click handler
                     className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
                   >
                     Contact Me{" "}
                     <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
                   </Link>
                 </nav>
+
                 {/* Subtle Footer in Dialog */}
                 <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
                   Navigate Sections
