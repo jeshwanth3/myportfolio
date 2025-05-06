@@ -23,11 +23,7 @@ export function SummarySection() {
              Hello, I&apos;m
           </p>
            {/* Name - Use foreground, adjusted size for hierarchy */}
-           <h1 className={cn(
-              "text-3xl sm:text-4xl font-bold tracking-tight text-foreground", // Reduced size
-              "leading-tight mb-1" // Reduced margin-bottom
-            )}
-           >
+           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight mb-1">
             {yourName}
           </h1>
            {/* Title - Uses PRIMARY color, consistent sizes with glow */}
@@ -66,7 +62,7 @@ export function SummarySection() {
         <div className="lg:col-span-2 flex justify-center lg:justify-end items-center mt-4 lg:mt-0 order-first lg:order-last"> {/* Adjusted mt */}
           <div className="relative group">
              <Image
-               src="https://drive.google.com/uc?export=view&id=15Ix8YbF3RSkYWygk_7Mau_Rtlx4-9xYo"
+               src="https://drive.google.com/uc?export=view&id=15Ix8YbF3RSkYWygk_7Mau_Rtlx4-9xYo" // Updated image source
                alt="Professional headshot of Sai Jeshwanth Goud Illuri"
                width={320} // Kept width
                height={320} // Kept height
@@ -74,7 +70,7 @@ export function SummarySection() {
                // Keep rounded-xl for rounded square
                className="rounded-xl border-4 border-primary/50 object-cover aspect-square w-[60vw] max-w-[240px] h-auto sm:max-w-[280px] lg:max-w-[320px] group-hover:scale-[1.02] transition-transform duration-300 mac-shadow" // Adjusted sizes, border
                priority
-               data-ai-hint="professional headshot person dark background studio lighting nebula purple teal"
+               data-ai-hint="person canyon" // Updated AI hint
              />
              {/* Subtle glow effect on hover - changed to match rounded-xl */}
              <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/30 transition-all duration-300 ease-out pointer-events-none scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100"></div>
