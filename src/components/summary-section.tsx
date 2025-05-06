@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { SectionWrapper } from "@/components/section-wrapper";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowDown, Mail } from 'lucide-react'; // Changed ArrowRight to ArrowDown
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { SummaryStats } from '@/components/summary-stats'; // Import the new component
@@ -39,16 +39,16 @@ export function SummarySection() {
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 pt-4 md:pt-5"> {/* Reduced gap and pt */}
              <Link href="#contact" passHref>
                <Button
-                 variant="default" // Keep default
+                 variant="outline"
                  size="sm" // Reduced button size
-                 className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow" // Kept glow
+                 className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto border border-primary/60 text-primary hover:bg-primary/10 button-glow" // Adjusted border and text color
                >
                  Contact Me <Mail className="ml-1.5 h-4 w-4" /> {/* Adjusted icon margin/size */}
                </Button>
              </Link>
              <Link href="#experience" passHref>
                <Button variant="outline" size="sm" className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60">
-                 View Experience <ArrowRight className="ml-1.5 h-4 w-4 opacity-80" /> {/* Adjusted icon margin/size */}
+                 View Experience <ArrowDown className="ml-1.5 h-4 w-4 opacity-80" /> {/* Changed icon to ArrowDown, adjusted margin/size */}
                </Button>
              </Link>
           </div>
