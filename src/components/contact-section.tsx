@@ -28,7 +28,7 @@ export function ContactSection() {
              <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
                <Button
                   variant="outline"
-                  size="lg"
+                  size="lg" // Reverted size to lg
                   className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border" // Simplified hover effect, using primary color accent
                >
                   <Mail className="mr-2 h-5 w-5" /> {/* Use Mail icon */}
@@ -39,7 +39,7 @@ export function ContactSection() {
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
-                size="icon"
+                size="icon" // Reverted size to icon
                 className="p-1 transition-transform hover:scale-110 transform duration-300 w-10 h-10" // Adjust size if needed, remove explicit width/height for icon scaling
                 aria-label="LinkedIn Profile"
               >
@@ -56,7 +56,7 @@ export function ContactSection() {
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
-                size="lg"
+                size="lg" // Reverted size to lg
                 className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border" // Simplified hover effect
               >
                  <Download className="mr-2 h-5 w-5" /> Download My Resume
