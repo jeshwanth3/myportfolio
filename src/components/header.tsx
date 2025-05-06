@@ -135,13 +135,13 @@ export function Header({ setOpen }: HeaderProps) {
                    // Specific styles for the right-side sheet
                    "inset-y-0 right-0 h-full w-3/4 border-l border-border/20 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
                    // Further refinement for glassmorphism and layout
-                   "w-[85vw] max-w-[360px] bg-background/85 border-l border-border/15 backdrop-blur-xl p-0 flex flex-col glassmorphism-heavy" // Slightly less opaque bg, more blur
+                   "w-[85vw] max-w-[360px] p-0 flex flex-col", // Removed explicit glassmorphism class
+                   "glassmorphism-heavy" // Applied heavy glassmorphism effect
                 )}
               >
-                {/* Accessible Title (Visually Hidden) */}
-                 <VisuallyHidden>
-                   <Dialog.Title>Mobile Navigation Menu</Dialog.Title>
-                 </VisuallyHidden>
+                 <Dialog.Title asChild>
+                   <VisuallyHidden>Mobile Navigation Menu</VisuallyHidden>
+                 </Dialog.Title>
                 <VisuallyHidden>
                  <Dialog.Description>
                     Navigate through the portfolio sections.
