@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,15 +14,17 @@ const experiences = [
     company: "CyBIZ Lab, Iowa State University",
     location: "Ames, IA, USA",
     duration: "Aug 2024 - Present",
-    description: "Defining product vision and roadmap for transit optimization tools, leveraging data-backed strategies and machine learning insights.",
+    // Updated description to highlight PM focus
+    description: "Spearheading product strategy and execution for data-driven transit optimization tools, focusing on user-centric design and measurable impact.",
+    // Updated achievements to emphasize PM responsibilities and quantify results
     achievements: [
-      "Defined product vision and roadmap for transit optimization tools, leveraging data-backed strategies and machine learning insights to reduce commute times by 20%, improving customer satisfaction and operational efficiency.",
-      "Led 15+ user and stakeholder interviews, uncovering pain points and prioritizing user-centric features, which drove a 25% increase in adoption, enhancing user engagement and the tool's market fit.",
-      "Developed a real-time Incident Management Dashboard in Power BI, integrating streaming data to reduce emergency response times by 80%, ensuring service continuity, and improving decision-making for operational teams.",
-      "Monitored 10+ KPIs to track product performance, enabling iterative improvements that led to a 15% reduction in commuter delays through data-driven iterative product enhancements and optimization.",
-      "Translated transportation data into actionable insights, guiding the product team on feature enhancements, roadmap priorities, and planning, ensuring city-wide transit improvements and greater system efficiency.",
+      "Defined product vision and roadmap for transit optimization tools, leveraging data-backed strategies and machine learning insights to reduce average commute times by 20% and enhance customer satisfaction.",
+      "Led 15+ user interviews and stakeholder workshops, translating insights into prioritized features that drove a 25% increase in user adoption and improved market fit.",
+      "Developed and launched a real-time Incident Management Dashboard using Power BI, reducing emergency response times by 80% and improving operational decision-making.",
+      "Established and monitored 10+ key performance indicators (KPIs) to track product success, guiding data-driven iterations that resulted in a 15% decrease in commuter delays.",
+      "Translated complex transportation data into actionable product insights, informing roadmap prioritization and feature enhancements to optimize city-wide transit efficiency.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
+    icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
     id: "exp2",
@@ -29,15 +32,17 @@ const experiences = [
     company: "Able Up Iowa",
     location: "Ames, IA, USA",
     duration: "Jun 2024 - Aug 2024",
-    description: "Processed demographic records, built ETL pipelines, designed Power BI reports, and developed Azure workflows.",
+    // Updated description
+    description: "Leveraged data analysis and technical skills to extract insights, streamline data workflows, and support data-driven decision-making for a non-profit organization.",
+    // Updated achievements
     achievements: [
-        "Processed 100K+ demographic records using Python (Pandas, Matplotlib) to extract deep insights into insurer trends and user behaviors, enabling more precise business decision-making across multiple departments.",
-        "Built serverless ETL pipelines in Azure Data Factory, reducing data processing time by 50%, enhancing workflow efficiency and streamlining the transfer of data across various business intelligence platforms.",
-        "Designed Power BI reports with 15+ critical KPIs, enabling stakeholders to make data-driven decisions faster and more accurately, improving overall operational efficiency across business units and leadership teams.",
-        "Developed scalable Azure-based workflows, ensuring seamless cloud data integration and real-time data availability across analytics platforms and internal business systems for enhanced reporting and decision-making.",
-        "Presented key findings to cross-functional teams, aligning data insights with goals, and improving decision-making and execution.",
+        "Analyzed over 100,000 demographic records using Python (Pandas, Matplotlib) to uncover key insurer trends and user behaviors, informing strategic business decisions.",
+        "Engineered serverless ETL pipelines in Azure Data Factory, achieving a 50% reduction in data processing time and improving data availability for BI platforms.",
+        "Designed and deployed Power BI dashboards featuring 15+ critical KPIs, empowering stakeholders with real-time data for faster, more accurate decision-making.",
+        "Developed scalable Azure-based workflows, ensuring robust cloud data integration and enhancing real-time data accessibility across analytics systems.",
+        "Presented data-driven findings and recommendations to cross-functional teams, facilitating alignment between data insights and organizational objectives.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
+    icon: <Briefcase className="h-5 w-5 text-primary" />
   },
   {
     id: "exp3",
@@ -45,15 +50,17 @@ const experiences = [
     company: "Accenture",
     location: "India",
     duration: "Oct 2021 - Jul 2023",
-    description: "Automated data ingestion, collaborated on SaaS backlog, developed CI/CD pipelines, resolved production issues, and mentored engineers.",
+    // Updated description
+    description: "Contributed to SaaS product development, focusing on process automation, enhancing platform features, implementing CI/CD pipelines, and resolving critical production issues.",
+    // Updated achievements
     achievements: [
-      "Automated 100% of data ingestion tasks using SQL procedures, saving over 200+ manual hours/month, which increased productivity by 90% across teams and optimized the overall business data pipeline efficiency.",
-      "Collaborated with product owners to enhance Blue Yonder SaaS backlog features, reducing incident tickets by 20% and improving release velocity, enabling faster product deployment and smoother updates.",
-      "Developed CI/CD pipelines using Azure DevOps, GitHub, and Oracle Cloud, improving release efficiency by 40%, accelerating product updates and automating deployment processes for continuous integration and delivery.",
-      "Resolved 40+ SaaS production issues using custom PL/SQL queries, improving demand forecasting, enhancing system stability by 20%, and ensuring minimal disruptions to production systems and customer experience.",
-      "Mentored 4+ engineers, receiving the Skillful Award for reducing knowledge gaps and incident backlogs by 40% through effective mentorship, proactive guidance, and collaborative teamwork.",
+      "Automated 100% of data ingestion tasks via SQL procedures, saving over 200+ manual hours monthly and boosting team productivity by 90%.",
+      "Collaborated with Product Owners on Blue Yonder SaaS backlog refinement, contributing to feature enhancements that reduced incident tickets by 20%.",
+      "Developed and maintained CI/CD pipelines using Azure DevOps and Oracle Cloud, improving deployment frequency and release efficiency by 40%.",
+      "Resolved 40+ high-priority SaaS production issues using custom PL/SQL queries, enhancing system stability by 20% and improving demand forecasting accuracy.",
+      "Mentored 4 junior engineers on technical skills and best practices, resulting in a 40% reduction in team incident backlogs and receiving the 'Skillful Award'.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
+    icon: <Briefcase className="h-5 w-5 text-primary" />
   },
    {
     id: "exp4",
@@ -61,14 +68,16 @@ const experiences = [
     company: "WNS Global Service",
     location: "India",
     duration: "Jan 2021 - Jun 2021",
-    description: "Assisted in ETL pipeline design/maintenance, handled ad-hoc analysis, developed visualizations, and identified market trends.",
+    // Updated description
+    description: "Supported data analysis initiatives by assisting with ETL pipeline maintenance, conducting ad-hoc analysis, and developing data visualizations to identify market trends.",
+    // Updated achievements
     achievements: [
-        "Assisted in designing and maintaining ETL pipelines, optimizing recurring report processes, and reducing data lag by 30%, improving dashboard refresh efficiency and data availability across key teams and stakeholders.",
-        "Handled 20+ ad-hoc analysis requests weekly, delivering quick-turnaround insights that helped enable faster decision-making and improve strategic business decisions across multiple departments and leadership teams.",
-        "Developed visualizations and reports using Excel and Tableau, helping leadership teams better interpret data and gain real-time insights into market shifts and performance metrics for strategic decision-making.",
-        "Identified emerging market trends through thorough data analysis, offering actionable recommendations that supported client engagement strategies, leading to improved market positioning and business growth.",
+        "Assisted in ETL pipeline design and maintenance, optimizing report generation processes and reducing data latency by 30% for key dashboards.",
+        "Handled 20+ ad-hoc analysis requests weekly, providing timely insights that facilitated faster, data-informed business decisions across departments.",
+        "Developed insightful data visualizations and reports using Excel and Tableau, enabling leadership to better understand performance metrics and market dynamics.",
+        "Identified emerging market trends through data analysis, delivering actionable recommendations that directly supported client engagement strategies.",
     ],
-    icon: <Briefcase className="h-5 w-5 text-primary" /> // Consistent icon size and color
+    icon: <Briefcase className="h-5 w-5 text-primary" />
   },
 ];
 
@@ -86,7 +95,7 @@ export function ExperienceSection() {
                // Improved Tab Trigger Styling - ensure text wraps nicely
                className="px-3.5 py-3 sm:py-2.5 text-sm sm:text-base font-medium leading-tight whitespace-normal text-muted-foreground data-[state=active]:bg-card dark:data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-md rounded-md transition-all duration-300 ease-in-out text-center" // Added text-center
             >
-               {exp.title}
+               {exp.title} {/* Use Job Roles for Tabs */}
             </TabsTrigger>
           ))}
         </TabsList>
@@ -125,3 +134,4 @@ export function ExperienceSection() {
     </SectionWrapper>
   );
 }
+
