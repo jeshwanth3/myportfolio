@@ -33,10 +33,10 @@ export function Header() {
 
     
   // Combined click handler for both desktop and mobile
-  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string, setOpen: React.Dispatch<React.SetStateAction<boolean>>) => {
     event.preventDefault(); // Prevent default anchor behavior
-    closeSheet(); // Close sheet if open (for mobile)
-
+      setOpen(false);
+      
     // Use requestAnimationFrame for smoother scrolling after potential state updates
       requestAnimationFrame(() => {
         if (href === '/') {
@@ -75,7 +75,7 @@ export function Header() {
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
         <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => handleNavLinkClick(e, '/')}>
           <span className={cn(
-              // Apply gradient text and enhanced glow effect
+              // Apply gradient text 
               "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
               "group-hover:brightness-125 transition-all duration-300" // Brighter hover effect
             )}
@@ -90,7 +90,7 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              onClick={(e) => handleNavLinkClick(e, item.href)}
+              onClick={(e) => handleNavLinkClick(e, item.href, setOpen)}
               // Updated desktop nav link style for clarity and modern feel
               className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
@@ -104,7 +104,7 @@ export function Header() {
              <Button
                 variant="outline"
                 size="sm"
-                onClick={(e) => handleNavLinkClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, '#contact')} // Cast event type for consistency
+                onClick={(e) => handleNavLinkClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, '#contact', setOpen)} // Cast event type for consistency
                 className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
              >
                  Get In Touch With Me <Send className="ml-2 h-4 w-4" /> {/* Adjusted icon size slightly */}
@@ -123,7 +123,7 @@ export function Header() {
                     className="text-muted-foreground h-10 w-10 rounded-full" // Simplified styles
                   >
                     <Menu className="h-6 w-6" />
-                    <VisuallyHidden>Toggle Menu</VisuallyHidden>
+                    <VisuallyHidden>Toggle Menu</VisuallyHidden> 
                   </Button>
             </Dialog.Trigger>
             <Dialog.Portal>
@@ -134,7 +134,7 @@ export function Header() {
                     "w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy"
                   )}>
                   <VisuallyHidden>
-                      <Dialog.Title>Mobile Menu</Dialog.Title>
+                      <Dialog.Title>Mobile Menu</Dialog.Title> 
                   </VisuallyHidden>
                   {/* DialogHeader - More prominent */}
                   <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
@@ -157,7 +157,7 @@ export function Header() {
                         <Link
                           key={item.label}
                           href={item.href}
-                          onClick={(e) => handleNavLinkClick(e, item.href)} // Use combined click handler
+                          onClick={(e) => handleNavLinkClick(e, item.href, setOpen)} // Use combined click handler
                           className={cn(
                             "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
                             "border-b border-border/25" // Separator adjusted, button-like style
@@ -169,7 +169,7 @@ export function Header() {
                         <div className="border-b border-border/25"></div>
                       {/* Contact Link in Mobile Menu - Styled as button */}
                       <Link
-                          href="#contact"
+                          href="#contact" 
                           onClick={(e) => handleNavLinkClick(e, '#contact')} // Use combined click handler
                           className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
                         >
