@@ -1,4 +1,5 @@
-
+import DialogDemo from '@/components/dialog-demo';
+import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Header } from "@/components/header";
 import { SummarySection } from "@/components/summary-section";
 import { ExperienceSection } from "@/components/experience-section";
@@ -14,6 +15,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background">
 
       {/* Content is rendered directly */}
+       <DialogDemo/>
       <Header />
       {/* Adjusted padding: Increased mobile padding (px-4), kept md padding */}
       <main className="flex-1 px-4 md:px-6">
