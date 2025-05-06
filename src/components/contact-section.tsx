@@ -35,19 +35,21 @@ export function ContactSection() {
                   Email Me
                </Button>
              </Link>
-             {/* LinkedIn Button - Adjust size */}
+             {/* LinkedIn Button - Adjust size and remove hover effect */}
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon" // Keep as icon button
-                className="p-1 transition-transform hover:scale-110 transform duration-300 w-[100px] h-[100px]" // Increased width and height using arbitrary values
+                // Remove hover:scale-110, increase width/height, adjust padding if needed
+                className="p-1 transition-transform transform duration-300 w-[125px] h-[125px]" // Increased width/height, removed hover scale
                 aria-label="LinkedIn Profile"
               >
                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-                  width={96} // Increased icon size accordingly (150% of 64)
-                  height={96} // Increased icon size accordingly (150% of 64)
+                  // Increase width/height by 25% (96 -> 120)
+                  width={120}
+                  height={120}
                   className="object-contain" // Ensure SVG scales correctly
                 />
               </Button>
