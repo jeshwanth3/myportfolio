@@ -7,7 +7,7 @@ import { SkillsSection } from "@/components/skills-section";
 import { ProjectsSection } from "@/components/projects-section"; // Import ProjectsSection
 import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
-
+import { Footer } from "@/components/footer"; // Import Footer
 import { SummarySection } from "@/components/summary-section";
 
 export default function Home() {
@@ -24,6 +24,7 @@ export default function Home() {
         <EducationSection />
         <ContactSection />
       </main>
+      <Footer /> {/* Add Footer component here */}
     </div>
   );
 }

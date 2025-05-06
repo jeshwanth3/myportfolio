@@ -1,5 +1,6 @@
 'use client';
 
+import { Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export function Footer() {
@@ -9,14 +10,17 @@ export function Footer() {
     }, []);
 
     return (
-        <footer className="py-4 md:px-8 border-t border-border/20 bg-card/30 dark:bg-secondary/30 mt-auto backdrop-blur-sm">
-            {/* Changed justify-between to justify-center */}
+        <footer className="py-6 md:px-8 border-t border-border/20 bg-card/30 dark:bg-secondary/30 mt-auto backdrop-blur-sm">
             <div className="container flex flex-col items-center justify-center gap-2 md:h-12 max-w-7xl mx-auto px-4 md:px-6">
-                {/* Removed md:text-left, ensured text-center, increased font size */}
-                <p className="text-balance text-center text-muted-foreground text-sm md:text-base"> {/* Increased font size */}
-                     © {currentYear !== null ? currentYear : '...'} Sai Jeshwanth Goud Illuri. All rights reserved.
+                 <p className="text-balance text-center text-muted-foreground text-sm md:text-base flex items-center gap-1.5">
+                    Made with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> by Sai Jeshwanth Goud
                 </p>
-                {/* Removed the "Built with..." paragraph */}
+                {/* Removed the copyright text to only show the "Made with love" message */}
+                 {/*
+                 <p className="text-balance text-center text-muted-foreground text-sm md:text-base">
+                     © {currentYear !== null ? currentYear : '...'} Sai Jeshwanth Goud Illuri. All rights reserved.
+                 </p>
+                 */}
             </div>
         </footer>
     );
