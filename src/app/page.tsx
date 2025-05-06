@@ -1,3 +1,5 @@
+'use client'; // Add this directive
+
 import React, { useState } from "react";
 import { Header } from "@/components/header";
 import { ExperienceSection } from "@/components/experience-section";
@@ -20,7 +22,8 @@ export default function Home() {
         <ProjectsSection />
         <SkillsSection />
         <EducationSection />
-        <ContactSection />     </main>
+        <ContactSection />
+      </main>
     </div>
   );
 }

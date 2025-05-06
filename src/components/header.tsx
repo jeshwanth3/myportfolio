@@ -1,12 +1,12 @@
 "use client";
-import type React, { MouseEvent } from "react";
-import { useEffect, useState, MouseEvent as ReactMouseEvent } from "react";
+import type React, { MouseEvent as ReactMouseEvent } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import * as Dialog from "@radix-ui/react-dialog"; // Use Dialog for mobile sheet
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Menu, X, Send } from "lucide-react";
-
-"use client";
+import { cn } from "@/lib/utils"; // Import cn utility
 
 const navItems = [
   { label: "About", href: "#summary"},
@@ -16,13 +16,12 @@ const navItems = [
   { label: "Education", href: "#education" },
 ]
 
-import BasicButton from "@/components/basic-button";
-
-interface HeaderProps { 
+interface HeaderProps {
   setOpen: (open: boolean) => void;
 }
+
 export function Header({ setOpen }: HeaderProps) {
-  const [open, setOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false); // State for mobile menu
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,40 +34,48 @@ export function Header({ setOpen }: HeaderProps) {
   }, []);
 
   const handleNavLinkClick = (event: ReactMouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
-    event.preventDefault();
-    setOpen(false)
-    requestAnimationFrame(() => {
+    event.preventDefault(); // Prevent default jump
+    setMobileMenuOpen(false) // Close mobile menu on link click
 
+    // Use requestAnimationFrame for smoother scrolling after state updates
+    requestAnimationFrame(() => {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({
+        const headerOffset = 75; // Height of the sticky header in pixels
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
           behavior: "smooth",
-          block: "start",
         });
+      } else if (href === "/") { // Handle scroll to top for home link
+         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
   };
-  return ( // Add setOpen to the header
+
+  return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Standard transition
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Faster transition
         // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
         isScrolled
           ? "glassmorphism-heavy shadow-xl border-b border-border/15" // Use heavy glassmorphism
-          : "bg-gradient-to-b from-background/60 via-background/20 to-transparent border-b border-transparent" // Start more transparent}
+          : "bg-gradient-to-b from-background/60 via-background/20 to-transparent border-b border-transparent" // Start more transparent
       )}
     >
       {/* Increased height */}
       <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
-        <Link 
-        href="/"
-        className="flex items-center space-x-3 group"
-          onClick={(e) => handleNavLinkClick(e, "/")}
+        <Link
+          href="/"
+          className="flex items-center space-x-3 group"
+          onClick={(e) => handleNavLinkClick(e, "/")} // Scroll to top on logo click
         >
           <span
             className={cn(
-            "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
+              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700", // Teal-Blue Gradient
               "group-hover:brightness-125 transition-all duration-300" // Brighter hover effect
             )}
           >
@@ -81,10 +88,10 @@ export function Header({ setOpen }: HeaderProps) {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              href={item.href} // Corrected
+              href={item.href} // Ensure href is used
               onClick={(e) => handleNavLinkClick(e, item.href)}
               // Updated desktop nav link style
-            className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
+              className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
               <span className="relative z-10">{item.label}</span>
               {/* Underline reveal from center */}
@@ -97,8 +104,8 @@ export function Header({ setOpen }: HeaderProps) {
             <Button
               variant="outline"
               size="sm"
-              onClick={(e) => handleNavLinkClick(e, "#contact")} // Cast event type for consistency
-              className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
+              onClick={(e) => handleNavLinkClick(e, "#contact")}
+              className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Consistent hover effect
             >
               Get In Touch With Me <Send className="ml-2 h-4 w-4" />{" "}
               {/* Adjusted icon size slightly */}
@@ -108,8 +115,8 @@ export function Header({ setOpen }: HeaderProps) {
 
         {/* Mobile Navigation - Sheet */}
         <div className="flex items-center gap-2 md:hidden">
-          {/* Sheet component manages the mobile menu */}
-          <Dialog.Root open={open} onOpenChange={setOpen}>
+          {/* Use Dialog component for the mobile menu */}
+          <Dialog.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <Dialog.Trigger asChild>
               <Button
                 variant="ghost"
@@ -117,63 +124,73 @@ export function Header({ setOpen }: HeaderProps) {
                 className="text-muted-foreground h-10 w-10 rounded-full" // Simplified styles
               >
                 <Menu className="h-6 w-6" />
-              <VisuallyHidden>Toggle Menu</VisuallyHidden>
+                <VisuallyHidden>Toggle Menu</VisuallyHidden>
               </Button>
             </Dialog.Trigger>
             <Dialog.Portal>
               <Dialog.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
               <Dialog.Content
                 className={cn(
-                  "fixed z-50 gap-4 bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-400 data-[state=open]:duration-500 backdrop-blur-xl",
-                  "inset-y-0 right-0 h-full w-3/4 border-l border-border/20 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm rounded-l-lg",
-                  "w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy",
+                   // Common styles for the dialog content
+                   "fixed z-50 gap-4 bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-400 data-[state=open]:duration-500 backdrop-blur-xl",
+                   // Specific styles for the right-side sheet
+                   "inset-y-0 right-0 h-full w-3/4 border-l border-border/20 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+                   // Further refinement for glassmorphism and layout
+                   "w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy"
                 )}
               >
+                {/* Accessible Title (Visually Hidden) */}
+                 <VisuallyHidden>
+                   <Dialog.Title>Mobile Navigation Menu</Dialog.Title>
+                 </VisuallyHidden>
                 <VisuallyHidden>
-                  <Dialog.Title>Mobile Menu</Dialog.Title>
+                 <Dialog.Description>
+                    Navigate through the portfolio sections.
+                 </Dialog.Description>
                 </VisuallyHidden>
-                <Dialog.Description className="sr-only">
-                  Mobile Menu Navigation
-              </Dialog.Description>
+
                 {/* DialogHeader - More prominent */}
                 <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
-                  <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, "/")}>
+                  <Link
+                    href="/"
+                    className="flex items-center space-x-2.5 group"
+                    onClick={(e) => handleNavLinkClick(e, "/")}
+                  >
                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
-                      Sai J. G. Illuri{/* Shorter name for mobile */}
+                      Sai J. G. Illuri {/* Shorter name for mobile */}
                     </span>
                   </Link>
-                  <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" >
-                    <X className="h-5 w-5 text-muted-foreground" />
-                    <VisuallyHidden>Close Menu</VisuallyHidden>
-                  </Button>
+                  <Dialog.Close asChild>
+                    <Button variant="ghost" className="h-9 w-9 p-0 rounded-full">
+                      <X className="h-5 w-5 text-muted-foreground" />
+                      <VisuallyHidden>Close Menu</VisuallyHidden>
+                    </Button>
+                  </Dialog.Close>
                 </div>
 
-                <nav className="flex-1 flex flex-col p-6 space-y-4"> 
+                <nav className="flex-1 flex flex-col p-6 space-y-2"> {/* Slightly reduced space */}
                   {/* Map through navItems to create links */}
                   {navItems.map((item) => (
-                    <BasicButton
+                    <Button
                       key={item.label}
-                      onClick={(e) => {
-                        handleNavLinkClick(e, item.href);
-                      }}
-                      className={cn(
-                        "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
-                        "border-b border-border/25", // Separator adjusted, button-like style
-                      )}
+                      variant="ghost" // Use ghost for subtle interaction
+                      className="justify-start p-3 text-lg font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                      onClick={(e) => handleNavLinkClick(e, item.href)}
                     >
                       {item.label}
-                    </BasicButton>
+                    </Button>
                   ))}
-                  <div className="border-b border-border/25"></div>
+                   <div className="border-b border-border/20 pt-2"></div> {/* Subtle Separator */}
                   {/* Contact Link in Mobile Menu - Styled as button */}
-              <BasicButton
-                onClick={(e) => handleNavLinkClick(e, "#contact")}
-                className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6"
-              >
-                Contact Me{" "}
-                <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
-              </BasicButton>
-            </nav>
+                   <Button
+                     variant="default" // Use default variant for emphasis
+                     className="w-full mt-6 py-3 text-lg font-medium" // Add margin-top
+                     onClick={(e) => handleNavLinkClick(e, "#contact")}
+                   >
+                     Contact Me{" "}
+                     <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                   </Button>
+                 </nav>
 
                 {/* Subtle Footer in Dialog */}
                 <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
