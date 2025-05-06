@@ -5,8 +5,9 @@ import type React from 'react'; // Import React namespace
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X, Send } from 'lucide-react';
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet"; // Ensure SheetHeader is imported
+import { SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"; // Ensure SheetHeader is imported
 import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Ensure VisuallyHidden is imported
 import { cn } from "@/lib/utils";
 
@@ -26,13 +27,12 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10); // Trigger effect slightly later
     };
-    window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeSheet = () => setOpen(false); // Function to close the sheet
-
+    
   // Combined click handler for both desktop and mobile
   const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault(); // Prevent default anchor behavior
@@ -116,71 +116,75 @@ export function Header() {
         {/* Mobile Navigation - Sheet */}
         <div className="flex items-center gap-2 md:hidden">
           {/* Sheet component manages the mobile menu */}
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-muted-foreground h-10 w-10 rounded-full" // Simplified styles
-              >
-                <Menu className="h-6 w-6" />
-                <VisuallyHidden>Toggle Menu</VisuallyHidden>
-              </Button>
-            </SheetTrigger>
-            {/* SheetContent holds the mobile menu's content */}
-            <SheetContent side="right" className="w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy" title="Main Navigation">
-                {/* Sheet Header - More prominent */}
-                <SheetHeader className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
-                 <div className="flex items-center justify-between">
-                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
-                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
-                        Sai J. G. Illuri {/* Shorter name for mobile */}
-                     </span>
-                     <Sheet.Title>
-                       Sai Jeshwanth Goud Illuri
-                     </span>
-                   </Link>
-                   <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" size="icon" onClick={closeSheet}>
-                     <X className="h-5 w-5 text-muted-foreground" />
-                     <VisuallyHidden>Close Menu</VisuallyHidden>
-                   </Button>
-                 </div>
-               </SheetHeader>
-
-              {/* Mobile Navigation Links - Centered, Larger Text */}
-              <nav className="flex-1 flex flex-col p-6 space-y-4">
-                {/* Map through navItems to create links */}
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={(e) => handleNavLinkClick(e, item.href)} // Use combined click handler
-                    className={cn(
-                      "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
-                      "border-b border-border/25" // Separator adjusted, button-like style
-                    )}
+          <Dialog.Root open={open} onOpenChange={setOpen}>
+            <Dialog.Trigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-muted-foreground h-10 w-10 rounded-full" // Simplified styles
                   >
-                    {item.label}
-                  </Link>
-                ))}
-                  <div className="border-b border-border/25"></div>
+                    <Menu className="h-6 w-6" />
+                    <VisuallyHidden>Toggle Menu</VisuallyHidden>
+                  </Button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+                  <Dialog.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"/>
+                <Dialog.Content className={cn(
+                  "fixed z-50 gap-4 bg-background/95 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-400 data-[state=open]:duration-500 backdrop-blur-xl",
+                  "inset-y-0 right-0 h-full w-3/4 border-l border-border/20 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm rounded-l-lg",
+                  "w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy"
+                )}>
+                  <SheetHeader className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
+                    <div className="flex items-center justify-between">
+                      <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
+                        <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
+                          Sai J. G. Illuri {/* Shorter name for mobile */}
+                        </span>
+                      </Link>
+                      <Dialog.Close asChild>
+                        <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" size="icon" onClick={() => setOpen(false)}>
+                          <X className="h-5 w-5 text-muted-foreground" />
+                          <VisuallyHidden>Close Menu</VisuallyHidden>
+                        </Button>
+                      </Dialog.Close>
+                    </div>
+                  </SheetHeader>
 
-                 {/* Contact Link in Mobile Menu - Styled as button */}
-                 <Link
-                    href="#contact"
-                    onClick={(e) => handleNavLinkClick(e, '#contact')} // Use combined click handler
-                     className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
-                  >
-                    Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
-                  </Link>
-              </nav>
+                  {/* Mobile Navigation Links - Centered, Larger Text */}
+                  <nav className="flex-1 flex flex-col p-6 space-y-4">
+                    {/* Map through navItems to create links */}
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={(e) => handleNavLinkClick(e, item.href)} // Use combined click handler
+                        className={cn(
+                          "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
+                          "border-b border-border/25" // Separator adjusted, button-like style
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                      <div className="border-b border-border/25"></div>
 
-              {/* Subtle Footer in Sheet */}
-              <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
-                 Navigate Sections
-              </div>
-            </SheetContent>
-          </Sheet>
+                    {/* Contact Link in Mobile Menu - Styled as button */}
+                    <Link
+                        href="#contact"
+                        onClick={(e) => handleNavLinkClick(e, '#contact')} // Use combined click handler
+                        className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
+                      >
+                        Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                    </Link>
+                  </nav>
+
+                  {/* Subtle Footer in Sheet */}
+                  <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
+                    Navigate Sections
+                  </div>
+                </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
         </div>
       </div>
     </header>
