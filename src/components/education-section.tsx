@@ -66,17 +66,17 @@ export function EducationSection() {
                   {/* Image */}
                   <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300">
                     {edu.imageUrl ? (
-                      <Image
-                        src={edu.imageUrl}
-                        alt={`${edu.institution} logo`}
-                        width={40}
-                        height={40}
-                        className="object-contain transition-transform duration-300 group-hover:scale-110"
-                        data-ai-hint="university logo"
-                      />
-                    ) : (
-                      <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
-                    )}
+                                            <Image
+                                                src={edu.imageUrl}
+                                                alt={`${edu.institution} logo`}
+                                                width={40}
+                                                height={40}
+                                                className="object-contain transition-transform duration-300 group-hover:scale-110"
+                                                data-ai-hint="university logo"
+                                            />
+                                        ) : (
+                                            <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
+                                        )}
                   </div>
                   {/* Text Content */}
                   <div className="flex-1">
@@ -94,39 +94,39 @@ export function EducationSection() {
             ))}
           </div>
         </div> 
-        {/* Desktop Accordion Layout */}
-        <div className="hidden lg:block w-full">
-          <Accordion type="multiple" className="w-full">
-            {education.map((edu) => (
-              <AccordionItem key={edu.id} value={edu.id} className={cn("border border-border/20 dark:border-border/30 bg-card/95 dark:bg-secondary/70")}>
-                <AccordionTrigger className="py-4 px-6 hover:no-underline">
-                  {/* Image */}
-                  <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300">
-                    {edu.imageUrl ? (
-                      <Image
-                        src={edu.imageUrl}
-                        alt={`${edu.institution} logo`}
-                        width={40}
-                        height={40}
-                        className="object-contain transition-transform duration-300 group-hover:scale-110"
-                        data-ai-hint="university logo"
-                      />
-                    ) : (
-                      <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
-                    )}
-                  </div>
-                  {/* Text Content */}
-                  <div className="flex-1">
-                    <h3 className="text-base md:text-lg font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">{edu.institution}</p>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/75">
-                    <CalendarDays className="h-4 w-4 opacity-80" />
-                    <span>{edu.duration}</span>
-                  </div>
-                </AccordionTrigger> 
+          {/* Desktop Accordion Layout */}
+          <div className="hidden lg:block w-full">
+              <Accordion type="multiple" className="w-full">
+                  {education.map((edu) => (
+                      <AccordionItem
+                          key={edu.id}
+                          value={edu.id}
+                          className={cn("border-b border-border/20 dark:border-border/30 bg-card/95 dark:bg-secondary/70")}
+                      >
+                          <AccordionTrigger className="p-0 hover:no-underline">
+                              {/* Image */}
+                              <div className="flex items-center p-4 justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300">
+                                  {edu.imageUrl ? (
+                                      <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={40} height={40} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                                  ) : (
+                                      <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
+                                  )}
+                              </div>
+                              {/* Text Content */}
+                              <div className="flex-1 pl-4">
+                                  <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>
+                                  <p className="text-sm text-muted-foreground">{edu.institution}</p>
+                              </div>
+                              <div className="flex items-center gap-2 text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/75 pr-4">
+                                  <CalendarDays className="h-4 w-4 opacity-80" />
+                                  <span>{edu.duration}</span>
+                              </div>
+                          </AccordionTrigger>
+                      </AccordionItem>
+                  ))}
+              </Accordion>
+          </div>
+      </div>
 
               </AccordionItem>
             ))}
