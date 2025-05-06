@@ -39,7 +39,7 @@ export function SummarySection() {
           {/* Buttons - Stack vertically on mobile (flex-col), row on larger (sm:flex-row) */}
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-6 md:pt-8">
              <Link href="#contact" passHref>
-               <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto bg-transparent border border-primary text-primary hover:bg-primary/10 button-glow"> {/* Added button-glow */}
+               <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto border border-primary/60 text-primary hover:bg-primary/10 button-glow"> {/* Adjusted button styles */}
                  Contact Me <Mail className="ml-2 h-5 w-5" />
                </Button>
              </Link>

@@ -57,7 +57,8 @@ export function SummaryStats() {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-10 md:mt-16">
+    // Enhanced grid styling with more margin-top
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-16 md:mt-20 lg:mt-24">
       {stats.map((stat, index) => (
         <StatCard
           key={index}
