@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, FolderGit2, Rocket } from 'lucide-react';
 import * as React from "react"; // Added missing React import
@@ -14,19 +13,19 @@ interface StatCardProps {
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, delay }) => {
   return (
     <Card
-      // Adjusted padding, rounded corners, reduced size
-      className={`bg-card/80 dark:bg-secondary/50 backdrop-blur-sm border border-border/20 dark:border-border/30 p-4 md:p-5 text-center flex flex-col items-center justify-center space-y-2.5 rounded-xl mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/40 transform hover:-translate-y-1 group ${className}`}
+      // Adjusted padding, changed to rounded-lg for squarer look, adjusted space
+      className={`bg-card/80 dark:bg-secondary/50 backdrop-blur-sm border border-border/20 dark:border-border/30 p-3 md:p-4 text-center flex flex-col items-center justify-center space-y-2 rounded-lg mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/40 transform hover:-translate-y-1 group ${className}`}
       // Apply animation delay using CSS variable
       style={{ '--animation-delay': delay } as React.CSSProperties}
     >
       {/* Adjusted icon container size */}
-      <div className="bg-primary/15 dark:bg-primary/20 p-2.5 rounded-full group-hover:bg-primary/25 transition-colors duration-300">
+      <div className="bg-primary/15 dark:bg-primary/20 p-2 rounded-full group-hover:bg-primary/25 transition-colors duration-300">
         {/* Icon size adjusted if necessary - using h-5 w-5 */}
         {React.cloneElement(icon as React.ReactElement, { className: "h-5 w-5 text-primary" })}
       </div>
       <CardContent className="p-0 flex flex-col items-center">
         {/* Reduced font size for value */}
-        <p className="text-2xl md:text-3xl font-bold text-primary group-hover:text-primary transition-colors duration-300">
+        <p className="text-xl md:text-2xl font-bold text-primary group-hover:text-primary transition-colors duration-300">
           {value}
         </p>
         {/* Reduced font size for label */}
