@@ -50,10 +50,18 @@ export function EducationSection() {
                 "group hover:shadow-lg hover:-translate-y-1"
               )}>
                 <div className="flex items-center space-x-4 px-4 pt-4 pb-2">
-                   {/* Removed background classes */}
-                  <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300 shrink-0 p-1">
+                  {/* Container for logo/icon - Conditionally larger for edu3 */}
+                  <div className={cn(
+                    "flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-1",
+                    edu.id === 'edu3'
+                      ? "w-12 h-12 md:w-16 md:h-16" // Larger container for edu3 on mobile/md
+                      : "w-10 h-10 md:w-12 md:h-12" // Standard container size
+                  )}>
                     {edu.imageUrl ? (
-                      <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={40} height={40} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                      <Image src={edu.imageUrl} alt={`${edu.institution} logo`}
+                       width={edu.id === 'edu3' ? 56 : 40} // Larger image for edu3
+                       height={edu.id === 'edu3' ? 56 : 40} // Larger image for edu3
+                       className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
                     ) : (
                       <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
                     )}
@@ -83,10 +91,18 @@ export function EducationSection() {
               )}>
                 {/* Replaces AccordionTrigger - Use a styled div for the header content */}
                  <div className="p-4 md:p-6 flex items-center gap-4 w-full"> {/* Keep existing layout */}
-                       {/* Removed background classes */}
-                      <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 group-hover:scale-110 transition-all duration-300 shrink-0 p-2">
+                       {/* Container for logo/icon - Conditionally larger for edu3 */}
+                      <div className={cn(
+                        "flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-2",
+                        edu.id === 'edu3'
+                          ? "w-20 h-20 md:w-24 md:h-24" // Larger container for edu3 on desktop
+                          : "w-16 h-16 md:w-20 md:h-20" // Standard container size
+                      )}>
                         {edu.imageUrl ? (
-                          <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={60} height={60} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                          <Image src={edu.imageUrl} alt={`${edu.institution} logo`}
+                            width={edu.id === 'edu3' ? 72 : 60} // Larger image for edu3
+                            height={edu.id === 'edu3' ? 72 : 60} // Larger image for edu3
+                            className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
                         ) : (
                           <GraduationCap className="h-8 w-8 text-primary transition-colors duration-300" />
                         )}
