@@ -9,6 +9,7 @@ import {
 import { GraduationCap } from 'lucide-react';
 import React from "react";
 import { cn } from "@/lib/utils"; // Import cn
+import Image from 'next/image'; // Import next/image
 
 const education = [
   {
@@ -60,8 +61,7 @@ export function EducationSection() {
                   {/* Image */}
                   <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300">
                     {edu.imageUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={edu.imageUrl} alt={`${edu.institution} logo`} width={40} height={40} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                      <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={40} height={40} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
                     ) : (
                       <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
                     )}
@@ -94,12 +94,11 @@ export function EducationSection() {
               )}>
                 <AccordionTrigger className="p-4 md:p-6 text-left hover:no-underline hover:bg-accent/5 dark:hover:bg-accent/10 transition-colors data-[state=open]:bg-accent/10 dark:data-[state=open]:bg-accent/15">
                     <div className="flex items-center gap-4 w-full">
-                      <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
+                      <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 group-hover:scale-110 transition-all duration-300 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full"> {/* Increased size */}
                         {edu.imageUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={edu.imageUrl} alt={`${edu.institution} logo`} width={40} height={40} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                          <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={60} height={60} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" /> /* Increased size */
                         ) : (
-                          <GraduationCap className="h-6 w-6 text-primary transition-colors duration-300" />
+                          <GraduationCap className="h-8 w-8 text-primary transition-colors duration-300" /> /* Increased size */
                         )}
                       </div>
                       <div className="flex-1 text-left">
@@ -112,7 +111,7 @@ export function EducationSection() {
                     </div>
                 </AccordionTrigger>
                 <AccordionContent className="p-4 md:p-6 pt-0 border-t border-border/20 dark:border-border/30 bg-card/50 dark:bg-secondary/30">
-                   <p className="text-sm md:text-base text-foreground/85 dark:text-foreground/75">{edu.description}</p>
+                   {/* Description removed from desktop view */}
                 </AccordionContent>
               </AccordionItem>
             ))}
