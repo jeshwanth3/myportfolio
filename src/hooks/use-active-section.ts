@@ -13,8 +13,9 @@ interface ObserverOptions {
 // The custom hook
 export function useActiveSection(
   sectionIds: string[],
-  // Adjusted rootMargin: Decreased negative bottom margin to -40% to improve accuracy of highlighting the current section.
-  options: ObserverOptions = { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" }
+  // Adjusted rootMargin: Slightly increased negative top margin to -90px (header height + buffer).
+  // Significantly reduced negative bottom margin from -40% to -25% to make highlighting switch faster when scrolling down.
+  options: ObserverOptions = { threshold: 0.3, rootMargin: "-90px 0px -25% 0px" }
 ): string | null {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -37,59 +38,47 @@ export function useActiveSection(
 
 
     const callback: IntersectionObserverCallback = (entries) => {
-      // Find the entry that is intersecting and is highest up on the page
-      let currentActiveSection: string | null = null;
+      let currentActiveSectionId: string | null = null;
+      // Find the entry that is most visible *above* the bottom margin threshold.
+      // Prioritize entries that are intersecting and whose top is closest to or above the top margin trigger point.
+      let bestMatchEntry: IntersectionObserverEntry | null = null;
       let minTop = Infinity;
+
 
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const element = entry.target as HTMLElement;
           const rect = element.getBoundingClientRect();
-          // Prioritize the element whose top is closest to the top margin trigger point (-80px)
-          // Only consider elements whose top is above the middle of the viewport (or a bit higher)
-          // to prevent premature highlighting of the next section.
-          const triggerPoint = options.rootMargin ? parseInt(options.rootMargin.split(' ')[0], 10) : 0; // -80px
-          // Check if the element's top is within a reasonable range from the trigger point
-          // and also significantly visible (top part is above, say, 45% viewport height)
-          if (rect.top <= (window.innerHeight * 0.45) && rect.top < minTop) {
+          const viewportHeight = window.innerHeight;
+          // Use entry.intersectionRatio to find the most visible element overall among intersecting ones
+          // Also consider elements whose top is closer to the top margin trigger point
+          if (rect.top < minTop ) { // Prioritize the one highest up on the screen first
              minTop = rect.top;
-             // Map the element back to its ID (href)
-             sectionElementsRef.current.forEach((el, id) => {
-                if (el === element) {
-                   currentActiveSection = id;
-                }
-             });
+             bestMatchEntry = entry;
           }
         }
       });
 
-       // Fallback: If no section meets the criteria above but one *is* intersecting,
-       // pick the topmost intersecting one as a fallback.
-       if (!currentActiveSection) {
-         let fallbackTop = Infinity;
-         entries.forEach(entry => {
-           if (entry.isIntersecting) {
-             const rect = entry.target.getBoundingClientRect();
-             if (rect.top < fallbackTop) {
-               fallbackTop = rect.top;
-               sectionElementsRef.current.forEach((el, id) => {
-                 if (el === entry.target) {
-                   currentActiveSection = id;
-                 }
-               });
-             }
-           }
+      if (bestMatchEntry) {
+        const element = bestMatchEntry.target as HTMLElement;
+         // Map the element back to its ID (href)
+         sectionElementsRef.current.forEach((el, id) => {
+            if (el === element) {
+               currentActiveSectionId = id;
+            }
          });
-       }
-
+      }
 
       // Update state only if the active section has changed
-      if (currentActiveSection && currentActiveSection !== activeSection) {
-         setActiveSection(currentActiveSection);
-      } else if (!currentActiveSection && activeSection && window.scrollY < 200 ) {
+      if (currentActiveSectionId && currentActiveSectionId !== activeSection) {
+         setActiveSection(currentActiveSectionId);
+      } else if (!currentActiveSectionId && activeSection && window.scrollY < 200 ) {
          // Optional: Clear active section if near the top and nothing is intersecting prominently
          // Keep #summary active if near top
          if (activeSection !== '#summary') setActiveSection('#summary');
+      } else if (!currentActiveSectionId && activeSection && window.scrollY > (document.documentElement.scrollHeight - window.innerHeight - 200)) {
+          // If scrolled near the bottom and nothing else is active, highlight contact
+          if (activeSection !== '#contact') setActiveSection('#contact');
       }
     };
 
@@ -98,20 +87,32 @@ export function useActiveSection(
       observerRef.current.disconnect();
     }
 
-    observerRef.current = new IntersectionObserver(callback, options);
-    const observer = observerRef.current; // Local variable for cleanup
+    // Use requestIdleCallback to defer observer initialization slightly, potentially improving initial load performance.
+    const initObserver = () => {
+        observerRef.current = new IntersectionObserver(callback, options);
+        const observer = observerRef.current; // Local variable for cleanup
 
-    // Observe each section element
-    sectionElementsRef.current.forEach(element => {
-      if (element) {
-        observer.observe(element);
-      }
-    });
+        // Observe each section element
+        sectionElementsRef.current.forEach(element => {
+        if (element) {
+            observer.observe(element);
+        }
+        });
+    }
+
+    // Check if requestIdleCallback is supported
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initObserver);
+    } else {
+      // Fallback for browsers that don't support requestIdleCallback
+      setTimeout(initObserver, 1);
+    }
+
 
     // Cleanup function
     return () => {
-      if (observer) {
-        observer.disconnect();
+      if (observerRef.current) {
+        observerRef.current.disconnect();
       }
       observerRef.current = null;
     };
