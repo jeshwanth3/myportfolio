@@ -53,8 +53,8 @@ export function EducationSection() {
                          <Image
                            src={edu.imageUrl}
                            alt={`${edu.institution} logo`}
-                           width={28} // Keep consistent size
-                           height={28} // Keep consistent size
+                           width={40} // Increased size
+                           height={40} // Increased size
                            className="object-contain group-hover:scale-110 transition-transform duration-300" // Added hover effect
                            data-ai-hint="university logo" // AI Hint
                          />
