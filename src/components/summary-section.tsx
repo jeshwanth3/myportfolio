@@ -48,7 +48,7 @@ export function SummarySection() {
              </Link>
              <Link href="#experience" passHref>
                <Button variant="outline" size="sm" className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60">
-                 View Experience <ArrowDown className="ml-1.5 h-4 w-4 opacity-80" /> {/* Changed icon to ArrowDown, adjusted margin/size */}
+                 View My Experience <ArrowDown className="ml-1.5 h-4 w-4 opacity-80" /> {/* Changed icon to ArrowDown, adjusted margin/size */}
                </Button>
              </Link>
           </div>

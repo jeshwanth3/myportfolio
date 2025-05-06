@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import type React, { MouseEvent as ReactMouseEvent } from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import * as Dialog from "@radix-ui/react-dialog"; // Use Dialog for mobile sheet
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Menu, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils"; // Import cn utility
+import { useActiveSection } from "@/hooks/use-active-section"; // Import the new hook
 
 const navItems = [
   { label: "About", href: "#summary"},
@@ -23,6 +24,8 @@ interface HeaderProps {
 export function Header({ setOpen }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false); // State for mobile menu
   const [isScrolled, setIsScrolled] = useState(false);
+  const activeSection = useActiveSection(['#summary', '#experience', '#projects', '#skills', '#education', '#contact']); // Use the hook
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,19 +92,30 @@ export function Header({ setOpen }: HeaderProps) {
 
         {/* Desktop Navigation - Refined Hover Effect & Spacing */}
         <nav className="hidden md:flex items-center gap-1.5 lg:gap-2"> {/* Slightly increased gap */}
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href} // Ensure href is used
-              onClick={(e) => handleNavLinkClick(e, item.href)}
-              // Updated desktop nav link style
-              className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
-            >
-              <span className="relative z-10">{item.label}</span>
-              {/* Underline reveal from center */}
-              <span className="absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out group-hover:left-0 group-hover:right-0"></span>
-            </Link>
-          ))}
+          {navItems.map((item) => {
+             const isActive = activeSection === item.href;
+             return (
+                <Link
+                   key={item.label}
+                   href={item.href}
+                   onClick={(e) => handleNavLinkClick(e, item.href)}
+                   // Updated desktop nav link style with active state
+                   className={cn(
+                     "group relative px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ease-out",
+                     isActive
+                       ? "text-primary bg-primary/15" // Active state styles
+                       : "text-foreground/85 hover:text-primary hover:bg-primary/10" // Default and hover styles
+                   )}
+                >
+                   <span className="relative z-10">{item.label}</span>
+                   {/* Underline reveal from center - show when active or hovered */}
+                   <span className={cn(
+                      "absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out",
+                      (isActive || "group-hover:left-0 group-hover:right-0") // Apply underline on hover OR if active
+                   )}></span>
+                </Link>
+             );
+          })}
 
           <Link href="#contact" passHref>
             {/* Enhanced "Get In Touch" Button - Outline Style */}
@@ -109,7 +123,10 @@ export function Header({ setOpen }: HeaderProps) {
               variant="outline"
               size="sm"
               onClick={(e) => handleNavLinkClick(e, "#contact")}
-              className="ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Subtle hover effect
+              className={cn(
+                  "ml-4 px-4 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary",
+                   activeSection === '#contact' && 'bg-primary/15 text-primary ring-2 ring-primary/50 ring-offset-2 ring-offset-background' // Highlight contact button if active
+                   )} // Subtle hover effect
             >
               Get In Touch With Me <Send className="ml-2 h-4 w-4" />
             </Button>
@@ -173,21 +190,34 @@ export function Header({ setOpen }: HeaderProps) {
 
                 <nav className="flex-1 flex flex-col p-6 space-y-1.5"> {/* Reduced space slightly */}
                   {/* Map through navItems to create links */}
-                  {navItems.map((item) => (
-                    <Button
-                      key={item.label}
-                      variant="ghost" // Use ghost for subtle interaction
-                      className="justify-start p-3 text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200" // Slightly smaller text
-                      onClick={(e) => handleNavLinkClick(e, item.href)} // Ensure correct handler is used
-                    >
-                      {item.label}
-                    </Button>
-                  ))}
+                  {navItems.map((item) => {
+                     const isActive = activeSection === item.href;
+                     return (
+                         <Button
+                           key={item.label}
+                           variant="ghost" // Use ghost for subtle interaction
+                           className={cn(
+                             "justify-start p-3 text-base font-medium transition-colors duration-200", // Slightly smaller text
+                              isActive
+                                ? "bg-primary/15 text-primary" // Active styles for mobile
+                                : "text-foreground hover:bg-primary/10 hover:text-primary"
+                           )}
+                           onClick={(e) => handleNavLinkClick(e, item.href)} // Ensure correct handler is used
+                         >
+                           {item.label}
+                         </Button>
+                     );
+                   })}
                    <div className="border-b border-border/20 pt-2"></div> {/* Subtle Separator */}
                   {/* Contact Link in Mobile Menu - Styled as button */}
                    <Button
-                     variant="default" // Use default variant for emphasis
-                     className="w-full mt-6 py-3 text-base font-medium" // Adjusted text size
+                     variant={activeSection === '#contact' ? 'default' : 'outline'} // Conditional variant based on active state
+                     className={cn(
+                         "w-full mt-6 py-3 text-base font-medium", // Adjusted text size
+                          activeSection === '#contact'
+                          ? 'bg-primary text-primary-foreground' // Use default active styles
+                          : 'border-primary/50 text-primary hover:bg-primary/15' // Outline styles
+                       )}
                      onClick={(e) => handleNavLinkClick(e, "#contact")} // Ensure correct handler is used
                    >
                      Contact Me{" "}
