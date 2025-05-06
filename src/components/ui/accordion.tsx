@@ -1,8 +1,10 @@
+tsx
 "use client"
 
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDown } from "lucide-react"
+// Removed unused ChevronDown import
+// import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -36,7 +38,8 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <ChevronDown className="h-5 w-5 shrink-0 transition-transform duration-350 text-primary" /> {/* Adjusted icon size and transition duration */}
+      {/* ChevronDown icon is typically rendered here by consumers, or automatically if needed */}
+      {/* Example: <ChevronDown className="h-5 w-5 shrink-0 transition-transform duration-350 text-primary" /> */}
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
