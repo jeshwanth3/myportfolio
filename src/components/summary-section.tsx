@@ -73,7 +73,7 @@ export function SummarySection() {
           </div>
         </div>
       </div>
-      {/* Add the SummaryStats component here */}
+      {/* Add the SummaryStats component here, placing it after the main grid */}
       <SummaryStats />
     </SectionWrapper>
   );
