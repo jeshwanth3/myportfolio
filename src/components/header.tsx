@@ -39,26 +39,24 @@ export function Header() {
     closeSheet(); // Close sheet if open (for mobile)
 
     // Use requestAnimationFrame for smoother scrolling after potential state updates
-    requestAnimationFrame(() => {
-      if (href === '/') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
+      requestAnimationFrame(() => {
+        if (href === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+  
+        const element = document.querySelector(href);
+        if (element) {
+          const headerOffset = 85; // Consistent header offset for scroll calculation
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
       }
-
-      const element = document.querySelector(href);
-      if (element) {
-        const headerOffset = 85; // Consistent header offset for scroll calculation
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      } else {
-        console.warn(`Element with selector "${href}" not found.`);
-      }
-    });
+    })
   };
 
 
