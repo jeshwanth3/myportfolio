@@ -33,7 +33,8 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, dela
       )}
       <CardContent className="p-0 flex flex-col items-center">
         {/* Adjusted font size for value, use primary color */}
-        <p className="text-xl md:text-2xl font-bold text-primary group-hover:text-primary transition-colors duration-300"> {/* Reduced size */}
+        {/* Reduced size from text-xl md:text-2xl to text-lg md:text-xl */}
+        <p className="text-lg md:text-xl font-bold text-primary group-hover:text-primary transition-colors duration-300">
           {value}
         </p>
         {/* Adjusted font size/tracking for label */}
@@ -84,3 +85,4 @@ export function SummaryStats() {
     </div>
   );
 }
+
