@@ -2,7 +2,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Mail } from 'lucide-react'; // Use Mail icon for consistency
+import { Download, Mail, Calendar } from 'lucide-react'; // Use Mail icon for consistency, add Calendar icon
 import Image from 'next/image';
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ export function ContactSection() {
   const email = "jeshwanthgoud2@gmail.com"; // Replace with actual email
   const linkedInUrl = "https://www.linkedin.com/in/jeshwanth-goud/";
   const resumeUrl = "https://drive.google.com/file/d/1XyrFaUT2P1eA8ifOc_6F-4azN8YGgKDc/view?usp=sharing"; // Assuming resume is in public folder
+  const calendlyUrl = "https://calendly.com/jeshwanthgoud2"; // Calendly URL
 
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28">
@@ -20,7 +21,7 @@ export function ContactSection() {
         <CardContent className="p-6 md:p-8 text-center space-y-8"> {/* Increased space */}
           {/* Updated, more concise and personal text */}
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-           Whether you have a project in mind, a question, or just want to chat, let's connect and explore how we can achieve great things together! 
+           Whether you have a project in mind, a question, or just want to chat, let&apos;s connect and explore how we can achieve great things together!
           </p>
           {/* Enhanced Button Styling and Layout */}
           <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row and flex-wrap */}
@@ -62,6 +63,17 @@ export function ContactSection() {
                 className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border"
               >
                  <Download className="mr-2 h-5 w-5" /> Download My Resume
+              </Button>
+            </Link>
+             {/* Calendly Button */}
+            <Link href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                 variant="outline"
+                 size="lg" // Keep size lg
+                 className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border"
+              >
+                 <Calendar className="mr-2 h-5 w-5" /> {/* Use Calendar icon */}
+                 Schedule a Meeting
               </Button>
             </Link>
           </div>
