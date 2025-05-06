@@ -2,6 +2,7 @@
 // src/components/header.tsx
 'use client';
 
+import type React from 'react'; // Import React namespace
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -24,7 +25,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 5); // Trigger effect almost immediately
+      setIsScrolled(window.scrollY > 10); // Trigger effect slightly later
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
@@ -33,51 +34,53 @@ export function Header() {
 
   const closeSheet = () => setOpen(false); // Function to close the sheet
 
-  const handleMobileLinkClick = (href: string) => {
-    closeSheet(); // Close the sheet when a link is clicked
-    // Wait slightly for animation before scrolling
-    setTimeout(() => {
-      // FIX: Check if href is '/' before attempting querySelector
+  // Combined click handler for both desktop and mobile
+  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    closeSheet(); // Close sheet if open (for mobile)
+
+    // Use requestAnimationFrame for smoother scrolling after potential state updates
+    requestAnimationFrame(() => {
       if (href === '/') {
-         window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top for home link
-         return; // Exit early
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
       }
 
-      // Proceed with querySelector only if href is not '/'
       const element = document.querySelector(href);
       if (element) {
-        // Adjust scroll position to account for sticky header height
-        const headerOffset = 75; // Adjusted height of the sticky header + buffer
+        const headerOffset = 85; // Adjusted height + buffer (approx 75px + 10px)
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
-             top: offsetPosition,
-             behavior: 'smooth'
+          top: offsetPosition,
+          behavior: 'smooth'
         });
+      } else {
+        console.warn(`Element with selector "${href}" not found.`);
       }
-    }, 0); // Removed delay for faster navigation
+    });
   };
 
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Faster transition
-        // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Standard transition
+        // Apply glassmorphism and shadow when scrolled
         isScrolled
-          ? "glassmorphism-heavy shadow-xl border-b border-border/10" // Deeper shadow, more subtle border
-          : "bg-gradient-to-b from-background/50 via-background/10 to-transparent border-b border-transparent" // Start more transparent
+          ? "glassmorphism-heavy shadow-xl border-b border-border/15" // Apply heavy glassmorphism, deeper shadow, subtle border
+          : "bg-gradient-to-b from-background/60 via-background/20 to-transparent border-b border-transparent" // Start more transparent
       )}
     >
-      {/* Slightly increased height */}
+      {/* Increased height */}
       <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
 
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
-        <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
+        <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => handleNavLinkClick(e, '/')}>
           <span className={cn(
-              // Apply gradient text - Emphasizing Blue to Teal, removed glow
-              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-accent", // Adjusted gradient stops, removed animate-glow
+              // Apply gradient text - Emphasizing Blue to Teal
+              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-accent", // Adjusted gradient stops
               "group-hover:brightness-150 transition-all duration-300" // Brighter hover effect
             )}
           >
@@ -91,7 +94,7 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
+              onClick={(e) => handleNavLinkClick(e, item.href)}
               // Updated desktop nav link style for clarity and modern feel
               className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
@@ -105,7 +108,7 @@ export function Header() {
              <Button
                 variant="outline"
                 size="sm"
-                onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
+                onClick={(e) => handleNavLinkClick(e as unknown as React.MouseEvent<HTMLAnchorElement>, '#contact')} // Cast event type for consistency
                 className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
              >
                  Get In Touch With Me <Send className="ml-2 h-4 w-4" /> {/* Adjusted icon size slightly */}
@@ -115,6 +118,7 @@ export function Header() {
 
         {/* Mobile Navigation - Sheet */}
         <div className="flex items-center gap-2 md:hidden">
+          {/* Sheet component manages the mobile menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
@@ -126,6 +130,7 @@ export function Header() {
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
               </Button>
             </SheetTrigger>
+            {/* SheetContent holds the mobile menu's content */}
             <SheetContent
                 side="right"
                 className="w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy" // Apply heavy glassmorphism, slightly wider
@@ -134,7 +139,7 @@ export function Header() {
                {/* Sheet Header - More prominent */}
                <SheetHeader className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
                  <div className="flex items-center justify-between">
-                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
+                   <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
                      <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/60 group-hover:brightness-110 transition-all">
                         Sai J. G. Illuri {/* Shorter name for mobile */}
                      </span>
@@ -148,11 +153,12 @@ export function Header() {
 
               {/* Mobile Navigation Links - Centered, Larger Text */}
               <nav className="flex-1 flex flex-col justify-center p-6 space-y-2.5">
+                {/* Map through navItems to create links */}
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
+                    onClick={(e) => handleNavLinkClick(e, item.href)} // Use combined click handler
                     className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary rounded-lg transition-all duration-200 text-center" // Larger text, padding, use primary on hover
                   >
                     {item.label}
@@ -161,7 +167,7 @@ export function Header() {
                  {/* Contact Link in Mobile Menu - Styled as button */}
                  <Link
                     href="#contact"
-                    onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
+                    onClick={(e) => handleNavLinkClick(e, '#contact')} // Use combined click handler
                      className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
                   >
                     Contact Me <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
@@ -179,3 +185,4 @@ export function Header() {
     </header>
   );
 }
+
