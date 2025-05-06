@@ -16,14 +16,14 @@ export function SummarySection() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
         {/* Text Content Area - Ensure text is centered on mobile, left-aligned on large screens */}
         <div className="lg:col-span-3 space-y-5 md:space-y-6 text-center lg:text-left">
-          <p className="text-lg sm:text-xl text-muted-foreground md:text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 font-light">
+          <p className="text-xl sm:text-2xl font-semibold text-primary">
              Hello, I&apos;m
           </p>
            {/* Name - Reduced size, uses foreground */}
            <h1 className={cn(
-               "text-3xl sm:text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-foreground", // Consistent font sizes
-               "leading-tight mb-2"
-             )}
+              "text-5xl sm:text-6xl font-bold tracking-tight text-foreground",
+              "leading-tight mb-4"
+            )}
            >
             {yourName}
           </h1>
@@ -58,11 +58,11 @@ export function SummarySection() {
                width={380}
                height={380}
                sizes="(max-width: 640px) 65vw, (max-width: 1024px) 320px, 380px" // Added breakpoint for smaller screens
-               className="rounded-full mac-shadow border-4 border-primary/30 dark:border-primary/40 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px] transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-xl" // Adjusted max-width for mobile
+               className="rounded-full border-8 border-primary/70 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px]" // Adjusted max-width for mobile
                priority
                data-ai-hint="professional headshot person dark background studio lighting nebula purple teal"
              />
-             <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-primary/20 dark:group-hover:border-primary/30 transition-all duration-500 ease-out scale-105 group-hover:scale-110 blur-md opacity-0 group-hover:opacity-100 -z-10"></div>
+             
           </div>
         </div>
       </div>
