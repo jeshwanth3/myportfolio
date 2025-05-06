@@ -3,6 +3,8 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { GraduationCap, CalendarDays } from 'lucide-react';
 import Image from 'next/image'; // Import next/image
+import * as React from "react";
+import { cn } from "@/lib/utils"; // Import cn
 
 const education = [
   {
@@ -30,48 +32,52 @@ const education = [
 
 export function EducationSection() {
   return (
-    // Slightly different background gradient for visual separation
-    <SectionWrapper id="education" className="bg-gradient-to-b from-card/5 via-secondary/15 to-card/5 dark:from-card/10 dark:via-secondary/25 dark:to-card/10">
+    // Use a subtle background gradient for the section
+    <SectionWrapper id="education" className="bg-gradient-to-b from-card/5 via-secondary/10 to-card/5 dark:from-card/10 dark:via-secondary/15 dark:to-card/10">
       <SectionTitle>Education</SectionTitle>
-       {/* Grid layout: 1 col mobile, 2 col small+, 3 col large+ */}
+       {/* Keep the 3-column grid layout for larger screens */}
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {education.map((edu, index) => (
-            // Enhanced Card Styling with unique hover effect using accent color
+            // Simplified Card Styling: cleaner background, softer shadow, subtle hover
             <Card
               key={edu.id}
-              // Apply subtle gradient background, enhanced shadow, and border effect on hover
-              className="flex flex-col bg-gradient-to-br from-card/90 to-secondary/80 dark:from-secondary/60 dark:to-card/70 mac-shadow border border-border/20 dark:border-border/30 transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/50 dark:hover:border-primary/60 transform hover:-translate-y-2 group"
-              // Staggered animation delay for each card
+              className={cn(
+                 // Base card styling: subtle background, standard radius and border
+                 "flex flex-col bg-card/90 dark:bg-secondary/60 mac-shadow border border-border/20 dark:border-border/30 transition-all duration-300 ease-out",
+                 // Hover effect: slight lift and border highlight
+                 "hover:shadow-md hover:border-primary/30 dark:hover:border-primary/40 transform hover:-translate-y-1",
+                 // Ensure consistent height if needed, or let content dictate
+                 "group" // Add group for potential group-hover effects if desired later
+              )}
+              // Apply animation delay for staggered effect
               style={{ '--animation-delay': `${150 + index * 100}ms` } as React.CSSProperties}
             >
-               {/* Improved Card Header Layout - Icon treatment */}
+               {/* Refined Card Header Layout */}
                <CardHeader className="flex flex-row items-start gap-4 p-5 md:p-6 pb-3">
-                  {/* Icon container with background matching card but slightly different opacity */}
-                  <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-lg mt-0.5 shrink-0 group-hover:bg-primary/25 dark:group-hover:bg-primary/30 transition-colors duration-300 w-12 h-12 flex items-center justify-center">
-                     {/* Conditionally render image or fallback icon */}
+                  {/* Icon/Logo Container */}
+                  <div className="bg-primary/10 dark:bg-primary/20 p-2.5 rounded-lg mt-1 shrink-0 w-12 h-12 flex items-center justify-center transition-colors duration-300">
                      {edu.imageUrl ? (
                          <Image
                            src={edu.imageUrl}
                            alt={`${edu.institution} logo`}
-                           width={40} // Increased size
-                           height={40} // Increased size
-                           className="object-contain group-hover:scale-110 transition-transform duration-300" // Added hover effect
-                           data-ai-hint="university logo" // AI Hint
+                           width={36} // Slightly reduced size for cleaner look
+                           height={36}
+                           className="object-contain transition-transform duration-300 group-hover:scale-105" // Subtle hover scale
+                           data-ai-hint="university logo"
                          />
                        ) : (
-                         <GraduationCap className="h-6 w-6 text-primary group-hover:text-primary transition-colors duration-300" />
+                         <GraduationCap className="h-6 w-6 text-primary transition-colors duration-300" />
                        )}
                   </div>
+                   {/* Text Content */}
                    <div className="flex-1">
-                       <CardTitle as="h3" className="text-lg md:text-xl font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">{edu.degree}</CardTitle>
-                       <div className="flex items-center mt-1.5 gap-2"> {/* Wrapper for institution */}
-                           <CardDescription className="text-sm md:text-base text-muted-foreground">{edu.institution}</CardDescription>
-                       </div>
+                       <CardTitle as="h3" className="text-base md:text-lg font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">{edu.degree}</CardTitle>
+                       <CardDescription className="text-sm md:text-base text-muted-foreground mt-1">{edu.institution}</CardDescription>
                    </div>
                </CardHeader>
-               {/* Consistent Padding for Content - Added year display with icon */}
-               <CardContent className="p-5 md:p-6 pt-2 flex-1 flex flex-col justify-end"> {/* Ensure content takes space and aligns year at bottom */}
-                    <div className="flex items-center gap-2 text-sm md:text-base font-medium text-foreground/80 dark:text-foreground/75 mt-auto"> {/* Use mt-auto to push to bottom */}
+               {/* Card Content for Years - Consistent Padding */}
+               <CardContent className="p-5 md:p-6 pt-2 mt-auto"> {/* Use mt-auto to push to bottom */}
+                    <div className="flex items-center gap-2 text-xs md:text-sm font-medium text-foreground/80 dark:text-foreground/75">
                         <CalendarDays className="h-4 w-4 opacity-70" />
                         <span>{edu.years}</span>
                     </div>
