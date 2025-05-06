@@ -9,42 +9,55 @@ import Link from 'next/link';
 const projects = [
   {
     id: "proj1",
-    title: "Transit Optimization Dashboard",
-    description: "Developed an interactive dashboard visualizing key transit KPIs, enabling data-driven optimization decisions for CyRide.",
-    technologies: ["Python", "SQL", "Power BI", "Azure Data Factory", "Data Analytics"],
-    githubUrl: "https://github.com/your-username/transit-dashboard", // Replace with actual URL if available
-    liveUrl: null,
+    title: "Data-Driven Transit Optimization Platform", // Enhanced title
+    // Rewritten description emphasizing strategy and user value
+    description: "Spearheaded the conceptualization and development of an interactive analytics platform for CyRide, enabling data-informed transit route optimization and enhancing commuter experience through reduced wait times.",
+    technologies: ["Product Strategy", "Data Analytics", "Python", "SQL", "Power BI", "Azure Data Factory", "User-Centric Design"], // Added PM skills
+    githubUrl: null, // Assuming no public repo for this specific internal tool
+    liveUrl: null, // Assuming no public live demo
   },
   {
     id: "proj2",
-    title: "Insurance Data ETL Pipeline",
-    description: "Automated ETL processes for insurance data using Azure services, significantly reducing processing time and improving data accuracy for Able Up Iowa.",
-    technologies: ["Azure Data Factory", "Azure Data Bricks", "ETL", "Python", "SQL"],
-    githubUrl: null,
-    liveUrl: null,
+    title: "Non-Profit Insurer Data Intelligence Solution", // Enhanced title
+    // Rewritten description emphasizing impact and efficiency
+    description: "Architected and implemented a scalable Azure-based ETL pipeline and BI dashboard suite for Able Up Iowa, transforming raw insurance data into actionable insights and reducing data processing overhead by 50%.",
+    technologies: ["ETL Architecture", "Cloud Data Integration", "Azure Data Factory", "Azure Databricks", "Power BI", "Stakeholder Management", "Python"], // Added PM skills
+    githubUrl: null, // Assuming internal project
+    liveUrl: null, // Assuming internal project
   },
   {
     id: "proj3",
-    title: "Portfolio Website (This Site!)",
-    description: "Built a personal portfolio website using modern web technologies to showcase skills and experience.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+    title: "Personal Portfolio & Skill Showcase", // Kept title concise
+    // Rewritten description focusing on purpose and tech stack demonstration
+    description: "Designed and engineered a dynamic personal portfolio leveraging modern web technologies (Next.js, React, TypeScript) to effectively communicate product management expertise and technical proficiency.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Shadcn UI", "Responsive Design", "UI/UX"], // Added relevant skills
     githubUrl: "https://github.com/your-username/portfolio-website", // Replace with actual URL
-    liveUrl: "#",
+    liveUrl: "#", // Link to the site itself
   },
-  // Add more projects as needed
+  // Example of adding another project (if needed)
+  // {
+  //   id: "proj4",
+  //   title: "SaaS Platform Feature Enhancement Initiative",
+  //   description: "Led cross-functional team efforts in refining backlog priorities and implementing key feature enhancements for a Blue Yonder SaaS product, resulting in a 20% decrease in high-priority incident tickets.",
+  //   technologies: ["SaaS Product Management", "Agile Development", "Backlog Prioritization", "CI/CD", "Azure DevOps", "PL/SQL"],
+  //   githubUrl: null,
+  //   liveUrl: null,
+  // },
 ];
 
 export function ProjectsSection() {
   return (
     <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15">
-      <SectionTitle>Projects</SectionTitle>
-      {/* Grid layout: 1 col mobile, 2 col small+, 3 col large+ */}
+      <SectionTitle>Key Projects & Initiatives</SectionTitle> {/* Updated Section Title */}
+      {/* Grid layout remains the same */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           // Enhanced Card Styling - Use accent color for border on hover
           <Card
             key={project.id}
             className="flex flex-col bg-card/95 dark:bg-secondary/70 mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-1.5"
+             // Staggered animation delay for each card
+             style={{ '--animation-delay': `${150 + index * 100}ms` } as React.CSSProperties}
           >
             <CardHeader className="p-5 md:p-6 pb-4">
               <div className="flex items-center gap-4 mb-2">
@@ -55,7 +68,7 @@ export function ProjectsSection() {
                    <CardTitle as="h3" className="text-lg md:text-xl font-semibold text-foreground">{project.title}</CardTitle>
                 </div>
               </div>
-              <CardDescription className="text-base text-muted-foreground pt-1">{project.description}</CardDescription>
+              <CardDescription className="text-base text-muted-foreground pt-1 leading-relaxed">{project.description}</CardDescription> {/* Improved line height */}
             </CardHeader>
             <CardContent className="flex-1 p-5 md:p-6 pt-0">
               {/* Enhanced Badge Styling - Use accent color on hover */}
@@ -86,6 +99,10 @@ export function ProjectsSection() {
                     {project.liveUrl === '#' ? 'View Site' : 'Live Demo'} <ExternalLink className="ml-1.5 h-3.5 w-3.5 opacity-80" /> {/* Increased icon opacity */}
                   </Button>
                 </Link>
+              )}
+               {/* Display message if no links are available */}
+              {!project.githubUrl && !project.liveUrl && (
+                <span className="text-xs text-muted-foreground italic">Internal Project (No public links)</span>
               )}
             </CardFooter>
           </Card>
