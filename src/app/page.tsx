@@ -1,3 +1,4 @@
+import BasicButton from '@/components/basic-button';
 import DialogDemo from '@/components/dialog-demo';
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Header } from "@/components/header";
@@ -23,6 +24,9 @@ export default function Home() {
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
+        <div className='p-4'>
+            <BasicButton>Click Me</BasicButton>
+        </div>
         <EducationSection />
         <ContactSection />
       </main>

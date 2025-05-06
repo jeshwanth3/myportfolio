@@ -128,17 +128,16 @@ export function Header() {
               </Button>
             </SheetTrigger>
             {/* SheetContent holds the mobile menu's content */}
-            <SheetContent
-                side="right"
-                className="w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy" // Apply heavy glassmorphism, slightly wider
-                title="Main Navigation" // Accessible title for screen readers
-            >
-               {/* Sheet Header - More prominent */}
-               <SheetHeader className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
+            <SheetContent side="right" className="w-[85vw] max-w-[360px] bg-background/90 border-l border-border/20 backdrop-blur-2xl p-0 flex flex-col glassmorphism-heavy" title="Main Navigation">
+                {/* Sheet Header - More prominent */}
+                <SheetHeader className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
                  <div className="flex items-center justify-between">
                    <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
                      <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
                         Sai J. G. Illuri {/* Shorter name for mobile */}
+                     </span>
+                     <Sheet.Title>
+                       Sai Jeshwanth Goud Illuri
                      </span>
                    </Link>
                    <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" size="icon" onClick={closeSheet}>

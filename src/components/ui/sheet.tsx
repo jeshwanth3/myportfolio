@@ -5,7 +5,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 // Import DialogTitle and RadixDialogDescription from radix-ui
-import { DialogTitle as RadixDialogTitle, DialogDescription as RadixDialogDescription, DialogTitle } from "@radix-ui/react-dialog";
+import { DialogTitle as RadixDialogTitle, DialogDescription as RadixDialogDescription } from "@radix-ui/react-dialog";
  
 import { cn } from "@/lib/utils"
 import { VisuallyHidden } from "./visually-hidden"; // Ensure VisuallyHidden is imported
@@ -76,14 +76,6 @@ const SheetContent = React.forwardRef<
             aria-labelledby={titleId} // Use generated titleId if title prop exists
             {...props}
         >
-            {/* Add visually hidden title if provided */}
-             <VisuallyHidden className="sr-only">
-                <DialogTitle id={titleId} >
-                   {title}
-                </DialogTitle>
-             </VisuallyHidden>
-
-
             {children}
 
             {/* Close Button remains */}
