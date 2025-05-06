@@ -22,7 +22,7 @@ export function SummarySection() {
           </p>
            {/* Name - Uses foreground, adjusted size for hierarchy */}
            <h1 className={cn(
-              "text-4xl sm:text-5xl font-bold tracking-tight text-foreground", // Adjusted font size
+              "text-4xl sm:text-5xl font-bold tracking-tight text-foreground", // Changed color to foreground
               "leading-tight mb-4"
             )}
            >
@@ -39,7 +39,11 @@ export function SummarySection() {
           {/* Buttons - Stack vertically on mobile (flex-col), row on larger (sm:flex-row) */}
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-6 md:pt-8">
              <Link href="#contact" passHref>
-               <Button size="lg" className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto border border-primary/60 text-primary hover:bg-primary/10 button-glow"> {/* Adjusted button styles */}
+               <Button
+                 variant="default" // Changed back to default variant or keep outline as preferred
+                 size="lg"
+                 className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto button-glow" // Removed blue text/border/bg, kept glow
+               >
                  Contact Me <Mail className="ml-2 h-5 w-5" />
                </Button>
              </Link>
@@ -74,3 +78,4 @@ export function SummarySection() {
     </SectionWrapper>
   );
 }
+
