@@ -9,6 +9,7 @@ import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 
+
 export default function Home() {
     return (
     // The main container now spans the full viewport height
@@ -16,7 +17,7 @@ export default function Home() {
 
       {/* Content is rendered directly */}
       <Header setOpen={setOpen} />
-      {/* Adjusted padding: Increased mobile padding (px-4), kept md padding */}
+      
       <main className="flex-1 px-4 md:px-6">
         <SummarySection />
         <ExperienceSection />
