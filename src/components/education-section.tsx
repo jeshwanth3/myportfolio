@@ -4,7 +4,6 @@ import { GraduationCap } from 'lucide-react';
 import React from "react";
 import { cn } from "@/lib/utils"; // Import cn
 import Image from 'next/image'; // Import next/image
-// Removed Accordion imports as they are no longer used for desktop
 
 const education = [
   {
@@ -51,7 +50,8 @@ export function EducationSection() {
                 "group hover:shadow-lg hover:-translate-y-1"
               )}>
                 <div className="flex items-center space-x-4 px-4 pt-4 pb-2">
-                  <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300">
+                   {/* Removed background classes */}
+                  <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-all duration-300 shrink-0 p-1">
                     {edu.imageUrl ? (
                       <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={40} height={40} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
                     ) : (
@@ -83,7 +83,8 @@ export function EducationSection() {
               )}>
                 {/* Replaces AccordionTrigger - Use a styled div for the header content */}
                  <div className="p-4 md:p-6 flex items-center gap-4 w-full"> {/* Keep existing layout */}
-                      <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 group-hover:scale-110 transition-all duration-300 shrink-0 bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
+                       {/* Removed background classes */}
+                      <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 group-hover:scale-110 transition-all duration-300 shrink-0 p-2">
                         {edu.imageUrl ? (
                           <Image src={edu.imageUrl} alt={`${edu.institution} logo`} width={60} height={60} className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
                         ) : (
