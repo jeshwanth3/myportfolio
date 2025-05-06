@@ -51,7 +51,7 @@ export function SummaryStats() {
     {
       icon: <Briefcase />,
       value: "3+",
-      label: "Years of Experience",
+      label: "Years Experience",
       delay: "300ms",
     },
     {
@@ -62,8 +62,8 @@ export function SummaryStats() {
     },
     {
       icon: <Rocket />,
-      value: "Ready",
-      label: "Available for Hire",
+      value: "Available", // Updated value from Ready to Available
+      label: "For Hire", // Updated label from Available for Hire to For Hire
        delay: "600ms",
     },
   ];
