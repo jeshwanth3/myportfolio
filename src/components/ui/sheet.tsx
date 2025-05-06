@@ -9,7 +9,7 @@ import { X } from "lucide-react"
 import { DialogTitle as RadixDialogTitle, DialogDescription as RadixDialogDescription } from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils"
-import { VisuallyHidden } from "./visually-hidden" // Ensure VisuallyHidden is imported
+import { VisuallyHidden } from "./visually-hidden"; // Ensure VisuallyHidden is imported
 
 const Sheet = SheetPrimitive.Root
 
@@ -171,4 +171,3 @@ export {
   SheetTitle, // Export SheetTitle
   SheetDescription, // Export SheetDescription
 };
-
