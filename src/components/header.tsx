@@ -1,23 +1,29 @@
 "use client";
-import { Dialog as DialogPrimitive } from "@radix-ui/react-dialog";
-import React from "react";
+import type React, { MouseEvent } from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import * as Dialog from "@radix-ui/react-dialog";
+import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { Menu, X, Send } from "lucide-react";
-import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Ensure VisuallyHidden is imported
 import { cn } from "@/lib/utils";
- 
+
+"use client";
+
 const navItems = [
-  { label: "About", href: "#summary" },
+  { label: "About", href: "#summary"},
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
-];
+]
 
-export function Header(){
+import BasicButton from "@/components/basic-button";
+
+interface HeaderProps {
+  setOpen: (open: boolean) => void;
+}
+export function Header({ setOpen }: HeaderProps) {
+  const [open, setOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -29,13 +35,13 @@ export function Header(){
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    event.preventDefault(); // Prevent default anchor behavior
-
+  const handleNavLinkClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    if (href === "/") setOpen(false);
     requestAnimationFrame(() => {
-       if (href === "/") {window.scrollTo({ top: 0, behavior: "smooth" });return;}
+        if (href === "/") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
     const dialogClose = document.querySelector('[data-state="open"]');
-
+       
         dialogClose?.dispatchEvent(new Event("click"));
 
       const element = document.querySelector(href);
@@ -47,7 +53,6 @@ export function Header(){
       }
     });
   };
-
   return ( // Add setOpen to the header
     <header
       className={cn(
@@ -61,14 +66,14 @@ export function Header(){
       {/* Increased height */}
       <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
-        <Link
-          href="/"
-          className="flex items-center space-x-3 group"
+        <Link 
+        href="/"
+        className="flex items-center space-x-3 group"
           onClick={(e) => handleNavLinkClick(e, "/")}
         >
-          <span className={cn(
-              // Apply gradient text 
-              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
+          <span
+            className={cn(
+            "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
               "group-hover:brightness-125 transition-all duration-300" // Brighter hover effect
             )}
           >
@@ -84,7 +89,7 @@ export function Header(){
               href={item.href} // Corrected
               onClick={(e) => handleNavLinkClick(e, item.href)}
               // Updated desktop nav link style
-              className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
+            className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
               <span className="relative z-10">{item.label}</span>
               {/* Underline reveal from center */}
@@ -97,8 +102,7 @@ export function Header(){
             <Button
               variant="outline"
               size="sm"
-              onClick={(e) => handleNavLinkClick(e, "#contact")
-              } // Cast event type for consistency
+              onClick={(e) => handleNavLinkClick(e, "#contact")} // Cast event type for consistency
               className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
             >
               Get In Touch With Me <Send className="ml-2 h-4 w-4" />{" "}
@@ -110,7 +114,7 @@ export function Header(){
         {/* Mobile Navigation - Sheet */}
         <div className="flex items-center gap-2 md:hidden">
           {/* Sheet component manages the mobile menu */}
-          <Dialog.Root open={false} onOpenChange={()=>{}}>
+          <Dialog.Root open={open} onOpenChange={setOpen}>
             <Dialog.Trigger asChild>
               <Button
                 variant="ghost"
@@ -118,7 +122,7 @@ export function Header(){
                 className="text-muted-foreground h-10 w-10 rounded-full" // Simplified styles
               >
                 <Menu className="h-6 w-6" />
-                <VisuallyHidden>Toggle Menu</VisuallyHidden>
+              <VisuallyHidden>Toggle Menu</VisuallyHidden>
               </Button>
             </Dialog.Trigger>
             <Dialog.Portal>
@@ -135,54 +139,46 @@ export function Header(){
                 </VisuallyHidden>
                 <Dialog.Description className="sr-only">
                   Mobile Menu Navigation
-                </Dialog.Description>
+              </Dialog.Description>
                 {/* DialogHeader - More prominent */}
                 <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2.5 group"
-                    onClick={(e) => handleNavLinkClick(e, "/")}
-                  >
+                  <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, "/")}>
                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
                       Sai J. G. Illuri{/* Shorter name for mobile */}
                     </span>
                   </Link>
-                  <Dialog.Close asChild>
-                    <Button
-                      variant="ghost"
-                      className="h-9 w-9 p-0 rounded-full"
-                    >
+                  <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" >
                       <X className="h-5 w-5 text-muted-foreground" />
-                      <VisuallyHidden>Close Menu</VisuallyHidden>
-                    </Button>
-                  </Dialog.Close>
+                    <VisuallyHidden>Close Menu</VisuallyHidden>
+                  </Button>
                 </div>
                 {/* Mobile Navigation Links - Centered, Larger Text */}
-                <nav className="flex-1 flex flex-col p-6 space-y-4">
+                <nav className="flex-1 flex flex-col p-6 space-y-4"> 
                   {/* Map through navItems to create links */}
                   {navItems.map((item) => (
-                    <Link
+                    <BasicButton
                       key={item.label}
-                      href={item.href} // Corrected
-                      onClick={(e) => handleNavLinkClick(e, item.href)} // Add setOpen
+                      onClick={(e) => {
+                        handleNavLinkClick(e, item.href);
+                      }}
                       className={cn(
                         "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
                         "border-b border-border/25", // Separator adjusted, button-like style
                       )}
                     >
                       {item.label}
-                    </Link>
+                    </BasicButton>
                   ))}
                   <div className="border-b border-border/25"></div>
                   {/* Contact Link in Mobile Menu - Styled as button */}
-                  <Link
-                    href="#contact"
-                    onClick={(e) => handleNavLinkClick(e, "#contact")} // Use combined click handler
-                    className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
+                  <BasicButton
+                    onClick={(e) => handleNavLinkClick(e, "#contact")}
+                    className={cn("block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6")}
                   >
-                    Contact Me{" "}
-                    <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
-                  </Link>
+                      Contact Me{" "}
+                      <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                    </BasicButton>
+
                 </nav>
 
                 {/* Subtle Footer in Dialog */}
