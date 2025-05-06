@@ -37,7 +37,6 @@ export function Header({ }: HeaderProps) {
   // Combined click handler for both desktop and mobile
   const handleNavLinkClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
   ) => {
     event.preventDefault(); // Prevent default anchor behavior
     if (href === "/") setOpen(false)
@@ -76,7 +75,7 @@ export function Header({ }: HeaderProps) {
         <Link
           href="/"
           className="flex items-center space-x-3 group"
-          onClick={(e) => handleNavLinkClick(e, "/")}
+          onClick={(e) => handleNavLinkClick(e)}
         >
 
 
@@ -96,7 +95,7 @@ export function Header({ }: HeaderProps) {
             <Link
               key={item.label}
               href={item.href} // Corrected
-              onClick={(e) => handleNavLinkClick(e, item.href)}
+              onClick={(e) => handleNavLinkClick(e)}
               // Updated desktop nav link style
               className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
@@ -113,7 +112,6 @@ export function Header({ }: HeaderProps) {
               size="sm"
               onClick={(e) =>
                 handleNavLinkClick(
-                  e as unknown as React.MouseEvent<HTMLAnchorElement>,
                   "#contact",
                 )
               } // Cast event type for consistency
@@ -159,7 +157,7 @@ export function Header({ }: HeaderProps) {
                   <Link
                     href="/"
                     className="flex items-center space-x-2.5 group"
-                    onClick={(e) => handleNavLinkClick(e, "/")}
+                    onClick={(e) => handleNavLinkClick(e)}
                   >
                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
                       Sai J. G. Illuri{/* Shorter name for mobile */}
@@ -184,7 +182,7 @@ export function Header({ }: HeaderProps) {
                     <Link
                       key={item.label}
                       href={item.href} // Corrected
-                      onClick={(e) => handleNavLinkClick(e, item.href)} // Add setOpen
+                      onClick={(e) => handleNavLinkClick(e)} // Add setOpen
                       className={cn(
                         "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
                         "border-b border-border/25", // Separator adjusted, button-like style
@@ -197,7 +195,7 @@ export function Header({ }: HeaderProps) {
                   {/* Contact Link in Mobile Menu - Styled as button */}
                   <Link
                     href="#contact"
-                    onClick={(e) => handleNavLinkClick(e, "#contact")} // Use combined click handler
+                    onClick={(e) => handleNavLinkClick(e)} // Use combined click handler
                     className="block w-full px-4 py-3 text-lg font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-200 text-center mt-6 border-t border-border/20 pt-6" // Separator adjusted, button-like style
                   >
                     Contact Me{" "}
