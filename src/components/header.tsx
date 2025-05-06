@@ -39,6 +39,12 @@ export function Header({ setOpen }: HeaderProps) {
 
     // Use requestAnimationFrame for smoother scrolling after state updates
     requestAnimationFrame(() => {
+      // Special handling for scrolling to the top
+      if (href === "/") {
+         window.scrollTo({ top: 0, behavior: "smooth" });
+         return; // Exit early
+      }
+
       const element = document.querySelector(href);
       if (element) {
         const headerOffset = 80; // Updated offset to match header height (h-[75px] approx 4.7rem -> ~75px) + buffer
@@ -49,8 +55,6 @@ export function Header({ setOpen }: HeaderProps) {
           top: offsetPosition,
           behavior: "smooth",
         });
-      } else if (href === "/") { // Handle scroll to top for home link
-         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
   };
