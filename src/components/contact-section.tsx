@@ -14,13 +14,13 @@ export function ContactSection() {
   return (
     <SectionWrapper id="contact" className="bg-gradient-to-t from-background via-card/10 to-background/90 pb-16 md:pb-24 lg:pb-28">
       {/* Updated Section Title */}
-      <SectionTitle>Let&apos;s Build Something Great Together</SectionTitle>
+      <SectionTitle>Let&apos;s Build Something Great Together!</SectionTitle>
       {/* Enhanced Card Styling */}
       <Card className="max-w-3xl mx-auto bg-card/90 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 backdrop-blur-md">
         <CardContent className="p-6 md:p-8 text-center space-y-8"> {/* Increased space */}
           {/* Updated, more concise and personal text */}
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Passionate about solving complex problems and creating impactful products. If you&apos;re seeking a strategic product leader, let&apos;s connect and explore how we can achieve great things together.
+           Whether you have a project in mind, a question, or just want to chat, let's connect and explore how we can achieve great things together! 
           </p>
           {/* Enhanced Button Styling and Layout */}
           <div className="flex flex-row justify-center items-center gap-4 flex-wrap"> {/* Use flex-row and flex-wrap */}

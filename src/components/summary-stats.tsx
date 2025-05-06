@@ -51,12 +51,12 @@ export function SummaryStats() {
     {
       icon: <Briefcase />,
       value: "3+",
-      label: "Years Experience",
+      label: "Years of Experience",
       delay: "300ms",
     },
     {
       icon: <FolderGit2 />,
-      value: "5+",
+      value: "15+",
       label: "Projects Delivered",
        delay: "450ms",
     },

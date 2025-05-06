@@ -11,27 +11,29 @@ const projects = [
     id: "proj1",
     title: "Data-Driven Transit Optimization Platform", // Enhanced title
     // Rewritten description emphasizing strategy and user value
-    description: "Spearheaded the conceptualization and development of an interactive analytics platform for CyRide, enabling data-informed transit route optimization and enhancing commuter experience through reduced wait times.",
+    description: "Spearheaded the conceptualization and development of an interactive analytics platform, enabling data-informed transit route optimization and enhancing commuter experience through reduced wait times.",
     technologies: ["Product Strategy", "Data Analytics", "Python", "SQL", "Power BI", "Azure Data Factory", "User-Centric Design"], // Added PM skills
     githubUrl: null, // Assuming no public repo for this specific internal tool
     liveUrl: null, // Assuming no public live demo
   },
   {
     id: "proj2",
-    title: "Non-Profit Insurer Data Intelligence Solution", // Enhanced title
+    title: "Proj2",
+    // title: "Non-Profit Insurer Data Intelligence Solution", // Enhanced title
     // Rewritten description emphasizing impact and efficiency
-    description: "Architected and implemented a scalable Azure-based ETL pipeline and BI dashboard suite for Able Up Iowa, transforming raw insurance data into actionable insights and reducing data processing overhead by 50%.",
+    description: "Architected and implemented a scalable Azure-based ETL pipeline and BI dashboard suite, transforming raw insurance data into actionable insights and reducing data processing overhead by 50%.",
     technologies: ["ETL Architecture", "Cloud Data Integration", "Azure Data Factory", "Azure Databricks", "Power BI", "Stakeholder Management", "Python"], // Added PM skills
     githubUrl: null, // Assuming internal project
     liveUrl: null, // Assuming internal project
   },
   {
     id: "proj3",
-    title: "Personal Portfolio & Skill Showcase", // Kept title concise
+    title: "Personal Portfolio (This Website!)", // Kept title concise
     // Rewritten description focusing on purpose and tech stack demonstration
-    description: "Designed and engineered a dynamic personal portfolio leveraging modern web technologies (Next.js, React, TypeScript) to effectively communicate product management expertise and technical proficiency.",
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:4169028628.
+    description: "Designed and engineered a dynamic personal portfolio leveraging modern web technologies (Next.js, React, TypeScript) to effectively communicate my learnings, skills, and projects.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Shadcn UI", "Responsive Design", "UI/UX"], // Added relevant skills
-    githubUrl: "https://github.com/your-username/portfolio-website", // Replace with actual URL
+    githubUrl: "https://github.com/jeshwanth3", // Replace with actual URL
     liveUrl: "#", // Link to the site itself
   },
   // Example of adding another project (if needed)
