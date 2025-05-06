@@ -77,8 +77,8 @@ export function Header() {
         <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => handleNavLinkClick(e, '/')}>
           <span className={cn(
               // Apply gradient text and enhanced glow effect
-              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent animate-glow",
-              "group-hover:brightness-150 transition-all duration-300" // Brighter hover effect
+              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700",
+              "group-hover:brightness-125 transition-all duration-300" // Brighter hover effect
             )}
           >
             Sai Jeshwanth Goud Illuri
@@ -137,7 +137,7 @@ export function Header() {
                <SheetHeader className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
                  <div className="flex items-center justify-between">
                    <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
-                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/60 group-hover:brightness-110 transition-all">
+                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-125 transition-all">
                         Sai J. G. Illuri {/* Shorter name for mobile */}
                      </span>
                    </Link>
@@ -149,18 +149,23 @@ export function Header() {
                </SheetHeader>
 
               {/* Mobile Navigation Links - Centered, Larger Text */}
-              <nav className="flex-1 flex flex-col justify-center p-6 space-y-2.5">
+              <nav className="flex-1 flex flex-col p-6 space-y-4">
                 {/* Map through navItems to create links */}
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleNavLinkClick(e, item.href)} // Use combined click handler
-                    className="block w-full px-4 py-3 text-lg font-medium text-foreground hover:bg-primary/10 dark:hover:bg-primary/15 hover:text-primary dark:hover:text-primary rounded-lg transition-all duration-200 text-center" // Larger text, padding, use primary on hover
+                    className={cn(
+                      "block w-full p-6 text-lg font-medium text-foreground hover:bg-primary/10 transition-colors duration-300",
+                      "border-b border-border/25" // Separator adjusted, button-like style
+                    )}
                   >
                     {item.label}
                   </Link>
                 ))}
+                  <div className="border-b border-border/25"></div>
+
                  {/* Contact Link in Mobile Menu - Styled as button */}
                  <Link
                     href="#contact"
