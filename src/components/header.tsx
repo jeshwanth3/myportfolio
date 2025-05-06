@@ -1,4 +1,6 @@
 // src/components/header.tsx
+"use client";
+
 import type React from "react";
 import {  useEffect, useState } from "react";
 import Link from "next/link";
@@ -7,9 +9,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X, Send } from "lucide-react";
 import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Ensure VisuallyHidden is imported
 import { cn } from "@/lib/utils";
-
-"use client";
-
+ 
 
 const navItems = [
   { label: "About", href: "#summary" },
