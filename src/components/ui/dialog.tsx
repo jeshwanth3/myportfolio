@@ -32,33 +32,36 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 interface DialogContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
-  title: string;
+  // Removed the required `title` prop, will use VisuallyHidden internally
 }
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogContentProps
->(({ className, children, title, ...props }, ref) => (
-  <DialogPortal>  
-   <DialogOverlay />  
-   <DialogPrimitive.Content  
-     ref={ref}  
-     className={cn(  
-       "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",  
-       "data-[state=open]:duration-500 data-[state=closed]:duration-500", // Smoother transition duration  
-       className,  
-     )}  
-     {...props}  
-   >  
-     <DialogTitle>{title}</DialogTitle>  
-     {children}  
-     <DialogPrimitive.Close  
-       className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-muted data-[state=open]:text-muted-foreground" // Use muted for open state background  
-     >  
-       <X className="h-4 w-4" />  
-       <span className="sr-only">Close</span>  
-     </DialogPrimitive.Close>  
-   </DialogPrimitive.Content>  
+>(({ className, children, ...props }, ref) => (
+  <DialogPortal>
+   <DialogOverlay />
+   <DialogPrimitive.Content
+     ref={ref}
+     className={cn(
+       "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+       "data-[state=open]:duration-500 data-[state=closed]:duration-500", // Smoother transition duration
+       className,
+     )}
+     {...props}
+   >
+     {/* Add a visually hidden title for accessibility */}
+     <DialogTitle asChild>
+       <VisuallyHidden>Dialog</VisuallyHidden>
+     </DialogTitle>
+     {children}
+     <DialogPrimitive.Close
+       className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-muted data-[state=open]:text-muted-foreground" // Use muted for open state background
+     >
+       <X className="h-4 w-4" />
+       <span className="sr-only">Close</span>
+     </DialogPrimitive.Close>
+   </DialogPrimitive.Content>
  </DialogPortal>
 ));
 DialogContent.displayName = DialogPrimitive.Content.displayName;
@@ -93,14 +96,19 @@ DialogFooter.displayName = "DialogFooter";
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={cn("text-lg font-semibold leading-none tracking-tight", className)}
-    {...props}
-  />
-));
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & { asChild?: boolean } // Added asChild prop
+>(({ className, asChild, ...props }, ref) => {
+  const Comp = asChild ? Slot : "h2"; // Use Slot if asChild is true
+  return (
+    <DialogPrimitive.Title asChild={asChild}>
+      <Comp
+        ref={ref}
+        className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+        {...props}
+      />
+    </DialogPrimitive.Title>
+  );
+});
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
 const DialogDescription = React.forwardRef<
@@ -113,6 +121,9 @@ const DialogDescription = React.forwardRef<
     {...props}
   />));
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
+
+// Need to import Slot if using asChild in DialogTitle
+import { Slot } from "@radix-ui/react-slot";
 
 
 export {
