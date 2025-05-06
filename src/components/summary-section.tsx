@@ -23,6 +23,7 @@ export function SummarySection() {
              Hello, I&apos;m
           </p>
            {/* Name - Use foreground, adjusted size for hierarchy */}
+           {/* Keep sizes aligned and remove redundancy */}
            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight mb-1">
             {yourName}
           </h1>
@@ -62,7 +63,7 @@ export function SummarySection() {
         <div className="lg:col-span-2 flex justify-center lg:justify-end items-center mt-4 lg:mt-0 order-first lg:order-last"> {/* Adjusted mt */}
           <div className="relative group">
              <Image
-               src="https://drive.google.com/uc?export=view&id=15Ix8YbF3RSkYWygk_7Mau_Rtlx4-9xYo" // Updated image source
+               src="https://drive.google.com/uc?export=view&id=1AKxY9S_07wtCKtNC7nuw1r83_2E-IRmw" // Updated image source
                alt="Professional headshot of Sai Jeshwanth Goud Illuri"
                width={320} // Kept width
                height={320} // Kept height
