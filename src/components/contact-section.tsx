@@ -40,14 +40,14 @@ export function ContactSection() {
               <Button
                 variant="ghost"
                 size="icon" // Keep as icon button
-                className="p-1 transition-transform hover:scale-110 transform duration-300 w-22 h-22" // Significantly increased width and height
+                className="p-1 transition-transform hover:scale-110 transform duration-300 w-[100px] h-[100px]" // Increased width and height using arbitrary values
                 aria-label="LinkedIn Profile"
               >
                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-                  width={64} // Increased icon size accordingly
-                  height={64} // Increased icon size accordingly
+                  width={96} // Increased icon size accordingly (150% of 64)
+                  height={96} // Increased icon size accordingly (150% of 64)
                   className="object-contain" // Ensure SVG scales correctly
                 />
               </Button>
