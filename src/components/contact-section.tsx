@@ -66,7 +66,7 @@ export function ContactSection() {
                 size="lg"
                 className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border" // Simplified hover effect
               >
-                 <Download className="mr-2 h-5 w-5" /> Download My Resume {/* Updated text */}
+                 <Download className="mr-2 h-5 w-5" /> Download My Resume
               </Button>
             </Link>
             {/* Instagram Button Removed */}
