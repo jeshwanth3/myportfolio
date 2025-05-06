@@ -1,3 +1,4 @@
+
 "use client";
 import { GraduationCap } from 'lucide-react';
 import React from "react";
@@ -28,7 +29,7 @@ const education = [
     degree: "Bachelor of Technology, Computer Science",
     institution: "Pragati Engineering College (JNTUK)",
     duration: "2017 - 2021",
-    imageUrl: null, // No logo for this one
+    imageUrl: "https://pragati.ac.in/wp-content/uploads/2022/10/pragati-logo-JK-2-1536x572.png", // Updated logo URL
     description: "This program provided a comprehensive foundation in computer science, covering programming, algorithms, data structures, and systems design.",
   },
 ];

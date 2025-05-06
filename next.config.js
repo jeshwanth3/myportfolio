@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -30,9 +31,16 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https', // Added Pragati hostname
+        hostname: 'pragati.ac.in',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
 
 module.exports = nextConfig;
+
 
