@@ -2,9 +2,8 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download } from 'lucide-react';
+import { Download } from 'lucide-react'; // Removed unused Instagram import
 import Image from 'next/image'; // Import next/image
-
 import Link from "next/link";
 
 export function ContactSection() {
@@ -43,14 +42,6 @@ export function ContactSection() {
                   Email Me
                </Button>
              </Link>
-<<<<<<< HEAD
-             {/* LinkedIn Button - Icon Only - Adjusted size */}
-             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="outline"
-                size="icon"
-                className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground w-16 h-11 p-0 flex items-center justify-center border-none" // Increased width, kept height same, removed border
-=======
              {/* LinkedIn Button - Logo Only, No Background/Border */}
             <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer">
               <Button
@@ -58,47 +49,27 @@ export function ContactSection() {
                 size="icon"
                 className="p-1 transition-transform hover:scale-110 transform duration-300 w-auto h-auto" // Remove specific size, padding, background, border classes
                 aria-label="LinkedIn Profile"
->>>>>>> 45d46b8 (Make the following changes:)
               >
                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/a/aa/LinkedIn_2021.svg"
                   alt="LinkedIn Profile"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  width={40} // Enlarged logo size
-                  height={40} // Enlarged logo size
-=======
-                  width={50} // Further enlarged logo size
-                  height={50} // Further enlarged logo size
->>>>>>> 0aa41fb (Make the following changes:)
-=======
-                  width={100} // Further enlarged logo size (doubled)
-                  height={100} // Further enlarged logo size (doubled)
->>>>>>> 9cc0b95 (Make the following changes:)
+                  width={90} // Size adjusted
+                  height={90} // Size adjusted
                   className="object-contain" // Ensure SVG scales correctly
->>>>>>> 45d46b8 (Make the following changes:)
                 />
               </Button>
             </Link>
              {/* Download Resume Button */}
-<<<<<<< HEAD
-             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-accent/90 hover:text-accent-foreground dark:bg-secondary/50 dark:hover:bg-accent dark:hover:text-accent-foreground">
-=======
             <Link href={resumeUrl} download="Sai_Jeshwanth_Goud_Illuri_Resume.pdf" target="_blank" rel="noopener noreferrer">
-<<<<<<< HEAD
-              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary">
->>>>>>> f53313c (Make the following changes:)
-=======
               <Button
                 variant="outline"
                 size="lg"
                 className="shadow-sm hover:shadow-md transition-all duration-300 ease-out hover:scale-[1.03] hover:bg-primary/10 hover:text-primary hover:border-primary/50 border-border" // Simplified hover effect
               >
->>>>>>> e1bb076 (Make the following changes:)
-                 <Download className="mr-2 h-5 w-5" /> Download Resume
+                 <Download className="mr-2 h-5 w-5" /> Download My Resume {/* Updated text */}
               </Button>
             </Link>
+            {/* Instagram Button Removed */}
           </div>
         </CardContent>
       </Card>

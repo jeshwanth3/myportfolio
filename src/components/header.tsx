@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Send } from 'lucide-react';
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
-import { VisuallyHidden } from "@/components/ui/visually-hidden";
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet"; // Ensure SheetHeader is imported
+import { VisuallyHidden } from "@/components/ui/visually-hidden"; // Ensure VisuallyHidden is imported
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -60,27 +60,24 @@ export function Header() {
 
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-      // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
-      isScrolled
-        ? "glassmorphism-heavy shadow-xl border-b border-border/10" // Deeper shadow, more subtle border
-        : "bg-gradient-to-b from-background/50 via-background/10 to-transparent border-b border-transparent" // Start more transparent
-    )}>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out", // Faster transition
+        // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
+        isScrolled
+          ? "glassmorphism-heavy shadow-xl border-b border-border/10" // Deeper shadow, more subtle border
+          : "bg-gradient-to-b from-background/50 via-background/10 to-transparent border-b border-transparent" // Start more transparent
+      )}
+    >
       {/* Slightly increased height */}
       <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
 
         {/* Enhanced Logo/Name Styling - Larger, Gradient Text */}
         <Link href="/" className="flex items-center space-x-3 group" onClick={(e) => { e.preventDefault(); handleMobileLinkClick('/'); }}>
           <span className={cn(
-<<<<<<< HEAD
               // Apply gradient text - Emphasizing Blue to Teal, removed glow
               "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-accent", // Adjusted gradient stops, removed animate-glow
               "group-hover:brightness-150 transition-all duration-300" // Brighter hover effect
-=======
-              "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/60 animate-gradient-text-slow", // Use primary color gradient
-              "group-hover:brightness-125 transition-all duration-300" // Brighter glow on hover
->>>>>>> f53313c (Make the following changes:)
             )}
           >
             Sai Jeshwanth Goud Illuri
@@ -94,7 +91,8 @@ export function Header() {
               key={item.label}
               href={item.href}
               onClick={(e) => { e.preventDefault(); handleMobileLinkClick(item.href); }}
-              className="block px-3 py-2 text-white text-base font-medium rounded-md hover:bg-accent/10 transition"
+              // Updated desktop nav link style for clarity and modern feel
+              className="group relative px-3 py-2 text-base font-medium text-foreground/85 rounded-md transition-all duration-300 ease-out hover:text-primary hover:bg-primary/10"
             >
                <span className="relative z-10">{item.label}</span>
                {/* Underline reveal from center */}
@@ -102,34 +100,12 @@ export function Header() {
             </Link>
           ))}
           <Link href="#contact" passHref>
-<<<<<<< HEAD
-<<<<<<< HEAD
              {/* Enhanced "Get In Touch" Button - Outline Style */}
              <Button
                 variant="outline"
                 size="sm"
                 onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
                 className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
-=======
-             {/* Enhanced "Get In Touch" Button - Primary Glow & Gradient */}
-             <Button
-               variant="default"
-               size="sm"
-               onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
-               className="ml-5 px-5 py-2 h-9 shadow-md hover:shadow-lg hover:shadow-primary/50 transition-all hover:scale-[1.04] transform duration-300 button-glow bg-gradient-to-r from-primary via-primary/90 to-accent/80 hover:from-primary/90 hover:to-accent" // Added gradient and enhanced hover glow
->>>>>>> 12d0f7e (Make the following changes:)
-=======
-             {/* Enhanced "Get In Touch" Button - Outline Style */}
-             <Button
-                variant="outline"
-                size="sm"
-                onClick={(e) => { e.preventDefault(); handleMobileLinkClick('#contact'); }}
-<<<<<<< HEAD
-                className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-accent hover:bg-accent/15 hover:text-accent" // Changed to outline, subtle border and hover effect
->>>>>>> 697708f (Make the following changes:)
-=======
-                className="ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300 border-primary/50 hover:border-primary hover:bg-primary/15 hover:text-primary" // Changed hover effect to primary
->>>>>>> f53313c (Make the following changes:)
              >
                  Get In Touch With Me <Send className="ml-2 h-4 w-4" /> {/* Adjusted icon size slightly */}
              </Button>
