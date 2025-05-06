@@ -5,8 +5,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   @apply dark; /* Apply dark mode by default */
-  /* Apply the gradient background directly to the body */
-  @apply bg-gradient-to-b from-background via-background to-[hsl(225_25%_4%)]; /* Subtle gradient to a slightly lighter deep blue */
+  /* Slightly adjust gradient stops for a smoother transition */
+  @apply bg-gradient-to-b from-background via-background/95 to-[hsl(225_25%_7%)]; /* Smoother gradient */
   @apply text-foreground; /* Ensure base text color is applied */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,7 +21,7 @@ body {
     --card: 225 25% 11%; /* Slightly lighter card */
     --card-foreground: 210 50% 96%; /* Match foreground */
 
-    --popover: 225 30% 5%; /* Darker popover */
+    --popover: 225 30% 4%; /* Slightly darker popover for better contrast */
     --popover-foreground: 210 50% 96%; /* Match foreground */
 
     /* Primary - Electric Blue */
@@ -36,7 +36,7 @@ body {
     --muted: 220 15% 30%; /* Neutral Gray */
     --muted-foreground: 215 20% 65%; /* Lighter muted text */
 
-    /* Accent - Vivid Teal/Cyan - Keep for specific accents if desired */
+    /* Accent - Vivid Teal/Cyan */
     --accent: 180 85% 45%;  /* Bright Teal/Cyan */
     --accent-foreground: 225 25% 15%; /* Darker foreground for accent */
 
@@ -55,7 +55,7 @@ body {
     --chart-4: 45 100% 55%;  /* Gold/Yellow */
     --chart-5: 260 85% 75%;  /* Purple */
 
-    --radius: 0.75rem; /* Slightly larger radius for softer corners */
+    --radius: 0.75rem; /* Keep slightly larger radius for softer corners */
   }
 
   .dark {
@@ -72,7 +72,7 @@ body {
     scroll-behavior: smooth;
     /* Ensure enough padding for sticky header (h-[75px] approx 5rem) + extra space */
     /* Increased scroll padding for better section alignment */
-    scroll-padding-top: 6rem; /* Increased padding for better offset */
+    scroll-padding-top: 6rem; /* Consistent padding for smooth scrolling */
   }
   /* Body styling moved to the top for clarity */
 }
@@ -80,21 +80,21 @@ body {
 @layer utilities {
   /* Enhanced Fade In Animation - Smoother easing */
   .animate-fade-in {
-    /* Slightly faster animation, smoother curve */
-    animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    /* Slightly faster animation, refined curve */
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; /* Slightly longer duration */
     animation-delay: var(--animation-delay, 0ms);
     opacity: 0; /* Start hidden */
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px) scale(0.98); } /* Start slightly lower and scaled down */
+    from { opacity: 0; transform: translateY(10px) scale(0.99); } /* Start slightly lower and scaled down */
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   /* Slide In From Bottom Animation - Smoother easing */
   .animate-slide-in-bottom {
      /* Slightly faster, standard curve */
-     animation: slideInBottom 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+     animation: slideInBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; /* Slightly longer duration */
      animation-delay: var(--animation-delay, 0ms);
      opacity: 0; /* Start hidden */
   }
@@ -102,7 +102,7 @@ body {
   @keyframes slideInBottom {
      from {
         opacity: 0;
-        transform: translateY(25px); /* Adjusted start slightly more */
+        transform: translateY(20px); /* Adjusted start slightly more */
      }
      to {
         opacity: 1;
@@ -112,9 +112,9 @@ body {
 
   /* Modern Shadow - Softer and deeper */
   .mac-shadow {
-     /* Slightly softer, less intense shadow */
-     box-shadow: 0 8px 25px -6px hsl(var(--background) / 0.20), 0 5px 15px -5px hsl(var(--background) / 0.15);
-     border: 1px solid hsl(var(--border) / 0.15); /* More subtle border */
+     /* Slightly softer, deeper shadow */
+     box-shadow: 0 10px 30px -8px hsl(var(--background) / 0.25), 0 6px 18px -6px hsl(var(--background) / 0.20);
+     border: 1px solid hsl(var(--border) / 0.18); /* More subtle border */
      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Standard transition */
   }
    /* No change needed for dark mode as base theme is dark */
@@ -122,12 +122,12 @@ body {
   /* Heavy Glassmorphism Effect - Enhanced readability and transition */
   .glassmorphism-heavy {
     /* Keep background less transparent */
-    background-color: hsl(var(--background) / 0.75);
-    /* Slightly reduced blur for performance, increased saturate slightly */
-    backdrop-filter: blur(16px) saturate(170%);
-    -webkit-backdrop-filter: blur(16px) saturate(170%);
+    background-color: hsl(var(--background) / 0.70); /* Slightly less opaque */
+    /* Increased blur for more pronounced effect */
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
     /* Keep subtle border */
-    border-bottom: 1px solid hsl(var(--border) / 0.10);
+    border-bottom: 1px solid hsl(var(--border) / 0.12); /* Fainter border */
     /* Standard transition time */
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
@@ -141,19 +141,19 @@ body {
      background: transparent; /* Fully transparent track */
   }
   ::-webkit-scrollbar-thumb {
-     background-color: hsl(var(--muted) / 0.4); /* Use muted color, slightly less opaque */
+     background-color: hsl(var(--muted) / 0.45); /* Use muted color, slightly less opaque */
      border-radius: 2.5px; /* Match width/height */
      border: none; /* Remove border */
      transition: background-color 0.3s ease-out; /* Smooth transition for hover */
   }
   ::-webkit-scrollbar-thumb:hover {
-     background-color: hsl(var(--muted-foreground) / 0.55); /* Slightly more visible on hover */
+     background-color: hsl(var(--muted-foreground) / 0.60); /* Slightly more visible on hover */
   }
 
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted) / 0.4) transparent;
+    scrollbar-color: hsl(var(--muted) / 0.45) transparent;
   }
 }
 
@@ -165,40 +165,40 @@ body {
 }
 
 .animate-gradient-text-slow {
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.7), hsl(var(--primary))); /* Use primary with varying opacity */
-  background-size: 300% 300%; /* Adjusted size for slower effect */
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.8), hsl(var(--primary))); /* Refined gradient opacity */
+  background-size: 250% 250%; /* Adjusted size for effect speed */
   background-clip: text;
   -webkit-background-clip: text; /* For Safari */
   color: transparent;
-  animation: gradient-text-animation 10s ease-in-out infinite; /* Slower animation */
+  animation: gradient-text-animation 8s ease-in-out infinite; /* Slightly faster animation */
 }
 
 
 .animate-glow {
-  /* Adjusted glow effect for subtlety */
-  text-shadow: 0 0 10px hsl(var(--primary) / 0.7), /* Slightly less bright base */
-                 0 0 20px hsl(var(--primary) / 0.4), /* Slightly smaller secondary */
-                 0 0 30px hsl(var(--primary) / 0.25); /* Slightly smaller tertiary */
-  animation: text-glow-pulse 3s ease-in-out infinite alternate; /* Slightly slower pulse */
+  /* Enhanced glow effect for more impact */
+  text-shadow: 0 0 12px hsl(var(--primary) / 0.8), /* Brighter base */
+                 0 0 24px hsl(var(--primary) / 0.5), /* Larger secondary */
+                 0 0 36px hsl(var(--primary) / 0.3); /* Larger tertiary */
+  animation: text-glow-pulse 2.5s ease-in-out infinite alternate; /* Faster pulse */
 }
 
 @keyframes text-glow-pulse {
   from {
-    text-shadow: 0 0 10px hsl(var(--primary) / 0.7),
-                 0 0 20px hsl(var(--primary) / 0.4),
-                 0 0 30px hsl(var(--primary) / 0.25);
+    text-shadow: 0 0 12px hsl(var(--primary) / 0.8),
+                 0 0 24px hsl(var(--primary) / 0.5),
+                 0 0 36px hsl(var(--primary) / 0.3);
   }
   to {
-    text-shadow: 0 0 15px hsl(var(--primary) / 0.9), /* Slightly brighter pulse */
-                 0 0 30px hsl(var(--primary) / 0.6), /* Wider pulse */
-                 0 0 45px hsl(var(--primary) / 0.4); /* Wider pulse */
+    text-shadow: 0 0 18px hsl(var(--primary) / 1), /* Brighter pulse max */
+                 0 0 36px hsl(var(--primary) / 0.7), /* Wider pulse max */
+                 0 0 54px hsl(var(--primary) / 0.5); /* Wider pulse max */
   }
 }
 
 
 /* Primary Button Glow on Hover/Focus - More prominent glow */
 .button-glow:hover, .button-glow:focus-visible {
-  /* Reduced glow intensity for a more subtle effect */
-  box-shadow: 0 0 20px 4px hsl(var(--primary) / 0.55);
+  /* Slightly more intense glow for buttons */
+  box-shadow: 0 0 25px 5px hsl(var(--primary) / 0.60);
   transition: box-shadow 0.3s ease-out; /* Standard transition */
 }

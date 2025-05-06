@@ -112,7 +112,7 @@ export function Header({ setOpen }: HeaderProps) {
           </Link>
         </nav>
 
-        {/* Mobile Navigation - Sheet */}
+        {/* Mobile Navigation - Sheet using Dialog */}
         <div className="flex items-center gap-2 md:hidden">
           {/* Use Dialog component for the mobile menu */}
           <Dialog.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -127,15 +127,15 @@ export function Header({ setOpen }: HeaderProps) {
               </Button>
             </Dialog.Trigger>
             <Dialog.Portal>
-              <Dialog.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" /> {/* Increased blur */}
+              <Dialog.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" /> {/* Increased blur */}
               <Dialog.Content
                 className={cn(
                    // Common styles for the dialog content
-                   "fixed z-50 gap-4 bg-background/90 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-400 backdrop-blur-lg", // Adjusted duration
+                   "fixed z-50 gap-4 p-6 shadow-xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-400", // Adjusted duration
                    // Specific styles for the right-side sheet
                    "inset-y-0 right-0 h-full w-3/4 border-l border-border/20 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
-                   // Further refinement for glassmorphism and layout
-                   "w-[85vw] max-w-[360px] p-0 flex flex-col", // Removed explicit glassmorphism class
+                   // Further refinement for layout and applying heavy glassmorphism
+                   "w-[85vw] max-w-[360px] p-0 flex flex-col",
                    "glassmorphism-heavy" // Applied heavy glassmorphism effect
                 )}
               >

@@ -19,15 +19,15 @@ export function SummarySection() {
           <p className="text-xl sm:text-2xl font-semibold text-primary">
              Hello, I&apos;m
           </p>
-           {/* Name - Reduced size, uses foreground */}
+           {/* Name - Uses foreground, adjusted size for hierarchy */}
            <h1 className={cn(
-              "text-5xl sm:text-6xl font-bold tracking-tight text-foreground",
+              "text-4xl sm:text-5xl font-bold tracking-tight text-foreground", // Adjusted font size
               "leading-tight mb-4"
             )}
            >
             {yourName}
           </h1>
-           {/* Title - Uses PRIMARY color, consistent sizes */}
+           {/* Title - Uses PRIMARY color, consistent sizes with glow */}
            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl text-primary animate-glow mb-4">
              Product Manager
            </h2>
@@ -57,12 +57,13 @@ export function SummarySection() {
                alt="Professional headshot of Sai Jeshwanth Goud Illuri"
                width={380}
                height={380}
-               sizes="(max-width: 640px) 65vw, (max-width: 1024px) 320px, 380px" // Added breakpoint for smaller screens
-               className="rounded-full border-8 border-primary/70 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px]" // Adjusted max-width for mobile
+               sizes="(max-width: 640px) 65vw, (max-width: 1024px) 320px, 380px" // Consistent sizes
+               className="rounded-full border-8 border-primary/70 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px] group-hover:scale-[1.02] transition-transform duration-300" // Added subtle scale on hover
                priority
                data-ai-hint="professional headshot person dark background studio lighting nebula purple teal"
              />
-             
+             {/* Subtle glow effect on hover */}
+             <div className="absolute inset-0 rounded-full border-4 border-primary/0 group-hover:border-primary/40 transition-all duration-300 ease-out pointer-events-none scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100"></div>
           </div>
         </div>
       </div>
