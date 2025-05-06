@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'; // Using Inter for a more modern macOS
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"; // Import Toaster
 import { ThemeProvider } from '@/components/theme-provider'; // Import ThemeProvider
+import { BackToTopButton } from '@/components/back-to-top-button'; // Import BackToTopButton
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>{/* Added lang="en" */}
+    <html lang="en" className="dark" suppressHydrationWarning>
       {/* Added suppressHydrationWarning to body to potentially ignore extension-added attributes */}
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`} suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground relative`} suppressHydrationWarning> {/* Added relative positioning */}
           <ThemeProvider
              attribute="class"
              defaultTheme="dark" // Set dark theme as default
@@ -30,6 +31,7 @@ export default function RootLayout({
            >
              {children}
              <Toaster /> {/* Add Toaster */}
+             <BackToTopButton /> {/* Add BackToTopButton */}
          </ThemeProvider>
       </body>
     </html>
