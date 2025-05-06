@@ -68,13 +68,13 @@ export function SummarySection() {
                width={320} // Kept width
                height={320} // Kept height
                sizes="(max-width: 640px) 60vw, (max-width: 1024px) 280px, 320px" // Adjusted sizes
-               // Keep rounded-xl for rounded square
-               className="rounded-xl border-4 border-primary/50 object-cover aspect-square w-[60vw] max-w-[240px] h-auto sm:max-w-[280px] lg:max-w-[320px] group-hover:scale-[1.02] transition-transform duration-300 mac-shadow" // Adjusted sizes, border
+               // Keep rounded-xl for rounded square, slightly increased border width/opacity, added hover brightness
+               className="rounded-xl border-4 border-primary/60 dark:border-primary/70 object-cover aspect-square w-[60vw] max-w-[240px] h-auto sm:max-w-[280px] lg:max-w-[320px] group-hover:scale-[1.02] group-hover:brightness-105 transition-all duration-300 mac-shadow" // Adjusted sizes, border, added brightness on hover
                priority
                data-ai-hint="person canyon" // Updated AI hint
              />
              {/* Subtle glow effect on hover - changed to match rounded-xl */}
-             <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/30 transition-all duration-300 ease-out pointer-events-none scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100"></div>
+             <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/40 dark:group-hover:border-primary/50 transition-all duration-300 ease-out pointer-events-none scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100"></div>
           </div>
         </div>
       </div>
