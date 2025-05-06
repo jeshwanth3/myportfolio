@@ -59,12 +59,13 @@ export function SummarySection() {
                width={380}
                height={380}
                sizes="(max-width: 640px) 65vw, (max-width: 1024px) 320px, 380px" // Consistent sizes
-               className="rounded-full border-8 border-primary/70 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px] group-hover:scale-[1.02] transition-transform duration-300" // Added subtle scale on hover
+               // Changed from rounded-full to rounded-xl for a rounded square look
+               className="rounded-xl border-8 border-primary/70 object-cover aspect-square w-[65vw] max-w-[260px] h-auto sm:max-w-[320px] lg:max-w-[380px] group-hover:scale-[1.02] transition-transform duration-300"
                priority
                data-ai-hint="professional headshot person dark background studio lighting nebula purple teal"
              />
-             {/* Subtle glow effect on hover */}
-             <div className="absolute inset-0 rounded-full border-4 border-primary/0 group-hover:border-primary/40 transition-all duration-300 ease-out pointer-events-none scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100"></div>
+             {/* Subtle glow effect on hover - changed to match rounded-xl */}
+             <div className="absolute inset-0 rounded-xl border-4 border-primary/0 group-hover:border-primary/40 transition-all duration-300 ease-out pointer-events-none scale-105 group-hover:scale-110 opacity-0 group-hover:opacity-100"></div>
           </div>
         </div>
       </div>

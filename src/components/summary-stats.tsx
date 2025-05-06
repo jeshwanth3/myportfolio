@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, FolderGit2, Rocket } from 'lucide-react';
-import type React from "react";
+import * as React from "react"; // Added missing React import
 
 interface StatCardProps {
   icon: React.ReactNode;
@@ -14,18 +14,23 @@ interface StatCardProps {
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, delay }) => {
   return (
     <Card
-      className={`bg-card/80 dark:bg-secondary/50 backdrop-blur-sm border border-border/20 dark:border-border/30 p-5 md:p-6 text-center flex flex-col items-center justify-center space-y-3 rounded-xl mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/40 transform hover:-translate-y-1 group ${className}`}
+      // Adjusted padding, rounded corners, reduced size
+      className={`bg-card/80 dark:bg-secondary/50 backdrop-blur-sm border border-border/20 dark:border-border/30 p-4 md:p-5 text-center flex flex-col items-center justify-center space-y-2.5 rounded-xl mac-shadow transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/40 transform hover:-translate-y-1 group ${className}`}
       // Apply animation delay using CSS variable
       style={{ '--animation-delay': delay } as React.CSSProperties}
     >
-      <div className="bg-primary/15 dark:bg-primary/20 p-3 rounded-full group-hover:bg-primary/25 transition-colors duration-300">
-        {icon}
+      {/* Adjusted icon container size */}
+      <div className="bg-primary/15 dark:bg-primary/20 p-2.5 rounded-full group-hover:bg-primary/25 transition-colors duration-300">
+        {/* Icon size adjusted if necessary - using h-5 w-5 */}
+        {React.cloneElement(icon as React.ReactElement, { className: "h-5 w-5 text-primary" })}
       </div>
       <CardContent className="p-0 flex flex-col items-center">
-        <p className="text-3xl md:text-4xl font-bold text-primary group-hover:text-primary transition-colors duration-300">
+        {/* Reduced font size for value */}
+        <p className="text-2xl md:text-3xl font-bold text-primary group-hover:text-primary transition-colors duration-300">
           {value}
         </p>
-        <p className="text-sm md:text-base text-muted-foreground uppercase tracking-wider font-medium">
+        {/* Reduced font size for label */}
+        <p className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider font-medium">
           {label}
         </p>
       </CardContent>
@@ -37,19 +42,19 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, dela
 export function SummaryStats() {
   const stats = [
     {
-      icon: <Briefcase className="h-6 w-6 text-primary" />,
+      icon: <Briefcase />, // Pass only the icon component
       value: "3+",
       label: "Years Experience",
       delay: "300ms", // Stagger delay
     },
     {
-      icon: <FolderGit2 className="h-6 w-6 text-primary" />,
+      icon: <FolderGit2 />, // Pass only the icon component
       value: "5+",
       label: "Projects Delivered", // Updated label
        delay: "450ms", // Stagger delay
     },
     {
-      icon: <Rocket className="h-6 w-6 text-primary" />,
+      icon: <Rocket />, // Pass only the icon component
       value: "Ready",
       label: "Available for Hire", // Or "Seeking Opportunities"
        delay: "600ms", // Stagger delay
@@ -57,8 +62,8 @@ export function SummaryStats() {
   ];
 
   return (
-    // Enhanced grid styling with more margin-top
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-16 md:mt-20 lg:mt-24">
+    // Reduced top margin significantly for better integration
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-12 md:mt-16 lg:mt-20">
       {stats.map((stat, index) => (
         <StatCard
           key={index}
