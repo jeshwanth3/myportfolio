@@ -136,6 +136,9 @@ export function Header() {
                   <VisuallyHidden>
                       <Dialog.Title>Mobile Menu</Dialog.Title> 
                   </VisuallyHidden>
+                   <Dialog.Description className="sr-only">
+                        Mobile Menu Navigation
+                    </Dialog.Description>
                   {/* DialogHeader - More prominent */}
                   <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
                       <Link href="/" className="flex items-center space-x-2.5 group" onClick={(e) => handleNavLinkClick(e, '/')}>
