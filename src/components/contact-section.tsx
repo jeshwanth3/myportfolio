@@ -40,8 +40,8 @@ export function ContactSection() {
               <Button
                 variant="ghost"
                 size="icon" // Keep as icon button
-                // Remove hover:scale-110, increase width/height, adjust padding if needed
-                className="p-1 transition-transform transform duration-300 w-[125px] h-[125px]" // Increased width/height, removed hover scale
+                // Remove hover background effect
+                className="p-1 transition-transform transform duration-300 w-[125px] h-[125px] hover:bg-transparent dark:hover:bg-transparent" // Removed hover scale, ensured transparent bg on hover
                 aria-label="LinkedIn Profile"
               >
                <Image
