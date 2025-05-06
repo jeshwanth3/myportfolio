@@ -1,5 +1,5 @@
 import BasicButton from '@/components/basic-button';
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "@/components/header";
 import { SummarySection } from "@/components/summary-section";
 import { ExperienceSection } from "@/components/experience-section";
@@ -10,13 +10,14 @@ import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 
 
-export default function Home() {
-    return (
+export default function Home() {    
+  const [open, setOpen] = useState<boolean>(false);
+  return (
     // The main container now spans the full viewport height
     <div className="flex flex-col min-h-screen bg-background">
 
       {/* Content is rendered directly */}
-      <Header setOpen={setOpen} />
+      <Header open={open} setOpen={setOpen} />
       
       <main className="flex-1 px-4 md:px-6">
         <SummarySection />
