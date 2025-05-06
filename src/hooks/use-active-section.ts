@@ -13,7 +13,8 @@ interface ObserverOptions {
 // The custom hook
 export function useActiveSection(
   sectionIds: string[],
-  options: ObserverOptions = { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" } // Adjust thresholds and margins as needed
+  // Adjusted rootMargin: increased negative bottom margin (-55%) to delay highlighting the next section
+  options: ObserverOptions = { threshold: 0.3, rootMargin: "-80px 0px -55% 0px" }
 ): string | null {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -44,7 +45,13 @@ export function useActiveSection(
         if (entry.isIntersecting) {
           const element = entry.target as HTMLElement;
           const rect = element.getBoundingClientRect();
-          if (rect.top < minTop) {
+          // Prioritize the element whose top is closest to the top margin trigger point (-80px)
+          // Only consider elements whose top is above the middle of the viewport (or a bit higher)
+          // to prevent premature highlighting of the next section.
+          const triggerPoint = options.rootMargin ? parseInt(options.rootMargin.split(' ')[0], 10) : 0; // -80px
+          // Check if the element's top is within a reasonable range from the trigger point
+          // and also significantly visible (top part is above, say, 45% viewport height)
+          if (rect.top <= (window.innerHeight * 0.45) && rect.top < minTop) {
              minTop = rect.top;
              // Map the element back to its ID (href)
              sectionElementsRef.current.forEach((el, id) => {
@@ -56,15 +63,33 @@ export function useActiveSection(
         }
       });
 
+       // Fallback: If no section meets the criteria above but one *is* intersecting,
+       // pick the topmost intersecting one as a fallback.
+       if (!currentActiveSection) {
+         let fallbackTop = Infinity;
+         entries.forEach(entry => {
+           if (entry.isIntersecting) {
+             const rect = entry.target.getBoundingClientRect();
+             if (rect.top < fallbackTop) {
+               fallbackTop = rect.top;
+               sectionElementsRef.current.forEach((el, id) => {
+                 if (el === entry.target) {
+                   currentActiveSection = id;
+                 }
+               });
+             }
+           }
+         });
+       }
+
+
       // Update state only if the active section has changed
       if (currentActiveSection && currentActiveSection !== activeSection) {
          setActiveSection(currentActiveSection);
       } else if (!currentActiveSection && activeSection && window.scrollY < 200 ) {
          // Optional: Clear active section if near the top and nothing is intersecting prominently
-         // setActiveSection(null);
-         // Keep #summary active if near top?
+         // Keep #summary active if near top
          if (activeSection !== '#summary') setActiveSection('#summary');
-
       }
     };
 
@@ -90,9 +115,9 @@ export function useActiveSection(
       }
       observerRef.current = null;
     };
-     // Rerun effect if sectionIds change (though usually they don't)
+     // Rerun effect if sectionIds or options change (though usually they don't)
      // ActiveSection is excluded because we don't want to rerun the effect when state updates
-  }, [sectionIds, options, activeSection]); // Added activeSection to dependency array to re-evaluate logic when it changes
+  }, [sectionIds, options]); // Removed activeSection dependency
 
 
   return activeSection;
