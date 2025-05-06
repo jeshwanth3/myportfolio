@@ -1,4 +1,5 @@
 
+
 "use client";
 import { GraduationCap } from 'lucide-react';
 import React from "react";
@@ -52,7 +53,7 @@ export function EducationSection() {
                 <div className="flex items-center space-x-4 px-4 pt-4 pb-2">
                   {/* Container for logo/icon - Conditionally larger for edu3 */}
                   <div className={cn(
-                    "flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-1 bg-background/5 rounded-md", // Added subtle background and rounding
+                    "flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-1 rounded-md", // Removed background
                     edu.id === 'edu3'
                       ? "w-18 h-18 md:w-24 md:h-24" // Larger container for edu3 on mobile/md (50% larger)
                       : "w-10 h-10 md:w-12 md:h-12" // Standard container size
@@ -75,7 +76,8 @@ export function EducationSection() {
                 </div>
                 <div className="px-4 pb-4 pt-1">
                   <p className="text-xs text-muted-foreground">{edu.duration}</p>
-                  <p className="mt-2 text-sm text-foreground/80">{edu.description}</p>
+                  {/* Description removed for mobile view */}
+                  {/* <p className="mt-2 text-sm text-foreground/80">{edu.description}</p> */}
                 </div>
               </div>
             ))}
@@ -94,7 +96,7 @@ export function EducationSection() {
                  <div className="p-4 md:p-6 flex items-center gap-4 w-full"> {/* Keep existing layout */}
                        {/* Container for logo/icon - Conditionally larger for edu3 */}
                       <div className={cn(
-                        "flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-2 bg-background/5 rounded-lg", // Added subtle background and rounding
+                        "flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-2 rounded-lg", // Removed background
                         edu.id === 'edu3'
                           ? "w-[108px] h-[108px]" // 50% larger container for edu3 on desktop
                           : "w-16 h-16 md:w-20 md:h-20" // Standard container size
