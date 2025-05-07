@@ -49,7 +49,7 @@ export function SummarySection() {
         <div className="lg:col-span-2 flex justify-center lg:justify-end items-center mt-4 lg:mt-0 order-first lg:order-last">
           <div className="relative group">
              <Image
-               src="https://drive.google.com/uc?export=view&id=1AKxY9S_07wtCKtNC7nuw1r83_2E-IRmw"
+               src="/profile_photo.jpeg"
                alt="Professional headshot of Sai Jeshwanth Goud Illuri"
                width={320}
                height={320}

@@ -57,7 +57,8 @@ export function EducationSection() {
                        width={edu.id === 'edu3' ? 84 : 40}
                        height={edu.id === 'edu3' ? 84 : 40}
                        sizes={edu.id === 'edu3' ? "(max-width: 768px) 84px, 108px" : "(max-width: 768px) 40px, 60px"} // Added sizes prop
-                       className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                       className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" 
+                       style={{ height: 'auto' }} />
                     ) : (
                       <GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
                     )}
@@ -96,7 +97,8 @@ export function EducationSection() {
                             width={edu.id === 'edu3' ? 108 : 60}
                             height={edu.id === 'edu3' ? 108 : 60}
                             sizes={edu.id === 'edu3' ? "108px" : "60px"} // Added sizes prop
-                            className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" />
+                            className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo" 
+                            style={{ height: 'auto' }} />
                         ) : (
                           <GraduationCap className="h-8 w-8 text-primary transition-colors duration-300" />
                         )}
