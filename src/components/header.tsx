@@ -160,13 +160,14 @@ export function Header() {
 
         {/* Mobile Menu Button and Sheet */}
         <div className="flex items-center gap-2 md:hidden">
+          {/* Correctly use Sheet open state and trigger */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              {/* Use standard Button for better integration with SheetTrigger */}
               <Button
                 variant="ghost"
                 size="icon"
                 className="text-muted-foreground h-10 w-10 rounded-full flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-colors duration-200"
+                aria-label="Toggle Menu" // Added aria-label for accessibility
               >
                 <Menu className="h-6 w-6" />
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
@@ -195,7 +196,7 @@ export function Header() {
                   onClick={(e) => handleNavLinkClick(e, '/')} // Ensure smooth scroll works here too
                 >
                   <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-110 transition-all">
-                    Sai J. G. Illuri
+                    Sai J. G. Illuri {/* Shortened Name for Mobile */}
                   </span>
                 </Link>
                 <SheetClose asChild>
@@ -206,54 +207,48 @@ export function Header() {
                 </SheetClose>
               </div>
 
-              {/* Navigation Links inside the sheet */}
+              {/* Navigation Links inside the sheet - This part renders the menu items */}
               <nav className="flex-1 flex flex-col p-6 space-y-1.5">
                 {navItems.map((item) => {
                   const isActive = activeSection === item.href;
                   return (
                     // Use SheetClose around each navigable item to close the menu on click
                     <SheetClose asChild key={item.label}>
-                      <Button
-                        variant="ghost"
-                        asChild // Render as a child of the Button (the Link)
-                        className={cn(
-                          'justify-start p-3 text-base font-medium transition-colors duration-200',
-                          isActive
-                            ? 'bg-primary/15 text-primary' // Active state
-                            : 'text-foreground hover:bg-primary/10 hover:text-primary', // Default and hover
-                          'active:scale-95', // Click feedback
-                        )}
-                        // onClick={(e) => handleNavLinkClick(e, item.href)} // Let the Link handle navigation, SheetClose handles closing
-                      >
-                        <Link href={item.href} onClick={(e) => handleNavLinkClick(e, item.href)}>
+                        {/* Removed intermediate Button, Link acts as the clickable element */}
+                        <Link
+                          href={item.href}
+                          onClick={(e) => handleNavLinkClick(e, item.href)}
+                           className={cn(
+                              'block justify-start p-3 text-base font-medium transition-colors duration-200 rounded-md', // Added block and rounded-md
+                              isActive
+                                ? 'bg-primary/15 text-primary' // Active state
+                                : 'text-foreground hover:bg-primary/10 hover:text-primary', // Default and hover
+                              'active:scale-95', // Click feedback
+                           )}
+                        >
                           {item.label}
                         </Link>
-                      </Button>
                     </SheetClose>
                   );
                 })}
                 <div className="border-b border-border/20 pt-2"></div>
                 {/* Contact Me button inside the sheet */}
                 <SheetClose asChild>
-                  <Button
-                    variant={
-                      activeSection === '#contact' ? 'default' : 'outline'
-                    } // Style based on active section
-                    asChild // Render as a child (the Link)
-                    className={cn(
-                      'w-full mt-6 py-3 text-base font-medium',
-                      activeSection === '#contact'
-                        ? 'bg-primary text-primary-foreground' // Active state
-                        : 'border-primary text-primary hover:bg-primary/15', // Default/hover state
-                      'active:scale-95', // Click feedback
-                    )}
-                    // onClick={(e) => handleNavLinkClick(e, "#contact")} // Let the Link handle navigation
-                  >
-                    <Link href="#contact" onClick={(e) => handleNavLinkClick(e, "#contact")}>
+                   {/* Removed intermediate Button, Link acts as the clickable element */}
+                    <Link
+                      href="#contact"
+                      onClick={(e) => handleNavLinkClick(e, "#contact")}
+                      className={cn(
+                          'block w-full mt-6 py-3 text-base font-medium text-center rounded-md', // Added block, text-center, rounded-md
+                          activeSection === '#contact'
+                            ? 'bg-primary text-primary-foreground' // Active state
+                            : 'border border-primary text-primary hover:bg-primary/15', // Default/hover state
+                          'active:scale-95', // Click feedback
+                        )}
+                      >
                       Contact Me{' '}
                       <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
                     </Link>
-                  </Button>
                 </SheetClose>
               </nav>
 
