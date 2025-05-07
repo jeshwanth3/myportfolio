@@ -35,7 +35,10 @@ export function Header() {
   }, []);
 
  const handleNavLinkClick = useCallback((event: ReactMouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
-    setMobileMenuOpen(false); // Close menu on any link click
+    // For mobile menu, ensure SheetClose handles closing or explicitly close it
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
 
     if (href === "/") {
        event.preventDefault();
@@ -45,11 +48,10 @@ export function Header() {
 
     if (href.startsWith('#')) {
         event.preventDefault();
-        // Use requestAnimationFrame to ensure DOM is updated before scrolling
         requestAnimationFrame(() => {
           const element = document.querySelector(href);
           if (element) {
-              const headerOffset = 80; // Approximate height of the sticky header + some buffer
+              const headerOffset = 80; 
               const elementPosition = element.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -60,7 +62,7 @@ export function Header() {
           }
         });
     }
-  }, []);
+  }, [mobileMenuOpen]);
 
 
   return (
@@ -81,9 +83,9 @@ export function Header() {
           <span
             className={cn(
               "text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text",
-              "bg-gradient-to-r from-teal-400 via-blue-500 to-blue-600", // Blue-teal gradient
+              "bg-gradient-to-r from-teal-400 via-blue-500 to-blue-600", 
               "group-hover:brightness-110 transition-all duration-300",
-              "animate-gradient-text-slow" // Use a slower, more subtle gradient animation
+              "animate-gradient-text-slow" 
             )}
           >
             Sai Jeshwanth Goud Illuri
@@ -101,13 +103,12 @@ export function Header() {
                    className={cn(
                      "group relative px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ease-out",
                      isActive
-                       ? "text-primary bg-primary/15" // Active state with subtle background
-                       : "text-foreground/85 hover:text-primary hover:bg-primary/10", // Hover state
-                     "active:scale-95" // Click feedback
+                       ? "text-primary bg-primary/15" 
+                       : "text-foreground/85 hover:text-primary hover:bg-primary/10", 
+                     "active:scale-95" 
                    )}
                 >
                    <span className="relative z-10">{item.label}</span>
-                   {/* Underline effect for active/hovered item */}
                    <span className={cn(
                       "absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out",
                       (isActive || "group-hover:left-0 group-hover:right-0")
@@ -123,11 +124,11 @@ export function Header() {
               onClick={(e) => handleNavLinkClick(e, "#contact")}
               className={cn(
                   "ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300",
-                  "border-primary/50 hover:border-primary", // Themed border
-                  "hover:bg-primary/15", // Hover background
-                  "text-primary hover:text-primary", // Text color
+                  "border-primary/50 hover:border-primary", 
+                  "hover:bg-primary/15", 
+                  "text-primary hover:text-primary", 
                    activeSection === '#contact' ? 'bg-primary/15 text-primary ring-2 ring-primary/50 ring-offset-2 ring-offset-background' : 'bg-background/60 dark:bg-secondary/60',
-                   "active:scale-95" // Click feedback
+                   "active:scale-95" 
                    )}
             >
               Get In Touch With Me <Send className="ml-2 h-4 w-4" />
@@ -142,6 +143,7 @@ export function Header() {
                  variant="ghost"
                  size="icon"
                  className="text-muted-foreground h-10 w-10 rounded-full"
+                 onClick={() => setMobileMenuOpen(true)} 
                >
                  <Menu className="h-6 w-6" />
                  <VisuallyHidden>Toggle Menu</VisuallyHidden>
@@ -151,7 +153,7 @@ export function Header() {
                side="right"
                className={cn(
                    "w-[85vw] max-w-[360px] p-0 flex flex-col",
-                   "glassmorphism-heavy" // Apply glassmorphism to the sheet
+                   "glassmorphism-heavy" 
                  )}
              >
                <SheetPrimitive.Title asChild>
@@ -164,15 +166,14 @@ export function Header() {
                   <Link
                     href="/"
                     className="flex items-center space-x-2.5 group"
-                    onClick={(e) => handleNavLinkClick(e, "/")}
+                    onClick={(e) => handleNavLinkClick(e, "/")} 
                   >
-                    {/* Using a shorter version of the name for mobile menu header if preferred */}
                     <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-110 transition-all">
                       Sai J. G. Illuri
                     </span>
                   </Link>
                   <SheetClose asChild>
-                    <Button variant="ghost" className="h-9 w-9 p-0 rounded-full">
+                    <Button variant="ghost" className="h-9 w-9 p-0 rounded-full" onClick={() => setMobileMenuOpen(false)}>
                       <X className="h-5 w-5 text-muted-foreground" />
                       <VisuallyHidden>Close Menu</VisuallyHidden>
                     </Button>
@@ -186,7 +187,7 @@ export function Header() {
                     <SheetClose asChild key={item.label}>
                        <Button
                          variant="ghost"
-                         asChild // Important for Link to work inside Button
+                         asChild 
                          className={cn(
                            "justify-start p-3 text-base font-medium transition-colors duration-200",
                             isActive
@@ -205,15 +206,15 @@ export function Header() {
                  <SheetClose asChild>
                   <Button
                     variant={activeSection === '#contact' ? 'default' : 'outline'}
-                    asChild // Important for Link to work inside Button
+                    asChild 
                     className={cn(
                         "w-full mt-6 py-3 text-base font-medium",
                           activeSection === '#contact'
-                          ? 'bg-primary text-primary-foreground' // Active contact button style
-                          : 'border-primary/50 text-primary hover:bg-primary/15', // Default contact button style
+                          ? 'bg-primary text-primary-foreground' 
+                          : 'border-primary/50 text-primary hover:bg-primary/15', 
                           "active:scale-95"
                       )}
-                    onClick={(e) => handleNavLinkClick(e, "#contact")}
+                    onClick={(e) => handleNavLinkClick(e, "#contact")} 
                   >
                     <Link href="#contact">
                         Contact Me{" "}
