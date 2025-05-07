@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Product Ascent Portfolio - Sai Jeshwanth Goud Illuri',
-  description: 'Personal portfolio showcasing product management skills and experience.',
+  title: '',
+  description: '',
 };
 
 export default function RootLayout({
