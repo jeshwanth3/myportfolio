@@ -9,12 +9,13 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
-} from '@/components/ui/sheet'; // Corrected import path
+  SheetTitle // Import SheetTitle for accessibility
+} from '@/components/ui/sheet';
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { Menu, X, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useActiveSection } from '@/hooks/use-active-section';
-import * as SheetPrimitive from '@radix-ui/react-dialog';
+
 
 const navItems = [
   { label: 'About', href: '#summary' },
@@ -185,9 +186,9 @@ export function Header() {
               {/* Header inside the sheet */}
               <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
                  {/* Ensure accessibility with a visually hidden title */}
-                  <SheetPrimitive.Title asChild>
+                  <SheetTitle asChild>
                     <VisuallyHidden>Mobile Navigation Menu</VisuallyHidden>
-                  </SheetPrimitive.Title>
+                  </SheetTitle>
                   <VisuallyHidden>
                     <p>Navigate through the portfolio sections.</p>
                   </VisuallyHidden>
@@ -263,4 +264,5 @@ export function Header() {
     </header>
   );
 }
+
 
