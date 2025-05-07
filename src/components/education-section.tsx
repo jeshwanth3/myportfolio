@@ -12,7 +12,6 @@ const education = [
     institution: "Ivy College of Business, Iowa State University",
     duration: "Aug 2023 - May 2025",
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg",
-    description: "This program is focused on developing leadership skills and business acumen with a strong emphasis on STEM principles.",
   },
   {
     id: "edu2",
@@ -20,15 +19,13 @@ const education = [
     institution: "Ivy College of Business, Iowa State University",
     duration: "Aug 2024 - May 2025",
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg",
-    description: "This program focuses on data analytics, business intelligence, and information management, emphasizing the use of technology to solve business problems.",
   },
   {
     id: "edu3",
     degree: "Bachelor of Technology, Computer Science",
     institution: "Pragati Engineering College (JNTUK)",
     duration: "2017 - 2021",
-    imageUrl: "https://pragati.ac.in/wp-content/uploads/2022/10/pragati-logo-JK-2-1536x572.png",
-    description: "This program provided a comprehensive foundation in computer science, covering programming, algorithms, data structures, and systems design.",
+    imageUrl: "/pragati_logo.png",
   },
 ];
 
