@@ -1,3 +1,4 @@
+
 'use client';
 import type React, { MouseEvent as ReactMouseEvent } from 'react';
 import { useEffect, useState, useCallback } from 'react';
@@ -24,7 +25,7 @@ const navItems = [
 ];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false); // State to control sheet visibility
   const [isScrolled, setIsScrolled] = useState(false);
   const activeSection = useActiveSection(
     navItems.map((item) => item.href).concat(['#contact']),
@@ -76,8 +77,9 @@ export function Header() {
          setMobileMenuOpen(false);
        }
     },
-    [mobileMenuOpen], // Dependency on mobileMenuOpen ensures it closes correctly
+    [mobileMenuOpen, setMobileMenuOpen], // Include setMobileMenuOpen in dependencies
   );
+
 
   return (
     <header
@@ -214,15 +216,14 @@ export function Header() {
                   return (
                     // Use SheetClose around each navigable item to close the menu on click
                     <SheetClose asChild key={item.label}>
-                        {/* Removed intermediate Button, Link acts as the clickable element */}
                         <Link
                           href={item.href}
                           onClick={(e) => handleNavLinkClick(e, item.href)}
                            className={cn(
                               'block justify-start p-3 text-base font-medium transition-colors duration-200 rounded-md', // Added block and rounded-md
                               isActive
-                                ? 'bg-primary/15 text-primary' // Active state
-                                : 'text-foreground hover:bg-primary/10 hover:text-primary', // Default and hover
+                                ? 'bg-primary/15 text-primary font-semibold' // Active state - slightly bolder
+                                : 'text-foreground/90 hover:bg-primary/10 hover:text-primary', // Default and hover - slightly dimmed default text
                               'active:scale-95', // Click feedback
                            )}
                         >
@@ -232,21 +233,20 @@ export function Header() {
                   );
                 })}
                 <div className="border-b border-border/20 pt-2"></div>
-                {/* Contact Me button inside the sheet */}
+                {/* Contact Me link inside the sheet */}
                 <SheetClose asChild>
-                   {/* Removed intermediate Button, Link acts as the clickable element */}
                     <Link
                       href="#contact"
                       onClick={(e) => handleNavLinkClick(e, "#contact")}
                       className={cn(
-                          'block w-full mt-6 py-3 text-base font-medium text-center rounded-md', // Added block, text-center, rounded-md
+                          'block w-full mt-6 py-3 text-base font-medium text-center rounded-md transition-all duration-300', // Base styling
                           activeSection === '#contact'
-                            ? 'bg-primary text-primary-foreground' // Active state
-                            : 'border border-primary text-primary hover:bg-primary/15', // Default/hover state
+                            ? 'bg-primary text-primary-foreground ring-2 ring-primary/50 ring-offset-2 ring-offset-background' // Active state highlight
+                            : 'border border-primary text-primary hover:bg-primary/15', // Default/hover outline style
                           'active:scale-95', // Click feedback
                         )}
                       >
-                      Contact Me{' '}
+                      Get In Touch{' '}
                       <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
                     </Link>
                 </SheetClose>
