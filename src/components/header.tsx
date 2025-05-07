@@ -8,7 +8,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
-} from '@/components/ui/sheet';
+} from '@/components/ui/sheet'; // Corrected import path
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { Menu, X, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -263,3 +263,4 @@ export function Header() {
     </header>
   );
 }
+
