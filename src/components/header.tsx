@@ -9,6 +9,7 @@ import { Menu, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useActiveSection } from "@/hooks/use-active-section";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
+import BasicButton from "@/components/basic-button"; // Import BasicButton
 
 
 const navItems = [
@@ -139,15 +140,14 @@ export function Header() {
          <div className="flex items-center gap-2 md:hidden">
            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
              <SheetTrigger asChild>
-               <Button
-                 variant="ghost"
-                 size="icon"
-                 className="text-muted-foreground h-10 w-10 rounded-full"
+               {/* Replaced Button with BasicButton */}
+               <BasicButton
+                 className="text-muted-foreground h-10 w-10 rounded-full flex items-center justify-center"
                  onClick={() => setMobileMenuOpen(true)} 
                >
                  <Menu className="h-6 w-6" />
                  <VisuallyHidden>Toggle Menu</VisuallyHidden>
-               </Button>
+               </BasicButton>
              </SheetTrigger>
              <SheetContent
                side="right"
@@ -211,7 +211,7 @@ export function Header() {
                         "w-full mt-6 py-3 text-base font-medium",
                           activeSection === '#contact'
                           ? 'bg-primary text-primary-foreground' 
-                          : 'border-primary/50 text-primary hover:bg-primary/15', 
+                          : 'border-primary text-primary hover:bg-primary/15', // Simplified hover for contact button
                           "active:scale-95"
                       )}
                     onClick={(e) => handleNavLinkClick(e, "#contact")} 
