@@ -1,4 +1,4 @@
-# **App Name**: Product Ascent
+# **App Name**: Sai Jeshwanth Goud Illuri
 
 ## Core Features:
 
