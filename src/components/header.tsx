@@ -186,6 +186,7 @@ export function Header() {
                     <SheetClose asChild key={item.label}>
                        <Button
                          variant="ghost"
+                         asChild // Important for Link to work inside Button
                          className={cn(
                            "justify-start p-3 text-base font-medium transition-colors duration-200",
                             isActive
@@ -195,7 +196,7 @@ export function Header() {
                          )}
                          onClick={(e) => handleNavLinkClick(e, item.href)}
                        >
-                         {item.label}
+                        <Link href={item.href}>{item.label}</Link>
                        </Button>
                     </SheetClose>
                    );
@@ -204,6 +205,7 @@ export function Header() {
                  <SheetClose asChild>
                   <Button
                     variant={activeSection === '#contact' ? 'default' : 'outline'}
+                    asChild // Important for Link to work inside Button
                     className={cn(
                         "w-full mt-6 py-3 text-base font-medium",
                           activeSection === '#contact'
@@ -213,8 +215,10 @@ export function Header() {
                       )}
                     onClick={(e) => handleNavLinkClick(e, "#contact")}
                   >
-                    Contact Me{" "}
-                    <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                    <Link href="#contact">
+                        Contact Me{" "}
+                        <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
+                    </Link>
                   </Button>
                  </SheetClose>
                </nav>
