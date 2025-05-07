@@ -1,15 +1,15 @@
-// src/hooks/use-appear-on-scroll.ts
-'use client'; // <-- Make it a client component
+// src/components/section-wrapper.tsx
+'use client';
 
 import type React from 'react';
 import { cn } from '@/lib/utils';
-import { useAppearOnScroll } from '@/hooks/use-appear-on-scroll'; // <-- Import the hook
+import { useAppearOnScroll } from '@/hooks/use-appear-on-scroll';
 
 interface SectionWrapperProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   id: string;
-  animationClassName?: string; // Optional prop for specific animation
-  delay?: string; // Optional delay for staggered effect
+  animationClassName?: string;
+  delay?: string;
 }
 
 export function SectionWrapper({
@@ -17,23 +17,20 @@ export function SectionWrapper({
   id,
   className,
   animationClassName = 'animate-fade-in', // Default to fade-in
-  delay = '150ms', // Slightly reduced default delay for quicker appearance
+  delay = '150ms',
   ...props
 }: SectionWrapperProps) {
-  // Use 15% visibility threshold, trigger animation only once
   const [ref, isVisible] = useAppearOnScroll<HTMLElement>({ threshold: 0.15, triggerOnce: true });
 
   return (
     <section
       id={id}
-      ref={ref} // Attach the ref from the hook
+      ref={ref}
       className={cn(
-        // Reduced vertical padding slightly
-        'py-10 md:py-12 lg:py-14 opacity-0 transition-opacity duration-700 ease-in-out', // Keep reduced padding, added transition
-        isVisible && animationClassName, // Apply animation class when visible
+        'py-10 md:py-12 lg:py-14 opacity-0 transition-opacity duration-700 ease-in-out',
+        isVisible && animationClassName,
         className
       )}
-      // Apply delay using CSS variable defined in globals.css
       style={{ '--animation-delay': delay } as React.CSSProperties}
       {...props}
     >

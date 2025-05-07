@@ -1,125 +1,98 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react'; // Added useCallback
 import type { RefObject } from 'react';
 
-// Interface for the Intersection Observer options
 interface ObserverOptions {
   root?: Element | null;
   rootMargin?: string;
-  threshold?: number | number[]; // Threshold determines how much of the element must be visible
+  threshold?: number | number[];
 }
 
-// The custom hook
 export function useActiveSection(
   sectionIds: string[],
-  // Adjusted rootMargin: Slightly increased negative top margin to -90px (header height + buffer).
-  // Significantly reduced negative bottom margin from -40% to -25% to make highlighting switch faster when scrolling down.
   options: ObserverOptions = { threshold: 0.3, rootMargin: "-90px 0px -25% 0px" }
 ): string | null {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionElementsRef = useRef<Map<string, HTMLElement | null>>(new Map());
 
+  // Memoize the callback to prevent recreation on every render
+  const observerCallback = useCallback((entries: IntersectionObserverEntry[]) => {
+    let currentActiveSectionId: string | null = null;
+    let bestMatchEntry: IntersectionObserverEntry | null = null;
+    let minTop = Infinity;
+
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target as HTMLElement;
+        const rect = element.getBoundingClientRect();
+        if (rect.top < minTop) {
+          minTop = rect.top;
+          bestMatchEntry = entry;
+        }
+      }
+    });
+
+    if (bestMatchEntry) {
+      const element = bestMatchEntry.target as HTMLElement;
+      sectionElementsRef.current.forEach((el, id) => {
+        if (el === element) {
+          currentActiveSectionId = id;
+        }
+      });
+    }
+
+    if (currentActiveSectionId && currentActiveSectionId !== activeSection) {
+      setActiveSection(currentActiveSectionId);
+    } else if (!currentActiveSectionId && activeSection && window.scrollY < 200) {
+      if (activeSection !== '#summary') setActiveSection('#summary');
+    } else if (!currentActiveSectionId && activeSection && window.scrollY > (document.documentElement.scrollHeight - window.innerHeight - 200)) {
+      if (activeSection !== '#contact') setActiveSection('#contact');
+    }
+  }, [activeSection]); // Dependency on activeSection is correct here as it's used in the logic
+
   useEffect(() => {
-    // Ensure this runs only on the client
     if (typeof window === 'undefined') {
       return;
     }
 
-    // Initialize the map of section elements
     sectionIds.forEach(id => {
-       // Query selector expects ID selectors starting with #
-       const element = document.querySelector(id);
-       if (element instanceof HTMLElement) {
-         sectionElementsRef.current.set(id, element);
-       }
+      const element = document.querySelector(id);
+      if (element instanceof HTMLElement) {
+        sectionElementsRef.current.set(id, element);
+      }
     });
 
-
-    const callback: IntersectionObserverCallback = (entries) => {
-      let currentActiveSectionId: string | null = null;
-      // Find the entry that is most visible *above* the bottom margin threshold.
-      // Prioritize entries that are intersecting and whose top is closest to or above the top margin trigger point.
-      let bestMatchEntry: IntersectionObserverEntry | null = null;
-      let minTop = Infinity;
-
-
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const element = entry.target as HTMLElement;
-          const rect = element.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          // Use entry.intersectionRatio to find the most visible element overall among intersecting ones
-          // Also consider elements whose top is closer to the top margin trigger point
-          if (rect.top < minTop ) { // Prioritize the one highest up on the screen first
-             minTop = rect.top;
-             bestMatchEntry = entry;
-          }
-        }
-      });
-
-      if (bestMatchEntry) {
-        const element = bestMatchEntry.target as HTMLElement;
-         // Map the element back to its ID (href)
-         sectionElementsRef.current.forEach((el, id) => {
-            if (el === element) {
-               currentActiveSectionId = id;
-            }
-         });
-      }
-
-      // Update state only if the active section has changed
-      if (currentActiveSectionId && currentActiveSectionId !== activeSection) {
-         setActiveSection(currentActiveSectionId);
-      } else if (!currentActiveSectionId && activeSection && window.scrollY < 200 ) {
-         // Optional: Clear active section if near the top and nothing is intersecting prominently
-         // Keep #summary active if near top
-         if (activeSection !== '#summary') setActiveSection('#summary');
-      } else if (!currentActiveSectionId && activeSection && window.scrollY > (document.documentElement.scrollHeight - window.innerHeight - 200)) {
-          // If scrolled near the bottom and nothing else is active, highlight contact
-          if (activeSection !== '#contact') setActiveSection('#contact');
-      }
-    };
-
-    // Disconnect previous observer if it exists
     if (observerRef.current) {
       observerRef.current.disconnect();
     }
 
-    // Use requestIdleCallback to defer observer initialization slightly, potentially improving initial load performance.
     const initObserver = () => {
-        observerRef.current = new IntersectionObserver(callback, options);
-        const observer = observerRef.current; // Local variable for cleanup
+      observerRef.current = new IntersectionObserver(observerCallback, options);
+      const observer = observerRef.current;
 
-        // Observe each section element
-        sectionElementsRef.current.forEach(element => {
+      sectionElementsRef.current.forEach(element => {
         if (element) {
-            observer.observe(element);
+          observer.observe(element);
         }
-        });
-    }
+      });
+    };
 
-    // Check if requestIdleCallback is supported
+    // Using requestIdleCallback for potentially non-critical setup
     if ('requestIdleCallback' in window) {
       requestIdleCallback(initObserver);
     } else {
-      // Fallback for browsers that don't support requestIdleCallback
-      setTimeout(initObserver, 1);
+      setTimeout(initObserver, 1); // Fallback
     }
 
-
-    // Cleanup function
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
-      observerRef.current = null;
+      observerRef.current = null; // Clean up the ref
     };
-     // Rerun effect if sectionIds or options change (though usually they don't)
-     // ActiveSection is excluded because we don't want to rerun the effect when state updates
-  }, [sectionIds, options]); // Removed activeSection dependency
-
+  }, [sectionIds, options, observerCallback]); // observerCallback is now memoized
 
   return activeSection;
 }

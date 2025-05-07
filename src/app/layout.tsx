@@ -1,18 +1,18 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google'; // Using Inter for a more modern macOS feel
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Import Toaster
-import { ThemeProvider } from '@/components/theme-provider'; // Import ThemeProvider
-import { BackToTopButton } from '@/components/back-to-top-button'; // Import BackToTopButton
+import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from '@/components/theme-provider';
+import { BackToTopButton } from '@/components/back-to-top-button';
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter', // Use a CSS variable
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
-  title: 'Product Ascent Portfolio - Sai Jeshwanth Goud Illuri', // Updated Title with name
-  description: 'Personal portfolio showcasing product management skills and experience.', // Updated Description
+  title: 'Product Ascent Portfolio - Sai Jeshwanth Goud Illuri',
+  description: 'Personal portfolio showcasing product management skills and experience.',
 };
 
 export default function RootLayout({
@@ -22,16 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      {/* Added suppressHydrationWarning to body to potentially ignore extension-added attributes */}
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground relative`} suppressHydrationWarning> {/* Added relative positioning */}
+      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground relative`} suppressHydrationWarning>
           <ThemeProvider
              attribute="class"
-             defaultTheme="dark" // Set dark theme as default
-             enableSystem={false} // Disable system preference detection to enforce dark theme
+             defaultTheme="dark"
+             enableSystem={false} // Enforce dark theme
            >
              {children}
-             <Toaster /> {/* Add Toaster */}
-             <BackToTopButton /> {/* Add BackToTopButton */}
+             <Toaster />
+             <BackToTopButton />
          </ThemeProvider>
       </body>
     </html>
