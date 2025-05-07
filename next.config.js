@@ -3,8 +3,6 @@
 const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
-  swcMinify: true,
-  optimizeFonts: true,
   typescript: {
     ignoreBuildErrors: true,
   },
