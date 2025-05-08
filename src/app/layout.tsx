@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: 
 Metadata = {
-  title: 'Sai Jeshwanth Goud –  Manager Portfolio',
+  title: 'Sai Jeshwanth Goud – Portfolio',
   description: 'Showcasing my journey, skills & cool stuff',
 };
 
