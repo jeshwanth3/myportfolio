@@ -10,9 +10,10 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export const metadata: Metadata = {
-  title: 'Sai Jeshwanth Goud – Portfolio',
-  description: 'Personal portfolio showcasing my journey, skills & cool stuff (projects),
+export const metadata: 
+Metadata = {
+  title: 'Sai Jeshwanth Goud –  Manager Portfolio',
+  description: 'Showcasing my journey, skills & cool stuff',
 };
 
 export default function RootLayout({
