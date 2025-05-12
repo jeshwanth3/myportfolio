@@ -1,5 +1,5 @@
+"use client";
 
-'use client';
 import type React, { MouseEvent as ReactMouseEvent } from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
@@ -9,13 +9,12 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
-  SheetTitle // Import SheetTitle for accessibility
+  SheetTitle
 } from '@/components/ui/sheet';
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { Menu, X, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useActiveSection } from '@/hooks/use-active-section';
-
 
 const navItems = [
   { label: 'About', href: '#summary' },
@@ -26,7 +25,7 @@ const navItems = [
 ];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false); // State to control sheet visibility
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const activeSection = useActiveSection(
     navItems.map((item) => item.href).concat(['#contact']),
@@ -37,56 +36,45 @@ export function Header() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavLinkClick = useCallback(
     (event: ReactMouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
+      event.preventDefault();
+      
       if (href === '/') {
-        event.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // Close mobile menu if open when clicking the brand link
-        if (mobileMenuOpen) {
-          setMobileMenuOpen(false);
-        }
+        if (mobileMenuOpen) setMobileMenuOpen(false);
         return;
       }
 
       if (href.startsWith('#')) {
-        event.preventDefault();
-        // Use requestAnimationFrame for better timing after potential state updates
-        requestAnimationFrame(() => {
-          const element = document.querySelector(href);
-          if (element) {
-            const headerOffset = 80; // Height of the sticky header + buffer
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition =
-              elementPosition + window.pageYOffset - headerOffset;
+        const element = document.querySelector(href);
+        if (element) {
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth',
-            });
-          } else {
-            console.warn(`Element with selector "${href}" not found.`);
-          }
-        });
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }
-      // Close mobile menu after any navigation link click
-       if (mobileMenuOpen) {
-         setMobileMenuOpen(false);
-       }
+      
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
     },
-    [mobileMenuOpen, setMobileMenuOpen], // Include setMobileMenuOpen in dependencies
+    [mobileMenuOpen]
   );
-
 
   return (
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300 ease-in-out',
-        // Apply heavier glassmorphism and shadow when scrolled - Enhanced effect
         isScrolled
           ? 'glassmorphism-heavy shadow-lg border-b border-border/10'
           : 'bg-gradient-to-b from-background/70 via-background/30 to-transparent border-b border-transparent',
@@ -98,15 +86,12 @@ export function Header() {
           className="flex items-center space-x-3 group"
           onClick={(e) => handleNavLinkClick(e, '/')}
         >
-          {/* Enhanced Gradient and Glow Effect */}
-          <span
-            className={cn(
-              'text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text',
-              'bg-gradient-to-r from-teal-400 via-blue-500 to-blue-600', // Brighter gradient
-              'group-hover:brightness-110 transition-all duration-300',
-              'animate-gradient-text-slow', // Retain slow gradient animation
-            )}
-          >
+          <span className={cn(
+            'text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text',
+            'bg-gradient-to-r from-teal-400 via-blue-500 to-blue-600',
+            'group-hover:brightness-110 transition-all duration-300',
+            'animate-gradient-text-slow',
+          )}>
             Sai Jeshwanth Goud Illuri
           </span>
         </Link>
@@ -122,24 +107,22 @@ export function Header() {
                 className={cn(
                   'group relative px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ease-out',
                   isActive
-                    ? 'text-primary bg-primary/15' // Active state styling
-                    : 'text-foreground/85 hover:text-primary hover:bg-primary/10', // Default and hover state
-                  'active:scale-95', // Click feedback
+                    ? 'text-primary bg-primary/15'
+                    : 'text-foreground/85 hover:text-primary hover:bg-primary/10',
+                  'active:scale-95',
                 )}
               >
                 <span className="relative z-10">{item.label}</span>
-                {/* Subtle underline effect on active/hover */}
                 <span
                   className={cn(
                     'absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out',
-                    isActive || 'group-hover:left-0 group-hover:right-0', // Expand underline on hover
+                    isActive || 'group-hover:left-0 group-hover:right-0',
                   )}
-                ></span>
+                />
               </Link>
             );
           })}
 
-          {/* Enhanced "Get In Touch" Button Styling */}
           <Link href="#contact" passHref>
             <Button
               variant="outline"
@@ -147,13 +130,13 @@ export function Header() {
               onClick={(e) => handleNavLinkClick(e, '#contact')}
               className={cn(
                 'ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300',
-                'border-primary/50 hover:border-primary', // Border styling
-                'hover:bg-primary/15', // Subtle hover background
-                'text-primary hover:text-primary', // Text color
+                'border-primary/50 hover:border-primary',
+                'hover:bg-primary/15',
+                'text-primary hover:text-primary',
                 activeSection === '#contact'
                   ? 'bg-primary/15 text-primary ring-2 ring-primary/50 ring-offset-2 ring-offset-background'
-                  : 'bg-background/60 dark:bg-secondary/60', // Active state highlight
-                'active:scale-95', // Click feedback
+                  : 'bg-background/60 dark:bg-secondary/60',
+                'active:scale-95',
               )}
             >
               Get In Touch With Me <Send className="ml-2 h-4 w-4" />
@@ -161,99 +144,87 @@ export function Header() {
           </Link>
         </nav>
 
-        {/* Mobile Menu Button and Sheet */}
-        <div className="flex items-center gap-2 md:hidden">
-          {/* Correctly use Sheet open state and trigger */}
+        <div className="md:hidden">
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground h-10 w-10 rounded-full flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-colors duration-200"
-                aria-label="Toggle Menu" // Added aria-label for accessibility
+                className="fixed right-4 top-4 z-50 h-11 w-11 rounded-full flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-colors duration-200"
+                aria-label="Toggle Menu"
               >
-                <Menu className="h-6 w-6" />
-                <VisuallyHidden>Toggle Menu</VisuallyHidden>
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+                <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
               className={cn(
-                'w-[85vw] max-w-[360px] p-0 flex flex-col',
-                'glassmorphism-heavy', // Apply heavy glassmorphism
+                'w-full sm:w-[350px] p-0 flex flex-col',
+                'glassmorphism-heavy',
               )}
             >
-              {/* Header inside the sheet */}
-              <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent flex items-center justify-between">
-                 {/* Ensure accessibility with a visually hidden title */}
-                  <SheetTitle asChild>
-                    <VisuallyHidden>Mobile Navigation Menu</VisuallyHidden>
-                  </SheetTitle>
-                  <VisuallyHidden>
-                    <p>Navigate through the portfolio sections.</p>
-                  </VisuallyHidden>
-
+              <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
+                <SheetTitle asChild>
+                  <VisuallyHidden>Navigation Menu</VisuallyHidden>
+                </SheetTitle>
                 <Link
                   href="/"
                   className="flex items-center space-x-2.5 group"
-                  onClick={(e) => handleNavLinkClick(e, '/')} // Ensure smooth scroll works here too
+                  onClick={(e) => handleNavLinkClick(e, '/')}
                 >
                   <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-110 transition-all">
-                    Sai J. G. Illuri {/* Shortened Name for Mobile */}
+                    Sai J. G. Illuri
                   </span>
                 </Link>
-                <SheetClose asChild>
-                  <Button variant="ghost" className="h-9 w-9 p-0 rounded-full">
-                    <X className="h-5 w-5 text-muted-foreground" />
-                    <VisuallyHidden>Close Menu</VisuallyHidden>
-                  </Button>
-                </SheetClose>
               </div>
 
-              {/* Navigation Links inside the sheet - This part renders the menu items */}
-              <nav className="flex-1 flex flex-col p-6 space-y-1.5">
+              <nav className="flex-1 flex flex-col p-6 space-y-2">
                 {navItems.map((item) => {
                   const isActive = activeSection === item.href;
                   return (
-                    // Use SheetClose around each navigable item to close the menu on click
                     <SheetClose asChild key={item.label}>
-                        <Link
-                          href={item.href}
-                          onClick={(e) => handleNavLinkClick(e, item.href)}
-                           className={cn(
-                              'block justify-start p-3 text-base font-medium transition-colors duration-200 rounded-md', // Added block and rounded-md
-                              isActive
-                                ? 'bg-primary/15 text-primary font-semibold' // Active state - slightly bolder
-                                : 'text-foreground/90 hover:bg-primary/10 hover:text-primary', // Default and hover - slightly dimmed default text
-                              'active:scale-95', // Click feedback
-                           )}
-                        >
-                          {item.label}
-                        </Link>
+                      <Link
+                        href={item.href}
+                        onClick={(e) => handleNavLinkClick(e, item.href)}
+                        className={cn(
+                          'flex items-center justify-center p-4 text-base font-medium transition-all duration-300 rounded-md',
+                          isActive
+                            ? 'bg-primary/15 text-primary font-semibold'
+                            : 'text-foreground/90 hover:bg-primary/10 hover:text-primary',
+                          'active:scale-95',
+                        )}
+                      >
+                        {item.label}
+                      </Link>
                     </SheetClose>
                   );
                 })}
-                <div className="border-b border-border/20 pt-2"></div>
-                {/* Contact Me link inside the sheet */}
+
+                <div className="border-b border-border/20 pt-2" />
+
                 <SheetClose asChild>
-                    <Link
-                      href="#contact"
-                      onClick={(e) => handleNavLinkClick(e, "#contact")}
-                      className={cn(
-                          'block w-full mt-6 py-3 text-base font-medium text-center rounded-md transition-all duration-300', // Base styling
-                          activeSection === '#contact'
-                            ? 'bg-primary text-primary-foreground ring-2 ring-primary/50 ring-offset-2 ring-offset-background' // Active state highlight
-                            : 'border border-primary text-primary hover:bg-primary/15', // Default/hover outline style
-                          'active:scale-95', // Click feedback
-                        )}
-                      >
-                      Get In Touch{' '}
-                      <Send className="inline-block ml-1.5 h-4 w-4 align-middle" />
-                    </Link>
+                  <Link
+                    href="#contact"
+                    onClick={(e) => handleNavLinkClick(e, "#contact")}
+                    className={cn(
+                      'flex items-center justify-center w-full mt-4 py-4 text-base font-medium rounded-md transition-all duration-300',
+                      activeSection === '#contact'
+                        ? 'bg-primary text-primary-foreground ring-2 ring-primary/50 ring-offset-2 ring-offset-background'
+                        : 'border border-primary text-primary hover:bg-primary/15',
+                      'active:scale-95',
+                    )}
+                  >
+                    Get In Touch{' '}
+                    <Send className="ml-2 h-4 w-4" />
+                  </Link>
                 </SheetClose>
               </nav>
 
-              {/* Footer hint inside the sheet */}
               <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
                 Navigate Sections
               </div>
@@ -264,5 +235,3 @@ export function Header() {
     </header>
   );
 }
-
-
