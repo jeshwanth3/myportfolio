@@ -56,6 +56,14 @@ body {
 }
 
 @layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation-delay: var(--animation-delay, 0ms);
@@ -63,8 +71,16 @@ body {
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px) scale(0.99); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    from { 
+      opacity: 0; 
+      transform: translateY(10px) scale(0.99); 
+      filter: blur(4px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
   }
 
   .animate-slide-in-bottom {
@@ -77,17 +93,24 @@ body {
      from {
         opacity: 0;
         transform: translateY(20px);
+        filter: blur(4px);
      }
      to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
      }
   }
 
   .mac-shadow {
      box-shadow: 0 10px 30px -8px hsl(var(--background) / 0.25), 0 6px 18px -6px hsl(var(--background) / 0.20);
      border: 1px solid hsl(var(--border) / 0.18);
-     transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+     transition: all 0.3s ease-out;
+  }
+
+  .mac-shadow:hover {
+    box-shadow: 0 15px 40px -8px hsl(var(--background) / 0.35), 0 8px 24px -6px hsl(var(--background) / 0.30);
+    border-color: hsl(var(--border) / 0.25);
   }
 
   .glassmorphism-heavy {
@@ -95,7 +118,7 @@ body {
     backdrop-filter: blur(18px) saturate(180%);
     -webkit-backdrop-filter: blur(18px) saturate(180%);
     border-bottom: 1px solid hsl(var(--border) / 0.12);
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   ::-webkit-scrollbar {
@@ -158,5 +181,5 @@ body {
 
 .button-glow:hover, .button-glow:focus-visible {
   box-shadow: 0 0 25px 5px hsl(var(--primary) / 0.60);
-  transition: box-shadow 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
