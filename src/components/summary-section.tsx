@@ -62,7 +62,7 @@ export function SummarySection() {
                  alt="Professional headshot of Sai Jeshwanth Goud Illuri"
                  width={400}
                  height={400}
-                 quality={95}
+                 quality={100}
                  priority
                  className="rounded-xl border-4 border-primary/60 dark:border-primary/70 object-cover w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px] transition-all duration-300 mac-shadow filter saturate-[1.1] contrast-[1.02]"
                  style={{ 
