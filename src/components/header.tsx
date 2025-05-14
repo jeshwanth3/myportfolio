@@ -12,7 +12,7 @@ import {
   SheetTitle
 } from '@/components/ui/sheet';
 import { VisuallyHidden } from '@/components/ui/visually-hidden';
-import { Menu, X, Send } from 'lucide-react';
+import { Menu, X, Send, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useActiveSection } from '@/hooks/use-active-section';
 
@@ -65,7 +65,9 @@ export function Header() {
       }
       
       if (mobileMenuOpen) {
-        setMobileMenuOpen(false);
+        setTimeout(() => {
+          setMobileMenuOpen(false);
+        }, 300); // Delay closing to allow animation to complete
       }
     },
     [mobileMenuOpen]
@@ -150,13 +152,13 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="fixed right-4 top-4 z-50 h-11 w-11 rounded-full flex items-center justify-center hover:bg-accent/20 hover:text-accent transition-colors duration-200"
+                className="fixed right-4 top-4 z-50 h-11 w-11 rounded-full flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all duration-300 group"
                 aria-label="Toggle Menu"
               >
                 {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="h-6 w-6 transition-transform duration-300 rotate-90 group-hover:rotate-180" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                 )}
                 <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
               </Button>
@@ -184,7 +186,7 @@ export function Header() {
               </div>
 
               <nav className="flex-1 flex flex-col p-6 space-y-2">
-                {navItems.map((item) => {
+                {navItems.map((item, index) => {
                   const isActive = activeSection === item.href;
                   return (
                     <SheetClose asChild key={item.label}>
@@ -192,14 +194,16 @@ export function Header() {
                         href={item.href}
                         onClick={(e) => handleNavLinkClick(e, item.href)}
                         className={cn(
-                          'flex items-center justify-center p-4 text-base font-medium transition-all duration-300 rounded-md',
+                          'flex items-center justify-between p-4 text-base font-medium transition-all duration-300 rounded-md group',
                           isActive
                             ? 'bg-primary/15 text-primary font-semibold'
                             : 'text-foreground/90 hover:bg-primary/10 hover:text-primary',
                           'active:scale-95',
                         )}
+                        style={{ '--animation-delay': `${150 + index * 50}ms` } as React.CSSProperties}
                       >
                         {item.label}
+                        <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
                     </SheetClose>
                   );
@@ -212,7 +216,7 @@ export function Header() {
                     href="#contact"
                     onClick={(e) => handleNavLinkClick(e, "#contact")}
                     className={cn(
-                      'flex items-center justify-center w-full mt-4 py-4 text-base font-medium rounded-md transition-all duration-300',
+                      'flex items-center justify-center w-full mt-4 py-4 text-base font-medium rounded-md transition-all duration-300 group',
                       activeSection === '#contact'
                         ? 'bg-primary text-primary-foreground ring-2 ring-primary/50 ring-offset-2 ring-offset-background'
                         : 'border border-primary text-primary hover:bg-primary/15',
@@ -220,7 +224,7 @@ export function Header() {
                     )}
                   >
                     Get In Touch{' '}
-                    <Send className="ml-2 h-4 w-4" />
+                    <Send className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </SheetClose>
               </nav>
