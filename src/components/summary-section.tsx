@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { SummaryStats } from '@/components/summary-stats';
 
-const professionalSummary = "Detail-oriented and impact-driven Product Manager and Business Analyst with 3+ years of experience driving data-led decisions, building scalable cloud solutions, and delivering user-centric features. Skilled in leveraging analytics, AI tools, and cross-functional collaboration to launch impactful products across SaaS, fintech, and transportation domains.";
+const professionalSummary = "Hey there! 👋 I'm a Product Manager who loves turning complex problems into user-friendly solutions. With 3+ years of experience in tech, I blend data-driven insights with a passion for building products that make a real difference. When I'm not crafting product strategies, you'll find me exploring new tech trends or brainstorming innovative ideas over coffee! ☕";
 const yourName = "Sai Jeshwanth Goud Illuri";
 
 export function SummarySection() {
@@ -15,12 +15,12 @@ export function SummarySection() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
         <div className="lg:col-span-3 space-y-3 md:space-y-4 text-center lg:text-left">
           <p className="text-base sm:text-lg font-semibold text-primary animate-fade-in" style={{ '--animation-delay': '100ms' } as React.CSSProperties}>
-             Hello, I&apos;m
+             Hi there, I'm
           </p>
            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight mb-1 animate-fade-in" style={{ '--animation-delay': '200ms' } as React.CSSProperties}>
             {yourName}
           </h1>
-           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl text-primary animate-glow mb-3 animate-fade-in" style={{ '--animation-delay': '300ms' } as React.CSSProperties}>
+           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 animate-glow mb-3 animate-fade-in" style={{ '--animation-delay': '300ms' } as React.CSSProperties}>
              Product Manager
            </h2>
           <p className="text-sm sm:text-base text-muted-foreground md:text-lg mx-auto lg:mx-0 leading-relaxed animate-fade-in" style={{ '--animation-delay': '400ms' } as React.CSSProperties}>
@@ -34,7 +34,7 @@ export function SummarySection() {
                  className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto border border-primary/60 text-primary hover:bg-primary/10 button-glow group relative overflow-hidden"
                >
                  <span className="absolute inset-0 bg-primary/10 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0"></span>
-                 <span className="relative">Contact Me <Mail className="ml-1.5 h-4 w-4 inline-block transition-transform duration-300 group-hover:rotate-12" /></span>
+                 <span className="relative">Let's Connect! <Mail className="ml-1.5 h-4 w-4 inline-block transition-transform duration-300 group-hover:rotate-12" /></span>
                </Button>
              </Link>
              <Link href="#experience" passHref>
@@ -44,7 +44,7 @@ export function SummarySection() {
                  className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60 group"
                >
                  <span className="relative">
-                   View My Experience 
+                   Check Out My Journey 
                    <ArrowDown className="ml-1.5 h-4 w-4 opacity-80 inline-block transition-transform duration-300 group-hover:translate-y-1" />
                  </span>
                </Button>
