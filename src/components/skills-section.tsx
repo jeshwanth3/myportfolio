@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
@@ -11,7 +9,7 @@ import {
   LineChart,
   Code,
   Cloud,
-  Lightbulb,
+  Sparkles,
   Target,
   Puzzle,
   Zap
@@ -20,67 +18,86 @@ import {
 const skillCategories = [
   {
     id: "skills1",
-    title: "Product Strategy",
-    icon: <Rocket className="h-6 w-6 text-blue-400" />,
-    description: "Crafting the roadmap to product success! 🚀",
+    title: "Product Strategy & AI",
+    icon: <Sparkles className="h-6 w-6 text-blue-400" />,
+    description: "Crafting AI-driven product visions! 🚀",
     skills: [
       "Product Vision & Roadmapping",
-      "Go-to-Market Strategy",
+      "AI/ML Product Strategy",
+      "Market Research & Analysis",
       "Feature Prioritization",
-      "Competitive Analysis",
-      "Product Lifecycle Management"
+      "Product Lifecycle Management",
+      "AI Integration Planning"
     ]
   },
   {
     id: "skills2",
     title: "User-Centric Design",
     icon: <Users className="h-6 w-6 text-green-400" />,
-    description: "Making products people love to use! 💚",
+    description: "Creating delightful user experiences! 💚",
     skills: [
       "User Research",
       "Journey Mapping",
       "Usability Testing",
       "Design Thinking",
-      "User Feedback Analysis"
+      "User Feedback Analysis",
+      "UX/UI Best Practices"
     ]
   },
   {
     id: "skills3",
     title: "Data & Analytics",
     icon: <LineChart className="h-6 w-6 text-purple-400" />,
-    description: "Turning data into decisions! 📊",
+    description: "Turning data into insights! 📊",
     skills: [
-      "SQL & Python",
+      "Python & SQL",
+      "Machine Learning",
       "A/B Testing",
-      "Product Analytics",
-      "Data Visualization",
-      "KPI Definition & Tracking"
+      "Power BI",
+      "ETL Pipeline Design",
+      "Predictive Analytics"
     ]
   },
   {
     id: "skills4",
     title: "Technical Skills",
     icon: <Code className="h-6 w-6 text-yellow-400" />,
-    description: "Speaking the language of developers! 💻",
+    description: "Building robust solutions! 💻",
     skills: [
-      "API Integration",
       "Azure Cloud Services",
+      "API Integration",
       "CI/CD Pipelines",
       "System Architecture",
-      "Technical Documentation"
+      "Data Engineering",
+      "NLP & AI Models"
     ]
   },
   {
     id: "skills5",
     title: "Leadership",
     icon: <Brain className="h-6 w-6 text-pink-400" />,
-    description: "Building & inspiring great teams! 🎯",
+    description: "Driving teams to success! 🎯",
     skills: [
       "Cross-functional Leadership",
       "Stakeholder Management",
       "Agile Methodologies",
       "Team Mentoring",
-      "Strategic Planning"
+      "Strategic Planning",
+      "Change Management"
+    ]
+  },
+  {
+    id: "skills6",
+    title: "AI & Innovation",
+    icon: <Zap className="h-6 w-6 text-orange-400" />,
+    description: "Pioneering AI solutions! ⚡",
+    skills: [
+      "AI Product Development",
+      "ML Model Integration",
+      "AI Ethics & Governance",
+      "Innovation Strategy",
+      "Emerging Tech Trends",
+      "AI/ML Tools & Platforms"
     ]
   }
 ];
@@ -88,7 +105,7 @@ const skillCategories = [
 export function SkillsSection() {
   return (
     <SectionWrapper id="skills" className="bg-gradient-to-b from-background to-card/15 dark:from-card/15 dark:to-background">
-      <SectionTitle>What I Bring to the Table ✨</SectionTitle>
+      <SectionTitle>Skills & Expertise ✨</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillCategories.map((category, index) => (
           <Card
