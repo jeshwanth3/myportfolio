@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { SummaryStats } from '@/components/summary-stats';
 
-const professionalSummary = "Hey there! 👋 I'm a Product Manager who loves turning complex problems into user-friendly solutions. With 3+ years of experience in tech, I blend data-driven insights with a passion for building products that make a real difference. When I'm not crafting product strategies, you'll find me exploring new tech trends or brainstorming innovative ideas over coffee! ☕";
+const professionalSummary = "Hello! I'm a passionate Product Manager with a knack for transforming ideas into impactful products. With a strong background in user research, data analytics, and cross-functional collaboration, I aim to create solutions that resonate with users and drive business success. My journey includes leading innovative projects like FitTracker, which showcases my ability to blend technology and strategy effectively.";
 const yourName = "Sai Jeshwanth Goud Illuri";
 
 export function SummarySection() {

@@ -6,39 +6,31 @@ import { Button } from "@/components/ui/button";
 import { FolderGit2, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
-const projects = [
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string | null;
+  liveUrl: string | null;
+};
+
+const projects: Project[] = [
   {
-    id: "proj1",
-    title: "AI-Powered Transit Optimization Platform",
-    description: "Led the development of an innovative transit optimization platform using machine learning and real-time data analytics. Reduced average commute times by 20% and improved route efficiency through predictive analytics.",
-    technologies: ["Product Strategy", "AI/ML", "Python", "Data Analytics", "Power BI", "Azure", "User Research"],
-    githubUrl: null,
-    liveUrl: null,
+    id: "proj 1",
+    title: "FitTracker",
+    description: "FitTracker is an AI-driven fitness app that delivers personalized health insights. It features adaptive workout plans, real-time feedback, and gamified challenges, boosting user engagement by 30% in its first quarter.",
+    technologies: ["Product Management", "PRD", "Figma", "UI/UX", "AI", "Agile"],
+    liveUrl: "/public/FIt%20Tracker%20PRD.pdf",
   },
   {
     id: "proj2",
-    title: "Insurance Analytics Dashboard",
-    description: "Architected a comprehensive analytics solution for insurance data processing, implementing automated ETL pipelines and interactive dashboards that reduced data processing time by 50%.",
-    technologies: ["Azure Data Factory", "Python", "Power BI", "SQL", "Data Pipeline", "Analytics"],
+    title: "CrashInsight: Iowa Vehicle Crash Data Analysis Tool",
+    description: "CrashInsight is a cloud-based data analysis tool built entirely on Azure. It processes and visualizes Iowa vehicle crash data to uncover patterns and improve road safety. The tool integrates Azure Data Factory for ETL, Azure SQL Database for storage, and Power BI for interactive dashboards, providing actionable insights for policymakers.",
+    technologies: ["Azure Data Factory", "Azure SQL Database", "Power BI", "Python", "Data Analytics", "ETL Pipelines", "Data Visualization"],
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: "/public/Project_Deliverable_final.pdf",
   },
-  {
-    id: "proj3",
-    title: "SaaS Product Enhancement Initiative",
-    description: "Spearheaded the enhancement of a Blue Yonder SaaS product, implementing key features and optimizations that resulted in a 20% reduction in incident tickets and improved user satisfaction.",
-    technologies: ["Product Management", "Azure DevOps", "SQL", "API Integration", "Agile"],
-    githubUrl: null,
-    liveUrl: null,
-  },
-  {
-    id: "proj4",
-    title: "AI-Driven Market Analysis Tool",
-    description: "Developed an AI-powered market analysis tool that leverages NLP and machine learning to provide real-time market insights and competitor analysis, enhancing strategic decision-making.",
-    technologies: ["AI/ML", "NLP", "Python", "Data Science", "Market Research", "Product Strategy"],
-    githubUrl: null,
-    liveUrl: null,
-  }
 ];
 
 export function ProjectsSection() {

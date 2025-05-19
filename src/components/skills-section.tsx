@@ -2,18 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Badge } from "@/components/ui/badge";
-import {
-  Brain,
-  Rocket,
-  Users,
-  LineChart,
-  Code,
-  Cloud,
-  Sparkles,
-  Target,
-  Puzzle,
-  Zap
-} from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -31,74 +20,22 @@ const skillCategories = [
     ]
   },
   {
-    id: "skills2",
-    title: "User-Centric Design",
-    icon: <Users className="h-6 w-6 text-green-400" />,
-    description: "Creating delightful user experiences! 💚",
-    skills: [
-      "User Research",
-      "Journey Mapping",
-      "Usability Testing",
-      "Design Thinking",
-      "User Feedback Analysis",
-      "UX/UI Best Practices"
-    ]
-  },
-  {
     id: "skills3",
-    title: "Data & Analytics",
-    icon: <LineChart className="h-6 w-6 text-purple-400" />,
-    description: "Turning data into insights! 📊",
+    title: "End-to-End Product Management",
     skills: [
-      "Python & SQL",
-      "Machine Learning",
-      "A/B Testing",
-      "Power BI",
-      "ETL Pipeline Design",
-      "Predictive Analytics"
+      "Product Ideation & Vision",
+      "Roadmap Planning",
+      "User-Centered Design",
+      "MVP Development",
+      "Cross-Functional Team Leadership",
+      "Go-to-Market Strategy",
+      "Iterative Product Improvement"
     ]
   },
   {
     id: "skills4",
-    title: "Technical Skills",
-    icon: <Code className="h-6 w-6 text-yellow-400" />,
-    description: "Building robust solutions! 💻",
-    skills: [
-      "Azure Cloud Services",
-      "API Integration",
-      "CI/CD Pipelines",
-      "System Architecture",
-      "Data Engineering",
-      "NLP & AI Models"
-    ]
-  },
-  {
-    id: "skills5",
-    title: "Leadership",
-    icon: <Brain className="h-6 w-6 text-pink-400" />,
-    description: "Driving teams to success! 🎯",
-    skills: [
-      "Cross-functional Leadership",
-      "Stakeholder Management",
-      "Agile Methodologies",
-      "Team Mentoring",
-      "Strategic Planning",
-      "Change Management"
-    ]
-  },
-  {
-    id: "skills6",
-    title: "AI & Innovation",
-    icon: <Zap className="h-6 w-6 text-orange-400" />,
-    description: "Pioneering AI solutions! ⚡",
-    skills: [
-      "AI Product Development",
-      "ML Model Integration",
-      "AI Ethics & Governance",
-      "Innovation Strategy",
-      "Emerging Tech Trends",
-      "AI/ML Tools & Platforms"
-    ]
+    title: "Cloud-Based Data Analysis",
+    skills: ["Azure Data Factory", "Azure SQL Database", "Power BI", "ETL Pipelines", "Data Visualization", "Cloud Architecture"]
   }
 ];
 
