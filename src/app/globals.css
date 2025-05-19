@@ -9,6 +9,10 @@ body {
   @apply text-foreground;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @layer base {
@@ -39,19 +43,17 @@ body {
     --chart-5: 260 85% 75%;
     --radius: 0.75rem;
   }
-
-  .dark {
-    /* Apply the root variables directly for dark mode */
-  }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
   }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    background: linear-gradient(120deg, hsl(var(--background)), hsl(var(--card)) 60%, hsl(var(--background)) 100%);
   }
 }
 
@@ -114,33 +116,34 @@ body {
   }
 
   .glassmorphism-heavy {
-    background-color: hsl(var(--background) / 0.70);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
-    border-bottom: 1px solid hsl(var(--border) / 0.12);
+    background-color: hsl(var(--background) / 0.80);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border-bottom: 1.5px solid hsl(var(--border) / 0.18);
+    box-shadow: 0 4px 24px 0 hsl(var(--primary) / 0.10);
     transition: all 0.3s ease-in-out;
   }
 
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 7px;
+    height: 7px;
   }
   ::-webkit-scrollbar-track {
      background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-     background-color: hsl(var(--muted) / 0.45);
-     border-radius: 2.5px;
+     background-color: hsl(var(--muted) / 0.55);
+     border-radius: 3.5px;
      border: none;
      transition: background-color 0.3s ease-out;
   }
   ::-webkit-scrollbar-thumb:hover {
-     background-color: hsl(var(--muted-foreground) / 0.60);
+     background-color: hsl(var(--muted-foreground) / 0.70);
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted) / 0.45) transparent;
+    scrollbar-color: hsl(var(--muted) / 0.55) transparent;
   }
 
   .glow-text {
@@ -164,12 +167,14 @@ body {
   }
 
   .gradient-text {
-    background: linear-gradient(45deg, #0095ff, #00e1ff);
+    background: linear-gradient(90deg, #0095ff, #00e1ff, #00ffb3);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: gradient 3s ease infinite;
     background-size: 200% 200%;
+    font-weight: 700;
+    letter-spacing: 0.04em;
   }
 
   @keyframes gradient {
@@ -220,16 +225,57 @@ body {
   }
 }
 
+.button-glow {
+  border-radius: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)) 80%);
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 12px hsl(var(--primary) / 0.25);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
 .button-glow:hover, .button-glow:focus-visible {
   box-shadow: 0 0 25px 5px hsl(var(--primary) / 0.60);
-  transition: all 0.3s ease-out;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+  color: hsl(var(--primary-foreground));
 }
 
 .project-card {
-  @apply flex flex-col bg-card/95 dark:bg-secondary/70 mac-shadow border border-border/25 dark:border-border/35 transition-all duration-300 ease-out hover:shadow-lg hover:border-primary/40 dark:hover:border-primary/60 transform hover:-translate-y-1.5;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(var(--card) / 0.95);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.10);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid hsl(var(--border) / 0.25);
+  transition: all 0.3s ease-out;
   height: 100%;
 }
 
+.project-card:hover {
+  box-shadow: 0 16px 48px 0 hsl(var(--primary) / 0.18);
+  transform: translateY(-8px) scale(1.025);
+  border-color: hsl(var(--primary));
+}
+
 .project-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
 }
