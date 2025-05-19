@@ -187,94 +187,185 @@ body {
       background-position: 0% 50%;
     }
   }
-}
 
-@keyframes gradient-text-animation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+  @keyframes gradient-text-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-.animate-gradient-text-slow {
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.8), hsl(var(--primary)));
-  background-size: 250% 250%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: gradient-text-animation 8s ease-in-out infinite;
-}
+  .animate-gradient-text-slow {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.8), hsl(var(--primary)));
+    background-size: 250% 250%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-text-animation 8s ease-in-out infinite;
+  }
 
-.animate-glow {
-  text-shadow: 0 0 12px hsl(var(--primary) / 0.8),
-                 0 0 24px hsl(var(--primary) / 0.5),
-                 0 0 36px hsl(var(--primary) / 0.3);
-  animation: text-glow-pulse 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes text-glow-pulse {
-  from {
+  .animate-glow {
     text-shadow: 0 0 12px hsl(var(--primary) / 0.8),
-                 0 0 24px hsl(var(--primary) / 0.5),
-                 0 0 36px hsl(var(--primary) / 0.3);
+                   0 0 24px hsl(var(--primary) / 0.5),
+                   0 0 36px hsl(var(--primary) / 0.3);
+    animation: text-glow-pulse 2.5s ease-in-out infinite alternate;
   }
-  to {
-    text-shadow: 0 0 18px hsl(var(--primary) / 1),
-                 0 0 36px hsl(var(--primary) / 0.7),
-                 0 0 54px hsl(var(--primary) / 0.5);
+
+  @keyframes text-glow-pulse {
+    from {
+      text-shadow: 0 0 12px hsl(var(--primary) / 0.8),
+                   0 0 24px hsl(var(--primary) / 0.5),
+                   0 0 36px hsl(var(--primary) / 0.3);
+    }
+    to {
+      text-shadow: 0 0 18px hsl(var(--primary) / 1),
+                   0 0 36px hsl(var(--primary) / 0.7),
+                   0 0 54px hsl(var(--primary) / 0.5);
+    }
   }
-}
 
-.button-glow {
-  border-radius: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)) 80%);
-  color: hsl(var(--primary-foreground));
-  box-shadow: 0 0 12px hsl(var(--primary) / 0.25);
-  transition: box-shadow 0.3s, background 0.3s;
-}
+  .button-glow {
+    border-radius: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)) 80%);
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.25);
+    transition: box-shadow 0.3s, background 0.3s;
+  }
 
-.button-glow:hover, .button-glow:focus-visible {
-  box-shadow: 0 0 25px 5px hsl(var(--primary) / 0.60);
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
-  color: hsl(var(--primary-foreground));
-}
+  .button-glow:hover, .button-glow:focus-visible {
+    box-shadow: 0 0 25px 5px hsl(var(--primary) / 0.60);
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    color: hsl(var(--primary-foreground));
+  }
 
-.project-card {
-  display: flex;
-  flex-direction: column;
-  background-color: hsl(var(--card) / 0.95);
-  border-radius: 1.25rem;
-  overflow: hidden;
-  box-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.10);
-  backdrop-filter: blur(8px) saturate(120%);
-  border: 1px solid hsl(var(--border) / 0.25);
-  transition: all 0.3s ease-out;
-  height: 100%;
-}
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(var(--card) / 0.95);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.10);
+    backdrop-filter: blur(8px) saturate(120%);
+    border: 1px solid hsl(var(--border) / 0.25);
+    transition: all 0.3s ease-out;
+    height: 100%;
+  }
 
-.project-card:hover {
-  box-shadow: 0 16px 48px 0 hsl(var(--primary) / 0.18);
-  transform: translateY(-8px) scale(1.025);
-  border-color: hsl(var(--primary));
-}
+  .project-card:hover {
+    box-shadow: 0 16px 48px 0 hsl(var(--primary) / 0.18);
+    transform: translateY(-8px) scale(1.025);
+    border-color: hsl(var(--primary));
+  }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1.5rem;
-  padding: 2rem 0;
-}
-
-@media (min-width: 640px) {
   .project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
   }
-}
 
-@media (min-width: 1024px) {
-  .project-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  @media (min-width: 640px) {
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .project-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* Add styles for the education section for improved visual appeal */
+  .education-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2.5rem 1.5rem;
+  }
+
+  .education-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
+    color: hsl(var(--primary));
+    text-shadow: 0 2px 16px hsl(var(--primary) / 0.12);
+  }
+
+  .education-card {
+    display: flex;
+    align-items: center;
+    background: hsl(var(--card) / 0.98);
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 32px 0 hsl(var(--primary) / 0.10);
+    padding: 2.25rem 2rem;
+    margin-bottom: 2rem;
     gap: 2rem;
+    border: 1.5px solid hsl(var(--border) / 0.18);
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .education-card:last-child {
+    margin-bottom: 0;
+  }
+  .education-card:hover {
+    box-shadow: 0 12px 48px 0 hsl(var(--primary) / 0.18);
+    border-color: hsl(var(--primary));
+  }
+
+  .education-logo {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 1rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px 0 hsl(var(--primary) / 0.10);
+    margin-right: 1.5rem;
+  }
+
+  .education-details {
+    flex: 1;
+  }
+
+  .education-degree {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.25rem;
+  }
+
+  .education-school {
+    font-size: 1.05rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 0.1rem;
+  }
+
+  .education-dates {
+    font-size: 1.05rem;
+    color: hsl(var(--muted-foreground));
+    font-weight: 500;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 700px) {
+    .education-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 1rem;
+      gap: 1.25rem;
+    }
+    .education-logo {
+      margin-right: 0;
+      margin-bottom: 0.75rem;
+    }
+    .education-title {
+      font-size: 2rem;
+    }
   }
 }
