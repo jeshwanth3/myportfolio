@@ -21,10 +21,10 @@ const projects: Project[] = [
     title: "FitTracker",
     description: "FitTracker is an AI-driven fitness app that delivers personalized health insights. It features adaptive workout plans, real-time feedback, and gamified challenges, boosting user engagement by 30% in its first quarter.",
     technologies: ["Product Management", "PRD", "Figma", "UI/UX", "AI", "Agile"],
-    liveUrl: "/public/FIt%20Tracker%20PRD.pdf",
+    liveUrl: "/public/FIt Tracker PRD.pdf",
   },
   {
-    id: "proj2",
+    id: "proj 2",
     title: "CrashInsight: Iowa Vehicle Crash Data Analysis Tool",
     description: "CrashInsight is a cloud-based data analysis tool built entirely on Azure. It processes and visualizes Iowa vehicle crash data to uncover patterns and improve road safety. The tool integrates Azure Data Factory for ETL, Azure SQL Database for storage, and Power BI for interactive dashboards, providing actionable insights for policymakers.",
     technologies: ["Azure Data Factory", "Azure SQL Database", "Power BI", "Python", "Data Analytics", "ETL Pipelines", "Data Visualization"],
@@ -37,7 +37,7 @@ export function ProjectsSection() {
   return (
     <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15">
       <SectionTitle>Featured Projects</SectionTitle>
-      <div className="project-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {projects.map((project, index) => (
           <Card
             key={project.id}
@@ -50,10 +50,10 @@ export function ProjectsSection() {
                   <FolderGit2 className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <CardTitle className="text-lg font-semibold text-foreground line-clamp-2">{project.title}</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-foreground">{project.title}</CardTitle>
                 </div>
               </div>
-              <CardDescription className="text-sm text-muted-foreground line-clamp-3">{project.description}</CardDescription>
+              <CardDescription className="text-sm text-muted-foreground">{project.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 p-5 md:p-6 pt-0">
               <div className="flex flex-wrap gap-2">
@@ -83,7 +83,7 @@ export function ProjectsSection() {
                   )}
                   {project.liveUrl && (
                     <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" size="sm" className="text-xs h-8 px-3">
+                      <Button variant="ghost" size="sm" className="text-xs h-8 px-3">
                         Live Demo <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                       </Button>
                     </Link>
