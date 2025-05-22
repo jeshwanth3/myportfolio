@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Sai Jeshwanth Goud – Portfolio',
+  title: 'Sai Jeshwanth Goud|Product Manager',
   description: 'Showcasing my journey, skills & cool stuff',
   icons: {
     icon: '/sj-high-resolution-logo.png',
