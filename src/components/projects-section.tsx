@@ -35,6 +35,15 @@ const projects: Project[] = [
     liveUrl: null,
     moreDetails: "/Project_Deliverable_final.pdf",
   },
+  {
+    id: "proj3",
+    title: "Personal Portfolio Website",
+    description: "Designed and developed a modern, responsive portfolio website using Next.js 13, TypeScript, and Tailwind CSS. Features dark/light mode, smooth animations, and a clean, professional design that effectively showcases projects and skills.",
+    technologies: ["Next.js 13", "TypeScript", "Tailwind CSS", "UI/UX Design", "Responsive Design", "Web Development"],
+    githubUrl: "https://github.com/jeshwanth3/myportfolio",
+    liveUrl: "https://www.saijeshwanthgoud.com/",
+    moreDetails: null,
+  },
 ];
 
 export function ProjectsSection() {
