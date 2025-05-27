@@ -13,6 +13,7 @@ type Project = {
   technologies: string[];
   githubUrl: string | null;
   liveUrl: string | null;
+  moreDetails: string | null; // Added 'moreDetails' property to the Project type
 };
 
 const projects: Project[] = [
@@ -21,23 +22,14 @@ const projects: Project[] = [
     title: "FitTracker",
     description: "FitTracker is an AI-driven fitness app that delivers personalized health insights. It features adaptive workout plans, real-time feedback, and gamified challenges, boosting user engagement by 30% in its first quarter.",
     technologies: ["Product Management", "PRD", "Figma", "UI/UX", "AI", "Agile"],
-    liveUrl: "/public/FIt Tracker PRD.pdf",
+    moreDetails: "/public/FIt Tracker PRD.pdf", // Updated to use 'moreDetails'
   },
   {
     id: "proj 2",
     title: "CrashInsight: Iowa Vehicle Crash Data Analysis Tool",
     description: "CrashInsight is a cloud-based data analysis tool built entirely on Azure. It processes and visualizes Iowa vehicle crash data to uncover patterns and improve road safety. The tool integrates Azure Data Factory for ETL, Azure SQL Database for storage, and Power BI for interactive dashboards, providing actionable insights for policymakers.",
     technologies: ["Azure Data Factory", "Azure SQL Database", "Power BI", "Python", "Data Analytics", "ETL Pipelines", "Data Visualization"],
-    githubUrl: null,
-    liveUrl: "/public/Project_Deliverable_final.pdf",
-  },
-  {
-    id: "proj 3",
-    title: "Personal Portfolio Website",
-    description: "A modern, responsive portfolio website built from scratch with a focus on user experience. Features include dark/light theme support, responsive design, optimized performance, and smooth animations. Implemented with best practices in web development and design principles.",
-    technologies: ["React","TypeScript","Next.js","Tailwind CSS","UI/UX","Responsive Design","Accessibility"],
-    githubUrl: "https://github.com/jeshwanth3/myportfolio.com", // Replace with your actual GitHub URL
-    liveUrl: "https://www.saijeswanthgoud.com", // Replace with your actual deployed URL
+    moreDetails: "/public/Project_Deliverable_final.pdf", // Updated to use 'moreDetails'
   },
 ];
 
@@ -80,23 +72,12 @@ export function ProjectsSection() {
               {!project.githubUrl && !project.liveUrl && (
                 <span className="text-xs text-muted-foreground italic">Internal Project (Documentation Available on Request)</span>
               )}
-              {(project.githubUrl || project.liveUrl) && (
-                <div className="flex gap-3 ml-auto">
-                  {project.githubUrl && (
-                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="ghost" size="sm" className="text-xs h-8 px-3">
-                        GitHub <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-                      </Button>
-                    </Link>
-                  )}
-                  {project.liveUrl && (
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="ghost" size="sm" className="text-xs h-8 px-3">
-                        Live Demo <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-                      </Button>
-                    </Link>
-                  )}
-                </div>
+              {project.moreDetails && (
+                <Link href={project.moreDetails} target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="sm" className="text-xs h-8 px-3">
+                    More Details <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+                  </Button>
+                </Link>
               )}
             </CardFooter>
           </Card>

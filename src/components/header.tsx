@@ -1,6 +1,6 @@
 "use client";
 
-import type React, { MouseEvent as ReactMouseEvent } from 'react';
+import { type MouseEvent as ReactMouseEvent } from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -21,6 +21,7 @@ const navItems = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Achievements', href: '#achievements' },
   { label: 'Education', href: '#education' },
 ];
 
