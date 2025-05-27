@@ -31,6 +31,14 @@ const projects: Project[] = [
     githubUrl: null,
     liveUrl: "/public/Project_Deliverable_final.pdf",
   },
+  {
+    id: "proj 3",
+    title: "Personal Portfolio Website",
+    description: "A modern, responsive portfolio website built from scratch with a focus on user experience. Features include dark/light theme support, responsive design, optimized performance, and smooth animations. Implemented with best practices in web development and design principles.",
+    technologies: ["React","TypeScript","Next.js","Tailwind CSS","UI/UX","Responsive Design","Accessibility"],
+    githubUrl: "https://github.com/jeshwanth3/myportfolio.com", // Replace with your actual GitHub URL
+    liveUrl: "https://www.saijeswanthgoud.com", // Replace with your actual deployed URL
+  },
 ];
 
 export function ProjectsSection() {
