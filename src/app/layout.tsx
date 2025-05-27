@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
   metadataBase: new URL('https://www.saijeshwanthgoud.com'),
   icons: {
-    icon: [{ url: '/sj-high-resolution-logo.png', type: 'image/png' }],
+    icon: [{ url: '/sj-high-resolution-logo.png', type: 'image/png', sizes: 'any' }],
     shortcut: ['/sj-high-resolution-logo.png'],
     apple: [
       { url: '/sj-high-resolution-logo.png', sizes: '180x180', type: 'image/png' },
@@ -28,12 +28,14 @@ export const metadata: Metadata = {
     description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
     url: 'https://www.saijeshwanthgoud.com',
     siteName: 'Sai Jeshwanth Goud Portfolio',
-    images: [{
-      url: 'https://www.saijeshwanthgoud.com/sj-high-resolution-logo.png',
-      width: 1200,
-      height: 630,
-      alt: 'Sai Jeshwanth Goud Portfolio'
-    }],
+    images: [
+      {
+        url: '/sj-high-resolution-logo.png',
+        width: 2000,
+        height: 1500,
+        alt: 'Sai Jeshwanth Goud Portfolio - High Resolution'
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -42,12 +44,14 @@ export const metadata: Metadata = {
     title: 'Sai Jeshwanth Goud | Product Manager',
     description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
     creator: '@saijeshwanthgoud',
-    images: [{
-      url: 'https://www.saijeshwanthgoud.com/sj-high-resolution-logo.png',
-      alt: 'Sai Jeshwanth Goud Portfolio',
-      width: 1200,
-      height: 630
-    }],
+    images: [
+      {
+        url: '/sj-high-resolution-logo.png',
+        width: 2000,
+        height: 1500,
+        alt: 'Sai Jeshwanth Goud Portfolio - High Resolution'
+      }
+    ],
   },
   manifest: '/manifest.json',
   verification: {
