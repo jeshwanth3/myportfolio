@@ -18,18 +18,22 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: "proj 1",
+    id: "proj1",
     title: "FitTracker",
     description: "FitTracker is an AI-driven fitness app that delivers personalized health insights. It features adaptive workout plans, real-time feedback, and gamified challenges, boosting user engagement by 30% in its first quarter.",
     technologies: ["Product Management", "PRD", "Figma", "UI/UX", "AI", "Agile"],
-    moreDetails: "/public/FIt Tracker PRD.pdf", // Updated to use 'moreDetails'
+    githubUrl: null,
+    liveUrl: null,
+    moreDetails: "/FIt%20Tracker%20PRD.pdf",
   },
   {
-    id: "proj 2",
+    id: "proj2",
     title: "CrashInsight: Iowa Vehicle Crash Data Analysis Tool",
     description: "CrashInsight is a cloud-based data analysis tool built entirely on Azure. It processes and visualizes Iowa vehicle crash data to uncover patterns and improve road safety. The tool integrates Azure Data Factory for ETL, Azure SQL Database for storage, and Power BI for interactive dashboards, providing actionable insights for policymakers.",
     technologies: ["Azure Data Factory", "Azure SQL Database", "Power BI", "Python", "Data Analytics", "ETL Pipelines", "Data Visualization"],
-    moreDetails: "/public/Project_Deliverable_final.pdf", // Updated to use 'moreDetails'
+    githubUrl: null,
+    liveUrl: null,
+    moreDetails: "/Project_Deliverable_final.pdf",
   },
 ];
 
