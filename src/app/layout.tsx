@@ -14,36 +14,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Sai Jeshwanth Goud | Product Manager',
   description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
-  metadataBase: new URL('https://saijeswanthgoud.com'),
+  metadataBase: new URL('https://saijeshwanthgoud.com'),
   icons: {
-    icon: [
-      {
-        url: '/sj-high-resolution-logo.png',
-        sizes: '32x32',
-        type: 'image/png',
-      },
-      {
-        url: '/sj-high-resolution-logo.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-      {
-        url: '/sj-high-resolution-logo.png',
-        sizes: '512x512',
-        type: 'image/png',
-      }
-    ],
-    shortcut: '/sj-high-resolution-logo.png',
-    apple: {
-      url: '/sj-high-resolution-logo.png',
-      type: 'image/png',
-      sizes: '180x180',
-    },
+    icon: '/sj-high-resolution-logo.png',
+    apple: '/sj-high-resolution-logo.png',
   },
   openGraph: {
     title: 'Sai Jeshwanth Goud | Product Manager',
     description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
-    url: 'https://saijeswanthgoud.com',
+    url: 'https://saijeshwanthgoud.com',
     siteName: 'Sai Jeshwanth Goud Portfolio',
     images: [
       {
@@ -51,7 +30,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Sai Jeshwanth Goud Portfolio',
-        type: 'image/png',
       }
     ],
     locale: 'en_US',
@@ -61,22 +39,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sai Jeshwanth Goud | Product Manager',
     description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
-    creator: '@SaiJeshwanth',
-    images: [{
-      url: '/sj-high-resolution-logo.png',
-      alt: 'Sai Jeshwanth Goud Portfolio',
-      width: 1200,
-      height: 630,
-    }],
-  },
-  alternates: {
-    canonical: 'https://saijeswanthgoud.com'
-  },
-  manifest: '/manifest.json',
-  appleWebApp: {
-    title: 'Sai Jeshwanth Goud',
-    statusBarStyle: 'default',
-    capable: true,
+    images: ['/sj-high-resolution-logo.png'],
+    creator: '@saijeshwanthgoud',
   },
 };
 
