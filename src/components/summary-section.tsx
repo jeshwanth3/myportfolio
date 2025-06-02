@@ -23,22 +23,7 @@ export function SummarySection() {
            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight mb-1 animate-fade-in" style={{ '--animation-delay': '200ms' } as React.CSSProperties}>
             {yourName}
           </h1>
-           <div className="relative">
-             <TypedTitle className="text-2xl sm:text-3xl font-semibold tracking-tight md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 animate-glow mb-3 animate-fade-in" />
-             <style jsx global>{`
-               .typed-cursor {
-                 color: #60A5FA;
-                 font-size: inherit;
-                 opacity: 1;
-                 animation: blink 0.7s infinite;
-               }
-               @keyframes blink {
-                 0% { opacity: 1; }
-                 50% { opacity: 0; }
-                 100% { opacity: 1; }
-               }
-             `}</style>
-           </div>
+          <TypedTitle className="text-xl sm:text-2xl font-medium tracking-tight text-primary animate-fade-in" />
           <p className="text-sm sm:text-base text-muted-foreground md:text-lg mx-auto lg:mx-0 leading-relaxed animate-fade-in" style={{ '--animation-delay': '400ms' } as React.CSSProperties}>
             {professionalSummary}
           </p>
