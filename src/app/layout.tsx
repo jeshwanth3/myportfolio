@@ -69,18 +69,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground relative`} suppressHydrationWarning>
-          <ThemeProvider
-             attribute="class"
-             defaultTheme="dark"
-             enableSystem={false} // Enforce dark theme
-           >
-             {children}
-             <Toaster />
-             <BackToTopButton />
-             <Analytics />
-             <SpeedInsights />
-         </ThemeProvider>
+      <body
+        className={`${inter.variable} font-sans antialiased bg-background text-foreground relative`}
+        suppressHydrationWarning
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </div>
+          <Toaster />
+          <BackToTopButton />
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
