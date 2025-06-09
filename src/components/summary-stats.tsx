@@ -51,7 +51,7 @@ export function SummaryStats() {
   const stats = [
     {
       icon: <Briefcase />,
-      value: "3+",
+      value: "3.5+",
       label: "Years of Experience",
       delay: "300ms",
     },
