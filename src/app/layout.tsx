@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
@@ -7,9 +7,9 @@ import { BackToTopButton } from '@/components/back-to-top-button';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const inter = Inter({
+const inter = Poppins({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
@@ -68,12 +68,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} font-sans antialiased bg-background text-foreground relative`}
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <div className="w-full px-4 sm:px-6 lg:px-8">
             {children}
           </div>

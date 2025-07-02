@@ -5,7 +5,6 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail } from 'lucide-react';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import { SummaryStats } from '@/components/summary-stats';
 import { TypedTitle } from '@/components/typed-title';
 
@@ -14,11 +13,11 @@ const yourName = "Sai Jeshwanth Goud Illuri";
 
 export function SummarySection() {
   return (
-    <SectionWrapper id="summary" className="bg-gradient-to-b from-background via-card/5 to-background/90 pt-10 md:pt-12 lg:pt-16 pb-12 md:pb-16 lg:pb-20">
+    <SectionWrapper id="summary" className="bg-gradient-to-br from-background via-secondary to-background/90 pt-10 md:pt-12 lg:pt-16 pb-12 md:pb-16 lg:pb-20">
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
         <div className="lg:col-span-3 space-y-3 md:space-y-4 text-center lg:text-left">
           <p className="text-base sm:text-lg font-semibold text-primary animate-fade-in" style={{ '--animation-delay': '100ms' } as React.CSSProperties}>
-             Hi there, I'm
+             Hi there, I&apos;m
           </p>
            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight mb-1 animate-fade-in" style={{ '--animation-delay': '200ms' } as React.CSSProperties}>
             {yourName}
@@ -35,7 +34,7 @@ export function SummarySection() {
                  className="shadow-md hover:shadow-lg transition-all hover:scale-[1.03] transform duration-300 w-full sm:w-auto border border-primary/60 text-primary hover:bg-primary/10 button-glow group relative overflow-hidden"
                >
                  <span className="absolute inset-0 bg-primary/10 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0"></span>
-                 <span className="relative">Let's Connect! <Mail className="ml-1.5 h-4 w-4 inline-block transition-transform duration-300 group-hover:rotate-12" /></span>
+                 <span className="relative">Let&apos;s Connect! <Mail className="ml-1.5 h-4 w-4 inline-block transition-transform duration-300 group-hover:rotate-12" /></span>
                </Button>
              </Link>
              <Link href="#experience" passHref>

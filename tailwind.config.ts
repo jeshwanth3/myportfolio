@@ -8,8 +8,11 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		colors: {
+        extend: {
+                fontFamily: {
+                        sans: ['var(--font-poppins)', 'ui-sans-serif', 'system-ui']
+                },
+                colors: {
         // Direct mapping from CSS variables defined in globals.css
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
+import { cn } from '@/lib/utils';
 
 interface TypedTitleProps {
   className?: string;
@@ -35,7 +36,7 @@ export function TypedTitle({ className }: TypedTitleProps) {
   }, []);
 
   return (
-    <div className={className}>
+    <div className={cn('animate-glow font-semibold text-primary', className)}>
       <span ref={el}></span>
     </div>
   );
