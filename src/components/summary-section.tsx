@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { SectionWrapper } from "@/components/section-wrapper";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail } from 'lucide-react';
+import { ArrowDown, Mail, FolderGit2 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { SummaryStats } from '@/components/summary-stats';
@@ -38,18 +38,30 @@ export function SummarySection() {
                  <span className="relative">Let's Connect! <Mail className="ml-1.5 h-4 w-4 inline-block transition-transform duration-300 group-hover:rotate-12" /></span>
                </Button>
              </Link>
-             <Link href="#experience" passHref>
-               <Button 
-                 variant="outline" 
-                 size="sm" 
-                 className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60 group"
-               >
-                 <span className="relative">
-                   Check Out My Journey 
-                   <ArrowDown className="ml-1.5 h-4 w-4 opacity-80 inline-block transition-transform duration-300 group-hover:translate-y-1" />
-                 </span>
-               </Button>
-             </Link>
+            <Link href="#experience" passHref>
+              <Button
+                variant="outline"
+                size="sm"
+                className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60 group"
+              >
+                <span className="relative">
+                  Check Out My Journey
+                  <ArrowDown className="ml-1.5 h-4 w-4 opacity-80 inline-block transition-transform duration-300 group-hover:translate-y-1" />
+                </span>
+              </Button>
+            </Link>
+            <Link href="#projects" passHref>
+              <Button
+                variant="outline"
+                size="sm"
+                className="shadow-sm hover:shadow-md transition-all hover:scale-[1.03] transform duration-300 bg-card/50 hover:bg-primary/10 hover:text-primary dark:bg-secondary/50 dark:hover:bg-primary/15 dark:hover:text-primary w-full sm:w-auto border-border hover:border-primary/60 group"
+              >
+                <span className="relative">
+                  View My Projects
+                  <FolderGit2 className="ml-1.5 h-4 w-4 opacity-80 inline-block transition-transform duration-300 group-hover:translate-y-1" />
+                </span>
+              </Button>
+            </Link>
           </div>
           <div className="pt-6 md:pt-8 lg:pt-10 animate-fade-in" style={{ '--animation-delay': '600ms' } as React.CSSProperties}>
              <SummaryStats />
