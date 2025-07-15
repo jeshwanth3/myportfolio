@@ -7,8 +7,6 @@ import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 import { SummarySection } from "@/components/summary-section";
-import { AchievementsSection } from "@/components/achievements-section";
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -18,7 +16,6 @@ export default function Home() {
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
-        <AchievementsSection />
         <EducationSection />
         <ContactSection />
       </main>

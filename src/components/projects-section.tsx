@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FolderGit2, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Project = {
   id: string;
@@ -13,7 +14,8 @@ type Project = {
   technologies: string[];
   githubUrl: string | null;
   liveUrl: string | null;
-  moreDetails: string | null; // Added 'moreDetails' property to the Project type
+  moreDetails: string | null;
+  thumbnail: string;
 };
 
 const projects: Project[] = [
@@ -25,6 +27,7 @@ const projects: Project[] = [
     githubUrl: null,
     liveUrl: null,
     moreDetails: "/FIt%20Tracker%20PRD.pdf",
+    thumbnail: "/thumbnails/proj1.png"
   },
   {
     id: "proj2",
@@ -34,6 +37,7 @@ const projects: Project[] = [
     githubUrl: null,
     liveUrl: null,
     moreDetails: "/Project_Deliverable_final.pdf",
+    thumbnail: "/thumbnails/proj2.png"
   },
   {
     id: "proj3",
@@ -43,32 +47,38 @@ const projects: Project[] = [
     githubUrl: "https://github.com/jeshwanth3/myportfolio",
     liveUrl: "https://www.saijeshwanthgoud.com/",
     moreDetails: null,
+    thumbnail: "/thumbnails/portfolio.png"
   },
 ];
 
 export function ProjectsSection() {
   return (
     <SectionWrapper id="projects" className="bg-card/10 dark:bg-secondary/15">
-      <SectionTitle>Featured Projects</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {projects.map((project, index) => (
+      <SectionTitle>My Work</SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
           <Card
             key={project.id}
-            className="project-card"
-            style={{ '--animation-delay': `${150 + index * 100}ms` } as React.CSSProperties}
+            className="group hover:scale-[1.02] transition-all duration-300 bg-gradient-to-br from-card/80 via-background/80 to-card/40 dark:from-secondary/20 dark:via-card/80 dark:to-background border border-border/20 dark:border-border/30 shadow-lg hover:shadow-xl p-6 md:p-8"
           >
-            <CardHeader className="p-5 md:p-6 pb-4">
+            <div className="relative w-full aspect-video overflow-hidden rounded-t-lg mb-4">
+              <Image
+                src={project.thumbnail}
+                alt={project.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                priority={project.id === "proj1"}
+              />
+            </div>
+            <CardHeader className="p-0 mb-4">
               <div className="flex items-center gap-4 mb-2">
-                <div className="shrink-0 bg-primary/15 dark:bg-primary/25 p-2.5 rounded-full">
-                  <FolderGit2 className="h-5 w-5 text-primary" />
-                </div>
                 <div className="flex-1">
-                  <CardTitle className="text-lg font-semibold text-foreground">{project.title}</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-foreground mb-1">{project.title}</CardTitle>
                 </div>
               </div>
-              <CardDescription className="text-sm text-muted-foreground">{project.description}</CardDescription>
+              <CardDescription className="text-sm text-muted-foreground mb-2">{project.description}</CardDescription>
             </CardHeader>
-            <CardContent className="flex-1 p-5 md:p-6 pt-0">
+            <CardContent className="p-0 mb-2">
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <Badge
@@ -81,10 +91,7 @@ export function ProjectsSection() {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="p-5 md:p-6 pt-4 border-t border-border/20 dark:border-border/30 mt-auto">
-              {!project.githubUrl && !project.liveUrl && (
-                <span className="text-xs text-muted-foreground italic">Internal Project (Documentation Available on Request)</span>
-              )}
+            <CardFooter className="p-0 flex justify-end">
               {project.moreDetails && (
                 <Link href={project.moreDetails} target="_blank" rel="noopener noreferrer">
                   <Button variant="ghost" size="sm" className="text-xs h-8 px-3">

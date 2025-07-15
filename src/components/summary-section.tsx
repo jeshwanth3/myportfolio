@@ -8,8 +8,10 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { SummaryStats } from '@/components/summary-stats';
 import { TypedTitle } from '@/components/typed-title';
+import { SectionNavButton } from '@/components/section-nav-button';
 
-const professionalSummary = "Hello! I'm a passionate Product Manager with a knack for transforming ideas into impactful products. With a strong background in user research, data analytics, and cross-functional collaboration, I aim to create solutions that resonate with users and drive business success. My journey includes leading innovative projects like FitTracker, which showcases my ability to blend technology and strategy effectively.";
+const professionalSummary = "Hello! I am a PM with a passion for building user-centric solutions and driving business growth. Experienced in leading cross-functional teams, leveraging data-driven insights, and delivering innovative products that solve real-world problems. Let's connect to create meaningful impact together.";
+
 const yourName = "Sai Jeshwanth Goud Illuri";
 
 export function SummarySection() {
@@ -78,6 +80,7 @@ export function SummarySection() {
           </div>
         </div>
       </div>
+      <SectionNavButton nextSection="experience" />
     </SectionWrapper>
   );
 }

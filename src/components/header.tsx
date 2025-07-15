@@ -19,9 +19,8 @@ import { useActiveSection } from '@/hooks/use-active-section';
 const navItems = [
   { label: 'About', href: '#summary' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'My Work', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Achievements', href: '#achievements' },
   { label: 'Education', href: '#education' },
 ];
 

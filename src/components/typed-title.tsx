@@ -13,14 +13,11 @@ export function TypedTitle({ className }: TypedTitleProps) {
 
   useEffect(() => {
     const options = {
-      strings: ['Product Manager', 'Business Analyst'],
+      strings: ['Product Manager'],
       typeSpeed: 50,
       backSpeed: 40,
-      loop: true,
-      backDelay: 2000,
-      startDelay: 500,
-      cursorChar: '|',
-      showCursor: true,
+      loop: false,
+      showCursor: false,
     };
 
     if (el.current) {

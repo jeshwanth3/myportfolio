@@ -17,9 +17,7 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, dela
     <Card
       // Adjusted styling: darker bg, less padding, rounded corners, subtle shadow
       className={cn(
-        "bg-card/70 dark:bg-secondary/40 backdrop-blur-sm border border-border/15 dark:border-border/25 p-4 text-center flex flex-col items-center justify-center space-y-1.5 rounded-lg shadow-sm transition-all duration-300 ease-out group", // Use rounded-lg, adjust space
-        "hover:shadow-md hover:border-primary/25 dark:hover:border-primary/35 transform hover:-translate-y-0.5", // Softer hover effect
-        "min-h-[90px]", // Slightly reduced min height
+        "group hover:scale-[1.02] transition-all duration-300 bg-gradient-to-br from-card/80 via-background/80 to-card/40 dark:from-secondary/20 dark:via-card/80 dark:to-background border border-border/20 dark:border-border/30 shadow-lg hover:shadow-xl p-6 md:p-8 min-h-[90px] flex flex-col items-center justify-center space-y-1.5 rounded-lg backdrop-blur-sm",
         className
       )}
       // Apply animation delay using CSS variable
