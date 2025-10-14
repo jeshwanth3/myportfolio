@@ -186,25 +186,6 @@ export function ExperienceSection() {
 						</TabsContent>
 					))}
 				</Tabs>
-
-				{/* Timeline visualization */}
-				<div className="mt-16 max-w-4xl mx-auto">
-					<div className="relative">
-						<div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
-						<div className="flex justify-between items-center relative">
-							{experiences.map((exp, index) => (
-								<div key={exp.id} className="flex flex-col items-center group">
-									<div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-4 border-background shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
-										{exp.icon}
-									</div>
-									<span className="mt-3 text-xs font-semibold text-muted-foreground text-center max-w-[100px] hidden md:block">
-										{exp.company}
-									</span>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<SectionNavButton nextSection="projects" />

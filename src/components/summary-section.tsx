@@ -43,7 +43,13 @@ export function SummarySection() {
             </h1>
           </div>
 
-          <TypedTitle className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-primary animate-fade-in" style={{ '--animation-delay': '300ms' } as React.CSSProperties} />
+          <TypedTitle 
+            className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-primary animate-fade-in" 
+            text="Product Manager"
+            glowColor="hsl(var(--primary))"
+            typingDelay={1500}
+            style={{ '--animation-delay': '300ms' } as React.CSSProperties} 
+          />
           
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in" style={{ '--animation-delay': '400ms' } as React.CSSProperties}>
             {professionalSummary}
