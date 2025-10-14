@@ -49,7 +49,7 @@ export function SummaryStats() {
   const stats = [
     {
       icon: <Briefcase />,
-      value: "3.5+",
+      value: "4.5+",
       label: "Years of Experience",
       delay: "300ms",
     },
