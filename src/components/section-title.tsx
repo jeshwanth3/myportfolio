@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import type React from "react";
 
@@ -7,17 +9,26 @@ interface SectionTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
 export function SectionTitle({ children, className, ...props }: SectionTitleProps) {
     return (
-        <h2
-            className={cn(
-              // Use foreground for main text, primary for the underline accent
-              "text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-10 md:mb-16 text-foreground text-center relative pb-3",
-              // Adjusted underline to use primary color and slightly reduced width/opacity
-              "after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[3px] after:w-16 after:bg-primary/70 dark:after:bg-primary/70 after:rounded-full",
-              className
-            )}
-            {...props}
-        >
-            {children}
-        </h2>
+        <div className="relative mb-12 md:mb-16">
+            <h2
+                className={cn(
+                    "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-center relative pb-6 animate-fade-in",
+                    "bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent",
+                    className
+                )}
+                {...props}
+            >
+                {children}
+            </h2>
+            
+            {/* Enhanced underline with gradient and glow */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+                <div className="h-[3px] w-12 bg-gradient-to-r from-transparent to-primary/50 rounded-full"></div>
+                <div className="relative h-1 w-20 bg-gradient-to-r from-primary via-accent to-primary rounded-full">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur-md opacity-60"></div>
+                </div>
+                <div className="h-[3px] w-12 bg-gradient-to-l from-transparent to-primary/50 rounded-full"></div>
+            </div>
+        </div>
     );
 }

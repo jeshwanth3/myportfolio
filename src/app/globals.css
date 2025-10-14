@@ -41,6 +41,9 @@ body {
     --chart-4: 45 100% 55%;
     --chart-5: 260 85% 75%;
     --radius: 0.75rem;
+    --pm-success: 142 76% 36%;
+    --pm-metric: 45 93% 47%;
+    --pm-highlight: 271 81% 56%;
   }
 }
 
@@ -367,5 +370,176 @@ body {
     .education-title {
       font-size: 2rem;
     }
+  }
+
+  /* PM Portfolio Specific Styles */
+  .metric-highlight {
+    font-weight: 700;
+    color: hsl(var(--pm-metric));
+    background: linear-gradient(135deg, hsl(var(--pm-metric)) 0%, hsl(var(--primary)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px hsl(var(--pm-metric) / 0.3);
+  }
+
+  .achievement-card {
+    position: relative;
+    padding-left: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .achievement-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 4px;
+    height: calc(100% - 0.5em);
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .achievement-card:hover::before {
+    width: 6px;
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.5);
+  }
+
+  .experience-tab-card {
+    background: linear-gradient(135deg, 
+      hsl(var(--card) / 0.95) 0%, 
+      hsl(var(--card) / 0.85) 50%,
+      hsl(var(--background) / 0.95) 100%);
+    border: 1px solid hsl(var(--border) / 0.3);
+    border-radius: 1.5rem;
+    box-shadow: 
+      0 4px 24px hsl(var(--primary) / 0.08),
+      0 12px 48px hsl(var(--background) / 0.4),
+      inset 0 1px 0 hsl(var(--foreground) / 0.03);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .experience-tab-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+      hsl(var(--primary)), 
+      hsl(var(--accent)), 
+      hsl(var(--primary)));
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .experience-tab-card:hover::before {
+    opacity: 1;
+  }
+
+  .experience-tab-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 
+      0 8px 32px hsl(var(--primary) / 0.15),
+      0 16px 64px hsl(var(--background) / 0.5),
+      inset 0 1px 0 hsl(var(--foreground) / 0.05);
+    border-color: hsl(var(--primary) / 0.4);
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .company-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .company-badge:hover {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.15));
+    border-color: hsl(var(--primary) / 0.4);
+    transform: scale(1.05);
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  .stagger-fade-in {
+    animation: stagger-fade 0.6s ease-out forwards;
+    animation-delay: calc(var(--stagger-delay, 0) * 100ms);
+    opacity: 0;
+  }
+
+  @keyframes stagger-fade {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tab-indicator {
+    position: relative;
+  }
+
+  .tab-indicator::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .tab-indicator[data-state="active"]::after {
+    transform: scaleX(1);
+  }
+
+  .number-stat {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+    letter-spacing: -0.02em;
   }
 }

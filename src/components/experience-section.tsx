@@ -3,33 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
-import { Briefcase, MapPin, Calendar } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, TrendingUp, Award, Target } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SectionNavButton } from "@/components/section-nav-button";
-
-// Experience data moved to comments for reference:
-// exp1: Product Manager at Discover Financial Services (Aug 2024 - Present)
-// - Defined and prioritized budgeting, transaction tracking, credit monitoring, and payment reminder features via user research and competitor analysis. Formed detailed user stories and acceptance criteria in JIRA, easing sprint planning with cross-functional teams.
-// - Partnered with UX/UI designers using Figma and Sketch to develop intuitive, mobile-friendly interfaces. Created journey maps, prototypes and documented workflows in Confluence to gain stakeholder approvals and maintain transparency.
-// - Integrated third-party financial data providers like Plaid and Experian to consolidate user finances and credit data. Ensured secure API connections and scalable AWS backend infrastructure with encrypted data pipelines for data protection.
-// - Directed A/B testing campaigns with Optimizely and Google Analytics, optimizing onboarding flows and engagement. Increased onboarding completion rates by 18% and weekly active users by 22% through iterative feature improvements.
-// - Worked on the expansion of Discover's mobile app by adding credit card management, personal loans, and savings integration. Collaborated with business, design, engineering, and compliance teams to define scope, prioritize features, and align on delivery goals.
-// - Directed user acceptance testing with QA and business teams, logging issues in JIRA for resolution. Developed product roadmaps in Aha, tracking progress with dashboards aligned to quarterly milestones and strategic objectives.
-
-// exp2: Business Analyst Intern at Able Up Iowa (Jun 2024 - Aug 2024)
-// Description: Analyzed loan data and improved data processing workflows to enhance decision-making capabilities.
-// - Analyzed 200K+ historical loan-repayment records using SQL and Python/Pandas, uncovering insurer-behavior insights that increased approval rates for low-income applicants by 12%, expanding access to flexible credit across the state.
-// - Enhanced hourly data ingestion stream using serverless ETL pipelines in Azure Data Factory, cutting data processing time by 50%.
-// - Developed a dynamic Power BI 'Impact Dashboard' to monitor active vs. paid-off loans, county-level penetration, and interest savings—instrumental in securing a $300K CDFI award for program expansion.
-
-// exp3: Associate Product Manager at Accenture (Oct 2021 - Jul 2023)
-// Description: Led product strategy and development for Supply Chain Optimization Platform, focusing on customer-centric solutions and team alignment.
-// - Directed product strategy and delivery for the Supply Chain Optimization Platform, aligning cross-functional teams on goals and improving forecasting accuracy by 20% through continuous iteration and customer-centric feature development.
-// - Facilitated comprehensive requirement gathering from business users, SMEs, and external stakeholders, translating insights into clear product specs and user stories that improved cross-team clarity and reduced rework by 30%.
-// - Owned and prioritized the product backlog in Jira, refining features based on stakeholder feedback and data insights; ensured alignment across engineering, QA, and business leads to meet evolving client priorities.
-// - Conducted user research, created wireframes with design teams, and collaborated on MVP definition, enabling faster validation cycles and increasing user satisfaction with new planning workflows by 25%.
-// - Delivered weekly product reviews and KPI reports to leadership, providing visibility into roadmap progress, release outcomes, and customer impact; contributed to a 35% reduction in issue escalations over three quarters.
-// - Mentored team members across QA and BA roles, facilitating agile best practices, improving team velocity by 40%, and earning the 'Skillful Award' for driving delivery excellence and cross-functional alignment.
+import { Badge } from "@/components/ui/badge";
 
 const experiences = [
 	{
@@ -38,14 +15,16 @@ const experiences = [
 		company: "Uber",
 		location: "USA",
 		duration: "Aug 2024 - Current",
+		type: "Remote",
 		achievements: [
-			"Owned product roadmap and strategy for AI-powered ride-hailing and dispatch optimization, improving arrival time accuracy by 15% through predictive analytics and iterative experimentation.",
-			"Led cross-functional delivery with engineering, data science, design, and operations to launch ML-based driver allocation models, increasing driver response by 12% and improving fleet utilization by 10% across North America market.",
-			"Launched a pilot generative-AI support platform, automating 60% of customer inquiries, reducing average resolution time from 3 days to under 1 hour, and saving $500K annually in support costs.",
-			"Designed and Implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption; drove customer satisfaction by 14% and data-driven prioritization across the product lifecycle.",
-			"Led A/B experiments and discovery sprints to refine ride request flows and pricing visibility; analyzed user behaviour and feedback to guide roadmap priorities, boosting rider activation by 18% and repeat bookings by 9%."
+			"Owned product roadmap and strategy for AI-powered ride-hailing and dispatch optimization, improving arrival time accuracy by **15%** through predictive analytics and iterative experimentation.",
+			"Led cross-functional delivery with engineering, data science, design, and operations to launch ML-based driver allocation models, increasing driver response by **12%** and improving fleet utilization by **10%** across North America market.",
+			"Launched a pilot generative-AI support platform, automating **60%** of customer inquiries, reducing average resolution time from 3 days to under 1 hour, and saving **$500K** annually in support costs.",
+			"Designed and Implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption; drove customer satisfaction by **14%** and data-driven prioritization across the product lifecycle.",
+			"Led A/B experiments and discovery sprints to refine ride request flows and pricing visibility; analyzed user behaviour and feedback to guide roadmap priorities, boosting rider activation by **18%** and repeat bookings by **9%**."
 		],
-		icon: <Briefcase className="h-5 w-5 text-primary" />
+		icon: <Briefcase className="h-5 w-5 text-primary" />,
+		color: "from-blue-500/20 to-cyan-500/20"
 	},
 	{
 		id: "exp2",
@@ -53,12 +32,14 @@ const experiences = [
 		company: "Able Up Iowa",
 		location: "USA",
 		duration: "Jun 2024 - Aug 2024",
+		type: "Internship",
 		achievements: [
-			"Led data architecture and analytics roadmap for a cloud-based lending platform, integrating Azure Data Factory, SQL pipelines, and Power BI dashboards to process 1M+ loan records and improved loan approvals for low-income applicants by 12%.",
-			"Partnered with data engineering and operations to enhance serverless ETL pipelines in Azure Data Factory, improving scalability and reducing data processing time by 50%, enabling near real-time credit risk evaluation.",
-			"Developed Power BI dashboards tracking loan activity, portfolio trends, and regional impact, improving leadership visibility into KPIs and helping secure a $400K CDFI grant for statewide expansion."
+			"Led data architecture and analytics roadmap for a cloud-based lending platform, integrating Azure Data Factory, SQL pipelines, and Power BI dashboards to process **1M+** loan records and improved loan approvals for low-income applicants by **12%**.",
+			"Partnered with data engineering and operations to enhance serverless ETL pipelines in Azure Data Factory, improving scalability and reducing data processing time by **50%**, enabling near real-time credit risk evaluation.",
+			"Developed Power BI dashboards tracking loan activity, portfolio trends, and regional impact, improving leadership visibility into KPIs and helping secure a **$400K** CDFI grant for statewide expansion."
 		],
-		icon: <Briefcase className="h-5 w-5 text-primary" />
+		icon: <Target className="h-5 w-5 text-primary" />,
+		color: "from-emerald-500/20 to-teal-500/20"
 	},
 	{
 		id: "exp3",
@@ -66,66 +47,167 @@ const experiences = [
 		company: "Accenture",
 		location: "India",
 		duration: "Jun 2020 - Jul 2023",
+		type: "Full-time",
 		achievements: [
-			"Defined product strategy and roadmap for SaaS based supply chain platform serving 1,000+ enterprise users, launching business planning feature that increased adoption by 22% and generated $800K in incremental ARR.",
-			"Owned and prioritized the product backlog in JIRA/Confluence, translating business requirements into user stories and refining features through stakeholder feedback and data insights to deliver 93% on-time releases and reduce defects by 17%.",
-			"Architected Power BI analytics dashboard tracking user engagement, feature adoption, and revenue metrics, enabling data-driven decisions that reduced development rework by 25% and accelerated executive decisions cycles from weeks to days.",
-			"Led user research and usability testing with 60+ end users and business clients, translating insights into 20+ Figma wireframes and prototypes that improved feature usability by 18% and increased adoption by 12%.",
-			"Delivered weekly product reviews and KPI reports to leadership, providing visibility into roadmap progress, release outcomes, and customer impact; contributed to a 35% reduction in issue escalations over three quarters."
+			"Defined product strategy and roadmap for SaaS based supply chain platform serving **1,000+** enterprise users, launching business planning feature that increased adoption by **22%** and generated **$800K** in incremental ARR.",
+			"Owned and prioritized the product backlog in JIRA/Confluence, translating business requirements into user stories and refining features through stakeholder feedback and data insights to deliver **93%** on-time releases and reduce defects by **17%**.",
+			"Architected Power BI analytics dashboard tracking user engagement, feature adoption, and revenue metrics, enabling data-driven decisions that reduced development rework by **25%** and accelerated executive decisions cycles from weeks to days.",
+			"Led user research and usability testing with **60+** end users and business clients, translating insights into **20+** Figma wireframes and prototypes that improved feature usability by **18%** and increased adoption by **12%**.",
+			"Delivered weekly product reviews and KPI reports to leadership, providing visibility into roadmap progress, release outcomes, and customer impact; contributed to a **35%** reduction in issue escalations over three quarters."
 		],
-		icon: <Briefcase className="h-5 w-5 text-primary" />
+		icon: <Award className="h-5 w-5 text-primary" />,
+		color: "from-purple-500/20 to-pink-500/20"
 	}
 ];
 
-export function ExperienceSection() {
+// Helper function to highlight metrics in text
+function HighlightedText({ text }: { text: string }) {
+	const parts = text.split(/(\*\*.*?\*\*)/g);
+	
 	return (
-		<SectionWrapper id="experience" className="bg-secondary/10 dark:bg-card/15">
-			<SectionTitle>Work Experience</SectionTitle>
-			<Tabs defaultValue={experiences[0].id} className="w-full">
-				{/* Enhanced TabsList Styling - Use grid-cols-2 on small screens */}
-				<TabsList className="flex w-full gap-4 h-auto p-2 bg-background/50 dark:bg-background/50 rounded-xl mb-6 overflow-x-auto">
-					{experiences.map((exp) => (
-						<TabsTrigger
-							key={exp.id}
-							value={exp.id}
-							// Improved Tab Trigger Styling - ensure text wraps nicely
-							className="px-4 py-2 text-sm font-medium text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/10 rounded-lg transition-all duration-300 ease-in-out min-w-fit shrink-0"
-						>
-							{exp.title} {/* Use Job Roles for Tabs */}
-						</TabsTrigger>
-					))}
-				</TabsList>
-				{/* Enhanced Card Styling within TabsContent */}
-				{experiences.map((exp) => (
-					<TabsContent key={exp.id} value={exp.id}>
-						<Card className="group hover:scale-[1.02] transition-all duration-300 bg-gradient-to-br from-card/80 via-background/80 to-card/40 dark:from-secondary/20 dark:via-card/80 dark:to-background border border-border/20 dark:border-border/30 shadow-lg hover:shadow-xl p-6 md:p-8">
-							<CardHeader className="p-0 mb-4">
-								<div className="flex items-start gap-4">
-									<div className="mt-1 shrink-0 bg-primary/15 dark:bg-primary/25 p-3 rounded-full">
-										{exp.icon}
-									</div>
-									<div className="flex-1">
-										<CardTitle as="h3" className="text-base md:text-lg font-semibold text-foreground mb-1">{exp.title}</CardTitle>
-										<div className="text-xs sm:text-sm text-muted-foreground flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-y-1 flex-wrap">
-											<span className="font-medium text-foreground/95">{exp.company}</span>
-											<span className="flex items-center gap-1"><MapPin className="h-3 w-3 opacity-80" /> {exp.location}</span>
-											<span className="flex items-center gap-1"><Calendar className="h-3 w-3 opacity-80" /> {exp.duration}</span>
-										</div>
-									</div>
-								</div>
-							</CardHeader>
-						<CardContent className="p-0">
-							<ul className="list-disc space-y-1.5 pl-5 text-xs md:text-sm text-foreground/85 dark:text-foreground/80">
-								{exp.achievements.map((achievement, i) => (
-									<li key={i}>{achievement}</li>
-								))}
-							</ul>
-						</CardContent>
-						</Card>
-					</TabsContent>
-				))}
-			</Tabs>      <SectionNavButton nextSection="projects" />
-		</SectionWrapper>
+		<span>
+			{parts.map((part, index) => {
+				if (part.startsWith('**') && part.endsWith('**')) {
+					const content = part.slice(2, -2);
+					return (
+						<span key={index} className="metric-highlight number-stat font-bold px-1">
+							{content}
+						</span>
+					);
+				}
+				return <span key={index}>{part}</span>;
+			})}
+		</span>
 	);
 }
 
+export function ExperienceSection() {
+	return (
+		<SectionWrapper id="experience" className="relative bg-gradient-to-b from-background via-card/5 to-background py-20">
+			{/* Animated background elements */}
+			<div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+				<div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl floating-animation"></div>
+				<div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating-animation" style={{ animationDelay: '2s' } as React.CSSProperties}></div>
+			</div>
+
+			<div className="relative z-10">
+				<SectionTitle>
+					<span className="inline-flex items-center gap-3">
+						<TrendingUp className="h-8 w-8 text-primary" />
+						Professional Experience
+					</span>
+				</SectionTitle>
+				
+				<p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+					Driving product innovation and delivering measurable business impact through data-driven strategy
+				</p>
+
+				<Tabs defaultValue={experiences[0].id} className="w-full max-w-6xl mx-auto">
+					{/* Enhanced TabsList */}
+					<TabsList className="flex w-full gap-2 md:gap-4 h-auto p-3 bg-card/50 backdrop-blur-md border border-border/30 rounded-2xl mb-8 overflow-x-auto shadow-lg">
+						{experiences.map((exp, index) => (
+							<TabsTrigger
+								key={exp.id}
+								value={exp.id}
+								className="relative px-4 md:px-6 py-3 text-sm md:text-base font-semibold text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/15 rounded-xl transition-all duration-300 ease-out min-w-fit shrink-0 hover:bg-primary/5 tab-indicator group"
+								style={{ '--stagger-delay': index } as React.CSSProperties}
+							>
+								<span className="flex items-center gap-2">
+									{exp.icon}
+									<span className="hidden md:inline">{exp.company}</span>
+									<span className="md:hidden">{exp.company.split(' ')[0]}</span>
+								</span>
+							</TabsTrigger>
+						))}
+					</TabsList>
+
+					{/* Enhanced TabsContent */}
+					{experiences.map((exp, expIndex) => (
+						<TabsContent key={exp.id} value={exp.id} className="mt-0">
+							<Card className="experience-tab-card rounded-3xl p-8 md:p-12">
+								<CardHeader className="p-0 mb-6">
+									<div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
+										<div className="flex items-start gap-4 flex-1">
+											<div className="relative shrink-0">
+												<div className={`bg-gradient-to-br ${exp.color} p-3.5 rounded-xl border border-primary/20 shadow-md pulse-glow`}>
+													{exp.icon}
+												</div>
+												<div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full animate-ping"></div>
+												<div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full"></div>
+											</div>
+											<div className="flex-1 min-w-0">
+												<div className="flex flex-wrap items-center gap-3 mb-3">
+													<CardTitle className="text-xl md:text-2xl font-bold text-foreground">
+														{exp.title}
+													</CardTitle>
+													<Badge variant="outline" className="border-primary/40 text-primary bg-primary/10 px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold">
+														{exp.type}
+													</Badge>
+												</div>
+												<div className="company-badge mb-3 text-sm md:text-base">
+													<Briefcase className="h-4 w-4" />
+													<span>{exp.company}</span>
+												</div>
+												<div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+													<span className="flex items-center gap-1.5 bg-muted/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border/20">
+														<MapPin className="h-3.5 w-3.5 text-primary" />
+														<span className="font-medium">{exp.location}</span>
+													</span>
+													<span className="flex items-center gap-1.5 bg-muted/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border/20">
+														<Calendar className="h-3.5 w-3.5 text-primary" />
+														<span className="font-medium">{exp.duration}</span>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</CardHeader>
+
+								<CardContent className="p-0">
+									<div className="bg-muted/10 backdrop-blur-sm rounded-2xl p-6 border border-border/10">
+										<h4 className="text-base md:text-lg font-semibold text-foreground/90 flex items-center gap-2 mb-5">
+											<TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+											Key Achievements & Impact
+										</h4>
+										<ul className="space-y-4">
+											{exp.achievements.map((achievement, i) => (
+												<li 
+													key={i} 
+													className="achievement-card text-[13px] sm:text-sm md:text-base text-foreground/90 leading-relaxed stagger-fade-in"
+													style={{ '--stagger-delay': i } as React.CSSProperties}
+												>
+													<HighlightedText text={achievement} />
+												</li>
+											))}
+										</ul>
+									</div>
+								</CardContent>
+							</Card>
+						</TabsContent>
+					))}
+				</Tabs>
+
+				{/* Timeline visualization */}
+				<div className="mt-16 max-w-4xl mx-auto">
+					<div className="relative">
+						<div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
+						<div className="flex justify-between items-center relative">
+							{experiences.map((exp, index) => (
+								<div key={exp.id} className="flex flex-col items-center group">
+									<div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-4 border-background shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
+										{exp.icon}
+									</div>
+									<span className="mt-3 text-xs font-semibold text-muted-foreground text-center max-w-[100px] hidden md:block">
+										{exp.company}
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<SectionNavButton nextSection="projects" />
+		</SectionWrapper>
+	);
+}

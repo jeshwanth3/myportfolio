@@ -8,8 +8,8 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      // Added transition for smoother hover effects
-      "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 ease-in-out",
+      // Added transition for smoother hover effects and larger rounded corners
+      "rounded-2xl border bg-card text-card-foreground shadow-sm transition-all duration-300 ease-in-out",
       className
     )}
     {...props}

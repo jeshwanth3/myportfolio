@@ -8,49 +8,80 @@ import { cn } from '@/lib/utils';
 
 export function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const toggleVisibility = () => {
-    // Show button when page is scrolled down
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    const scrolled = window.pageYOffset;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrolled / height) * 100;
+    
+    setScrollProgress(progress);
+    setIsVisible(scrolled > 300);
   };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // For smooth scrolling
+      behavior: 'smooth',
     });
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility(); // Initial check
 
-    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50"> {/* Fixed position */}
+    <div className="fixed bottom-8 right-8 z-50">
       <Button
         variant="outline"
         size="icon"
         onClick={scrollToTop}
         className={cn(
-          'h-10 w-10 rounded-full p-2 shadow-lg transition-all duration-300 ease-in-out',
-          'bg-card/80 hover:bg-primary/90 text-primary hover:text-primary-foreground', // Themed colors
-          'border border-border hover:border-primary/50', // Themed border
-          'backdrop-blur-md', // Glassmorphism effect
-          'focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background', // Focus styling
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none' // Visibility transition
+          'relative h-14 w-14 rounded-full p-0 shadow-2xl transition-all duration-500 ease-out overflow-hidden group',
+          'bg-gradient-to-br from-card/95 to-background/95 hover:from-primary hover:to-accent',
+          'text-primary hover:text-primary-foreground',
+          'border-2 border-border/30 hover:border-primary/50',
+          'backdrop-blur-lg',
+          'hover:scale-110 hover:rotate-12 active:scale-95',
+          isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-50 pointer-events-none'
         )}
         aria-label="Scroll to top"
       >
-        <ArrowUp className="h-5 w-5" />
+        {/* Circular progress indicator */}
+        <svg className="absolute inset-0 -rotate-90" viewBox="0 0 56 56">
+          <circle
+            cx="28"
+            cy="28"
+            r="26"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="text-border/20"
+          />
+          <circle
+            cx="28"
+            cy="28"
+            r="26"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeDasharray={`${2 * Math.PI * 26}`}
+            strokeDashoffset={`${2 * Math.PI * 26 * (1 - scrollProgress / 100)}`}
+            className="text-primary transition-all duration-300"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Icon */}
+        <ArrowUp className="h-6 w-6 relative z-10 transition-transform duration-300 group-hover:-translate-y-1" />
+
+        {/* Glow effect */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300"></div>
       </Button>
     </div>
   );

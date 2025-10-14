@@ -1,6 +1,10 @@
 // src/components/education-section.tsx
 "use client";
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Award, Calendar } from 'lucide-react';
+import { SectionWrapper } from "@/components/section-wrapper";
+import { SectionTitle } from "@/components/section-title";
+import { SectionNavButton } from "@/components/section-nav-button";
+import { Card } from "@/components/ui/card";
 import React from "react";
 import { cn } from "@/lib/utils";
 import Image from 'next/image';
@@ -12,6 +16,7 @@ const education = [
 		institution: "Ivy College of Business, Iowa State University",
 		duration: "Aug 2023 - May 2025",
 		imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg",
+		color: "from-red-500/10 via-yellow-500/10 to-red-500/10",
 	},
 	{
 		id: "edu2",
@@ -19,6 +24,7 @@ const education = [
 		institution: "Ivy College of Business, Iowa State University",
 		duration: "Aug 2024 - May 2025",
 		imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Iowa_State_Cyclones_logo.svg",
+		color: "from-blue-500/10 via-cyan-500/10 to-blue-500/10",
 	},
 	{
 		id: "edu3",
@@ -26,92 +32,111 @@ const education = [
 		institution: "Pragati Engineering College (JNTUK)",
 		duration: "2017 - 2021",
 		imageUrl: "/pragati_logo.png",
+		color: "from-purple-500/10 via-pink-500/10 to-purple-500/10",
 	},
 ];
 
 export function EducationSection() {
 	return (
-		<div id="education" className="bg-gradient-to-b from-card/5 via-secondary/10 to-card/5 dark:from-card/10 dark:via-secondary/15 dark:to-card/10 py-16">
-			<h2 className="text-3xl font-bold text-center mb-8">Education</h2>
-			<div className="container px-4 md:px-6 max-w-5xl mx-auto">
-				{/* Mobile Card Layout */}
-				<div className="lg:hidden">
-					<div className="grid grid-cols-1 gap-6">
-						{education.map((edu) => (
-							<div key={edu.id} className={cn(
-								"flex flex-col group hover:scale-[1.02] transition-all duration-300 bg-gradient-to-br from-card/80 via-background/80 to-card/40 dark:from-secondary/20 dark:via-card/80 dark:to-background border border-border/20 dark:border-border/30 shadow-lg hover:shadow-xl p-6 md:p-8",
-								"group hover:shadow-lg hover:-translate-y-1"
-							)}>
-								<div className="flex items-center space-x-4 px-4 pt-4 pb-2">
+		<SectionWrapper id="education" className="relative bg-gradient-to-b from-card/5 via-background to-card/10 py-20">
+			{/* Animated background */}
+			<div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+				<div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-[100px] floating-animation"></div>
+				<div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-[100px] floating-animation" style={{ animationDelay: '2s' } as React.CSSProperties}></div>
+			</div>
+
+			<div className="relative z-10">
+				<SectionTitle>
+					<span className="inline-flex items-center gap-3">
+						<GraduationCap className="h-8 w-8 text-primary" />
+						Education
+					</span>
+				</SectionTitle>
+				
+				<p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+					Academic foundation combining business strategy, technology, and product management
+				</p>
+
+				<div className="max-w-5xl mx-auto space-y-6">
+					{education.map((edu, index) => (
+						<Card
+							key={edu.id}
+							className={cn(
+								"group relative overflow-hidden transition-all duration-500 hover:scale-[1.01] rounded-3xl bg-gradient-to-br",
+								edu.color,
+								"from-card/95 via-card/85 to-background/90 border border-border/30 hover:border-primary/50 shadow-xl hover:shadow-2xl backdrop-blur-sm stagger-fade-in"
+							)}
+							style={{ '--stagger-delay': index } as React.CSSProperties}
+						>
+							{/* Shimmer effect */}
+							<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+								<div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+							</div>
+
+							<div className="relative p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5">
+								{/* University Logo */}
+								<div className="relative shrink-0">
 									<div className={cn(
-										"flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-1 rounded-md",
-										edu.id === 'edu3'
-											? "w-18 h-18 md:w-24 md:h-24"
-											: "w-10 h-10 md:w-12 md:h-12"
+										"relative bg-background/80 backdrop-blur-sm rounded-2xl p-3 shadow-md group-hover:shadow-lg transition-all duration-300 border border-border/30 group-hover:border-primary/40",
+										edu.id === 'edu3' ? "w-20 h-20 md:w-24 md:h-24" : "w-16 h-16 md:w-20 md:h-20"
 									)}>
 										{edu.imageUrl ? (
-											<Image src={edu.imageUrl} alt={`${edu.institution} logo`}
-												width={edu.id === 'edu3' ? 84 : 40}
-												height={edu.id === 'edu3' ? 84 : 40}
-												sizes={edu.id === 'edu3' ? "(max-width: 768px) 84px, 108px" : "(max-width: 768px) 40px, 60px"} // Added sizes prop
-												className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo"
-												style={{ height: 'auto' }} />
+											<Image 
+												src={edu.imageUrl} 
+												alt={`${edu.institution} logo`}
+												width={edu.id === 'edu3' ? 112 : 96}
+												height={edu.id === 'edu3' ? 112 : 96}
+												className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-110" 
+												data-ai-hint="university logo"
+											/>
 										) : (
-											<GraduationCap className="h-7 w-7 text-primary transition-colors duration-300" />
+											<GraduationCap className="h-full w-full text-primary transition-colors duration-300" />
 										)}
 									</div>
-									<div className="flex-1 flex flex-col">
-										<h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-											{edu.degree}
-										</h3>
-										<p className="text-muted-foreground text-sm">{edu.institution}</p>
+									{/* Pulse indicator */}
+									<div className="absolute -top-2 -right-2">
+										<div className="w-4 h-4 bg-primary rounded-full opacity-0 group-hover:opacity-100 animate-ping"></div>
+										<div className="absolute top-0 left-0 w-4 h-4 bg-primary rounded-full opacity-0 group-hover:opacity-100"></div>
 									</div>
 								</div>
-								<div className="px-4 pb-4 pt-1">
-									<p className="text-xs text-muted-foreground">{edu.duration}</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
 
-				{/* Desktop Static Layout */}
-				<div className="hidden lg:block w-full space-y-4">
-					{education.map((edu) => (
-						<div key={edu.id} className={cn(
-							"border border-border/20 dark:border-border/30 rounded-lg bg-card/90 dark:bg-secondary/60 mac-shadow overflow-hidden",
-							"transition-all duration-300 ease-out hover:border-primary/40 dark:hover:border-accent/60 transform hover:-translate-y-0.5"
-						)}>
-							<div className="p-4 md:p-6 flex items-center gap-4 w-full">
-								<div className={cn(
-									"flex items-center justify-center group-hover:scale-110 transition-all duration-300 shrink-0 p-2 rounded-lg",
-									edu.id === 'edu3'
-										? "w-[108px] h-[108px]"
-										: "w-16 h-16 md:w-20 md:h-20"
-								)}>
-									{edu.imageUrl ? (
-										<Image src={edu.imageUrl} alt={`${edu.institution} logo`}
-											width={edu.id === 'edu3' ? 108 : 60}
-											height={edu.id === 'edu3' ? 108 : 60}
-											sizes={edu.id === 'edu3' ? "108px" : "60px"} // Added sizes prop
-											className="object-contain transition-transform duration-300 group-hover:scale-110" data-ai-hint="university logo"
-											style={{ height: 'auto' }} />
-									) : (
-										<GraduationCap className="h-8 w-8 text-primary transition-colors duration-300" />
-									)}
+								{/* Education Details */}
+								<div className="flex-1 space-y-2">
+									<div className="flex items-start gap-2.5">
+										<div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 border border-primary/10">
+											<Award className="h-4 w-4 text-primary" />
+										</div>
+										<div className="flex-1">
+											<h3 className="text-base md:text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight mb-1.5">
+												{edu.degree}
+											</h3>
+											<p className="text-xs sm:text-sm text-muted-foreground/90 font-medium leading-snug">
+												{edu.institution}
+											</p>
+										</div>
+									</div>
 								</div>
-								<div className="flex-1 text-left">
-									<h3 className="text-base md:text-lg font-semibold text-foreground">{edu.degree}</h3>
-									<p className="text-xs md:text-sm text-muted-foreground mt-1">{edu.institution}</p>
-								</div>
-								<div className="text-right ml-auto shrink-0">
-									<p className="text-xs md:text-sm text-muted-foreground">{edu.duration}</p>
+
+								{/* Duration Badge */}
+								<div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-background/70 backdrop-blur-sm border border-border/40 group-hover:border-primary/50 transition-all duration-300 shrink-0 shadow-sm">
+									<Calendar className="h-3.5 w-3.5 text-primary" />
+									<span className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
+										{edu.duration}
+									</span>
 								</div>
 							</div>
-						</div>
+
+							{/* Bottom accent line */}
+							<div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						</Card>
 					))}
 				</div>
+
+				{/* Timeline connector for desktop */}
+				<div className="hidden md:block absolute left-[72px] top-[200px] bottom-[100px] w-1 bg-gradient-to-b from-primary/30 via-accent/30 to-primary/30 opacity-0"></div>
 			</div>
-		</div>
+
+			<SectionNavButton nextSection="contact" />
+		</SectionWrapper>
 	);
 }

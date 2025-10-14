@@ -7,6 +7,8 @@ import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 import { SummarySection } from "@/components/summary-section";
+import { BackToTopButton } from "@/components/back-to-top-button";
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -20,6 +22,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <BackToTopButton />
     </div>
   );
 }
