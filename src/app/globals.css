@@ -5,19 +5,21 @@
 /* Base Typography System */
 :root {
   /* Core Text Sizes */
-  --h1-size: clamp(3.5rem, 7vw, 4.5rem);        /* 56px - 72px */
-  --h2-size: clamp(3rem, 6vw, 4rem);            /* 48px - 64px */
-  --h3-size: clamp(2.5rem, 5vw, 3rem);          /* 40px - 48px */
-  --h4-size: clamp(2rem, 4vw, 2.5rem);          /* 32px - 40px */
-  --large-size: clamp(1.5rem, 2.5vw, 1.75rem);  /* 24px - 28px */
-  --body-size: clamp(1.25rem, 2vw, 1.5rem);     /* 20px - 24px */
-  --small-size: clamp(1.125rem, 1.5vw, 1.25rem); /* 18px - 20px */
-  --xs-size: clamp(1rem, 1.25vw, 1.125rem);      /* 16px - 18px */
+  /* Toned-down responsive scale for better desktop/mobile parity */
+  --h1-size: clamp(2.25rem, 5vw, 3.25rem);       /* ~36px - 52px */
+  --h2-size: clamp(1.875rem, 4vw, 2.5rem);       /* ~30px - 40px */
+  --h3-size: clamp(1.5rem, 3vw, 2rem);           /* ~24px - 32px */
+  --h4-size: clamp(1.25rem, 2.5vw, 1.5rem);      /* ~20px - 24px */
+  --large-size: clamp(1.125rem, 2vw, 1.25rem);   /* ~18px - 20px */
+  --body-size: clamp(1rem, 1.25vw, 1.125rem);    /* 16px - 18px */
+  --small-size: clamp(0.9375rem, 1vw, 1rem);     /* 15px - 16px */
+  --xs-size: clamp(0.8125rem, 0.75vw, 0.875rem); /* 13px - 14px */
 
   /* Base scaling and spacing (so Tailwind rem utilities scale up)
      --base-font-size controls the root font-size which affects rem units
      We keep a mobile fallback to avoid extremely large text on small screens */
-  --base-font-size: 18px;
+  /* Use browser default 16px for root rem scaling */
+  --base-font-size: 16px;
   --space-1: 0.25rem;  /* 4px */
   --space-2: 0.5rem;   /* 8px */
   --space-3: 0.75rem;  /* 12px */
@@ -47,8 +49,8 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  /* Use the body-size variable for base font-size and a relaxed line-height for readability */
-  font-size: var(--body-size);
+  /* Use standard base size; components can opt into variables */
+  font-size: 1rem;
   line-height: var(--relaxed);
 }
 
@@ -94,7 +96,7 @@ body {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     background: linear-gradient(120deg, hsl(var(--background)), hsl(var(--card)) 60%, hsl(var(--background)) 100%);
-    /* Scale rem (Tailwind) units site-wide by setting a larger root font-size. */
+    /* Keep default 16px root for predictable Tailwind rem utilities. */
     font-size: var(--base-font-size);
   }
 
@@ -680,27 +682,5 @@ body {
     letter-spacing: -0.02em;
   }
 
-  /* Override common Tailwind text-size utilities to our responsive variables
-     so small/compact classes remain readable across the site. Use !important
-     to ensure these take precedence over generated utilities. */
-  .text-xs {
-    font-size: var(--xs-size) !important;
-  }
-
-  .text-sm {
-    font-size: var(--small-size) !important;
-  }
-
-  .text-base {
-    font-size: var(--body-size) !important;
-  }
-
-  .text-lg {
-    font-size: var(--large-size) !important;
-  }
-
-  /* Buttons, inputs and compact UI sometimes use text-sm; ensure they remain legible */
-  button, input, select, textarea {
-    font-size: var(--body-size) !important;
-  }
+  /* Remove global overrides of Tailwind text utilities to avoid oversized UI */
 }
