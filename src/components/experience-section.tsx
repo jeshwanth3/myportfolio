@@ -8,11 +8,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SectionNavButton } from "@/components/section-nav-button";
 import { Badge } from "@/components/ui/badge";
 
+import Image from 'next/image';
+
 const experiences = [
 	{
 		id: "exp1",
 		title: "Product Manager",
 		company: "Uber",
+		logo: "/companies/uber-white.svg",
 		location: "USA",
 		duration: "Aug 2024 - Current",
 		type: "Remote",
@@ -26,37 +29,55 @@ achievements: [
 		icon: <Briefcase className="h-5 w-5 text-primary" />,
 		color: "from-blue-500/20 to-cyan-500/20"
 	},
-	{
-		id: "exp2",
-		title: "Product Manager Intern",
-		company: "Able Up Iowa",
-		location: "USA",
-		duration: "Jun 2024 - Aug 2024",
-		type: "Internship",
-		achievements: [
-			"Led data architecture and analytics roadmap for a cloud-based lending platform, integrating Azure Data Factory, SQL pipelines, and Power BI dashboards to process **1M+** loan records and improved loan approvals for low-income applicants by **12%**.",
-			"Partnered with data engineering and operations to enhance serverless ETL pipelines in Azure Data Factory, improving scalability and reducing data processing time by **50%**, enabling near real-time credit risk evaluation.",
-			"Developed Power BI dashboards tracking loan activity, portfolio trends, and regional impact, improving leadership visibility into KPIs and helping secure a **$400K** CDFI grant for statewide expansion."
-		],
-		icon: <Target className="h-5 w-5 text-primary" />,
-		color: "from-emerald-500/20 to-teal-500/20"
-	},
+	// {
+	// 	id: "exp2",
+	// 	title: "Product Manager Intern",
+	// 	company: "Able Up Iowa",
+	// 	location: "USA",
+	// 	duration: "Jun 2024 - Aug 2024",
+	// 	type: "Internship",
+	// 	achievements: [
+	// 		"Led data architecture and analytics roadmap for a cloud-based lending platform, integrating Azure Data Factory, SQL pipelines, and Power BI dashboards to process **1M+** loan records and improved loan approvals for low-income applicants by **12%**.",
+	// 		"Partnered with data engineering and operations to enhance serverless ETL pipelines in Azure Data Factory, improving scalability and reducing data processing time by **50%**, enabling near real-time credit risk evaluation.",
+	// 		"Developed Power BI dashboards tracking loan activity, portfolio trends, and regional impact, improving leadership visibility into KPIs and helping secure a **$400K** CDFI grant for statewide expansion."
+	// 	],
+	// 	icon: <Target className="h-5 w-5 text-primary" />,
+	// 	color: "from-emerald-500/20 to-teal-500/20"
+	// },
 	{
 		id: "exp3",
-		title: "Associate Product Manager",
+		title: "Product Manager",
 		company: "Accenture",
+		logo: "/companies/accenture-white.svg",
 		location: "India",
-		duration: "Jun 2020 - Jul 2023",
+		duration: "Aug 2021 - Jul 2023",
 		type: "Full-time",
 		achievements: [
-			"Defined product strategy and roadmap for SaaS based supply chain platform serving **1,000+** enterprise users, launching business planning feature that increased adoption by **22%** and generated **$800K** in incremental ARR.",
-			"Owned and prioritized the product backlog in JIRA/Confluence, translating business requirements into user stories and refining features through stakeholder feedback and data insights to deliver **93%** on-time releases and reduce defects by **17%**.",
-			"Architected Power BI analytics dashboard tracking user engagement, feature adoption, and revenue metrics, enabling data-driven decisions that reduced development rework by **25%** and accelerated executive decisions cycles from weeks to days.",
-			"Led user research and usability testing with **60+** end users and business clients, translating insights into **20+** Figma wireframes and prototypes that improved feature usability by **18%** and increased adoption by **12%**.",
-			"Delivered weekly product reviews and KPI reports to leadership, providing visibility into roadmap progress, release outcomes, and customer impact; contributed to a **35%** reduction in issue escalations over three quarters."
+			"Defined and executed a 2-year product roadmap for cloud-based SCP platform, delivering the Business Planning module adopted by **150+** global clients, generating **$2M** in incremental revenue.",
+			"Owned end-to-end product lifecycle for global demand planning module, improving demand planning efficiency by **35%** and enhancing inventory accuracy by **20%** through integrated analytics and automated forecasting workflows.",
+			"Developed product performance dashboards in Power BI and Tableau to track key metrics including retention, engagement, feature adoption, and conversion rates, increasing data reliability by **18%** and accelerating data-driven decision-making.",
+			"Led user research and usability testing with **40+** planners and logistics leads, refining UI/UX flows and configuration options that improved user adoption by **25%** and cut training time by **30%** across global teams.",
+			"Created a Confluence knowledge hub and **10+** onboarding modules, increasing product proficiency by **40%**, reducing support tickets by **22%** and saving over **$20,000** annually."
 		],
 		icon: <Award className="h-5 w-5 text-primary" />,
-		color: "from-purple-500/20 to-pink-500/20"
+		color: "from-indigo-500/20 to-blue-500/20"
+	},
+	{
+		id: "exp4",
+		title: "Associate Product Manager",
+		company: "Accenture",
+		logo: "/companies/accenture-white.svg",
+		location: "India",
+		duration: "Jun 2020 - Aug 2021",
+		type: "Full-time",
+		achievements: [
+			"Drove automation of ERP data ingestion into the SCP platform, collaborating with cross-functional teams to improve forecast accuracy by **20%** and optimize inventory turnover across **30+** global distribution centers.",
+			"Conducted market and competitive analysis of leading AI-powered supply chain planning tools (Kinaxis, SAP IBP), identifying feature gaps that informed backlog prioritization and drove **$1M+** in cost optimization opportunities.",
+			"Built stakeholder alignment through regular product demos, roadmap reviews, and data-driven presentations that communicated product vision, and progress to leadership and cross-functional teams.",
+			"Designed Figma prototypes and wireframes to validate user flows and new feature mockups, partnered with design and UX teams to improve usability testing efficiency and reduce iteration cycles by **35%**."
+		],
+		icon: <Award className="h-5 w-5 text-primary" />,
+		color: "from-blue-500/20 to-indigo-500/20",
 	}
 ];
 
@@ -112,10 +133,26 @@ export function ExperienceSection() {
 								className="relative px-4 md:px-6 py-3 text-[var(--small-size)] font-semibold text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/15 rounded-xl transition-all duration-300 ease-out min-w-fit shrink-0 hover:bg-primary/5 tab-indicator group"
 								style={{ '--stagger-delay': index } as React.CSSProperties}
 							>
-								<span className="flex items-center gap-2">
-									{exp.icon}
-									<span className="hidden md:inline">{exp.company}</span>
-									<span className="md:hidden">{exp.company.split(' ')[0]}</span>
+								<span className="flex items-center gap-3">
+									<div className="relative w-8 h-8 overflow-hidden rounded-lg bg-background/80 p-1.5 border border-border/50">
+										<Image
+											src={exp.logo}
+											alt={`${exp.company} logo`}
+											fill
+											className="object-contain filter brightness-200 dark:brightness-200"
+										/>
+									</div>
+									<div className="flex flex-col items-start">
+										<span className="hidden md:inline text-[var(--xs-size)] opacity-90">
+											{exp.company}
+										</span>
+										<span className="md:hidden text-[var(--xs-size)] opacity-90">
+											{exp.company.split(' ')[0]}
+										</span>
+										<span className="text-[0.65rem] opacity-70">
+											{exp.title}
+										</span>
+									</div>
 								</span>
 							</TabsTrigger>
 						))}
@@ -129,8 +166,13 @@ export function ExperienceSection() {
 									<div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
 										<div className="flex items-start gap-4 flex-1">
 											<div className="relative shrink-0">
-												<div className={`bg-gradient-to-br ${exp.color} p-3.5 rounded-xl border border-primary/20 shadow-md pulse-glow`}>
-													{exp.icon}
+												<div className={`relative w-16 h-16 rounded-xl overflow-hidden bg-background/80 p-3 border border-border/50 shadow-md`}>
+													<Image
+														src={exp.logo}
+														alt={`${exp.company} logo`}
+														fill
+														className="object-contain filter brightness-200 dark:brightness-200"
+													/>
 												</div>
 												<div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full animate-ping"></div>
 												<div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full"></div>
@@ -174,8 +216,10 @@ export function ExperienceSection() {
 												<li 
 													key={i} 
 													className="achievement-card text-[var(--body-size)] text-foreground/90 stagger-fade-in"
-													style={{ lineHeight: 'var(--relaxed)' }}
-													style={{ '--stagger-delay': i } as React.CSSProperties}
+													style={{ 
+														lineHeight: 'var(--relaxed)',
+														'--stagger-delay': i 
+													} as React.CSSProperties}
 												>
 													<HighlightedText text={achievement} />
 												</li>
