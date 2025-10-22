@@ -10,10 +10,10 @@
   --h2-size: clamp(1.875rem, 4vw, 2.5rem);       /* ~30px - 40px */
   --h3-size: clamp(1.5rem, 3vw, 2rem);           /* ~24px - 32px */
   --h4-size: clamp(1.25rem, 2.5vw, 1.5rem);      /* ~20px - 24px */
-  --large-size: clamp(1.125rem, 2vw, 1.25rem);   /* ~18px - 20px */
-  --body-size: clamp(1rem, 1.25vw, 1.125rem);    /* 16px - 18px */
-  --small-size: clamp(0.9375rem, 1vw, 1rem);     /* 15px - 16px */
-  --xs-size: clamp(0.8125rem, 0.75vw, 0.875rem); /* 13px - 14px */
+  --large-size: clamp(1.125rem, 1.6vw, 1.25rem); /* ~18px - 20px */
+  --body-size: clamp(1rem, 1.2vw, 1.1875rem);    /* 16px - 19px */
+  --small-size: clamp(1rem, 1.1vw, 1.0625rem);   /* 16px - 17px */
+  --xs-size: clamp(0.875rem, 0.9vw, 0.9375rem);  /* 14px - 15px */
 
   /* Base scaling and spacing (so Tailwind rem utilities scale up)
      --base-font-size controls the root font-size which affects rem units
@@ -104,6 +104,15 @@ body {
   @media (max-width: 640px) {
     html {
       font-size: 16px;
+    }
+  }
+
+  /* Slightly increase reading sizes on wide screens for comfort */
+  @media (min-width: 1024px) {
+    :root {
+      --body-size: 1.125rem;      /* 18px */
+      --small-size: 1.0625rem;    /* 17px */
+      --xs-size: 0.9375rem;       /* 15px */
     }
   }
 }
