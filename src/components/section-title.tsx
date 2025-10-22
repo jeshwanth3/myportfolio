@@ -12,7 +12,7 @@ export function SectionTitle({ children, className, ...props }: SectionTitleProp
         <div className="relative mb-12 md:mb-16">
             <h2
                 className={cn(
-                    "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-center relative pb-6 animate-fade-in",
+                    "text-[var(--h2-size)] font-bold tracking-tight text-center relative pb-6 animate-fade-in",
                     "bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent",
                     className
                 )}

@@ -27,16 +27,16 @@ export function SummarySection() {
         <div className="lg:col-span-3 space-y-4 md:space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-fade-in" style={{ '--animation-delay': '100ms' } as React.CSSProperties}>
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            <p className="text-sm sm:text-base font-semibold text-primary">
+            <p className="text-[var(--small-size)] font-semibold text-primary">
               Available for Product Management opportunities
             </p>
           </div>
 
           <div className="space-y-3 animate-fade-in" style={{ '--animation-delay': '200ms' } as React.CSSProperties}>
-            <p className="text-base sm:text-lg font-medium text-muted-foreground">
+            <p className="text-[var(--body-size)] font-medium text-muted-foreground">
               Hi there, I'm
             </p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+            <h1 className="text-[var(--h1-size)] font-bold tracking-tight leading-[1.2]">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-text-slow">
                 {yourName}
               </span>
@@ -44,14 +44,14 @@ export function SummarySection() {
           </div>
 
           <TypedTitle 
-            className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-primary animate-fade-in" 
+            className="text-[var(--h3-size)] font-bold tracking-tight text-primary animate-fade-in" 
             text="Product Manager"
             glowColor="hsl(var(--primary))"
             typingDelay={1500}
             style={{ '--animation-delay': '300ms' } as React.CSSProperties} 
           />
           
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in" style={{ '--animation-delay': '400ms' } as React.CSSProperties}>
+          <p className="text-[var(--body-size)] text-muted-foreground leading-[1.7] max-w-2xl mx-auto lg:mx-0 animate-fade-in" style={{ '--animation-delay': '400ms' } as React.CSSProperties}>
             {professionalSummary}
           </p>
 
@@ -59,7 +59,7 @@ export function SummarySection() {
             <Link href="#contact" passHref>
               <Button
                 size="lg"
-                className="relative shadow-lg hover:shadow-2xl transition-all hover:scale-[1.05] transform duration-300 w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl group overflow-hidden"
+                className="relative shadow-lg hover:shadow-2xl transition-all hover:scale-[1.05] transform duration-300 w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-semibold text-[var(--small-size)] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl group overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative flex items-center gap-2">
@@ -72,7 +72,7 @@ export function SummarySection() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="shadow-md hover:shadow-xl transition-all hover:scale-[1.05] transform duration-300 bg-card/80 backdrop-blur-sm hover:bg-primary/15 hover:text-primary w-full sm:w-auto border-2 border-primary/40 hover:border-primary font-semibold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl group"
+                className="shadow-md hover:shadow-xl transition-all hover:scale-[1.05] transform duration-300 bg-card/80 backdrop-blur-sm hover:bg-primary/15 hover:text-primary w-full sm:w-auto border-2 border-primary/40 hover:border-primary font-semibold text-[var(--small-size)] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl group"
               >
                 <span className="flex items-center gap-2">
                   View My Journey

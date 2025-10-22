@@ -16,13 +16,13 @@ const experiences = [
 		location: "USA",
 		duration: "Aug 2024 - Current",
 		type: "Remote",
-		achievements: [
-			"Owned product roadmap and strategy for AI-powered ride-hailing and dispatch optimization, improving arrival time accuracy by **15%** through predictive analytics and iterative experimentation.",
-			"Led cross-functional delivery with engineering, data science, design, and operations to launch ML-based driver allocation models, increasing driver response by **12%** and improving fleet utilization by **10%** across North America market.",
-			"Launched a pilot generative-AI support platform, automating **60%** of customer inquiries, reducing average resolution time from 3 days to under 1 hour, and saving **$500K** annually in support costs.",
-			"Designed and Implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption; drove customer satisfaction by **14%** and data-driven prioritization across the product lifecycle.",
-			"Led A/B experiments and discovery sprints to refine ride request flows and pricing visibility; analyzed user behaviour and feedback to guide roadmap priorities, boosting rider activation by **18%** and repeat bookings by **9%**."
-		],
+achievements: [
+	"Led product strategy for AI-driven ride-hailing and dispatch optimization, leveraging predictive modeling and experimentation to improve ETA accuracy by 15% and enhance driver-rider matching reliability.",
+	"Delivered ML-based driver allocation models by leading cross-functional delivery with engineering, data science, and operations, improving driver response rates by 12% and fleet utilization by 10% across pilot markets in North America.",
+	"Piloted a generative-AI support assistant that automated 60% of customer tickets, reducing average resolution time from 3 days to under 1 hour and projecting $500K in annual savings at full rollout.",
+	"Conducted A/B experiments to refine ride request and pricing flows, using behavioral analytics, funnel analysis, and user feedback to improve booking conversion by 11% and reduce checkout drop-offs.",
+	"Designed and implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption, increasing customer satisfaction by 14% and enabling data-driven prioritization across the product lifecycle."
+],
 		icon: <Briefcase className="h-5 w-5 text-primary" />,
 		color: "from-blue-500/20 to-cyan-500/20"
 	},
@@ -98,7 +98,7 @@ export function ExperienceSection() {
 					</span>
 				</SectionTitle>
 				
-				<p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+				<p className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
 					Driving product innovation and delivering measurable business impact through data-driven strategy
 				</p>
 
@@ -109,7 +109,7 @@ export function ExperienceSection() {
 							<TabsTrigger
 								key={exp.id}
 								value={exp.id}
-								className="relative px-4 md:px-6 py-3 text-sm md:text-base font-semibold text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/15 rounded-xl transition-all duration-300 ease-out min-w-fit shrink-0 hover:bg-primary/5 tab-indicator group"
+								className="relative px-4 md:px-6 py-3 text-[var(--small-size)] font-semibold text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/15 rounded-xl transition-all duration-300 ease-out min-w-fit shrink-0 hover:bg-primary/5 tab-indicator group"
 								style={{ '--stagger-delay': index } as React.CSSProperties}
 							>
 								<span className="flex items-center gap-2">
@@ -137,10 +137,10 @@ export function ExperienceSection() {
 											</div>
 											<div className="flex-1 min-w-0">
 												<div className="flex flex-wrap items-center gap-3 mb-3">
-													<CardTitle className="text-xl md:text-2xl font-bold text-foreground">
+													<CardTitle className="text-[var(--h3-size)] font-bold text-foreground" style={{ lineHeight: 'var(--tight)' }}>
 														{exp.title}
 													</CardTitle>
-													<Badge variant="outline" className="border-primary/40 text-primary bg-primary/10 px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold">
+													<Badge variant="outline" className="border-primary/40 text-primary bg-primary/10 px-2.5 py-0.5 text-[var(--xs-size)] sm:text-[var(--small-size)] font-semibold">
 														{exp.type}
 													</Badge>
 												</div>
@@ -165,15 +165,16 @@ export function ExperienceSection() {
 
 								<CardContent className="p-0">
 									<div className="bg-muted/10 backdrop-blur-sm rounded-2xl p-6 border border-border/10">
-										<h4 className="text-base md:text-lg font-semibold text-foreground/90 flex items-center gap-2 mb-5">
-											<TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+										<h4 className="text-[var(--h4-size)] font-semibold text-foreground/90 flex items-center gap-2 mb-5" style={{ lineHeight: 'var(--tight)' }}>
+											<TrendingUp className="h-5 w-5 text-primary" />
 											Key Achievements & Impact
 										</h4>
 										<ul className="space-y-4">
 											{exp.achievements.map((achievement, i) => (
 												<li 
 													key={i} 
-													className="achievement-card text-[13px] sm:text-sm md:text-base text-foreground/90 leading-relaxed stagger-fade-in"
+													className="achievement-card text-[var(--body-size)] text-foreground/90 stagger-fade-in"
+													style={{ lineHeight: 'var(--relaxed)' }}
 													style={{ '--stagger-delay': i } as React.CSSProperties}
 												>
 													<HighlightedText text={achievement} />

@@ -117,7 +117,7 @@ export function SkillsSection() {
 					</span>
 				</SectionTitle>
 				
-				<p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+				<p className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
 					Comprehensive toolkit for delivering impactful products from concept to launch
 				</p>
 
@@ -142,10 +142,10 @@ export function SkillsSection() {
 										<div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 animate-ping"></div>
 									</div>
 									<div className="flex-1">
-										<CardTitle className="text-base md:text-lg font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors duration-300 leading-tight">
+										<CardTitle className="text-[var(--large-size)] font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors duration-300" style={{ lineHeight: 'var(--snug)' }}>
 											{category.title}
 										</CardTitle>
-										<p className="text-xs sm:text-sm text-muted-foreground/80 italic leading-snug">
+										<p className="text-[var(--small-size)] text-muted-foreground/80 italic" style={{ lineHeight: 'var(--normal)' }}>
 											{category.description}
 										</p>
 									</div>
@@ -158,7 +158,7 @@ export function SkillsSection() {
 										<Badge
 											key={skill}
 											variant="secondary"
-											className="px-3 py-1.5 text-[11px] sm:text-xs font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 transition-all duration-300 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105 cursor-default stagger-fade-in"
+											className="px-3 py-1.5 text-[var(--xs-size)] font-medium bg-background/70 backdrop-blur-sm text-foreground border border-border/40 hover:bg-primary/20 hover:text-primary hover:border-primary/60 transition-all duration-300 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105 cursor-default stagger-fade-in"
 											style={{ '--stagger-delay': skillIndex } as React.CSSProperties}
 										>
 											{skill}

@@ -89,7 +89,7 @@ export function Header() {
           onClick={(e) => handleNavLinkClick(e, '/')}
         >
           <span className={cn(
-            'text-2xl sm:text-3xl font-bold tracking-tight text-transparent bg-clip-text',
+            'text-[var(--h3-size)] font-bold tracking-tight text-transparent bg-clip-text',
             'bg-gradient-to-r from-teal-400 via-blue-500 to-blue-600',
             'group-hover:brightness-110 transition-all duration-300',
             'animate-gradient-text-slow',
@@ -107,7 +107,7 @@ export function Header() {
                 href={item.href}
                 onClick={(e) => handleNavLinkClick(e, item.href)}
                 className={cn(
-                  'group relative px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ease-out',
+                  'group relative px-3 py-2 text-[var(--small-size)] font-medium rounded-md transition-all duration-300 ease-out',
                   isActive
                     ? 'text-primary bg-primary/15'
                     : 'text-foreground/85 hover:text-primary hover:bg-primary/10',

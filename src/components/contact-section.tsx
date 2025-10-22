@@ -28,7 +28,7 @@ export function ContactSection() {
           </span>
         </SectionTitle>
         
-        <p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
           Ready to discuss your next big product idea? Let's connect and create meaningful impact.
         </p>
 
@@ -42,7 +42,7 @@ export function ContactSection() {
           </div>
 
           <CardContent className="relative p-8 md:p-12 text-center space-y-10">
-            <p className="text-base sm:text-lg md:text-xl text-foreground/90 leading-relaxed font-medium">
+            <p className="text-[var(--large-size)] text-foreground/90 font-medium" style={{ lineHeight: 'var(--relaxed)' }}>
               Whether you have a project in mind, a question, or just want to chat, let's connect and explore how we can achieve great things together!
             </p>
 
@@ -56,8 +56,8 @@ export function ContactSection() {
                       <Mail className="h-7 w-7 text-primary group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div className="space-y-0.5 text-center">
-                      <h3 className="font-bold text-sm sm:text-base text-foreground group-hover:text-primary transition-colors duration-300">Email Me</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground/80">Quick response</p>
+                      <h3 className="font-bold text-[var(--body-size)] text-foreground group-hover:text-primary transition-colors duration-300">Email Me</h3>
+                      <p className="text-[var(--xs-size)] text-muted-foreground/80">Quick response</p>
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

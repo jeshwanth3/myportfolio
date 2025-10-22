@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base Typography System */
+:root {
+  /* Core Text Sizes */
+  --h1-size: clamp(3.5rem, 7vw, 4.5rem);        /* 56px - 72px */
+  --h2-size: clamp(3rem, 6vw, 4rem);            /* 48px - 64px */
+  --h3-size: clamp(2.5rem, 5vw, 3rem);          /* 40px - 48px */
+  --h4-size: clamp(2rem, 4vw, 2.5rem);          /* 32px - 40px */
+  --large-size: clamp(1.5rem, 2.5vw, 1.75rem);  /* 24px - 28px */
+  --body-size: clamp(1.25rem, 2vw, 1.5rem);     /* 20px - 24px */
+  --small-size: clamp(1.125rem, 1.5vw, 1.25rem); /* 18px - 20px */
+  --xs-size: clamp(1rem, 1.25vw, 1.125rem);      /* 16px - 18px */
+
+  /* Base scaling and spacing (so Tailwind rem utilities scale up)
+     --base-font-size controls the root font-size which affects rem units
+     We keep a mobile fallback to avoid extremely large text on small screens */
+  --base-font-size: 18px;
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+
+  /* Line Heights */
+  --tight: 1.2;
+  --snug: 1.35;
+  --normal: 1.5;
+  --relaxed: 1.65;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   @apply bg-gradient-to-b from-background via-background/95 to-[hsl(225_25%_7%)];
@@ -12,6 +47,9 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  /* Use the body-size variable for base font-size and a relaxed line-height for readability */
+  font-size: var(--body-size);
+  line-height: var(--relaxed);
 }
 
 @layer base {
@@ -56,6 +94,15 @@ body {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     background: linear-gradient(120deg, hsl(var(--background)), hsl(var(--card)) 60%, hsl(var(--background)) 100%);
+    /* Scale rem (Tailwind) units site-wide by setting a larger root font-size. */
+    font-size: var(--base-font-size);
+  }
+
+  /* Responsive root font-size: keep a smaller base for narrow viewports */
+  @media (max-width: 640px) {
+    html {
+      font-size: 16px;
+    }
   }
 }
 
@@ -600,5 +647,29 @@ body {
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum';
     letter-spacing: -0.02em;
+  }
+
+  /* Override common Tailwind text-size utilities to our responsive variables
+     so small/compact classes remain readable across the site. Use !important
+     to ensure these take precedence over generated utilities. */
+  .text-xs {
+    font-size: var(--xs-size) !important;
+  }
+
+  .text-sm {
+    font-size: var(--small-size) !important;
+  }
+
+  .text-base {
+    font-size: var(--body-size) !important;
+  }
+
+  .text-lg {
+    font-size: var(--large-size) !important;
+  }
+
+  /* Buttons, inputs and compact UI sometimes use text-sm; ensure they remain legible */
+  button, input, select, textarea {
+    font-size: var(--body-size) !important;
   }
 }

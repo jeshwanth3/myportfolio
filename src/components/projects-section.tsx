@@ -75,7 +75,7 @@ export function ProjectsSection() {
           </span>
         </SectionTitle>
         
-        <p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
           Product-led initiatives showcasing innovation, impact, and user-centric design
         </p>
 
@@ -138,11 +138,11 @@ export function ProjectsSection() {
 
               <CardHeader className="p-6 pb-4">
                 <div className="mb-2">
-                  <CardTitle className="text-base md:text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
+                  <CardTitle className="text-[var(--large-size)] font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2" style={{ lineHeight: 'var(--snug)' }}>
                     {project.title}
                   </CardTitle>
                 </div>
-                <CardDescription className="text-xs sm:text-sm text-muted-foreground/90 leading-relaxed line-clamp-3">
+                <CardDescription className="text-[var(--small-size)] text-muted-foreground/90 line-clamp-3" style={{ lineHeight: 'var(--relaxed)' }}>
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -153,7 +153,7 @@ export function ProjectsSection() {
                     <Badge
                       key={tech}
                       variant="secondary"
-                      className="text-[11px] sm:text-xs font-medium border border-border/40 bg-background/70 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all duration-200 px-2.5 py-1 rounded-lg stagger-fade-in"
+                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] font-medium border border-border/40 bg-background/70 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all duration-200 px-2.5 py-1 rounded-lg stagger-fade-in"
                       style={{ '--stagger-delay': techIndex } as React.CSSProperties}
                     >
                       {tech}
@@ -162,7 +162,7 @@ export function ProjectsSection() {
                   {project.technologies.length > 4 && (
                     <Badge
                       variant="secondary"
-                      className="text-[11px] sm:text-xs font-medium border border-border/40 bg-background/70 backdrop-blur-sm px-2.5 py-1 rounded-lg"
+                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] font-medium border border-border/40 bg-background/70 backdrop-blur-sm px-2.5 py-1 rounded-lg"
                     >
                       +{project.technologies.length - 4}
                     </Badge>
@@ -176,7 +176,7 @@ export function ProjectsSection() {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-[11px] sm:text-xs h-8 px-3 hover:bg-primary/10 hover:text-primary group/btn"
+                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] h-8 px-3 hover:bg-primary/10 hover:text-primary group/btn"
                     >
                       View Details
                       <ExternalLink className="ml-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
@@ -188,7 +188,7 @@ export function ProjectsSection() {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-[11px] sm:text-xs h-8 px-3 hover:bg-primary/10 hover:text-primary group/btn"
+                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] h-8 px-3 hover:bg-primary/10 hover:text-primary group/btn"
                     >
                       Live Site
                       <ExternalLink className="ml-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />

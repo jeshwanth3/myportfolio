@@ -53,7 +53,7 @@ export function EducationSection() {
 					</span>
 				</SectionTitle>
 				
-				<p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
+				<p className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
 					Academic foundation combining business strategy, technology, and product management
 				</p>
 
@@ -107,10 +107,10 @@ export function EducationSection() {
 											<Award className="h-4 w-4 text-primary" />
 										</div>
 										<div className="flex-1">
-											<h3 className="text-base md:text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight mb-1.5">
+											<h3 className="text-[var(--large-size)] font-bold text-foreground group-hover:text-primary transition-colors duration-300 mb-1.5" style={{ lineHeight: 'var(--snug)' }}>
 												{edu.degree}
 											</h3>
-											<p className="text-xs sm:text-sm text-muted-foreground/90 font-medium leading-snug">
+											<p className="text-[var(--small-size)] text-muted-foreground/90 font-medium" style={{ lineHeight: 'var(--normal)' }}>
 												{edu.institution}
 											</p>
 										</div>
@@ -120,7 +120,7 @@ export function EducationSection() {
 								{/* Duration Badge */}
 								<div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-background/70 backdrop-blur-sm border border-border/40 group-hover:border-primary/50 transition-all duration-300 shrink-0 shadow-sm">
 									<Calendar className="h-3.5 w-3.5 text-primary" />
-									<span className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">
+									<span className="text-[var(--xs-size)] font-semibold text-foreground whitespace-nowrap">
 										{edu.duration}
 									</span>
 								</div>
