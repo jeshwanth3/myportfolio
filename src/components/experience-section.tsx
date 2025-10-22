@@ -20,11 +20,11 @@ const experiences = [
 		duration: "Aug 2024 - Current",
 		type: "Remote",
 achievements: [
-	"Led product strategy for AI-driven ride-hailing and dispatch optimization, leveraging predictive modeling and experimentation to improve ETA accuracy by 15% and enhance driver-rider matching reliability.",
-	"Delivered ML-based driver allocation models by leading cross-functional delivery with engineering, data science, and operations, improving driver response rates by 12% and fleet utilization by 10% across pilot markets in North America.",
-	"Piloted a generative-AI support assistant that automated 60% of customer tickets, reducing average resolution time from 3 days to under 1 hour and projecting $500K in annual savings at full rollout.",
-	"Conducted A/B experiments to refine ride request and pricing flows, using behavioral analytics, funnel analysis, and user feedback to improve booking conversion by 11% and reduce checkout drop-offs.",
-	"Designed and implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption, increasing customer satisfaction by 14% and enabling data-driven prioritization across the product lifecycle."
+	"Led product strategy for AI-driven ride-hailing and dispatch optimization, leveraging predictive modeling and experimentation to improve ETA accuracy by **15%** and enhance driver-rider matching reliability.",
+	"Delivered ML-based driver allocation models by leading cross-functional delivery with engineering, data science, and operations, improving driver response rates by **12%** and fleet utilization by **10%** across pilot markets in North America.",
+	"Piloted a generative-AI support assistant that automated **60%** of customer tickets, reducing average resolution time from **3 days** to under **1 hour** and projecting **$500K** in annual savings at full rollout.",
+	"Conducted A/B experiments to refine ride request and pricing flows, using behavioral analytics, funnel analysis, and user feedback to improve booking conversion by **11%** and reduce checkout drop-offs.",
+	"Designed and implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption, increasing customer satisfaction by **14%** and enabling data-driven prioritization across the product lifecycle."
 ],
 		icon: <Briefcase className="h-5 w-5 text-primary" />,
 		color: "from-blue-500/20 to-cyan-500/20"
