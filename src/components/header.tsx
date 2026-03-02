@@ -15,6 +15,7 @@ import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { Menu, X, Send, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { label: 'About', href: '#summary' },
@@ -74,12 +75,15 @@ export function Header() {
   );
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300 ease-in-out',
+        'sticky top-0 z-50 w-full transition-colors duration-500 ease-in-out',
         isScrolled
-          ? 'glassmorphism-heavy shadow-lg border-b border-border/10'
-          : 'bg-gradient-to-b from-background/70 via-background/30 to-transparent border-b border-transparent',
+          ? 'glassmorphism-heavy shadow-2xl border-b border-white/5 bg-background/60 backdrop-blur-xl'
+          : 'bg-transparent border-b border-transparent',
       )}
     >
       <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
@@ -107,18 +111,25 @@ export function Header() {
                 href={item.href}
                 onClick={(e) => handleNavLinkClick(e, item.href)}
                 className={cn(
-                  'group relative px-3 py-2 text-[var(--small-size)] font-medium rounded-md transition-all duration-300 ease-out',
+                  'group relative px-4 py-2 text-[var(--small-size)] font-medium rounded-full transition-all duration-300 ease-out',
                   isActive
-                    ? 'text-primary bg-primary/15'
-                    : 'text-foreground/85 hover:text-primary hover:bg-primary/10',
+                    ? 'text-primary'
+                    : 'text-foreground/80 hover:text-foreground',
                   'active:scale-95',
                 )}
               >
                 <span className="relative z-10">{item.label}</span>
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    className="absolute inset-0 bg-primary/10 border border-primary/20 rounded-full -z-10 shadow-[0_0_15px_rgba(0,149,255,0.15)]"
+                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                  />
+                )}
                 <span
                   className={cn(
-                    'absolute bottom-0 left-1/2 right-1/2 h-[2px] bg-primary transition-all duration-300 ease-out',
-                    isActive || 'group-hover:left-0 group-hover:right-0',
+                    'absolute bottom-1 left-1/2 right-1/2 h-[2px] bg-primary/50 transition-all duration-300 ease-out rounded-full blur-[1px]',
+                    isActive || 'group-hover:left-4 group-hover:right-4',
                   )}
                 />
               </Link>
@@ -236,6 +247,6 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

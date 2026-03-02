@@ -9,6 +9,8 @@ import { FolderGit2, ExternalLink, Sparkles, Rocket } from 'lucide-react';
 import { SectionNavButton } from "@/components/section-nav-button";
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { MouseEvent } from 'react';
 
 type Project = {
   id: string;
@@ -58,153 +60,202 @@ const projects: Project[] = [
   },
 ];
 
-export function ProjectsSection() {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring", stiffness: 200, damping: 20 }
+  }
+};
+
+function ProjectCard({ project }: { project: Project }) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
   return (
-    <SectionWrapper id="projects" className="relative bg-gradient-to-b from-card/10 via-background to-card/5 py-20">
-      {/* Animated background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-accent/30 rounded-full blur-[120px] floating-animation"></div>
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[120px] floating-animation" style={{ animationDelay: '3s' } as React.CSSProperties}></div>
-      </div>
+    <motion.div
+      variants={cardVariants}
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      onMouseMove={handleMouseMove}
+      className={`group relative h-full flex flex-col overflow-hidden rounded-[2rem] bg-card/60 border border-border/40 hover:border-primary/50 shadow-xl backdrop-blur-xl transition-colors duration-500`}
+    >
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-[2rem] opacity-0 transition duration-500 group-hover:opacity-100 z-30"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              650px circle at ${mouseX}px ${mouseY}px,
+              rgba(0,149,255,0.15),
+              transparent 80%
+            )
+          `,
+        }}
+      />
 
-      <div className="relative z-10">
-        <SectionTitle>
-          <span className="inline-flex items-center gap-3">
-            <Rocket className="h-8 w-8 text-primary" />
-            Featured Projects
-          </span>
-        </SectionTitle>
-        
-        <p className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
-          Product-led initiatives showcasing innovation, impact, and user-centric design
-        </p>
+      {/* Featured badge */}
+      {project.featured && (
+        <div className="absolute top-5 right-5 z-20">
+          <Badge className="bg-gradient-to-r from-primary to-accent text-primary-foreground border-0 shadow-[0_0_15px_rgba(0,149,255,0.5)] px-3 py-1.5 font-bold rounded-xl text-xs uppercase tracking-wider backdrop-blur-md">
+            <Sparkles className="h-3 w-3 mr-1.5 animate-pulse" />
+            Featured
+          </Badge>
+        </div>
+      )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <Card
-              key={project.id}
-              className={`group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] rounded-3xl bg-gradient-to-br from-card/90 via-card/80 to-background/90 border border-border/30 hover:border-primary/50 shadow-xl hover:shadow-2xl backdrop-blur-sm stagger-fade-in ${project.featured ? 'ring-2 ring-primary/20' : ''}`}
-              style={{ '--stagger-delay': index } as React.CSSProperties}
-            >
-              {/* Featured badge */}
-              {project.featured && (
-                <div className="absolute top-5 right-5 z-20">
-                  <Badge className="bg-gradient-to-r from-primary to-accent text-primary-foreground border-0 shadow-lg px-3 py-1.5 font-semibold rounded-xl text-xs">
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    Featured
-                  </Badge>
-                </div>
-              )}
+      {/* Project thumbnail */}
+      <div className="relative w-full aspect-video overflow-hidden border-b border-border/20 z-10">
+        <Image
+          src={project.thumbnail}
+          alt={project.title}
+          fill
+          className="object-cover transition-all duration-700 filter saturate-100 group-hover:saturate-125 group-hover:scale-110"
+          priority={project.id === "proj1"}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
 
-              {/* Project thumbnail */}
-              <div className="relative w-full aspect-video overflow-hidden">
-                <Image
-                  src={project.thumbnail}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  priority={project.id === "proj1"}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
-                
-                {/* Overlay icons */}
-                <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/80 backdrop-blur-sm">
-                  {project.githubUrl && (
-                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" variant="outline" className="border-primary/40 hover:bg-primary/20">
-                        <FolderGit2 className="h-4 w-4 mr-2" />
-                        GitHub
-                      </Button>
-                    </Link>
-                  )}
-                  {project.liveUrl && (
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" className="bg-primary hover:bg-primary/90">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
-                      </Button>
-                    </Link>
-                  )}
-                  {project.moreDetails && (
-                    <Link href={project.moreDetails} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" variant="outline" className="border-primary/40 hover:bg-primary/20">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Details
-                      </Button>
-                    </Link>
-                  )}
-                </div>
-              </div>
-
-              <CardHeader className="p-6 pb-4">
-                <div className="mb-2">
-                  <CardTitle className="text-[var(--large-size)] font-bold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2" style={{ lineHeight: 'var(--snug)' }}>
-                    {project.title}
-                  </CardTitle>
-                </div>
-                <CardDescription className="text-[var(--small-size)] text-muted-foreground/90 line-clamp-3" style={{ lineHeight: 'var(--relaxed)' }}>
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="p-6 pt-0">
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] font-medium border border-border/40 bg-background/70 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all duration-200 px-2.5 py-1 rounded-lg stagger-fade-in"
-                      style={{ '--stagger-delay': techIndex } as React.CSSProperties}
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <Badge
-                      variant="secondary"
-                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] font-medium border border-border/40 bg-background/70 backdrop-blur-sm px-2.5 py-1 rounded-lg"
-                    >
-                      +{project.technologies.length - 4}
-                    </Badge>
-                  )}
-                </div>
-              </CardContent>
-
-              <CardFooter className="p-6 pt-0 flex justify-end">
-                {project.moreDetails && (
-                  <Link href={project.moreDetails} target="_blank" rel="noopener noreferrer">
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] h-8 px-3 hover:bg-primary/10 hover:text-primary group/btn"
-                    >
-                      View Details
-                      <ExternalLink className="ml-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
-                    </Button>
-                  </Link>
-                )}
-                {project.liveUrl && (
-                  <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="text-[var(--xs-size)] sm:text-[var(--small-size)] h-8 px-3 hover:bg-primary/10 hover:text-primary group/btn"
-                    >
-                      Live Site
-                      <ExternalLink className="ml-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
-                    </Button>
-                  </Link>
-                )}
-              </CardFooter>
-
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Card>
-          ))}
+        {/* Overlay buttons grid on hover */}
+        <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-card/40 backdrop-blur-sm z-20">
+          {project.githubUrl && (
+            <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" className="h-12 w-12 rounded-full bg-background/80 hover:bg-primary text-foreground hover:text-primary-foreground hover:scale-110 shadow-xl border border-white/10 transition-all duration-300">
+                <FolderGit2 className="h-5 w-5" />
+              </Button>
+            </Link>
+          )}
+          {project.liveUrl && (
+            <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" className="h-12 w-12 rounded-full bg-primary hover:bg-primary hover:scale-110 shadow-[0_0_20px_rgba(0,149,255,0.5)] text-primary-foreground transition-all duration-300">
+                <ExternalLink className="h-5 w-5" />
+              </Button>
+            </Link>
+          )}
+          {project.moreDetails && (
+            <Link href={project.moreDetails} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" className="h-12 w-12 rounded-full bg-background/80 hover:bg-accent hover:scale-110 text-foreground hover:text-accent-foreground shadow-xl border border-white/10 transition-all duration-300">
+                <ExternalLink className="h-5 w-5" />
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
 
-      <SectionNavButton nextSection="skills" />
+      <div className="flex flex-col flex-1 p-8 relative z-10">
+        <div className="mb-4">
+          <h3 className="text-2xl font-bold text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all duration-300 line-clamp-2 leading-tight">
+            {project.title}
+          </h3>
+        </div>
+        <CardDescription className="text-base text-muted-foreground/90 line-clamp-3 mb-6" style={{ lineHeight: '1.7' }}>
+          {project.description}
+        </CardDescription>
+
+        <div className="mt-auto pt-4 flex flex-wrap gap-2">
+          {project.technologies.slice(0, 4).map((tech, techIndex) => (
+            <Badge
+              key={tech}
+              variant="secondary"
+              className="text-xs font-semibold border border-primary/20 bg-primary/5 hover:bg-primary/20 hover:text-primary transition-all duration-300 px-3 py-1.5 rounded-lg shadow-sm"
+            >
+              {tech}
+            </Badge>
+          ))}
+          {project.technologies.length > 4 && (
+            <Badge
+              variant="secondary"
+              className="text-xs font-semibold border border-border/40 bg-background/50 px-3 py-1.5 rounded-lg"
+            >
+              +{project.technologies.length - 4}
+            </Badge>
+          )}
+        </div>
+      </div>
+
+      {/* Bottom glowing animated line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+    </motion.div>
+  );
+}
+
+export function ProjectsSection() {
+  return (
+    <SectionWrapper id="projects" className="relative bg-gradient-to-b from-card/10 via-background to-card/5 py-24 overflow-hidden min-h-screen">
+      {/* Animated background */}
+      <div className="absolute inset-0 pointer-events-none opacity-30">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[150px] mix-blend-screen"
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-primary/20 rounded-full blur-[150px] mix-blend-screen"
+        />
+      </div>
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center mb-16"
+        >
+          <SectionTitle>
+            <span className="inline-flex items-center gap-3">
+              <Rocket className="h-8 w-8 text-primary" />
+              Featured Projects
+            </span>
+          </SectionTitle>
+
+          <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto mt-4" style={{ lineHeight: '1.7' }}>
+            Product-led initiatives showcasing innovation, impact, and user-centric design
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projects.map((project) => (
+            <div key={project.id} className="h-full">
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="w-full flex justify-center pt-24 relative z-20"
+      >
+        <SectionNavButton nextSection="skills" />
+      </motion.div>
     </SectionWrapper>
   );
 }
