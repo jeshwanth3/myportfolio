@@ -11,12 +11,12 @@ import { Badge } from "@/components/ui/badge";
 const experiences = [
 	{
 		id: "exp1",
-		title: "Product Manager",
-		company: "Uber",
+		title: "Lead Business Analyst",
+		company: "Wellmark",
 		location: "USA",
-		duration: "Aug 2024 - Current",
-		type: "Remote",
-		achievements: [
+		duration: "May 2025 - Current",
+		type: "In Person",
+		-- achievements: [
 			"Owned product roadmap and strategy for AI-powered ride-hailing and dispatch optimization, improving arrival time accuracy by **15%** through predictive analytics and iterative experimentation.",
 			"Led cross-functional delivery with engineering, data science, design, and operations to launch ML-based driver allocation models, increasing driver response by **12%** and improving fleet utilization by **10%** across North America market.",
 			"Launched a pilot generative-AI support platform, automating **60%** of customer inquiries, reducing average resolution time from 3 days to under 1 hour, and saving **$500K** annually in support costs.",
@@ -28,7 +28,7 @@ const experiences = [
 	},
 	{
 		id: "exp2",
-		title: "Product Manager Intern",
+		title: "Business Analyst Intern",
 		company: "Able Up Iowa",
 		location: "USA",
 		duration: "Jun 2024 - Aug 2024",
@@ -43,7 +43,7 @@ const experiences = [
 	},
 	{
 		id: "exp3",
-		title: "Associate Product Manager",
+		title: "Associate Business Analyst",
 		company: "Accenture",
 		location: "India",
 		duration: "Jun 2020 - Jul 2023",
