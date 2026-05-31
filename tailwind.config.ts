@@ -54,10 +54,13 @@ export default {
   		}
   	},
   	borderRadius: {
-      // Use theme radius defined in globals.css
-  		lg: 'var(--radius)',
-  		md: 'calc(var(--radius) - 2px)',
-  		sm: 'calc(var(--radius) - 4px)',
+      // Enhanced rounded corners
+      sm: 'calc(var(--radius) - 4px)', // 0.75rem
+      md: 'calc(var(--radius) - 2px)', // 1rem
+      lg: 'var(--radius)', // 1.25rem
+      xl: 'calc(var(--radius) + 4px)', // 1.5rem
+      '2xl': 'calc(var(--radius) + 8px)', // 1.75rem
+      '3xl': 'calc(var(--radius) + 12px)', // 2rem
       full: '9999px',
   	},
   	keyframes: {

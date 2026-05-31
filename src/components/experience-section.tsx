@@ -7,71 +7,85 @@ import { Briefcase, MapPin, Calendar, TrendingUp, Award, Target } from 'lucide-r
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SectionNavButton } from "@/components/section-nav-button";
 import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from 'framer-motion';
+
+import Image from 'next/image';
 
 const experiences = [
 	{
 		id: "exp1",
-		title: "Lead Business Analyst",
-		company: "Wellmark",
+		title: "Product Manager",
+		company: "Uber",
+		logo: "/companies/uber-white.svg",
 		location: "USA",
-		duration: "May 2025 - Current",
-		type: "In Person",
-		-- achievements: [
-			"Owned product roadmap and strategy for AI-powered ride-hailing and dispatch optimization, improving arrival time accuracy by **15%** through predictive analytics and iterative experimentation.",
-			"Led cross-functional delivery with engineering, data science, design, and operations to launch ML-based driver allocation models, increasing driver response by **12%** and improving fleet utilization by **10%** across North America market.",
-			"Launched a pilot generative-AI support platform, automating **60%** of customer inquiries, reducing average resolution time from 3 days to under 1 hour, and saving **$500K** annually in support costs.",
-			"Designed and Implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption; drove customer satisfaction by **14%** and data-driven prioritization across the product lifecycle.",
-			"Led A/B experiments and discovery sprints to refine ride request flows and pricing visibility; analyzed user behaviour and feedback to guide roadmap priorities, boosting rider activation by **18%** and repeat bookings by **9%**."
+		duration: "Aug 2024 - Current",
+		type: "Remote",
+		achievements: [
+			"Led product strategy for AI-driven ride-hailing and dispatch optimization, leveraging predictive modeling and experimentation to improve ETA accuracy by **15%** and enhance driver-rider matching reliability.",
+			"Delivered ML-based driver allocation models by leading cross-functional delivery with engineering, data science, and operations, improving driver response rates by **12%** and fleet utilization by **10%** across pilot markets in North America.",
+			"Piloted a generative-AI support assistant that automated **60%** of customer tickets, reducing average resolution time from **3 days** to under **1 hour** and projecting **$500K** in annual savings at full rollout.",
+			"Conducted A/B experiments to refine ride request and pricing flows, using behavioral analytics, funnel analysis, and user feedback to improve booking conversion by **11%** and reduce checkout drop-offs.",
+			"Designed and implemented KPI/analytics framework (SQL, Citrus) to track product performance, UX, and adoption, increasing customer satisfaction by **14%** and enabling data-driven prioritization across the product lifecycle."
 		],
 		icon: <Briefcase className="h-5 w-5 text-primary" />,
 		color: "from-blue-500/20 to-cyan-500/20"
 	},
 	{
-		id: "exp2",
-		title: "Business Analyst Intern",
-		company: "Able Up Iowa",
-		location: "USA",
-		duration: "Jun 2024 - Aug 2024",
-		type: "Internship",
-		achievements: [
-			"Led data architecture and analytics roadmap for a cloud-based lending platform, integrating Azure Data Factory, SQL pipelines, and Power BI dashboards to process **1M+** loan records and improved loan approvals for low-income applicants by **12%**.",
-			"Partnered with data engineering and operations to enhance serverless ETL pipelines in Azure Data Factory, improving scalability and reducing data processing time by **50%**, enabling near real-time credit risk evaluation.",
-			"Developed Power BI dashboards tracking loan activity, portfolio trends, and regional impact, improving leadership visibility into KPIs and helping secure a **$400K** CDFI grant for statewide expansion."
-		],
-		icon: <Target className="h-5 w-5 text-primary" />,
-		color: "from-emerald-500/20 to-teal-500/20"
-	},
-	{
 		id: "exp3",
-		title: "Associate Business Analyst",
+		title: "Product Manager",
 		company: "Accenture",
+		logo: "/companies/accenture-white.svg",
 		location: "India",
-		duration: "Jun 2020 - Jul 2023",
+		duration: "Aug 2021 - Jul 2023",
 		type: "Full-time",
 		achievements: [
-			"Defined product strategy and roadmap for SaaS based supply chain platform serving **1,000+** enterprise users, launching business planning feature that increased adoption by **22%** and generated **$800K** in incremental ARR.",
-			"Owned and prioritized the product backlog in JIRA/Confluence, translating business requirements into user stories and refining features through stakeholder feedback and data insights to deliver **93%** on-time releases and reduce defects by **17%**.",
-			"Architected Power BI analytics dashboard tracking user engagement, feature adoption, and revenue metrics, enabling data-driven decisions that reduced development rework by **25%** and accelerated executive decisions cycles from weeks to days.",
-			"Led user research and usability testing with **60+** end users and business clients, translating insights into **20+** Figma wireframes and prototypes that improved feature usability by **18%** and increased adoption by **12%**.",
-			"Delivered weekly product reviews and KPI reports to leadership, providing visibility into roadmap progress, release outcomes, and customer impact; contributed to a **35%** reduction in issue escalations over three quarters."
+			"Defined and executed a 2-year product roadmap for cloud-based SCP platform, delivering the Business Planning module adopted by **150+** global clients, generating **$2M** in incremental revenue.",
+			"Owned end-to-end product lifecycle for global demand planning module, improving demand planning efficiency by **35%** and enhancing inventory accuracy by **20%** through integrated analytics and automated forecasting workflows.",
+			"Developed product performance dashboards in Power BI and Tableau to track key metrics including retention, engagement, feature adoption, and conversion rates, increasing data reliability by **18%** and accelerating data-driven decision-making.",
+			"Led user research and usability testing with **40+** planners and logistics leads, refining UI/UX flows and configuration options that improved user adoption by **25%** and cut training time by **30%** across global teams.",
+			"Created a Confluence knowledge hub and **10+** onboarding modules, increasing product proficiency by **40%**, reducing support tickets by **22%** and saving over **$20,000** annually."
 		],
 		icon: <Award className="h-5 w-5 text-primary" />,
-		color: "from-purple-500/20 to-pink-500/20"
+		color: "from-indigo-500/20 to-blue-500/20"
+	},
+	{
+		id: "exp4",
+		title: "Associate Product Manager",
+		company: "Accenture",
+		logo: "/companies/accenture-white.svg",
+		location: "India",
+		duration: "Jun 2020 - Aug 2021",
+		type: "Full-time",
+		achievements: [
+			"Drove automation of ERP data ingestion into the SCP platform, collaborating with cross-functional teams to improve forecast accuracy by **20%** and optimize inventory turnover across **30+** global distribution centers.",
+			"Conducted market and competitive analysis of leading AI-powered supply chain planning tools (Kinaxis, SAP IBP), identifying feature gaps that informed backlog prioritization and drove **$1M+** in cost optimization opportunities.",
+			"Built stakeholder alignment through regular product demos, roadmap reviews, and data-driven presentations that communicated product vision, and progress to leadership and cross-functional teams.",
+			"Designed Figma prototypes and wireframes to validate user flows and new feature mockups, partnered with design and UX teams to improve usability testing efficiency and reduce iteration cycles by **35%**."
+		],
+		icon: <Award className="h-5 w-5 text-primary" />,
+		color: "from-blue-500/20 to-indigo-500/20",
 	}
 ];
 
 // Helper function to highlight metrics in text
 function HighlightedText({ text }: { text: string }) {
 	const parts = text.split(/(\*\*.*?\*\*)/g);
-	
+
 	return (
 		<span>
 			{parts.map((part, index) => {
 				if (part.startsWith('**') && part.endsWith('**')) {
 					const content = part.slice(2, -2);
 					return (
-						<span key={index} className="metric-highlight number-stat font-bold px-1">
+						<span key={index} className="metric-highlight number-stat font-bold px-1 relative inline-block">
 							{content}
+							<motion.span
+								className="absolute bottom-0 left-0 w-full h-[2px] bg-pm-metric/40 rounded-full"
+								initial={{ scaleX: 0 }}
+								whileInView={{ scaleX: 1 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.5, delay: 0.5 }}
+							/>
 						</span>
 					);
 				}
@@ -81,133 +95,195 @@ function HighlightedText({ text }: { text: string }) {
 	);
 }
 
+const fadeInUp = {
+	hidden: { opacity: 0, y: 40 },
+	visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
 export function ExperienceSection() {
 	return (
-		<SectionWrapper id="experience" className="relative bg-gradient-to-b from-background via-card/5 to-background py-20">
+		<SectionWrapper id="experience" className="relative bg-gradient-to-b from-background via-card/5 to-background py-20 min-h-screen">
 			{/* Animated background elements */}
-			<div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-				<div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl floating-animation"></div>
-				<div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl floating-animation" style={{ animationDelay: '2s' } as React.CSSProperties}></div>
+			<div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+				<motion.div
+					animate={{ y: [0, -30, 0], scale: [1, 1.2, 1] }}
+					transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+					className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+				/>
+				<motion.div
+					animate={{ y: [0, 40, 0], x: [0, -20, 0] }}
+					transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 1 }}
+					className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+				/>
 			</div>
 
-			<div className="relative z-10">
-				<SectionTitle>
-					<span className="inline-flex items-center gap-3">
-						<TrendingUp className="h-8 w-8 text-primary" />
-						Professional Experience
-					</span>
-				</SectionTitle>
-				
-				<p className="text-center text-muted-foreground text-sm sm:text-base md:text-lg mb-12 max-w-2xl mx-auto">
-					Driving product innovation and delivering measurable business impact through data-driven strategy
-				</p>
+			<div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6">
+				<motion.div
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, margin: "-100px" }}
+					variants={{
+						visible: { transition: { staggerChildren: 0.2 } },
+						hidden: {}
+					}}
+					className="flex flex-col items-center"
+				>
+					<motion.div variants={fadeInUp}>
+						<SectionTitle>
+							<span className="inline-flex items-center gap-3">
+								<TrendingUp className="h-8 w-8 text-primary" />
+								Professional Experience
+							</span>
+						</SectionTitle>
+					</motion.div>
 
-				<Tabs defaultValue={experiences[0].id} className="w-full max-w-6xl mx-auto">
-					{/* Enhanced TabsList */}
-					<TabsList className="flex w-full gap-2 md:gap-4 h-auto p-3 bg-card/50 backdrop-blur-md border border-border/30 rounded-2xl mb-8 overflow-x-auto shadow-lg">
-						{experiences.map((exp, index) => (
-							<TabsTrigger
-								key={exp.id}
-								value={exp.id}
-								className="relative px-4 md:px-6 py-3 text-sm md:text-base font-semibold text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/15 rounded-xl transition-all duration-300 ease-out min-w-fit shrink-0 hover:bg-primary/5 tab-indicator group"
-								style={{ '--stagger-delay': index } as React.CSSProperties}
-							>
-								<span className="flex items-center gap-2">
-									{exp.icon}
-									<span className="hidden md:inline">{exp.company}</span>
-									<span className="md:hidden">{exp.company.split(' ')[0]}</span>
-								</span>
-							</TabsTrigger>
-						))}
-					</TabsList>
+					<motion.p variants={fadeInUp} className="text-center text-muted-foreground text-[var(--body-size)] mb-12 max-w-2xl mx-auto" style={{ lineHeight: 'var(--relaxed)' }}>
+						Driving product innovation and delivering measurable business impact through data-driven strategy
+					</motion.p>
+				</motion.div>
 
-					{/* Enhanced TabsContent */}
-					{experiences.map((exp, expIndex) => (
-						<TabsContent key={exp.id} value={exp.id} className="mt-0">
-							<Card className="experience-tab-card rounded-3xl p-8 md:p-12">
-								<CardHeader className="p-0 mb-6">
-									<div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
-										<div className="flex items-start gap-4 flex-1">
-											<div className="relative shrink-0">
-												<div className={`bg-gradient-to-br ${exp.color} p-3.5 rounded-xl border border-primary/20 shadow-md pulse-glow`}>
-													{exp.icon}
-												</div>
-												<div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full animate-ping"></div>
-												<div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full"></div>
+				<motion.div
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, margin: "-50px" }}
+					variants={{
+						visible: { transition: { staggerChildren: 0.1 } },
+						hidden: {}
+					}}
+				>
+					<Tabs defaultValue={experiences[0].id} className="w-full max-w-6xl mx-auto">
+						<motion.div variants={fadeInUp}>
+							<TabsList className="flex w-full gap-2 md:gap-4 h-auto p-3 bg-card/60 backdrop-blur-xl border border-border/30 rounded-2xl mb-10 overflow-x-auto shadow-2xl">
+								{experiences.map((exp) => (
+									<TabsTrigger
+										key={exp.id}
+										value={exp.id}
+										className="relative px-5 py-4 text-[var(--small-size)] font-semibold text-muted-foreground data-[state=active]:text-primary data-[state=active]:bg-primary/10 rounded-xl transition-all duration-300 ease-out min-w-fit shrink-0 hover:bg-primary/5 group border border-transparent data-[state=active]:border-primary/20"
+									>
+										<span className="flex items-center gap-4">
+											<div className="relative w-10 h-10 overflow-hidden rounded-lg bg-background/90 p-2 border border-border/50 shadow-inner">
+												<Image
+													src={exp.logo}
+													alt={`${exp.company} logo`}
+													fill
+													className="object-contain filter brightness-200 dark:brightness-200 transition-transform duration-300 group-hover:scale-110"
+												/>
 											</div>
-											<div className="flex-1 min-w-0">
-												<div className="flex flex-wrap items-center gap-3 mb-3">
-													<CardTitle className="text-xl md:text-2xl font-bold text-foreground">
-														{exp.title}
-													</CardTitle>
-													<Badge variant="outline" className="border-primary/40 text-primary bg-primary/10 px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold">
-														{exp.type}
-													</Badge>
-												</div>
-												<div className="company-badge mb-3 text-sm md:text-base">
-													<Briefcase className="h-4 w-4" />
-													<span>{exp.company}</span>
-												</div>
-												<div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-													<span className="flex items-center gap-1.5 bg-muted/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border/20">
-														<MapPin className="h-3.5 w-3.5 text-primary" />
-														<span className="font-medium">{exp.location}</span>
-													</span>
-													<span className="flex items-center gap-1.5 bg-muted/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-border/20">
-														<Calendar className="h-3.5 w-3.5 text-primary" />
-														<span className="font-medium">{exp.duration}</span>
-													</span>
-												</div>
+											<div className="flex flex-col items-start text-left">
+												<span className="text-[var(--small-size)] opacity-100 font-bold tracking-tight">
+													{exp.company}
+												</span>
+												<span className="text-[0.7rem] opacity-70 font-medium">
+													{exp.title}
+												</span>
 											</div>
-										</div>
-									</div>
-								</CardHeader>
+										</span>
+									</TabsTrigger>
+								))}
+							</TabsList>
+						</motion.div>
 
-								<CardContent className="p-0">
-									<div className="bg-muted/10 backdrop-blur-sm rounded-2xl p-6 border border-border/10">
-										<h4 className="text-base md:text-lg font-semibold text-foreground/90 flex items-center gap-2 mb-5">
-											<TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-primary" />
-											Key Achievements & Impact
-										</h4>
-										<ul className="space-y-4">
-											{exp.achievements.map((achievement, i) => (
-												<li 
-													key={i} 
-													className="achievement-card text-[13px] sm:text-sm md:text-base text-foreground/90 leading-relaxed stagger-fade-in"
-													style={{ '--stagger-delay': i } as React.CSSProperties}
-												>
-													<HighlightedText text={achievement} />
-												</li>
-											))}
-										</ul>
-									</div>
-								</CardContent>
-							</Card>
-						</TabsContent>
-					))}
-				</Tabs>
+						<AnimatePresence mode="wait">
+							{experiences.map((exp) => (
+								<TabsContent key={exp.id} value={exp.id} className="mt-0 outline-none">
+									<motion.div
+										initial={{ opacity: 0, y: 20, scale: 0.98 }}
+										animate={{ opacity: 1, y: 0, scale: 1 }}
+										exit={{ opacity: 0, y: -20, scale: 0.98 }}
+										transition={{ duration: 0.4, ease: "easeOut" }}
+									>
+										<Card className="experience-tab-card rounded-[2rem] p-8 md:p-12 relative overflow-hidden group">
+											{/* Subtle glow effect on the card */}
+											<div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 z-0"></div>
 
-				{/* Timeline visualization */}
-				<div className="mt-16 max-w-4xl mx-auto">
-					<div className="relative">
-						<div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
-						<div className="flex justify-between items-center relative">
-							{experiences.map((exp, index) => (
-								<div key={exp.id} className="flex flex-col items-center group">
-									<div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-4 border-background shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
-										{exp.icon}
-									</div>
-									<span className="mt-3 text-xs font-semibold text-muted-foreground text-center max-w-[100px] hidden md:block">
-										{exp.company}
-									</span>
-								</div>
+											<CardHeader className="p-0 mb-8 relative z-10">
+												<div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+													<div className="flex items-start gap-5 flex-1">
+														<div className="relative shrink-0 group-hover:scale-105 transition-transform duration-500">
+															<div className={`relative w-20 h-20 rounded-2xl overflow-hidden bg-background/90 p-4 border border-border/50 shadow-xl backdrop-blur-md`}>
+																<Image
+																	src={exp.logo}
+																	alt={`${exp.company} logo`}
+																	fill
+																	className="object-contain filter brightness-200 dark:brightness-200"
+																/>
+															</div>
+															<div className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full animate-ping"></div>
+															<div className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-background"></div>
+														</div>
+														<div className="flex-1 min-w-0 pt-1">
+															<div className="flex flex-wrap items-center gap-3 mb-4">
+																<CardTitle className="text-3xl font-extrabold text-foreground tracking-tight">
+																	{exp.title}
+																</CardTitle>
+																<Badge variant="outline" className="border-primary/50 text-primary bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-lg">
+																	{exp.type}
+																</Badge>
+															</div>
+															<div className="flex flex-wrap items-center gap-4 text-sm font-medium text-muted-foreground">
+																<span className="flex items-center gap-2 bg-muted/40 backdrop-blur-md px-4 py-2 rounded-xl border border-border/30 text-foreground/80 shadow-sm">
+																	<Briefcase className="h-4 w-4 text-primary" />
+																	{exp.company}
+																</span>
+																<span className="flex items-center gap-2 bg-muted/40 backdrop-blur-md px-4 py-2 rounded-xl border border-border/30 shadow-sm text-foreground/80">
+																	<MapPin className="h-4 w-4 text-primary" />
+																	{exp.location}
+																</span>
+																<span className="flex items-center gap-2 bg-muted/40 backdrop-blur-md px-4 py-2 rounded-xl border border-border/30 shadow-sm text-foreground/80">
+																	<Calendar className="h-4 w-4 text-primary" />
+																	{exp.duration}
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</CardHeader>
+
+											<CardContent className="p-0 relative z-10">
+												<div className="bg-background/40 backdrop-blur-xl rounded-[1.5rem] p-8 border border-border/20 shadow-inner">
+													<h4 className="text-xl font-bold text-foreground/90 flex items-center gap-3 mb-6">
+														<div className="p-2 bg-primary/20 rounded-xl">
+															<TrendingUp className="h-5 w-5 text-primary" />
+														</div>
+														Key Achievements & Impact
+													</h4>
+													<ul className="space-y-6">
+														{exp.achievements.map((achievement, i) => (
+															<motion.li
+																key={i}
+																initial={{ opacity: 0, x: -20 }}
+																animate={{ opacity: 1, x: 0 }}
+																transition={{ delay: 0.1 * i, duration: 0.5 }}
+																className="relative pl-6 text-[1.1rem]"
+																style={{ lineHeight: '1.75' }}
+															>
+																<div className="absolute left-0 top-2.5 w-2 h-2 rounded-full bg-primary/80 shadow-[0_0_8px_rgba(0,149,255,0.8)]" />
+																<p className="text-foreground/85 font-medium">
+																	<HighlightedText text={achievement} />
+																</p>
+															</motion.li>
+														))}
+													</ul>
+												</div>
+											</CardContent>
+										</Card>
+									</motion.div>
+								</TabsContent>
 							))}
-						</div>
-					</div>
-				</div>
+						</AnimatePresence>
+					</Tabs>
+				</motion.div>
 			</div>
 
-			<SectionNavButton nextSection="projects" />
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{ delay: 0.5, duration: 0.5 }}
+				className="w-full flex justify-center pt-16 relative z-20"
+			>
+				<SectionNavButton nextSection="projects" />
+			</motion.div>
 		</SectionWrapper>
 	);
 }

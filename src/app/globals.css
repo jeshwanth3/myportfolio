@@ -2,9 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base Typography System */
+:root {
+  /* Core Text Sizes */
+  /* Toned-down responsive scale for better desktop/mobile parity */
+  --h1-size: clamp(2.25rem, 5vw, 3.25rem);       /* ~36px - 52px */
+  --h2-size: clamp(1.875rem, 4vw, 2.5rem);       /* ~30px - 40px */
+  --h3-size: clamp(1.5rem, 3vw, 2rem);           /* ~24px - 32px */
+  --h4-size: clamp(1.25rem, 2.5vw, 1.5rem);      /* ~20px - 24px */
+  --large-size: clamp(1.125rem, 1.6vw, 1.25rem); /* ~18px - 20px */
+  --body-size: clamp(1rem, 1.2vw, 1.1875rem);    /* 16px - 19px */
+  --small-size: clamp(1rem, 1.1vw, 1.0625rem);   /* 16px - 17px */
+  --xs-size: clamp(0.875rem, 0.9vw, 0.9375rem);  /* 14px - 15px */
+
+  /* Base scaling and spacing (so Tailwind rem utilities scale up)
+     --base-font-size controls the root font-size which affects rem units
+     We keep a mobile fallback to avoid extremely large text on small screens */
+  /* Use browser default 16px for root rem scaling */
+  --base-font-size: 16px;
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+
+  /* Line Heights */
+  --tight: 1.2;
+  --snug: 1.35;
+  --normal: 1.5;
+  --relaxed: 1.65;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  @apply bg-gradient-to-b from-background via-background/95 to-[hsl(225_25%_7%)];
+  @apply bg-gradient-to-b from-background via-background/95 to-[hsl(240_10%_6%)];
   @apply text-foreground;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,35 +49,38 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  /* Use standard base size; components can opt into variables */
+  font-size: 1rem;
+  line-height: var(--relaxed);
 }
 
 @layer base {
   :root {
-    --background: 225 25% 6%;
-    --foreground: 210 50% 96%;
-    --card: 225 25% 11%;
-    --card-foreground: 210 50% 96%;
-    --popover: 225 30% 4%;
-    --popover-foreground: 210 50% 96%;
-    --primary: 210 100% 58%;
-    --primary-foreground: 225 25% 98%;
-    --secondary: 225 20% 15%;
-    --secondary-foreground: 210 30% 80%;
-    --muted: 220 15% 30%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 180 85% 45%;
-    --accent-foreground: 225 25% 15%;
-    --destructive: 0 80% 65%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 20%;
-    --input: 220 15% 18%;
-    --ring: 210 100% 70%;
-    --chart-1: 210 90% 60%;
-    --chart-2: 30 100% 60%;
-    --chart-3: 180 70% 55%;
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 10% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 270 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 217 100% 55%;
+    --chart-1: 217 100% 55%;
+    --chart-2: 270 100% 60%;
+    --chart-3: 150 100% 50%;
     --chart-4: 45 100% 55%;
-    --chart-5: 260 85% 75%;
-    --radius: 0.75rem;
+    --chart-5: 320 100% 60%;
+    --radius: 1.25rem;
     --pm-success: 142 76% 36%;
     --pm-metric: 45 93% 47%;
     --pm-highlight: 271 81% 56%;
@@ -56,10 +96,59 @@ body {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     background: linear-gradient(120deg, hsl(var(--background)), hsl(var(--card)) 60%, hsl(var(--background)) 100%);
+    /* Keep default 16px root for predictable Tailwind rem utilities. */
+    font-size: var(--base-font-size);
+  }
+
+  /* Responsive root font-size: keep a smaller base for narrow viewports */
+  @media (max-width: 640px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  /* Slightly increase reading sizes on wide screens for comfort */
+  @media (min-width: 1024px) {
+    :root {
+      --body-size: 1.125rem;      /* 18px */
+      --small-size: 1.0625rem;    /* 17px */
+      --xs-size: 0.9375rem;       /* 15px */
+    }
   }
 }
 
 @layer utilities {
+  /* Animated gradient text utility used in Header/Summary */
+  .animate-gradient-text-slow {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Optional gradient border helper (apply with relative + before) */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)) 60%, hsl(var(--primary)));
+    filter: blur(0.5px);
+  }
   .perspective-1000 {
     perspective: 1000px;
   }
@@ -168,15 +257,39 @@ body {
     }
   }
 
-  .gradient-text {
-    background: linear-gradient(90deg, #0095ff, #00e1ff, #00ffb3);
+  .typed-text {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary) / 0.9), hsl(var(--primary)));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradient 3s ease infinite;
-    background-size: 200% 200%;
     font-weight: 700;
     letter-spacing: 0.04em;
+    position: relative;
+  }
+
+  .typed-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  .typed-cursor {
+    color: hsl(var(--primary));
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   @keyframes gradient {
@@ -505,6 +618,41 @@ body {
     opacity: 0;
   }
 
+  /* Enhanced card styles */
+  .card-custom {
+    @apply rounded-2xl border bg-card/95 backdrop-blur-sm shadow-lg transition-all duration-300;
+    box-shadow: 
+      0 4px 24px -6px hsl(var(--card) / 0.2),
+      0 12px 48px -8px hsl(var(--background) / 0.4);
+  }
+
+  .card-custom:hover {
+    @apply transform -translate-y-1 border-primary/30;
+    box-shadow: 
+      0 8px 32px -4px hsl(var(--primary) / 0.2),
+      0 16px 64px -12px hsl(var(--background) / 0.5);
+  }
+
+  /* Enhanced badge styles */
+  .badge-custom {
+    @apply rounded-xl px-2.5 py-1 text-xs font-semibold transition-all duration-300;
+    box-shadow: 0 2px 8px -2px hsl(var(--primary) / 0.2);
+  }
+
+  .badge-custom:hover {
+    @apply transform scale-105 shadow-md;
+    box-shadow: 0 4px 16px -4px hsl(var(--primary) / 0.3);
+  }
+
+  .hover-card {
+    transition: all 0.3s ease-out;
+  }
+
+  .hover-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.15);
+  }
+
   @keyframes stagger-fade {
     from {
       opacity: 0;
@@ -542,4 +690,6 @@ body {
     font-feature-settings: 'tnum';
     letter-spacing: -0.02em;
   }
+
+  /* Remove global overrides of Tailwind text utilities to avoid oversized UI */
 }

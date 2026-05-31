@@ -49,12 +49,12 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, className, dela
 
         <CardContent className="p-0 flex flex-col items-center space-y-1">
           {/* Value with gradient and larger font */}
-          <p className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent number-stat group-hover:scale-110 transition-transform duration-300">
+          <p className="text-[var(--large-size)] font-black bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent number-stat group-hover:scale-110 transition-transform duration-300">
             {value}
           </p>
           
           {/* Label */}
-          <p className="text-[10px] sm:text-xs text-muted-foreground font-semibold tracking-wide text-center px-2">
+          <p className="text-[var(--small-size)] text-muted-foreground font-semibold tracking-wide text-center px-2">
             {label}
           </p>
         </CardContent>
