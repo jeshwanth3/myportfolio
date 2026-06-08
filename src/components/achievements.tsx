@@ -4,7 +4,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, LightningBolt, ShieldCheck, TrendingUp } from "lucide-react";
+import { Award, Bolt, ShieldCheck, TrendingUp } from "lucide-react";
 
 const achievements = [
   {
@@ -12,7 +12,7 @@ const achievements = [
     title: "AI-powered Prior Authorization",
     description: "Accelerated prior authorization turnaround by 40% through stakeholder-driven requirements, business rules, and exception handling.",
     tags: ["GenAI", "Automation", "Healthcare"],
-    icon: LightningBolt,
+    icon: Bolt,
   },
   {
     id: "achievement-2",
