@@ -1,12 +1,13 @@
 import React from "react";
 import { Header } from "@/components/header";
-import { ExperienceSection } from "@/components/experience-section";
-import { SkillsSection } from "@/components/skills-section";
+import { Experience } from "@/components/experience";
+import { Skills } from "@/components/skills";
+import { Achievements } from "@/components/achievements";
 import { ProjectsSection } from "@/components/projects-section";
 import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
-import { SummarySection } from "@/components/summary-section";
+import { Summary } from "@/components/summary";
 import { BackToTopButton } from "@/components/back-to-top-button";
 
 export default function Home() {
@@ -14,10 +15,11 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1 px-4 md:px-6">
-        <SummarySection />
-        <ExperienceSection />
+        <Summary />
+        <Experience />
+        <Achievements />
         <ProjectsSection />
-        <SkillsSection />
+        <Skills />
         <EducationSection />
         <ContactSection />
       </main>
