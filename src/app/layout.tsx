@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Sai Jeshwanth | Product Manager',
-  description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
+  title: 'Sai Jeshwanth | Portfolio',
+  description: 'Showcasing my journey, skills & cool stuff in Product Management',
   metadataBase: new URL('https://www.saijeshwanthgoud.com'),
   icons: {
     icon: [{ url: '/sj-high-resolution-logo.png', type: 'image/png', sizes: 'any' }],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sai Jeshwanth | Product Manager',
-    description: 'Showcasing my journey, skills & cool stuff in Product Management and UX Design',
+    description: 'Showcasing my journey, skills & cool stuff in Product Management',
     creator: '@saijeshwanthgoud',
     images: [
       {
