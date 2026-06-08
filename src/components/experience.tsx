@@ -6,11 +6,18 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
 const experiences = [
   {
+        id: "Current",
+    title: "Lead Business Analyst",
+    company: "Wellmark",
+    location: "USA",
+    duration: "May 2026 - Present",
+  },
+  {
     id: "centene",
     title: "Business Analyst",
     company: "Centene Corporation",
-    location: "Phoenix, AZ",
-    duration: "Jul 2025 - Present",
+    location: "USA",
+    duration: "Jul 2025 - APR 2026",
     bullets: [
       "Led stakeholder interviews across claims and member services to gather functional requirements for an AI-powered prior authorization workflow, defining business rules and exception handling criteria that accelerated authorization turnaround by 40%.",
       "Drove AS-IS/TO-BE process mapping and gap analysis for a member services workflow redesign, delivering BRDs, FRDs, and RTMs that eliminated 3 manual handoffs.",

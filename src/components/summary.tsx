@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const metrics = [
-  { label: "4+ Years", detail: "Business Analysis", icon: Briefcase },
+  { label: "5+ Years", detail: "Business Analysis", icon: Briefcase },
   { label: "40%", detail: "Workflow efficiency gain", icon: Zap },
   { label: "$1.2M", detail: "Overpayment recovery", icon: TrendingUp },
   { label: "150+", detail: "Global clients supported", icon: Users },
@@ -37,7 +37,7 @@ export function Summary() {
         <div className="space-y-8">
           <div className="space-y-4">
             <p className="text-sm font-medium text-primary tracking-wide uppercase">
-              Senior Business Analyst
+              Lead Business Analyst
             </p>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
