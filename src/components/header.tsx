@@ -1,108 +1,93 @@
 "use client";
 
-import { type MouseEvent as ReactMouseEvent } from 'react';
-import { useEffect, useState, useCallback } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { type MouseEvent as ReactMouseEvent } from "react";
+import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
-  SheetTitle
-} from '@/components/ui/sheet';
-import { VisuallyHidden } from '@/components/ui/visually-hidden';
-import { Menu, X, Send, ChevronRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useActiveSection } from '@/hooks/use-active-section';
-import { motion, AnimatePresence } from 'framer-motion';
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { VisuallyHidden } from "@/components/ui/visually-hidden";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useActiveSection } from "@/hooks/use-active-section";
 
 const navItems = [
-  { label: 'About', href: '#summary' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'My Work', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Education', href: '#education' },
+  { label: "About", href: "#summary" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Education", href: "#education" },
 ];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const activeSection = useActiveSection(
-    navItems.map((item) => item.href).concat(['#contact']),
+    navItems.map((item) => item.href).concat(["#contact"])
   );
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavLinkClick = useCallback(
-    (event: ReactMouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
+    (
+      event: ReactMouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+      href: string
+    ) => {
       event.preventDefault();
-      
-      if (href === '/') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (href === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
         if (mobileMenuOpen) setMobileMenuOpen(false);
         return;
       }
 
-      if (href.startsWith('#')) {
+      if (href.startsWith("#")) {
         const element = document.querySelector(href);
         if (element) {
           const headerOffset = 80;
           const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
       }
-      
+
       if (mobileMenuOpen) {
-        setTimeout(() => {
-          setMobileMenuOpen(false);
-        }, 300); // Delay closing to allow animation to complete
+        setTimeout(() => setMobileMenuOpen(false), 300);
       }
     },
     [mobileMenuOpen]
   );
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+    <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-colors duration-500 ease-in-out',
+        "sticky top-0 z-50 w-full transition-all duration-300",
         isScrolled
-          ? 'glassmorphism-heavy shadow-2xl border-b border-white/5 bg-background/60 backdrop-blur-xl'
-          : 'bg-transparent border-b border-transparent',
+          ? "bg-background/80 backdrop-blur-lg border-b border-border/50"
+          : "bg-transparent border-b border-transparent"
       )}
     >
-      <div className="container flex h-[75px] items-center justify-between px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto flex h-16 items-center justify-between px-5 md:px-8">
         <Link
           href="/"
-          className="flex items-center space-x-3 group"
-          onClick={(e) => handleNavLinkClick(e, '/')}
+          className="text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
+          onClick={(e) => handleNavLinkClick(e, "/")}
         >
-          <span className={cn(
-            'text-[var(--h3-size)] font-bold tracking-tight text-transparent bg-clip-text',
-            'bg-gradient-to-r from-teal-400 via-blue-500 to-blue-600',
-            'group-hover:brightness-110 transition-all duration-300',
-            'animate-gradient-text-slow',
-          )}>
-            Sai Jeshwanth Goud Illuri
-          </span>
+          SJ
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
+        <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => {
             const isActive = activeSection === item.href;
             return (
@@ -111,27 +96,13 @@ export function Header() {
                 href={item.href}
                 onClick={(e) => handleNavLinkClick(e, item.href)}
                 className={cn(
-                  'group relative px-4 py-2 text-[var(--small-size)] font-medium rounded-full transition-all duration-300 ease-out',
+                  "px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-200",
                   isActive
-                    ? 'text-primary'
-                    : 'text-foreground/80 hover:text-foreground',
-                  'active:scale-95',
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <span className="relative z-10">{item.label}</span>
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-active-pill"
-                    className="absolute inset-0 bg-primary/10 border border-primary/20 rounded-full -z-10 shadow-[0_0_15px_rgba(0,149,255,0.15)]"
-                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                  />
-                )}
-                <span
-                  className={cn(
-                    'absolute bottom-1 left-1/2 right-1/2 h-[2px] bg-primary/50 transition-all duration-300 ease-out rounded-full blur-[1px]',
-                    isActive || 'group-hover:left-4 group-hover:right-4',
-                  )}
-                />
+                {item.label}
               </Link>
             );
           })}
@@ -140,19 +111,14 @@ export function Header() {
             <Button
               variant="outline"
               size="sm"
-              onClick={(e) => handleNavLinkClick(e, '#contact')}
+              onClick={(e) => handleNavLinkClick(e, "#contact")}
               className={cn(
-                'ml-5 px-5 py-2 h-9 shadow-sm hover:shadow-md transition-all hover:scale-[1.04] transform duration-300',
-                'border-primary/50 hover:border-primary',
-                'hover:bg-primary/15',
-                'text-primary hover:text-primary',
-                activeSection === '#contact'
-                  ? 'bg-primary/15 text-primary ring-2 ring-primary/50 ring-offset-2 ring-offset-background'
-                  : 'bg-background/60 dark:bg-secondary/60',
-                'active:scale-95',
+                "ml-4 h-8 px-4 text-sm font-medium rounded-md transition-all duration-200",
+                "border-primary/40 text-primary hover:bg-primary/10 hover:border-primary",
+                activeSection === "#contact" && "bg-primary/10 border-primary"
               )}
             >
-              Get In Touch With Me <Send className="ml-2 h-4 w-4" />
+              Contact
             </Button>
           </Link>
         </nav>
@@ -163,41 +129,27 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="fixed right-4 top-4 z-50 h-11 w-11 rounded-full flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all duration-300 group"
+                className="h-9 w-9 text-foreground"
                 aria-label="Toggle Menu"
               >
                 {mobileMenuOpen ? (
-                  <X className="h-6 w-6 transition-transform duration-300 rotate-90 group-hover:rotate-180" />
+                  <X className="h-5 w-5" />
                 ) : (
-                  <Menu className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
+                  <Menu className="h-5 w-5" />
                 )}
                 <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
-              className={cn(
-                'w-full sm:w-[350px] p-0 flex flex-col',
-                'glassmorphism-heavy',
-              )}
+              className="w-full sm:w-[300px] p-0 bg-background border-l border-border/50"
             >
-              <div className="border-b border-border/25 p-5 bg-gradient-to-b from-card/50 to-transparent">
-                <SheetTitle asChild>
-                  <VisuallyHidden>Navigation Menu</VisuallyHidden>
-                </SheetTitle>
-                <Link
-                  href="/"
-                  className="flex items-center space-x-2.5 group"
-                  onClick={(e) => handleNavLinkClick(e, '/')}
-                >
-                  <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-blue-500 to-blue-700 group-hover:brightness-110 transition-all">
-                    Sai J. G. Illuri
-                  </span>
-                </Link>
-              </div>
+              <SheetTitle asChild>
+                <VisuallyHidden>Navigation Menu</VisuallyHidden>
+              </SheetTitle>
 
-              <nav className="flex-1 flex flex-col p-6 space-y-2">
-                {navItems.map((item, index) => {
+              <nav className="flex flex-col p-6 pt-12 gap-1">
+                {navItems.map((item) => {
                   const isActive = activeSection === item.href;
                   return (
                     <SheetClose asChild key={item.label}>
@@ -205,48 +157,38 @@ export function Header() {
                         href={item.href}
                         onClick={(e) => handleNavLinkClick(e, item.href)}
                         className={cn(
-                          'flex items-center justify-between p-4 text-base font-medium transition-all duration-300 rounded-md group',
+                          "flex items-center justify-between p-3 text-base font-medium rounded-lg transition-colors",
                           isActive
-                            ? 'bg-primary/15 text-primary font-semibold'
-                            : 'text-foreground/90 hover:bg-primary/10 hover:text-primary',
-                          'active:scale-95',
+                            ? "text-primary bg-primary/10"
+                            : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                         )}
-                        style={{ '--animation-delay': `${150 + index * 50}ms` } as React.CSSProperties}
                       >
                         {item.label}
-                        <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="h-4 w-4 opacity-40" />
                       </Link>
                     </SheetClose>
                   );
                 })}
 
-                <div className="border-b border-border/20 pt-2" />
+                <div className="border-t border-border/30 my-3" />
 
                 <SheetClose asChild>
                   <Link
                     href="#contact"
                     onClick={(e) => handleNavLinkClick(e, "#contact")}
                     className={cn(
-                      'flex items-center justify-center w-full mt-4 py-4 text-base font-medium rounded-md transition-all duration-300 group',
-                      activeSection === '#contact'
-                        ? 'bg-primary text-primary-foreground ring-2 ring-primary/50 ring-offset-2 ring-offset-background'
-                        : 'border border-primary text-primary hover:bg-primary/15',
-                      'active:scale-95',
+                      "flex items-center justify-center p-3 text-base font-medium rounded-lg transition-colors",
+                      "border border-primary/40 text-primary hover:bg-primary/10"
                     )}
                   >
-                    Get In Touch{' '}
-                    <Send className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    Contact
                   </Link>
                 </SheetClose>
               </nav>
-
-              <div className="p-4 border-t border-border/15 mt-auto text-center text-xs text-muted-foreground/80">
-                Navigate Sections
-              </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }

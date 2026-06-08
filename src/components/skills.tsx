@@ -2,16 +2,11 @@
 
 import { SectionWrapper } from "@/components/section-wrapper";
 import { SectionTitle } from "@/components/section-title";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ClipboardList, Activity, Layers, Code2, Cloud, Cpu } from "lucide-react";
-
-const skillCategories = [
+const skillGroups = [
   {
-    id: "skills-req",
+    id: "analysis",
     title: "Business Analysis & Requirements",
-    description: "Structured requirements and traceability for complex systems.",
-    icon: ClipboardList,
     skills: [
       "Requirements elicitation",
       "BRD / FRD",
@@ -22,10 +17,8 @@ const skillCategories = [
     ],
   },
   {
-    id: "skills-agile",
+    id: "agile",
     title: "Agile Delivery & Tools",
-    description: "Driving Agile execution and continuous delivery.",
-    icon: Activity,
     skills: [
       "Scrum / Kanban",
       "Jira / Confluence",
@@ -36,10 +29,8 @@ const skillCategories = [
     ],
   },
   {
-    id: "skills-process",
-    title: "Process & Workflow Optimization",
-    description: "Mapping and automating processes for higher efficiency.",
-    icon: Layers,
+    id: "process",
+    title: "Process & Workflow",
     skills: [
       "Process mapping",
       "Gap analysis",
@@ -50,10 +41,8 @@ const skillCategories = [
     ],
   },
   {
-    id: "skills-test",
+    id: "testing",
     title: "Testing & Delivery",
-    description: "Ensuring release readiness with robust validation.",
-    icon: ClipboardList,
     skills: [
       "UAT planning",
       "Test scenarios",
@@ -64,10 +53,8 @@ const skillCategories = [
     ],
   },
   {
-    id: "skills-tech",
+    id: "technical",
     title: "Technical & Cloud",
-    description: "Modern cloud and analytics toolset for enterprise delivery.",
-    icon: Cloud,
     skills: [
       "Python",
       "SQL",
@@ -78,10 +65,8 @@ const skillCategories = [
     ],
   },
   {
-    id: "skills-ai",
+    id: "ai",
     title: "AI & Automation",
-    description: "Designing AI-enabled workflows and predictive solutions.",
-    icon: Cpu,
     skills: [
       "Generative AI",
       "LLMs",
@@ -95,42 +80,34 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <SectionWrapper id="skills" className="bg-gradient-to-b from-background via-card/5 to-background py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <SectionTitle>Skills & Expertise</SectionTitle>
-        <p className="mt-4 max-w-3xl text-muted-foreground" style={{ lineHeight: '1.85' }}>
-          Full-stack business analysis and AI transformation capabilities built for enterprise delivery, report automation, process excellence, and modern cloud solutions.
-        </p>
+    <SectionWrapper id="skills">
+      <SectionTitle>Skills</SectionTitle>
+      <p className="mt-3 text-muted-foreground max-w-2xl leading-relaxed">
+        Full-stack business analysis and AI transformation capabilities.
+      </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {skillCategories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <Card key={category.id} className="overflow-hidden rounded-[2rem] border border-border/50 bg-card/80 shadow-lg">
-                <CardHeader className="pb-0">
-                  <div className="flex items-center gap-4">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary">
-                      <Icon className="h-6 w-6" />
-                    </span>
-                    <div>
-                      <CardTitle className="text-lg font-semibold text-foreground">{category.title}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{category.description}</p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="rounded-full bg-background/80 px-3 py-1 text-sm font-medium text-foreground border border-border/30">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+      <div className="mt-12 grid gap-8 md:grid-cols-2">
+        {skillGroups.map((group, i) => (
+          <div
+            key={group.id}
+            className="space-y-3"
+          >
+            <h3 className="text-sm font-semibold text-foreground">
+              {group.title}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {group.skills.map((skill) => (
+                <Badge
+                  key={skill}
+                  variant="secondary"
+                  className="rounded-md px-3 py-1.5 text-sm font-medium bg-card text-muted-foreground border border-border/50 hover:border-primary/40 hover:text-foreground transition-colors"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </SectionWrapper>
   );
