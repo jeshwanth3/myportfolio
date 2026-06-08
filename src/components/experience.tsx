@@ -106,16 +106,18 @@ export function Experience() {
               </div>
             </div>
 
-            <ul className="space-y-2.5">
-              {exp.bullets.map((bullet, idx) => (
-                <li
-                  key={idx}
-                  className="text-sm text-muted-foreground leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:h-1 before:w-1 before:rounded-full before:bg-muted-foreground/40"
-                >
-                  {bullet}
-                </li>
-              ))}
-            </ul>
+            {exp.bullets && exp.bullets.length > 0 ? (
+              <ul className="space-y-2.5">
+                {exp.bullets.map((bullet, idx) => (
+                  <li
+                    key={idx}
+                    className="text-sm text-muted-foreground leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:h-1 before:w-1 before:rounded-full before:bg-muted-foreground/40"
+                  >
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </article>
         ))}
       </div>
