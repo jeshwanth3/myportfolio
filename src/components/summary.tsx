@@ -47,7 +47,7 @@ export function Summary() {
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-[58ch]">
-              4+ years leading requirements elicitation, AI-powered workflow
+              5+ years leading requirements elicitation, AI-powered workflow
               automation, and stakeholder-driven solution design across
               healthcare, supply chain, and enterprise IT.
             </p>
