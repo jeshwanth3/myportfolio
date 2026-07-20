@@ -24,7 +24,7 @@ const experiences = [
      // "Coordinated UAT across Agile SDLC cycles for quarterly releases and AI feature rollouts, authoring 120+ test scenarios and managing defect triage in JIRA.",
      // "Developed SQL-based data extracts and Power BI dashboards tracking claims denial rates and provider KPIs, surfacing a $1.2M overpayment pattern for corrective action.",
      // "Partnered with data science and engineering to define functional requirements and HIPAA guardrails for a GenAI member chatbot, guiding phased rollout across 3 service lines.",
-    ],
+    //],
   },
   {
     id: "cybiz",
@@ -38,7 +38,7 @@ const experiences = [
    //   "Built Tableau dashboards and Excel analytical models with SQL data, giving leadership real-time visibility into adoption trends.",
    //  "Authored SOPs, workflow documentation, and BPMN models for release planning across three client environments.",
      // "Performed root cause analysis on workflow management, recommending AI-based data classification strategies that cut manual reconciliation by 35%.",
-    ],
+    //],
   },
   {
     id: "ableup",
@@ -51,7 +51,7 @@ const experiences = [
       //"Defined KPI logic and built a Power BI Impact Dashboard to support securing a $500K CDFI award.",
      // "Defined data intake requirements and validation rules for an Azure Data Factory ETL pipeline, reducing processing time by 50%.",
       //"Developed a data governance framework in Azure Databricks to flag inconsistencies across 15+ sources, improving data accuracy by 30%.",
-    ],
+    //],
   },
   {
     id: "accenture",
@@ -65,7 +65,7 @@ const experiences = [
      // "Documented business rules and data standards for demand planning workflows, driving 35% planning efficiency improvement.",
      // "Built Power BI and Tableau dashboards by defining KPI logic and validating metrics with SQL against SAP and Snowflake sources.",
      // "Partnered with engineering on ERP data ingestion automation, improving forecast accuracy by 20% across 30+ distribution centers.",
-    ],
+    //],
   },
 ];
 
