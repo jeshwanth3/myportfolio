@@ -18,12 +18,12 @@ const experiences = [
     company: "Centene Corporation",
     location: "USA",
     duration: "Jul 2025 - APR 2026",
-    bullets: [
-      "Led stakeholder interviews across claims and member services to gather functional requirements for an AI-powered prior authorization workflow, defining business rules and exception handling criteria that accelerated authorization turnaround by 40%.",
-      "Drove AS-IS/TO-BE process mapping and gap analysis for a member services workflow redesign, delivering BRDs, FRDs, and RTMs that eliminated 3 manual handoffs.",
-      "Coordinated UAT across Agile SDLC cycles for quarterly releases and AI feature rollouts, authoring 120+ test scenarios and managing defect triage in JIRA.",
-      "Developed SQL-based data extracts and Power BI dashboards tracking claims denial rates and provider KPIs, surfacing a $1.2M overpayment pattern for corrective action.",
-      "Partnered with data science and engineering to define functional requirements and HIPAA guardrails for a GenAI member chatbot, guiding phased rollout across 3 service lines.",
+    //bullets: [
+     // "Led stakeholder interviews across claims and member services to gather functional requirements for an AI-powered prior authorization workflow, defining business rules and exception handling criteria that accelerated authorization turnaround by 40%.",
+    //  "Drove AS-IS/TO-BE process mapping and gap analysis for a member services workflow redesign, delivering BRDs, FRDs, and RTMs that eliminated 3 manual handoffs.",
+     // "Coordinated UAT across Agile SDLC cycles for quarterly releases and AI feature rollouts, authoring 120+ test scenarios and managing defect triage in JIRA.",
+     // "Developed SQL-based data extracts and Power BI dashboards tracking claims denial rates and provider KPIs, surfacing a $1.2M overpayment pattern for corrective action.",
+     // "Partnered with data science and engineering to define functional requirements and HIPAA guardrails for a GenAI member chatbot, guiding phased rollout across 3 service lines.",
     ],
   },
   {
@@ -32,12 +32,12 @@ const experiences = [
     company: "CyBIZ Lab",
     location: "USA",
     duration: "Aug 2024 - May 2025",
-    bullets: [
-      "Translated business requirements into technical specifications and UML diagrams, enabling delivery of an API-integrated module with AI-enhanced data processing.",
-      "Structured 30+ user stories and acceptance criteria in JIRA, reducing requirement-related rework by 30% across four releases.",
-      "Built Tableau dashboards and Excel analytical models with SQL data, giving leadership real-time visibility into adoption trends.",
-      "Authored SOPs, workflow documentation, and BPMN models for release planning across three client environments.",
-      "Performed root cause analysis on workflow management, recommending AI-based data classification strategies that cut manual reconciliation by 35%.",
+    //bullets: [
+   //   "Translated business requirements into technical specifications and UML diagrams, enabling delivery of an API-integrated module with AI-enhanced data processing.",
+    //  "Structured 30+ user stories and acceptance criteria in JIRA, reducing requirement-related rework by 30% across four releases.",
+   //   "Built Tableau dashboards and Excel analytical models with SQL data, giving leadership real-time visibility into adoption trends.",
+   //  "Authored SOPs, workflow documentation, and BPMN models for release planning across three client environments.",
+     // "Performed root cause analysis on workflow management, recommending AI-based data classification strategies that cut manual reconciliation by 35%.",
     ],
   },
   {
@@ -46,11 +46,11 @@ const experiences = [
     company: "Able Up Iowa",
     location: "USA",
     duration: "Jun 2024 - Aug 2024",
-    bullets: [
-      "Analyzed 280K+ borrower records using SQL and Python, translating risk segmentation findings into decision rules that improved loan approvals by 12%.",
-      "Defined KPI logic and built a Power BI Impact Dashboard to support securing a $500K CDFI award.",
-      "Defined data intake requirements and validation rules for an Azure Data Factory ETL pipeline, reducing processing time by 50%.",
-      "Developed a data governance framework in Azure Databricks to flag inconsistencies across 15+ sources, improving data accuracy by 30%.",
+   // bullets: [
+      //"Analyzed 280K+ borrower records using SQL and Python, translating risk segmentation findings into decision rules that improved loan approvals by 12%.",
+      //"Defined KPI logic and built a Power BI Impact Dashboard to support securing a $500K CDFI award.",
+     // "Defined data intake requirements and validation rules for an Azure Data Factory ETL pipeline, reducing processing time by 50%.",
+      //"Developed a data governance framework in Azure Databricks to flag inconsistencies across 15+ sources, improving data accuracy by 30%.",
     ],
   },
   {
@@ -59,12 +59,12 @@ const experiences = [
     company: "Accenture",
     location: "India",
     duration: "Oct 2021 - Jul 2023",
-    bullets: [
-      "Spearheaded analysis for a cloud-based SCP platform serving 150+ clients, delivering BRDs and FRDs that supported launch of a Business Planning module generating $2M in revenue.",
-      "Conducted stakeholder workshops with 40+ planners, validating wireframes in Figma to improve adoption by 25%.",
-      "Documented business rules and data standards for demand planning workflows, driving 35% planning efficiency improvement.",
-      "Built Power BI and Tableau dashboards by defining KPI logic and validating metrics with SQL against SAP and Snowflake sources.",
-      "Partnered with engineering on ERP data ingestion automation, improving forecast accuracy by 20% across 30+ distribution centers.",
+    //bullets: [
+     // "Spearheaded analysis for a cloud-based SCP platform serving 150+ clients, delivering BRDs and FRDs that supported launch of a Business Planning module generating $2M in revenue.",
+     // "Conducted stakeholder workshops with 40+ planners, validating wireframes in Figma to improve adoption by 25%.",
+     // "Documented business rules and data standards for demand planning workflows, driving 35% planning efficiency improvement.",
+     // "Built Power BI and Tableau dashboards by defining KPI logic and validating metrics with SQL against SAP and Snowflake sources.",
+     // "Partnered with engineering on ERP data ingestion automation, improving forecast accuracy by 20% across 30+ distribution centers.",
     ],
   },
 ];
